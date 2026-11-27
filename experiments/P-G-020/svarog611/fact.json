@@ -1,0 +1,21 @@
+{
+ "title": "A label's words come back in the running text of its own page more than in other pages'",
+ "statement": "Among agreed picture objects whose label line is on the page, the share of labels carrying a word of three or more strokes that also stands in their own page's running text exceeds the same share taken against other pages' text, by more than the null that deals the label lines among the agreed objects (p at most 0.01 over 199 deals).",
+ "source": "Step P-G-020, following P-G-006: the meaning-linked prediction a meaningless procedure cannot reach is that a thing's label and the text about that thing share words, since a procedure writing the text has no access to the drawing. Statistic and null as landed from P-L4-013 (vs/dsl.py picture_label, shuffle_picture_labels). THRESHOLD FIXED BEFORE LOOKING: the criterion is the label-dealt null at p at most 0.01 over 199 deals with min_objects 10, chosen for power and not from any value; no value has been seen anywhere, because the statistic is not yet computable (see experiment.json: it returns not-a-number on the manuscript and on a reuse chain's text alike). The second registration this step asks for, feature_label_share, is filed in experiment.json because a directory holds one fact.json. NOTE: this registration cannot be validated today - vs/experiment.py evaluates a fact spec on the practice pages and picture_label raises 'undefined here: 0 labelled objects from AGREED picture annotations'. It is filed with kind 'step' for that reason, so the file stands as the threshold fixed before any value was seen, and can be re-filed as a fact the day the gate opens. The second registration asked for by P-G-020 is: {\"statistic\": {\"picture_label\": {\"test\": \"feature_label_share\", \"min_objects\": 10}}, \"compare\": [{\"null\": \"shuffle_picture_labels\", \"direction\": \"greater\", \"p\": 0.01, \"perms\": 199}]}",
+ "spec": {
+  "statistic": {
+   "picture_label": {
+    "test": "label_in_page_text",
+    "min_objects": 10
+   }
+  },
+  "compare": [
+   {
+    "null": "shuffle_picture_labels",
+    "direction": "greater",
+    "p": 0.01,
+    "perms": 199
+   }
+  ]
+ }
+}
