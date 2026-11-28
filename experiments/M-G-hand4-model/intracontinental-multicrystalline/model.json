@@ -1,0 +1,41 @@
+{
+  "title": "Hand 4: transfer of the fixed position and boundary spelling mixture",
+  "statement": "Apply the fixed M-005 mixture to hand 4: glyph-trigram spelling, position-conditioned and preceding-edge-conditioned spelling, position vocabulary, page-local exact or one-glyph copying, and a prefix-core-suffix template. Compare predictive cost with bag and glyph spelling baselines; the mixture tests predictive fit and does not identify the historical production process. Layout positions and previous word are supplied, including across line breaks within a page. On 757 practice words, the fixed M-005 mixture scores 12.2409 bits per word, versus 12.4158 for M-001 refitted to the same hand and pages. This is exploratory and the sample is small.",
+  "source": "M-005 fixed configuration, also applied to hands 1 and 3; trusted component definitions in vs/models.py.",
+  "scope": {
+    "hand": "4"
+  },
+  "components": [
+    {
+      "type": "letters",
+      "order": 3
+    },
+    {
+      "type": "position_letters",
+      "order": 3
+    },
+    {
+      "type": "boundary_letters",
+      "order": 3
+    },
+    {
+      "type": "position"
+    },
+    {
+      "type": "copy",
+      "window": 50,
+      "edits": 0
+    },
+    {
+      "type": "copy",
+      "window": 50,
+      "edits": 1
+    },
+    {
+      "type": "template",
+      "prefix": 2,
+      "suffix": 3
+    }
+  ],
+  "weights": "fit"
+}
