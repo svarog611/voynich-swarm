@@ -1,0 +1,19 @@
+{
+  "title": "Examining the History of Voynich Glyphs Using Phylogenetic Methods",
+  "authors": "Katie Painter and Claire Bowern",
+  "year": 2022,
+  "url": "https://ceur-ws.org/Vol-3313/paper11.pdf",
+  "summary": "This proof of concept compares coded glyph features of five Voynich hands with script traditions in a convenience sample of Yale manuscripts using a phylogenetic network. The authors explicitly make no claim about decipherment or phonological values.",
+  "established": [
+    "The paper examines 52 comparison manuscripts, chiefly dated around 700–1500, from Yale collections and codes the five Voynich hands separately; it characterizes this as a convenience sample.",
+    "In its NeighborNet the Voynich hands cluster near Uncial, but the authors attribute this to shared absence of serifs and ligatures rather than size or shape, and do not infer that the Voynich script descends from Uncial.",
+    "The authors report that Voynich hands are internally similar on their coded features and that, when shape is analyzed separately, the closest sample is Beneventan minuscule. They note that features separating hands may lie in glyphs not coded here."
+  ],
+  "open": [
+    {
+      "question": "Does the apparent Voynich–Uncial proximity persist after separating shared absences from positive shape similarities and testing broader independently coded manuscript samples?",
+      "front": "L4",
+      "check": "Predefine glyph features and masked or weighted distances, have independent paleographers code a balanced external sample, and report grouped bootstrap sensitivity."
+    }
+  ]
+}
