@@ -1,0 +1,3951 @@
+{
+  "title": "Separate compact reversible mixed-channel packets from actual word-code recovery",
+  "statement": "Two reconstructed Visconti word repertoires and a donor-closed random repertoire motivate visibly framed mixed cipher controls over Boccaccio, Villani and Machiavelli. With 15 clean and 15 noisy author cases, mean exact fallback-character recovery is 99.993% and 98.022%, while marked word recovery is 67.53% and 65.18%, versus 41.93% and 38.70% with frequency-only assignment. Overall word recovery is 97.47% and 89.07%. Only two cases in each condition meet the joint fixed gate. All three donor Markov controls meet that gate and the marked-only context test; IID, complete-word-shuffled and no-static-code inputs do not. All 42 paid oracle and blind packets replay their declared plaintext and exact received ciphertext. At 2% noise, every true-plaintext oracle packet costs 12,800–16,152 bits more than the better ciphertext baseline. Every inferred-plaintext packet is 2,056–3,664 bits smaller on those same inputs. The cheaper blind representation can absorb received corruptions and wrong word assignments into its proposed plaintext. Wire reversibility and byte savings therefore fail the intended recovery test on most author controls.",
+  "program": "L3",
+  "hard": true,
+  "on_path": true,
+  "check": "Improve independent whole-codeword inference, enlarge donor coverage with held code repertoires, and evaluate multiple genre and noise variants under the same search budget. Separate literal from marked recovery and require independent language evidence against matched Markov and no-word-key controls. Replay exact known-plaintext costs for all chosen channels and use a reviewed declarative family before any manuscript evaluation.",
+  "methods": {
+    "design": "Use the documented 12-word R5323 inventory and first 12 lexical targets from the R5324 reconstruction. Only target-word membership is borrowed. Letters and whole-code IDs are independently permuted in the planted keys. The modern marked namespace and token boundaries are visible to the learner. Fit on 8,000 ciphertext tokens, select letter restart on the next 2,000, and measure on the next 4,000. Fit word and spelling likelihoods from a separate donor, Dante. The top 128 donor word candidates exclude any held author data.",
+    "fit": "Fit within-word character bigrams and trigrams with separate boundary marks, downweighting the top-48 donor word types to .75 of their frequency. Five bijective annealing restarts with 2,800 swaps each select by independent ciphertext window likelihood. Dict candidates maximize an injective assignment with a count prior, an explicit penalty when the same word is read in the literal channel, and a fixed adjacent-literal word-bigram lift. Hold the selected dictionary fixed for the final stream.",
+    "nulls": "Compare with count-only decoder, a true key on IID or reference-Markov writing, a true key on order-shuffled author writing, and a separate code-only shuffle within each interval. In the last case whole-code identities and positions retain their frequencies but the planted relation to author tokens is scrambled. Assess held adjacent marked-versus-literal edges against 39 masked marked-word shuffles with unknown predictions fixed.",
+    "byte_accounting": "Framed zlib baselines include normalized plaintext, a preset donor dictionary plaintext channel, received ciphertext and a compressed vocabulary plus ciphertext index stream. Hybrid packets explicitly include plaintext and literal dictionary rows, letter permutation rank stored in 96 bits (89-bit information value), headers, and indexed residuals needed to reconstruct the exact input. The external 32 KiB donor preset is shared and identified by a paid SHA-256 field for both relevant channels. Charging transmission of that preset would add 262,144 bits. The standalone byte reader reconstructs packet shape, keys, plaintext proposal and received ciphertext.",
+    "search_cost": "14,000 letter swap proposals per case, with five validation candidates. A 3-bit restart selector suffices among the five fixed returns if replaying the shared deterministic search. The actual packets pay the resulting keys explicitly and do not also bill a duplicate selector. Dictionary scoring uses one rectangular assignment per contender and a common fixed donor vocabulary."
+  },
+  "limitations": "The inventories are extracted from reconstructed historical sources. The actual historic homophones, syllables, nulls, sign ambiguities and grouping are absent in the toy channel. The word candidates omit que, and in the second repertoire also et; support varies between words. Each author contributes correlated keys and paired clean/noisy observations. The reference word Markov generator intentionally matches the fitted model. The blind packet verifies its own proposal, which can differ from the planted truth. The reported corpus, ciphertext and recovery cases use only public source works.",
+  "sources": {
+    "history_manifest": {
+      "preprocessing": "Casefold, transliterate œ/æ/þ/ð/ȝ, NFKD, remove combining marks, then maximal contiguous ASCII a–z runs. UTF-8, one space between tokens and final LF.",
+      "preprocessing_script_sha256": "91bfc6d1ecb71774c35ac07341b8ebbd596b7689f252262981a6f27c712247fd",
+      "previous_preprocessing_script_sha256": "03163b9f6331d4f040a97516bfc2d4fae4dd5eb156a1e484b5e7720be61a3b68",
+      "works": {
+        "boccaccio": {
+          "author": "Giovanni Boccaccio",
+          "title": "Decameron",
+          "date": "mid-14th century",
+          "language": "Old Italian",
+          "genre": "fictional prose with framing verse",
+          "url": "https://www.enteboccaccio.it/files/original/1124/Boccaccio_Decameron_a_cura_di_Maurizio_Fiorilla_%5Baggiornato_2026%5D.pdf",
+          "catalog_url": "https://www.enteboccaccio.it/s/casa-boccaccio/item/1124",
+          "license": "Historical work, open institutional critical text; reuse terms for modern edition not asserted.",
+          "edition": "Maurizio Fiorilla, critical text drawn from the third edition, BUR-Rizzoli 2025; 2026 PDF.",
+          "raw_file": "raw/boccaccio-ente.pdf",
+          "raw_sha256": "28e9f289fb02836bd67ae0af61f74fde307f46affb4fde116670523bd0022c37",
+          "pdf_text_sha256": "c8e10c05dab63dabdf9fec54218d3d10d6fe4626bc4aaf24d049ead60e5b9880",
+          "selection": "Use Poppler pdftotext 25.03.0 -enc UTF-8 -nopgbrk. From the first authorial prose paragraph, Proemio [2], through final authorial [29]. Omit PDF cover, repeated section headers, bare page/novella numerals and final colophon. The source already omits editorial introduction and notes.",
+          "prior_prefix_overlap": false,
+          "file": "boccaccio.txt",
+          "raw_bytes": 4287387,
+          "tokens": 269687,
+          "sha256": "cae3a7bb12bcbcd2ae6097f2c353e9135f1492dd1aaa37d189c990b60d3cee3f"
+        },
+        "villani": {
+          "author": "Matteo Villani",
+          "title": "Cronica, vol. I",
+          "date": "c. 1350",
+          "language": "Old Italian",
+          "genre": "historical prose",
+          "url": "https://gutenberg.pglaf.org/6/9/8/9/69898/69898-0.txt",
+          "catalog_url": "https://www.gutenberg.org/ebooks/69898",
+          "license": "public domain (Gutenberg US)",
+          "raw_file": "raw/villani.txt",
+          "raw_sha256": "3acf82f4b25b636048d915961bb8cec2262e9b7cf9ff860ff056ab4bf1e1fd6e",
+          "selection": "From authorial prologue to TAVOLA DEI CAPITOLI; omit editor's preface, principal chapter headings and contents. Some chapter rubrics may remain.",
+          "prior_prefix_overlap": true,
+          "file": "villani.txt",
+          "raw_bytes": 477875,
+          "tokens": 70877,
+          "sha256": "2addf2bc8b18afd1c350cca074e8babc976492f899a0291ae55d966705ec7a59"
+        },
+        "machiavelli": {
+          "author": "Niccolò Machiavelli",
+          "title": "Discorsi sopra la prima Deca di Tito Livio",
+          "date": "composed c. 1513–1517, first published 1531",
+          "language": "Early Modern Italian",
+          "genre": "political and historical prose",
+          "url": "https://www.liberliber.eu/mediateca/libri/m/machiavelli/discorsi_sopra_la_prima_deca_di_tito_livio/epub/machiavelli_discorsi_sopra_la_prima_deca_di_tito_livio.epub",
+          "catalog_url": "https://liberliber.it/autori/autori-m/niccol-machiavelli/discorsi-sopra-la-prima-deca-di-tito-livio/",
+          "license": "Liber Liber digital edition CC BY-NC-SA 4.0; underlying authorial work public domain.",
+          "edition": "Mario Martelli, Tutte le opere, Sansoni 1971; Liber Liber EPUB modified 2018-04-10.",
+          "raw_file": "raw/machiavelli-discorsi.epub",
+          "raw_sha256": "d5408f429d2d3b2ff98c65cf24429e722a55f7b7ad84eeaf0d1f8c9c5683610b",
+          "selection": "Paragraphs in EPUB spine entries 6–149, all three books from the first authorial prologue through Book III, chapter 49. Exclude the cover, digital colophon, contents, dedication, book and chapter headings. Retain embedded quotations within paragraphs.",
+          "file": "machiavelli.txt",
+          "raw_bytes": 748149,
+          "tokens": 117236,
+          "sha256": "3e19ad072d9960bf88cda489a7f580d116e6c185a9155f8192f523eedff09b45"
+        }
+      },
+      "historical_keys": {
+        "visconti1446": {
+          "title": "Filippo Maria Visconti to Francesco Sforza, cipher of November 1446–March 1447",
+          "archive": "ASMi Carteggio Visconteo-Sforzesco cart. 1597 no. 23, later copy; DECODE R5323",
+          "comparisons": "BnF italien 1584 f. 8 ciphertext and f. 9 contemporary clear version",
+          "catalog_url": "https://cyphersolver.com/visconti1446.html",
+          "archive_record": "https://de-crypt.org/decrypt-web/RecordsView/5323",
+          "sha256": "44fc94391c65d4c8b987adc8503152c2b3e70a252462d52732b3387aa9c782b1",
+          "listed_common_word_lexemes": [
+            "que",
+            "qua",
+            "qui",
+            "per",
+            "che",
+            "con",
+            "perché",
+            "non",
+            "quanto",
+            "come",
+            "quando",
+            "però"
+          ],
+          "file": "historical-keys/visconti1446.md",
+          "url": "https://raw.githubusercontent.com/dbourdeau/cyphersolver/7db0b8d2e32817c47e72e098c482f5c2eea313d3/targets/visconti1446/key.md",
+          "author": "Daniel Bourdeau",
+          "license": "CC BY 4.0 reconstruction text",
+          "primary_letter_volume": "https://gallica.bnf.fr/ark:/12148/btv1b100373864"
+        },
+        "visconti1447": {
+          "title": "Filippo Maria Visconti to Francesco Sforza, second cipher, 23 January 1447",
+          "archive": "ASMi Carteggio Visconteo-Sforzesco cart. 1597 no. 24, later copy; DECODE R5324",
+          "comparisons": "BnF italien 1584 f. 15 ciphertext and f. 16 contemporary clear version",
+          "catalog_url": "https://dbourdeau.github.io/cyphersolver/visconti1447.html",
+          "archive_record": "https://de-crypt.org/decrypt-web/RecordsView/5324",
+          "sha256": "5e315d1ed3249567596c449767ad9674ec4689c2e622ed21c953d1c53f03cca2",
+          "listed_common_word_lexemes": [
+            "et",
+            "que",
+            "qui",
+            "in",
+            "de",
+            "con",
+            "qua",
+            "da",
+            "che",
+            "per",
+            "come",
+            "ciò",
+            "di"
+          ],
+          "additional_single_lexemes_in_names_and_words": [
+            "lettere",
+            "date",
+            "havemo",
+            "Papa",
+            "Ambassadore",
+            "questo",
+            "cosa",
+            "vuy"
+          ],
+          "file": "historical-keys/visconti1447.md",
+          "url": "https://raw.githubusercontent.com/dbourdeau/cyphersolver/7db0b8d2e32817c47e72e098c482f5c2eea313d3/targets/visconti1447/key.md",
+          "author": "Daniel Bourdeau",
+          "license": "CC BY 4.0 reconstruction text",
+          "primary_letter_volume": "https://gallica.bnf.fr/ark:/12148/btv1b100373864"
+        }
+      },
+      "key_scope": "The files include the credited transcriptions. The selected word inventories are not claims to reproduce the historical alphabets, syllables, nulls or framing."
+    },
+    "study": "https://ep.liu.se/ecp/149/007/ecp18149007.pdf",
+    "predecessor_title": "A paid long-word escape round-trips but has high explicit transmission cost"
+  },
+  "present_frozen_design": {
+    "step": "P-L3-014",
+    "scope": "Public historical Italian controls only. Known visible namespace and token boundaries; synthetic keys",
+    "precedent": "Use the 12 word-code targets documented in Visconti 1446 as set A, and the first 12 unambiguous standalone lexical entries of the 1447 reconstruction in listed order as set B. Simulated symbols are independently permuted Latin letters and visibly framed marked IDs. Homophones, nulls, syllables, and historical typography are outside the experimental channel.",
+    "data": "Fit donor character and word models on first 60,000 normalized Dante tokens. Use independent author streams on windows [2000,16000), of which 8,000 fit ciphertext, 2,000 select letter restarts, and 4,000 score. The donor never includes evaluation authors. Period source membership sets are used only in plant oracle. The learner sees top 128 donor words, not membership or target words.",
+    "literal_search": "Bijective letter swaps, 5 restarts with 2,800 proposals each. Start with donor fallback frequency for restart zero; later restart seeds either perturb 7 swaps or randomized. Use donor within-word trigram scores, with hierarchical character backoff. Discount donor candidate words by 0.75 in spelling fit, reflecting K-of-48 fallback selection. Select restart on ciphertext selection window only.",
+    "dictionary_search": "Use full fitted spelling decoding and identify the two known token namespaces. One-to-one assignment to top-128 donor words using Poisson frequency, fixed Penalty of 2 bits per exact literal occurrence and adjacent-to-literal bigram lift compared with donor frequency. Primary context weight 1. Compare frequency-only exact assignment. Exclude all marked-to-marked pairs from fitting and held context test.",
+    "positive": [
+      "Two historical membership sets, two independent code assignments each per author, clean and 2% noise",
+      "Choose 12 of top 48 donor words by separate planted oracle, clean and 2% noise"
+    ],
+    "noise": "Independent 2% replacement per literal ciphertext glyph or per marked code ID; retain marker and boundaries",
+    "controls": [
+      "Shuffle marked IDs independently within each of fit, selection, and evaluation intervals to destroy static keyed relation while preserving position and type counts",
+      "Shuffle complete held-author word sequence, then encode with a genuine planted key",
+      "Sample independent donor words",
+      "Sample donor first-order word Markov with 8% unigram refresh"
+    ],
+    "threshold": ".95 exact fallback plaintext character rate, .80 exact marked target token rate and .90 exact overall plaintext words jointly. These calibrated recovery targets have separate held marked-context rank based on 39 within-mask shuffles.",
+    "accounting": "Losslessly compare framed zlib exact plaintext, plaintext compressed with explicitly identified shared donor dictionary, raw ciphertext zlib and paid ciphertext IDs; plus true and inferred hybrid packets with explicit row, letter and word keys, framing and exact residuals. Separate byte costs from logical search budget and order evidence.",
+    "plant_seeds": [
+      471121,
+      481121
+    ],
+    "notes": "No full historical decipherment, borrowed readings, hidden Voynich pages or implicit free dictionary."
+  },
+  "frozen_design_sha256": "80d60b7391f47b3366acc487af5ae8b5886a70170de7af42b01cca85cd2d99dc",
+  "independent_checks": {
+    "rectangular_brute_force": 400,
+    "alphabet_factoradic_roundtrip": 200,
+    "mixed_packet_examples": 2,
+    "exact_roundtrips": 84
+  },
+  "table": [
+    {
+      "kind": "author",
+      "noisy": false,
+      "n": 15,
+      "joint_gate_passes": 2,
+      "nominal_context_p_le_05": 15,
+      "means": {
+        "exact_words": 0.9746666666666667,
+        "exact_code_words": 0.6752595059125925,
+        "exact_fallback_words": 0.9997264902963021,
+        "exact_fallback_characters": 0.999926664457565,
+        "code_candidate_ceiling": 0.996325957509037
+      },
+      "frequency_only_mean_code_accuracy": 0.4193197402804112,
+      "packet_savings": {
+        "oracle": {
+          "smaller": 15,
+          "interval": [
+            2264,
+            4056
+          ],
+          "mean": 3140.8
+        },
+        "blind_proposal": {
+          "smaller": 15,
+          "interval": [
+            2344,
+            3960
+          ],
+          "mean": 2957.3333333333335
+        }
+      }
+    },
+    {
+      "kind": "author",
+      "noisy": true,
+      "n": 15,
+      "joint_gate_passes": 2,
+      "nominal_context_p_le_05": 15,
+      "means": {
+        "exact_words": 0.8906499999999999,
+        "exact_code_words": 0.651794117104663,
+        "exact_fallback_words": 0.9099056856769318,
+        "exact_fallback_characters": 0.9802161417290685,
+        "code_candidate_ceiling": 0.996325957509037
+      },
+      "frequency_only_mean_code_accuracy": 0.38698218853919214,
+      "packet_savings": {
+        "oracle": {
+          "smaller": 0,
+          "interval": [
+            -16152,
+            -12800
+          ],
+          "mean": -14155.2
+        },
+        "blind_proposal": {
+          "smaller": 15,
+          "interval": [
+            2056,
+            3664
+          ],
+          "mean": 2751.4666666666667
+        }
+      }
+    },
+    {
+      "kind": "no_static_code",
+      "noisy": false,
+      "n": 3,
+      "joint_gate_passes": 0,
+      "nominal_context_p_le_05": 0,
+      "means": {
+        "exact_words": 0.9296666666666666,
+        "exact_code_words": 0.16799437622063704,
+        "exact_fallback_words": 1,
+        "exact_fallback_characters": 1.0,
+        "code_candidate_ceiling": 0.9967105263157895
+      },
+      "frequency_only_mean_code_accuracy": 0.18649866120320976,
+      "packet_savings": {
+        "oracle": {
+          "smaller": 0,
+          "interval": [
+            -4120,
+            -1528
+          ],
+          "mean": -2677.3333333333335
+        },
+        "blind_proposal": {
+          "smaller": 3,
+          "interval": [
+            2168,
+            3128
+          ],
+          "mean": 2536
+        }
+      }
+    },
+    {
+      "kind": "word_shuffle",
+      "noisy": false,
+      "n": 3,
+      "joint_gate_passes": 0,
+      "nominal_context_p_le_05": 0,
+      "means": {
+        "exact_words": 0.942,
+        "exact_code_words": 0.29321104140407844,
+        "exact_fallback_words": 0.999910514541387,
+        "exact_fallback_characters": 0.9999810293475992,
+        "code_candidate_ceiling": 1
+      },
+      "frequency_only_mean_code_accuracy": 0.4800085797697402,
+      "packet_savings": {
+        "oracle": {
+          "smaller": 3,
+          "interval": [
+            2824,
+            3808
+          ],
+          "mean": 3200
+        },
+        "blind_proposal": {
+          "smaller": 3,
+          "interval": [
+            2488,
+            3504
+          ],
+          "mean": 3061.3333333333335
+        }
+      }
+    },
+    {
+      "kind": "iid",
+      "noisy": false,
+      "n": 3,
+      "joint_gate_passes": 0,
+      "nominal_context_p_le_05": 0,
+      "means": {
+        "exact_words": 0.9599166666666666,
+        "exact_code_words": 0.5561922684262759,
+        "exact_fallback_words": 1,
+        "exact_fallback_characters": 1.0,
+        "code_candidate_ceiling": 1
+      },
+      "frequency_only_mean_code_accuracy": 0.7797390908267777,
+      "packet_savings": {
+        "oracle": {
+          "smaller": 3,
+          "interval": [
+            5304,
+            5624
+          ],
+          "mean": 5469.333333333333
+        },
+        "blind_proposal": {
+          "smaller": 3,
+          "interval": [
+            4216,
+            4688
+          ],
+          "mean": 4442.666666666667
+        }
+      }
+    },
+    {
+      "kind": "markov",
+      "noisy": false,
+      "n": 3,
+      "joint_gate_passes": 3,
+      "nominal_context_p_le_05": 3,
+      "means": {
+        "exact_words": 0.9999166666666667,
+        "exact_code_words": 0.9990817263544536,
+        "exact_fallback_words": 1,
+        "exact_fallback_characters": 1.0,
+        "code_candidate_ceiling": 0.9990817263544536
+      },
+      "frequency_only_mean_code_accuracy": 0.6452067278704825,
+      "packet_savings": {
+        "oracle": {
+          "smaller": 3,
+          "interval": [
+            7408,
+            8712
+          ],
+          "mean": 8093.333333333333
+        },
+        "blind_proposal": {
+          "smaller": 3,
+          "interval": [
+            7416,
+            8792
+          ],
+          "mean": 8093.333333333333
+        }
+      }
+    }
+  ],
+  "case_results": {
+    "sources": {
+      "boccaccio": {
+        "author": "Giovanni Boccaccio",
+        "title": "Decameron",
+        "date": "mid-14th century",
+        "language": "Old Italian",
+        "genre": "fictional prose with framing verse",
+        "url": "https://www.enteboccaccio.it/files/original/1124/Boccaccio_Decameron_a_cura_di_Maurizio_Fiorilla_%5Baggiornato_2026%5D.pdf",
+        "catalog_url": "https://www.enteboccaccio.it/s/casa-boccaccio/item/1124",
+        "license": "Historical work, open institutional critical text; reuse terms for modern edition not asserted.",
+        "edition": "Maurizio Fiorilla, critical text drawn from the third edition, BUR-Rizzoli 2025; 2026 PDF.",
+        "raw_file": "raw/boccaccio-ente.pdf",
+        "raw_sha256": "28e9f289fb02836bd67ae0af61f74fde307f46affb4fde116670523bd0022c37",
+        "pdf_text_sha256": "c8e10c05dab63dabdf9fec54218d3d10d6fe4626bc4aaf24d049ead60e5b9880",
+        "selection": "Use Poppler pdftotext 25.03.0 -enc UTF-8 -nopgbrk. From the first authorial prose paragraph, Proemio [2], through final authorial [29]. Omit PDF cover, repeated section headers, bare page/novella numerals and final colophon. The source already omits editorial introduction and notes.",
+        "prior_prefix_overlap": false,
+        "file": "boccaccio.txt",
+        "raw_bytes": 4287387,
+        "tokens": 269687,
+        "sha256": "cae3a7bb12bcbcd2ae6097f2c353e9135f1492dd1aaa37d189c990b60d3cee3f"
+      },
+      "machiavelli": {
+        "author": "Niccolò Machiavelli",
+        "title": "Discorsi sopra la prima Deca di Tito Livio",
+        "date": "composed c. 1513–1517, first published 1531",
+        "language": "Early Modern Italian",
+        "genre": "political and historical prose",
+        "url": "https://www.liberliber.eu/mediateca/libri/m/machiavelli/discorsi_sopra_la_prima_deca_di_tito_livio/epub/machiavelli_discorsi_sopra_la_prima_deca_di_tito_livio.epub",
+        "catalog_url": "https://liberliber.it/autori/autori-m/niccol-machiavelli/discorsi-sopra-la-prima-deca-di-tito-livio/",
+        "license": "Liber Liber digital edition CC BY-NC-SA 4.0; underlying authorial work public domain.",
+        "edition": "Mario Martelli, Tutte le opere, Sansoni 1971; Liber Liber EPUB modified 2018-04-10.",
+        "raw_file": "raw/machiavelli-discorsi.epub",
+        "raw_sha256": "d5408f429d2d3b2ff98c65cf24429e722a55f7b7ad84eeaf0d1f8c9c5683610b",
+        "selection": "Paragraphs in EPUB spine entries 6–149, all three books from the first authorial prologue through Book III, chapter 49. Exclude the cover, digital colophon, contents, dedication, book and chapter headings. Retain embedded quotations within paragraphs.",
+        "file": "machiavelli.txt",
+        "raw_bytes": 748149,
+        "tokens": 117236,
+        "sha256": "3e19ad072d9960bf88cda489a7f580d116e6c185a9155f8192f523eedff09b45"
+      },
+      "villani": {
+        "author": "Matteo Villani",
+        "title": "Cronica, vol. I",
+        "date": "c. 1350",
+        "language": "Old Italian",
+        "genre": "historical prose",
+        "url": "https://gutenberg.pglaf.org/6/9/8/9/69898/69898-0.txt",
+        "catalog_url": "https://www.gutenberg.org/ebooks/69898",
+        "license": "public domain (Gutenberg US)",
+        "raw_file": "raw/villani.txt",
+        "raw_sha256": "3acf82f4b25b636048d915961bb8cec2262e9b7cf9ff860ff056ab4bf1e1fd6e",
+        "selection": "From authorial prologue to TAVOLA DEI CAPITOLI; omit editor's preface, principal chapter headings and contents. Some chapter rubrics may remain.",
+        "prior_prefix_overlap": true,
+        "file": "villani.txt",
+        "raw_bytes": 477875,
+        "tokens": 70877,
+        "sha256": "2addf2bc8b18afd1c350cca074e8babc976492f899a0291ae55d966705ec7a59"
+      }
+    },
+    "donor_digest": "db0181a5820b1a60b93b87036351cad97b86ea3ab0d725b16dbc6017ab5ccd37",
+    "donor_tokens": 60000,
+    "donor_candidate_digest": "ea244edda550e19c4659d48b7bf3dd3ed0c5ef3eb784f244bb5ad9038c9dee9b",
+    "cases": [
+      {
+        "work": "boccaccio",
+        "kind": "author",
+        "repertoire": "visconti1446",
+        "seed": 471121,
+        "noisy": false,
+        "code_membership_outside_donor": [
+          "que"
+        ],
+        "spelling_search": {
+          "restart": 0,
+          "fit_score": -118103.98009402188,
+          "validation_score": -27512.440256836715,
+          "every_validation_score": [
+            -27512.440256836715,
+            -27512.440256836715,
+            -27512.440256836715,
+            -27512.440256836715,
+            -27512.440256836715
+          ],
+          "proposals": 14000
+        },
+        "correct_letters_in_permutation": 23,
+        "exact_dictionary_entries_in_planted_map": 5,
+        "total_dictionary_entries": 12,
+        "decoder_dictionary_size": 11,
+        "packet": {
+          "plaintext_bits": 67552,
+          "donor_plaintext_bits": 63088,
+          "ciphertext_zlib_bits": 68040,
+          "ciphertext_dictionary_bits": 74816,
+          "oracle": {
+            "header_bits": 296,
+            "key_bits": 96,
+            "permutation_information_bits": 89,
+            "explicit_dictionary_bits": 1064,
+            "proposed_plain_payload_bits": 62824,
+            "residual_bits": 128,
+            "residual_tokens": 0,
+            "total_bits": 64408,
+            "exact_replay": true
+          },
+          "blind_proposal": {
+            "header_bits": 296,
+            "key_bits": 96,
+            "permutation_information_bits": 89,
+            "explicit_dictionary_bits": 976,
+            "proposed_plain_payload_bits": 62928,
+            "residual_bits": 128,
+            "residual_tokens": 0,
+            "total_bits": 64424,
+            "exact_replay": true
+          }
+        },
+        "positive_gate": false,
+        "score": {
+          "tokens": 4000,
+          "coded_tokens": 330,
+          "fallback_tokens": 3670,
+          "exact_words": 0.9745,
+          "exact_code_words": 0.6909090909090909,
+          "exact_fallback_words": 1,
+          "exact_fallback_characters": 1.0,
+          "code_candidate_ceiling": 1
+        },
+        "frequency_baseline": {
+          "tokens": 4000,
+          "coded_tokens": 330,
+          "fallback_tokens": 3670,
+          "exact_words": 0.9705,
+          "exact_code_words": 0.6424242424242425,
+          "exact_fallback_words": 1,
+          "exact_fallback_characters": 1.0,
+          "code_candidate_ceiling": 1
+        },
+        "marked_context_test": {
+          "edges": 620,
+          "greater_tail": 0.025,
+          "mean_bits_gain_per_edge": -0.7587077828330676,
+          "mean_shuffled_gain_per_edge": -1.377725880492644
+        }
+      },
+      {
+        "work": "boccaccio",
+        "kind": "author",
+        "repertoire": "visconti1446",
+        "seed": 471121,
+        "noisy": true,
+        "code_membership_outside_donor": [
+          "que"
+        ],
+        "spelling_search": {
+          "restart": 0,
+          "fit_score": -130269.33481303536,
+          "validation_score": -30907.29936594337,
+          "every_validation_score": [
+            -30907.29936594337,
+            -30907.29936594337,
+            -30907.29936594337,
+            -30907.29936594337,
+            -30907.29936594337
+          ],
+          "proposals": 14000
+        },
+        "correct_letters_in_permutation": 22,
+        "exact_dictionary_entries_in_planted_map": 5,
+        "total_dictionary_entries": 12,
+        "decoder_dictionary_size": 12,
+        "packet": {
+          "plaintext_bits": 67552,
+          "donor_plaintext_bits": 63088,
+          "ciphertext_zlib_bits": 71480,
+          "ciphertext_dictionary_bits": 81224,
+          "oracle": {
+            "header_bits": 296,
+            "key_bits": 96,
+            "permutation_information_bits": 89,
+            "explicit_dictionary_bits": 1064,
+            "proposed_plain_payload_bits": 62824,
+            "residual_bits": 21112,
+            "residual_tokens": 334,
+            "total_bits": 85392,
+            "exact_replay": true
+          },
+          "blind_proposal": {
+            "header_bits": 296,
+            "key_bits": 96,
+            "permutation_information_bits": 89,
+            "explicit_dictionary_bits": 1048,
+            "proposed_plain_payload_bits": 66560,
+            "residual_bits": 128,
+            "residual_tokens": 0,
+            "total_bits": 68128,
+            "exact_replay": true
+          }
+        },
+        "positive_gate": false,
+        "score": {
+          "tokens": 4000,
+          "coded_tokens": 330,
+          "fallback_tokens": 3670,
+          "exact_words": 0.89125,
+          "exact_code_words": 0.6787878787878788,
+          "exact_fallback_words": 0.9103542234332425,
+          "exact_fallback_characters": 0.9799849161687069,
+          "code_candidate_ceiling": 1
+        },
+        "frequency_baseline": {
+          "tokens": 4000,
+          "coded_tokens": 330,
+          "fallback_tokens": 3670,
+          "exact_words": 0.88775,
+          "exact_code_words": 0.6363636363636364,
+          "exact_fallback_words": 0.9103542234332425,
+          "exact_fallback_characters": 0.9799849161687069,
+          "code_candidate_ceiling": 1
+        },
+        "marked_context_test": {
+          "edges": 620,
+          "greater_tail": 0.025,
+          "mean_bits_gain_per_edge": -0.9096938747504051,
+          "mean_shuffled_gain_per_edge": -1.4722728873104636
+        }
+      },
+      {
+        "work": "boccaccio",
+        "kind": "author",
+        "repertoire": "visconti1446",
+        "seed": 481121,
+        "noisy": false,
+        "code_membership_outside_donor": [
+          "que"
+        ],
+        "spelling_search": {
+          "restart": 0,
+          "fit_score": -118103.98009402188,
+          "validation_score": -27512.440256836715,
+          "every_validation_score": [
+            -27512.440256836715,
+            -27512.440256836715,
+            -27512.440256836715,
+            -27512.440256836715,
+            -27512.440256836715
+          ],
+          "proposals": 14000
+        },
+        "correct_letters_in_permutation": 21,
+        "exact_dictionary_entries_in_planted_map": 5,
+        "total_dictionary_entries": 12,
+        "decoder_dictionary_size": 11,
+        "packet": {
+          "plaintext_bits": 67552,
+          "donor_plaintext_bits": 63088,
+          "ciphertext_zlib_bits": 68008,
+          "ciphertext_dictionary_bits": 74800,
+          "oracle": {
+            "header_bits": 296,
+            "key_bits": 96,
+            "permutation_information_bits": 89,
+            "explicit_dictionary_bits": 1064,
+            "proposed_plain_payload_bits": 62824,
+            "residual_bits": 128,
+            "residual_tokens": 0,
+            "total_bits": 64408,
+            "exact_replay": true
+          },
+          "blind_proposal": {
+            "header_bits": 296,
+            "key_bits": 96,
+            "permutation_information_bits": 89,
+            "explicit_dictionary_bits": 976,
+            "proposed_plain_payload_bits": 62928,
+            "residual_bits": 128,
+            "residual_tokens": 0,
+            "total_bits": 64424,
+            "exact_replay": true
+          }
+        },
+        "positive_gate": false,
+        "score": {
+          "tokens": 4000,
+          "coded_tokens": 330,
+          "fallback_tokens": 3670,
+          "exact_words": 0.9745,
+          "exact_code_words": 0.6909090909090909,
+          "exact_fallback_words": 1,
+          "exact_fallback_characters": 1.0,
+          "code_candidate_ceiling": 1
+        },
+        "frequency_baseline": {
+          "tokens": 4000,
+          "coded_tokens": 330,
+          "fallback_tokens": 3670,
+          "exact_words": 0.9705,
+          "exact_code_words": 0.6424242424242425,
+          "exact_fallback_words": 1,
+          "exact_fallback_characters": 1.0,
+          "code_candidate_ceiling": 1
+        },
+        "marked_context_test": {
+          "edges": 620,
+          "greater_tail": 0.025,
+          "mean_bits_gain_per_edge": -0.7587077828330676,
+          "mean_shuffled_gain_per_edge": -1.3701507286204753
+        }
+      },
+      {
+        "work": "boccaccio",
+        "kind": "author",
+        "repertoire": "visconti1446",
+        "seed": 481121,
+        "noisy": true,
+        "code_membership_outside_donor": [
+          "que"
+        ],
+        "spelling_search": {
+          "restart": 0,
+          "fit_score": -130779.8249697492,
+          "validation_score": -30609.283834579062,
+          "every_validation_score": [
+            -30609.283834579062,
+            -30609.283834579062,
+            -30609.283834579062,
+            -30609.283834579062,
+            -30609.283834579062
+          ],
+          "proposals": 14000
+        },
+        "correct_letters_in_permutation": 21,
+        "exact_dictionary_entries_in_planted_map": 5,
+        "total_dictionary_entries": 12,
+        "decoder_dictionary_size": 11,
+        "packet": {
+          "plaintext_bits": 67552,
+          "donor_plaintext_bits": 63088,
+          "ciphertext_zlib_bits": 71792,
+          "ciphertext_dictionary_bits": 81560,
+          "oracle": {
+            "header_bits": 296,
+            "key_bits": 96,
+            "permutation_information_bits": 89,
+            "explicit_dictionary_bits": 1064,
+            "proposed_plain_payload_bits": 62824,
+            "residual_bits": 21368,
+            "residual_tokens": 337,
+            "total_bits": 85648,
+            "exact_replay": true
+          },
+          "blind_proposal": {
+            "header_bits": 296,
+            "key_bits": 96,
+            "permutation_information_bits": 89,
+            "explicit_dictionary_bits": 920,
+            "proposed_plain_payload_bits": 66864,
+            "residual_bits": 128,
+            "residual_tokens": 0,
+            "total_bits": 68304,
+            "exact_replay": true
+          }
+        },
+        "positive_gate": false,
+        "score": {
+          "tokens": 4000,
+          "coded_tokens": 330,
+          "fallback_tokens": 3670,
+          "exact_words": 0.8905,
+          "exact_code_words": 0.6787878787878788,
+          "exact_fallback_words": 0.9095367847411444,
+          "exact_fallback_characters": 0.9799849161687069,
+          "code_candidate_ceiling": 1
+        },
+        "frequency_baseline": {
+          "tokens": 4000,
+          "coded_tokens": 330,
+          "fallback_tokens": 3670,
+          "exact_words": 0.871,
+          "exact_code_words": 0.44242424242424244,
+          "exact_fallback_words": 0.9095367847411444,
+          "exact_fallback_characters": 0.9799849161687069,
+          "code_candidate_ceiling": 1
+        },
+        "marked_context_test": {
+          "edges": 620,
+          "greater_tail": 0.025,
+          "mean_bits_gain_per_edge": -0.8782709848214859,
+          "mean_shuffled_gain_per_edge": -1.4408781107437942
+        }
+      },
+      {
+        "work": "boccaccio",
+        "kind": "author",
+        "repertoire": "visconti1447",
+        "seed": 472114,
+        "noisy": false,
+        "code_membership_outside_donor": [
+          "et",
+          "que"
+        ],
+        "spelling_search": {
+          "restart": 0,
+          "fit_score": -117541.5425879553,
+          "validation_score": -27499.890909770085,
+          "every_validation_score": [
+            -27499.890909770085,
+            -27499.890909770085,
+            -27499.890909770085,
+            -27499.890909770085,
+            -27499.890909770085
+          ],
+          "proposals": 14000
+        },
+        "correct_letters_in_permutation": 21,
+        "exact_dictionary_entries_in_planted_map": 8,
+        "total_dictionary_entries": 12,
+        "decoder_dictionary_size": 10,
+        "packet": {
+          "plaintext_bits": 67552,
+          "donor_plaintext_bits": 63088,
+          "ciphertext_zlib_bits": 68352,
+          "ciphertext_dictionary_bits": 75000,
+          "oracle": {
+            "header_bits": 296,
+            "key_bits": 96,
+            "permutation_information_bits": 89,
+            "explicit_dictionary_bits": 952,
+            "proposed_plain_payload_bits": 62824,
+            "residual_bits": 128,
+            "residual_tokens": 0,
+            "total_bits": 64296,
+            "exact_replay": true
+          },
+          "blind_proposal": {
+            "header_bits": 296,
+            "key_bits": 96,
+            "permutation_information_bits": 89,
+            "explicit_dictionary_bits": 800,
+            "proposed_plain_payload_bits": 62840,
+            "residual_bits": 360,
+            "residual_tokens": 6,
+            "total_bits": 64392,
+            "exact_replay": true
+          }
+        },
+        "positive_gate": true,
+        "score": {
+          "tokens": 4000,
+          "coded_tokens": 407,
+          "fallback_tokens": 3593,
+          "exact_words": 0.99175,
+          "exact_code_words": 0.918918918918919,
+          "exact_fallback_words": 1,
+          "exact_fallback_characters": 1.0,
+          "code_candidate_ceiling": 1
+        },
+        "frequency_baseline": {
+          "tokens": 4000,
+          "coded_tokens": 407,
+          "fallback_tokens": 3593,
+          "exact_words": 0.95125,
+          "exact_code_words": 0.5208845208845209,
+          "exact_fallback_words": 1,
+          "exact_fallback_characters": 1.0,
+          "code_candidate_ceiling": 1
+        },
+        "marked_context_test": {
+          "edges": 720,
+          "greater_tail": 0.025,
+          "mean_bits_gain_per_edge": -0.8489462224457502,
+          "mean_shuffled_gain_per_edge": -1.598214094749106
+        }
+      },
+      {
+        "work": "boccaccio",
+        "kind": "author",
+        "repertoire": "visconti1447",
+        "seed": 472114,
+        "noisy": true,
+        "code_membership_outside_donor": [
+          "et",
+          "que"
+        ],
+        "spelling_search": {
+          "restart": 1,
+          "fit_score": -129914.49892572738,
+          "validation_score": -30633.205332141548,
+          "every_validation_score": [
+            -31497.70708239987,
+            -30633.205332141548,
+            -30633.205332141548,
+            -30633.205332141548,
+            -37637.86566589455
+          ],
+          "proposals": 14000
+        },
+        "correct_letters_in_permutation": 22,
+        "exact_dictionary_entries_in_planted_map": 8,
+        "total_dictionary_entries": 12,
+        "decoder_dictionary_size": 12,
+        "packet": {
+          "plaintext_bits": 67552,
+          "donor_plaintext_bits": 63088,
+          "ciphertext_zlib_bits": 72248,
+          "ciphertext_dictionary_bits": 81576,
+          "oracle": {
+            "header_bits": 296,
+            "key_bits": 96,
+            "permutation_information_bits": 89,
+            "explicit_dictionary_bits": 952,
+            "proposed_plain_payload_bits": 62824,
+            "residual_bits": 20880,
+            "residual_tokens": 330,
+            "total_bits": 85048,
+            "exact_replay": true
+          },
+          "blind_proposal": {
+            "header_bits": 296,
+            "key_bits": 96,
+            "permutation_information_bits": 89,
+            "explicit_dictionary_bits": 992,
+            "proposed_plain_payload_bits": 66848,
+            "residual_bits": 480,
+            "residual_tokens": 8,
+            "total_bits": 68712,
+            "exact_replay": true
+          }
+        },
+        "positive_gate": true,
+        "score": {
+          "tokens": 4000,
+          "coded_tokens": 407,
+          "fallback_tokens": 3593,
+          "exact_words": 0.9095,
+          "exact_code_words": 0.8992628992628993,
+          "exact_fallback_words": 0.9106596159198441,
+          "exact_fallback_characters": 0.979873993699685,
+          "code_candidate_ceiling": 1
+        },
+        "frequency_baseline": {
+          "tokens": 4000,
+          "coded_tokens": 407,
+          "fallback_tokens": 3593,
+          "exact_words": 0.8695,
+          "exact_code_words": 0.5061425061425061,
+          "exact_fallback_words": 0.9106596159198441,
+          "exact_fallback_characters": 0.979873993699685,
+          "code_candidate_ceiling": 1
+        },
+        "marked_context_test": {
+          "edges": 720,
+          "greater_tail": 0.025,
+          "mean_bits_gain_per_edge": -0.9341885713725457,
+          "mean_shuffled_gain_per_edge": -1.6334684434462967
+        }
+      },
+      {
+        "work": "boccaccio",
+        "kind": "author",
+        "repertoire": "visconti1447",
+        "seed": 482114,
+        "noisy": false,
+        "code_membership_outside_donor": [
+          "et",
+          "que"
+        ],
+        "spelling_search": {
+          "restart": 0,
+          "fit_score": -117541.5425879553,
+          "validation_score": -27499.890909770085,
+          "every_validation_score": [
+            -27499.890909770085,
+            -27499.890909770085,
+            -27499.890909770085,
+            -27499.890909770085,
+            -27499.890909770085
+          ],
+          "proposals": 14000
+        },
+        "correct_letters_in_permutation": 23,
+        "exact_dictionary_entries_in_planted_map": 8,
+        "total_dictionary_entries": 12,
+        "decoder_dictionary_size": 10,
+        "packet": {
+          "plaintext_bits": 67552,
+          "donor_plaintext_bits": 63088,
+          "ciphertext_zlib_bits": 68328,
+          "ciphertext_dictionary_bits": 74736,
+          "oracle": {
+            "header_bits": 296,
+            "key_bits": 96,
+            "permutation_information_bits": 89,
+            "explicit_dictionary_bits": 952,
+            "proposed_plain_payload_bits": 62824,
+            "residual_bits": 128,
+            "residual_tokens": 0,
+            "total_bits": 64296,
+            "exact_replay": true
+          },
+          "blind_proposal": {
+            "header_bits": 296,
+            "key_bits": 96,
+            "permutation_information_bits": 89,
+            "explicit_dictionary_bits": 800,
+            "proposed_plain_payload_bits": 62840,
+            "residual_bits": 360,
+            "residual_tokens": 6,
+            "total_bits": 64392,
+            "exact_replay": true
+          }
+        },
+        "positive_gate": true,
+        "score": {
+          "tokens": 4000,
+          "coded_tokens": 407,
+          "fallback_tokens": 3593,
+          "exact_words": 0.99175,
+          "exact_code_words": 0.918918918918919,
+          "exact_fallback_words": 1,
+          "exact_fallback_characters": 1.0,
+          "code_candidate_ceiling": 1
+        },
+        "frequency_baseline": {
+          "tokens": 4000,
+          "coded_tokens": 407,
+          "fallback_tokens": 3593,
+          "exact_words": 0.95125,
+          "exact_code_words": 0.5208845208845209,
+          "exact_fallback_words": 1,
+          "exact_fallback_characters": 1.0,
+          "code_candidate_ceiling": 1
+        },
+        "marked_context_test": {
+          "edges": 720,
+          "greater_tail": 0.025,
+          "mean_bits_gain_per_edge": -0.8489462224457502,
+          "mean_shuffled_gain_per_edge": -1.6190152275142642
+        }
+      },
+      {
+        "work": "boccaccio",
+        "kind": "author",
+        "repertoire": "visconti1447",
+        "seed": 482114,
+        "noisy": true,
+        "code_membership_outside_donor": [
+          "et",
+          "que"
+        ],
+        "spelling_search": {
+          "restart": 2,
+          "fit_score": -130462.59322276115,
+          "validation_score": -30441.44396719257,
+          "every_validation_score": [
+            -30445.51239862325,
+            -30445.51239862325,
+            -30441.44396719257,
+            -30445.51239862325,
+            -30445.51239862325
+          ],
+          "proposals": 14000
+        },
+        "correct_letters_in_permutation": 22,
+        "exact_dictionary_entries_in_planted_map": 8,
+        "total_dictionary_entries": 12,
+        "decoder_dictionary_size": 10,
+        "packet": {
+          "plaintext_bits": 67552,
+          "donor_plaintext_bits": 63088,
+          "ciphertext_zlib_bits": 72184,
+          "ciphertext_dictionary_bits": 81960,
+          "oracle": {
+            "header_bits": 296,
+            "key_bits": 96,
+            "permutation_information_bits": 89,
+            "explicit_dictionary_bits": 952,
+            "proposed_plain_payload_bits": 62824,
+            "residual_bits": 22264,
+            "residual_tokens": 354,
+            "total_bits": 86432,
+            "exact_replay": true
+          },
+          "blind_proposal": {
+            "header_bits": 296,
+            "key_bits": 96,
+            "permutation_information_bits": 89,
+            "explicit_dictionary_bits": 800,
+            "proposed_plain_payload_bits": 66904,
+            "residual_bits": 424,
+            "residual_tokens": 7,
+            "total_bits": 68520,
+            "exact_replay": true
+          }
+        },
+        "positive_gate": true,
+        "score": {
+          "tokens": 4000,
+          "coded_tokens": 407,
+          "fallback_tokens": 3593,
+          "exact_words": 0.90425,
+          "exact_code_words": 0.9017199017199017,
+          "exact_fallback_words": 0.904536598942388,
+          "exact_fallback_characters": 0.9788239411970598,
+          "code_candidate_ceiling": 1
+        },
+        "frequency_baseline": {
+          "tokens": 4000,
+          "coded_tokens": 407,
+          "fallback_tokens": 3593,
+          "exact_words": 0.86525,
+          "exact_code_words": 0.5184275184275184,
+          "exact_fallback_words": 0.904536598942388,
+          "exact_fallback_characters": 0.9788239411970598,
+          "code_candidate_ceiling": 1
+        },
+        "marked_context_test": {
+          "edges": 720,
+          "greater_tail": 0.025,
+          "mean_bits_gain_per_edge": -0.9862571651720016,
+          "mean_shuffled_gain_per_edge": -1.6866395817600401
+        }
+      },
+      {
+        "work": "boccaccio",
+        "kind": "author",
+        "repertoire": "donor_closed",
+        "seed": 791239,
+        "noisy": false,
+        "code_membership_outside_donor": [],
+        "spelling_search": {
+          "restart": 0,
+          "fit_score": -120039.2523881673,
+          "validation_score": -28023.90631818139,
+          "every_validation_score": [
+            -28023.90631818139,
+            -28023.90631818139,
+            -28023.90631818139,
+            -28023.90631818139,
+            -28023.90631818139
+          ],
+          "proposals": 14000
+        },
+        "correct_letters_in_permutation": 24,
+        "exact_dictionary_entries_in_planted_map": 3,
+        "total_dictionary_entries": 12,
+        "decoder_dictionary_size": 12,
+        "packet": {
+          "plaintext_bits": 67552,
+          "donor_plaintext_bits": 63088,
+          "ciphertext_zlib_bits": 68136,
+          "ciphertext_dictionary_bits": 74904,
+          "oracle": {
+            "header_bits": 296,
+            "key_bits": 96,
+            "permutation_information_bits": 89,
+            "explicit_dictionary_bits": 928,
+            "proposed_plain_payload_bits": 62824,
+            "residual_bits": 128,
+            "residual_tokens": 0,
+            "total_bits": 64272,
+            "exact_replay": true
+          },
+          "blind_proposal": {
+            "header_bits": 296,
+            "key_bits": 96,
+            "permutation_information_bits": 89,
+            "explicit_dictionary_bits": 976,
+            "proposed_plain_payload_bits": 62928,
+            "residual_bits": 680,
+            "residual_tokens": 13,
+            "total_bits": 64976,
+            "exact_replay": true
+          }
+        },
+        "positive_gate": false,
+        "score": {
+          "tokens": 4000,
+          "coded_tokens": 222,
+          "fallback_tokens": 3778,
+          "exact_words": 0.97925,
+          "exact_code_words": 0.6261261261261262,
+          "exact_fallback_words": 1,
+          "exact_fallback_characters": 1.0,
+          "code_candidate_ceiling": 1
+        },
+        "frequency_baseline": {
+          "tokens": 4000,
+          "coded_tokens": 222,
+          "fallback_tokens": 3778,
+          "exact_words": 0.9755,
+          "exact_code_words": 0.5585585585585585,
+          "exact_fallback_words": 1,
+          "exact_fallback_characters": 1.0,
+          "code_candidate_ceiling": 1
+        },
+        "marked_context_test": {
+          "edges": 402,
+          "greater_tail": 0.025,
+          "mean_bits_gain_per_edge": -1.077412314073089,
+          "mean_shuffled_gain_per_edge": -1.5265599309865148
+        }
+      },
+      {
+        "work": "boccaccio",
+        "kind": "author",
+        "repertoire": "donor_closed",
+        "seed": 791239,
+        "noisy": true,
+        "code_membership_outside_donor": [],
+        "spelling_search": {
+          "restart": 1,
+          "fit_score": -133616.3059274303,
+          "validation_score": -31194.28144531219,
+          "every_validation_score": [
+            -31206.542739079174,
+            -31194.28144531219,
+            -31206.542739079174,
+            -31203.521477768634,
+            -31194.28144531219
+          ],
+          "proposals": 14000
+        },
+        "correct_letters_in_permutation": 22,
+        "exact_dictionary_entries_in_planted_map": 2,
+        "total_dictionary_entries": 12,
+        "decoder_dictionary_size": 12,
+        "packet": {
+          "plaintext_bits": 67552,
+          "donor_plaintext_bits": 63088,
+          "ciphertext_zlib_bits": 72008,
+          "ciphertext_dictionary_bits": 81360,
+          "oracle": {
+            "header_bits": 296,
+            "key_bits": 96,
+            "permutation_information_bits": 89,
+            "explicit_dictionary_bits": 928,
+            "proposed_plain_payload_bits": 62824,
+            "residual_bits": 21544,
+            "residual_tokens": 340,
+            "total_bits": 85688,
+            "exact_replay": true
+          },
+          "blind_proposal": {
+            "header_bits": 296,
+            "key_bits": 96,
+            "permutation_information_bits": 89,
+            "explicit_dictionary_bits": 992,
+            "proposed_plain_payload_bits": 66888,
+            "residual_bits": 1400,
+            "residual_tokens": 39,
+            "total_bits": 69672,
+            "exact_replay": true
+          }
+        },
+        "positive_gate": false,
+        "score": {
+          "tokens": 4000,
+          "coded_tokens": 222,
+          "fallback_tokens": 3778,
+          "exact_words": 0.8795,
+          "exact_code_words": 0.3333333333333333,
+          "exact_fallback_words": 0.9115934356802541,
+          "exact_fallback_characters": 0.9803247265757131,
+          "code_candidate_ceiling": 1
+        },
+        "frequency_baseline": {
+          "tokens": 4000,
+          "coded_tokens": 222,
+          "fallback_tokens": 3778,
+          "exact_words": 0.8915,
+          "exact_code_words": 0.5495495495495496,
+          "exact_fallback_words": 0.9115934356802541,
+          "exact_fallback_characters": 0.9803247265757131,
+          "code_candidate_ceiling": 1
+        },
+        "marked_context_test": {
+          "edges": 402,
+          "greater_tail": 0.025,
+          "mean_bits_gain_per_edge": -0.8776839106784924,
+          "mean_shuffled_gain_per_edge": -1.3977139265337954
+        }
+      },
+      {
+        "work": "boccaccio",
+        "kind": "no_static_code",
+        "repertoire": "visconti1446",
+        "seed": 791258,
+        "noisy": false,
+        "code_membership_outside_donor": [
+          "que"
+        ],
+        "spelling_search": {
+          "restart": 0,
+          "fit_score": -118103.98009402188,
+          "validation_score": -27512.440256836715,
+          "every_validation_score": [
+            -27512.440256836715,
+            -27512.440256836715,
+            -27512.440256836715,
+            -27512.440256836715,
+            -27512.440256836715
+          ],
+          "proposals": 14000
+        },
+        "correct_letters_in_permutation": 21,
+        "exact_dictionary_entries_in_planted_map": 1,
+        "total_dictionary_entries": 12,
+        "decoder_dictionary_size": 11,
+        "packet": {
+          "plaintext_bits": 67552,
+          "donor_plaintext_bits": 63088,
+          "ciphertext_zlib_bits": 68480,
+          "ciphertext_dictionary_bits": 75032,
+          "oracle": {
+            "header_bits": 296,
+            "key_bits": 96,
+            "permutation_information_bits": 89,
+            "explicit_dictionary_bits": 1064,
+            "proposed_plain_payload_bits": 62824,
+            "residual_bits": 5728,
+            "residual_tokens": 233,
+            "total_bits": 70008,
+            "exact_replay": true
+          },
+          "blind_proposal": {
+            "header_bits": 296,
+            "key_bits": 96,
+            "permutation_information_bits": 89,
+            "explicit_dictionary_bits": 992,
+            "proposed_plain_payload_bits": 63632,
+            "residual_bits": 336,
+            "residual_tokens": 4,
+            "total_bits": 65352,
+            "exact_replay": true
+          }
+        },
+        "positive_gate": false,
+        "score": {
+          "tokens": 4000,
+          "coded_tokens": 330,
+          "fallback_tokens": 3670,
+          "exact_words": 0.93775,
+          "exact_code_words": 0.24545454545454545,
+          "exact_fallback_words": 1,
+          "exact_fallback_characters": 1.0,
+          "code_candidate_ceiling": 1
+        },
+        "frequency_baseline": {
+          "tokens": 4000,
+          "coded_tokens": 330,
+          "fallback_tokens": 3670,
+          "exact_words": 0.9385,
+          "exact_code_words": 0.2545454545454545,
+          "exact_fallback_words": 1,
+          "exact_fallback_characters": 1.0,
+          "code_candidate_ceiling": 1
+        },
+        "marked_context_test": {
+          "edges": 620,
+          "greater_tail": 0.475,
+          "mean_bits_gain_per_edge": -1.282967820868498,
+          "mean_shuffled_gain_per_edge": -1.2927837654082106
+        }
+      },
+      {
+        "work": "boccaccio",
+        "kind": "word_shuffle",
+        "repertoire": "visconti1446",
+        "seed": 791262,
+        "noisy": false,
+        "code_membership_outside_donor": [
+          "que"
+        ],
+        "spelling_search": {
+          "restart": 0,
+          "fit_score": -117541.13763177523,
+          "validation_score": -28831.490094763594,
+          "every_validation_score": [
+            -28831.490094763594,
+            -28831.490094763594,
+            -28831.490094763594,
+            -28831.490094763594,
+            -28831.490094763594
+          ],
+          "proposals": 14000
+        },
+        "correct_letters_in_permutation": 21,
+        "exact_dictionary_entries_in_planted_map": 1,
+        "total_dictionary_entries": 12,
+        "decoder_dictionary_size": 11,
+        "packet": {
+          "plaintext_bits": 72416,
+          "donor_plaintext_bits": 67840,
+          "ciphertext_zlib_bits": 72968,
+          "ciphertext_dictionary_bits": 79440,
+          "oracle": {
+            "header_bits": 296,
+            "key_bits": 96,
+            "permutation_information_bits": 89,
+            "explicit_dictionary_bits": 1064,
+            "proposed_plain_payload_bits": 67576,
+            "residual_bits": 128,
+            "residual_tokens": 0,
+            "total_bits": 69160,
+            "exact_replay": true
+          },
+          "blind_proposal": {
+            "header_bits": 296,
+            "key_bits": 96,
+            "permutation_information_bits": 89,
+            "explicit_dictionary_bits": 968,
+            "proposed_plain_payload_bits": 67608,
+            "residual_bits": 496,
+            "residual_tokens": 7,
+            "total_bits": 69464,
+            "exact_replay": true
+          }
+        },
+        "positive_gate": false,
+        "score": {
+          "tokens": 4000,
+          "coded_tokens": 361,
+          "fallback_tokens": 3639,
+          "exact_words": 0.949,
+          "exact_code_words": 0.43490304709141275,
+          "exact_fallback_words": 1,
+          "exact_fallback_characters": 1.0,
+          "code_candidate_ceiling": 1
+        },
+        "frequency_baseline": {
+          "tokens": 4000,
+          "coded_tokens": 361,
+          "fallback_tokens": 3639,
+          "exact_words": 0.949,
+          "exact_code_words": 0.43490304709141275,
+          "exact_fallback_words": 1,
+          "exact_fallback_characters": 1.0,
+          "code_candidate_ceiling": 1
+        },
+        "marked_context_test": {
+          "edges": 650,
+          "greater_tail": 0.775,
+          "mean_bits_gain_per_edge": -2.1836785839517336,
+          "mean_shuffled_gain_per_edge": -2.1356373915567013
+        }
+      },
+      {
+        "work": "boccaccio",
+        "kind": "iid",
+        "repertoire": "visconti1446",
+        "seed": 791409,
+        "noisy": false,
+        "code_membership_outside_donor": [
+          "que"
+        ],
+        "spelling_search": {
+          "restart": 0,
+          "fit_score": -99938.30009475192,
+          "validation_score": -24244.64629933123,
+          "every_validation_score": [
+            -24244.64629933123,
+            -24244.64629933123,
+            -24244.64629933123,
+            -24244.64629933123,
+            -24244.64629933123
+          ],
+          "proposals": 14000
+        },
+        "correct_letters_in_permutation": 24,
+        "exact_dictionary_entries_in_planted_map": 1,
+        "total_dictionary_entries": 12,
+        "decoder_dictionary_size": 12,
+        "packet": {
+          "plaintext_bits": 68768,
+          "donor_plaintext_bits": 62664,
+          "ciphertext_zlib_bits": 69464,
+          "ciphertext_dictionary_bits": 79408,
+          "oracle": {
+            "header_bits": 296,
+            "key_bits": 96,
+            "permutation_information_bits": 89,
+            "explicit_dictionary_bits": 1064,
+            "proposed_plain_payload_bits": 62400,
+            "residual_bits": 128,
+            "residual_tokens": 0,
+            "total_bits": 63984,
+            "exact_replay": true
+          },
+          "blind_proposal": {
+            "header_bits": 296,
+            "key_bits": 96,
+            "permutation_information_bits": 89,
+            "explicit_dictionary_bits": 1072,
+            "proposed_plain_payload_bits": 62648,
+            "residual_bits": 1136,
+            "residual_tokens": 26,
+            "total_bits": 65248,
+            "exact_replay": true
+          }
+        },
+        "positive_gate": false,
+        "score": {
+          "tokens": 4000,
+          "coded_tokens": 387,
+          "fallback_tokens": 3613,
+          "exact_words": 0.94475,
+          "exact_code_words": 0.4289405684754522,
+          "exact_fallback_words": 1,
+          "exact_fallback_characters": 1.0,
+          "code_candidate_ceiling": 1
+        },
+        "frequency_baseline": {
+          "tokens": 4000,
+          "coded_tokens": 387,
+          "fallback_tokens": 3613,
+          "exact_words": 0.9935,
+          "exact_code_words": 0.9328165374677002,
+          "exact_fallback_words": 1,
+          "exact_fallback_characters": 1.0,
+          "code_candidate_ceiling": 1
+        },
+        "marked_context_test": {
+          "edges": 704,
+          "greater_tail": 0.525,
+          "mean_bits_gain_per_edge": -1.8524629159643686,
+          "mean_shuffled_gain_per_edge": -1.85172752149983
+        }
+      },
+      {
+        "work": "boccaccio",
+        "kind": "markov",
+        "repertoire": "visconti1446",
+        "seed": 791410,
+        "noisy": false,
+        "code_membership_outside_donor": [
+          "que"
+        ],
+        "spelling_search": {
+          "restart": 0,
+          "fit_score": -101164.81984559096,
+          "validation_score": -25017.433877847478,
+          "every_validation_score": [
+            -25017.433877847478,
+            -25017.433877847478,
+            -25017.433877847478,
+            -25017.433877847478,
+            -25017.433877847478
+          ],
+          "proposals": 14000
+        },
+        "correct_letters_in_permutation": 23,
+        "exact_dictionary_entries_in_planted_map": 11,
+        "total_dictionary_entries": 12,
+        "decoder_dictionary_size": 12,
+        "packet": {
+          "plaintext_bits": 67936,
+          "donor_plaintext_bits": 59048,
+          "ciphertext_zlib_bits": 68528,
+          "ciphertext_dictionary_bits": 79264,
+          "oracle": {
+            "header_bits": 296,
+            "key_bits": 96,
+            "permutation_information_bits": 89,
+            "explicit_dictionary_bits": 1064,
+            "proposed_plain_payload_bits": 58784,
+            "residual_bits": 128,
+            "residual_tokens": 0,
+            "total_bits": 60368,
+            "exact_replay": true
+          },
+          "blind_proposal": {
+            "header_bits": 296,
+            "key_bits": 96,
+            "permutation_information_bits": 89,
+            "explicit_dictionary_bits": 1072,
+            "proposed_plain_payload_bits": 58784,
+            "residual_bits": 208,
+            "residual_tokens": 1,
+            "total_bits": 60456,
+            "exact_replay": true
+          }
+        },
+        "positive_gate": true,
+        "score": {
+          "tokens": 4000,
+          "coded_tokens": 338,
+          "fallback_tokens": 3662,
+          "exact_words": 1,
+          "exact_code_words": 1,
+          "exact_fallback_words": 1,
+          "exact_fallback_characters": 1.0,
+          "code_candidate_ceiling": 1
+        },
+        "frequency_baseline": {
+          "tokens": 4000,
+          "coded_tokens": 338,
+          "fallback_tokens": 3662,
+          "exact_words": 0.99475,
+          "exact_code_words": 0.9378698224852071,
+          "exact_fallback_words": 1,
+          "exact_fallback_characters": 1.0,
+          "code_candidate_ceiling": 1
+        },
+        "marked_context_test": {
+          "edges": 626,
+          "greater_tail": 0.025,
+          "mean_bits_gain_per_edge": 1.903100986784179,
+          "mean_shuffled_gain_per_edge": -0.7463838411051426
+        }
+      },
+      {
+        "work": "machiavelli",
+        "kind": "author",
+        "repertoire": "visconti1446",
+        "seed": 475512,
+        "noisy": false,
+        "code_membership_outside_donor": [
+          "que"
+        ],
+        "spelling_search": {
+          "restart": 0,
+          "fit_score": -125437.15889526116,
+          "validation_score": -32982.52360607553,
+          "every_validation_score": [
+            -32982.52360607553,
+            -32982.52360607553,
+            -32982.52360607553,
+            -32982.52360607553,
+            -32982.52360607553
+          ],
+          "proposals": 14000
+        },
+        "correct_letters_in_permutation": 21,
+        "exact_dictionary_entries_in_planted_map": 4,
+        "total_dictionary_entries": 12,
+        "decoder_dictionary_size": 9,
+        "packet": {
+          "plaintext_bits": 68288,
+          "donor_plaintext_bits": 64992,
+          "ciphertext_zlib_bits": 68624,
+          "ciphertext_dictionary_bits": 74600,
+          "oracle": {
+            "header_bits": 296,
+            "key_bits": 96,
+            "permutation_information_bits": 89,
+            "explicit_dictionary_bits": 1064,
+            "proposed_plain_payload_bits": 64728,
+            "residual_bits": 128,
+            "residual_tokens": 0,
+            "total_bits": 66312,
+            "exact_replay": true
+          },
+          "blind_proposal": {
+            "header_bits": 296,
+            "key_bits": 96,
+            "permutation_information_bits": 89,
+            "explicit_dictionary_bits": 784,
+            "proposed_plain_payload_bits": 64640,
+            "residual_bits": 368,
+            "residual_tokens": 5,
+            "total_bits": 66184,
+            "exact_replay": true
+          }
+        },
+        "positive_gate": false,
+        "score": {
+          "tokens": 4000,
+          "coded_tokens": 383,
+          "fallback_tokens": 3617,
+          "exact_words": 0.97975,
+          "exact_code_words": 0.7963446475195822,
+          "exact_fallback_words": 0.9991705833563727,
+          "exact_fallback_characters": 0.9997767358785443,
+          "code_candidate_ceiling": 1
+        },
+        "frequency_baseline": {
+          "tokens": 4000,
+          "coded_tokens": 383,
+          "fallback_tokens": 3617,
+          "exact_words": 0.9735,
+          "exact_code_words": 0.7310704960835509,
+          "exact_fallback_words": 0.9991705833563727,
+          "exact_fallback_characters": 0.9997767358785443,
+          "code_candidate_ceiling": 1
+        },
+        "marked_context_test": {
+          "edges": 716,
+          "greater_tail": 0.025,
+          "mean_bits_gain_per_edge": -1.0658273703030159,
+          "mean_shuffled_gain_per_edge": -1.5970833488498475
+        }
+      },
+      {
+        "work": "machiavelli",
+        "kind": "author",
+        "repertoire": "visconti1446",
+        "seed": 475512,
+        "noisy": true,
+        "code_membership_outside_donor": [
+          "que"
+        ],
+        "spelling_search": {
+          "restart": 0,
+          "fit_score": -138050.18712456024,
+          "validation_score": -36076.56446688299,
+          "every_validation_score": [
+            -36076.56446688299,
+            -36076.56446688299,
+            -36079.95482640856,
+            -37142.53273810765,
+            -36076.56446688299
+          ],
+          "proposals": 14000
+        },
+        "correct_letters_in_permutation": 22,
+        "exact_dictionary_entries_in_planted_map": 4,
+        "total_dictionary_entries": 12,
+        "decoder_dictionary_size": 12,
+        "packet": {
+          "plaintext_bits": 68288,
+          "donor_plaintext_bits": 64992,
+          "ciphertext_zlib_bits": 72432,
+          "ciphertext_dictionary_bits": 81664,
+          "oracle": {
+            "header_bits": 296,
+            "key_bits": 96,
+            "permutation_information_bits": 89,
+            "explicit_dictionary_bits": 1064,
+            "proposed_plain_payload_bits": 64728,
+            "residual_bits": 20216,
+            "residual_tokens": 321,
+            "total_bits": 86400,
+            "exact_replay": true
+          },
+          "blind_proposal": {
+            "header_bits": 296,
+            "key_bits": 96,
+            "permutation_information_bits": 89,
+            "explicit_dictionary_bits": 1048,
+            "proposed_plain_payload_bits": 68328,
+            "residual_bits": 520,
+            "residual_tokens": 9,
+            "total_bits": 70288,
+            "exact_replay": true
+          }
+        },
+        "positive_gate": false,
+        "score": {
+          "tokens": 4000,
+          "coded_tokens": 383,
+          "fallback_tokens": 3617,
+          "exact_words": 0.9,
+          "exact_code_words": 0.7728459530026109,
+          "exact_fallback_words": 0.9134641968482168,
+          "exact_fallback_characters": 0.981078365706631,
+          "code_candidate_ceiling": 1
+        },
+        "frequency_baseline": {
+          "tokens": 4000,
+          "coded_tokens": 383,
+          "fallback_tokens": 3617,
+          "exact_words": 0.89475,
+          "exact_code_words": 0.7180156657963447,
+          "exact_fallback_words": 0.9134641968482168,
+          "exact_fallback_characters": 0.981078365706631,
+          "code_candidate_ceiling": 1
+        },
+        "marked_context_test": {
+          "edges": 722,
+          "greater_tail": 0.025,
+          "mean_bits_gain_per_edge": -1.1754498076842768,
+          "mean_shuffled_gain_per_edge": -1.6713625505750378
+        }
+      },
+      {
+        "work": "machiavelli",
+        "kind": "author",
+        "repertoire": "visconti1446",
+        "seed": 485512,
+        "noisy": false,
+        "code_membership_outside_donor": [
+          "que"
+        ],
+        "spelling_search": {
+          "restart": 0,
+          "fit_score": -125437.15889526116,
+          "validation_score": -32982.52360607553,
+          "every_validation_score": [
+            -32982.52360607553,
+            -32982.52360607553,
+            -32982.52360607553,
+            -32982.52360607553,
+            -32982.52360607553
+          ],
+          "proposals": 14000
+        },
+        "correct_letters_in_permutation": 22,
+        "exact_dictionary_entries_in_planted_map": 4,
+        "total_dictionary_entries": 12,
+        "decoder_dictionary_size": 9,
+        "packet": {
+          "plaintext_bits": 68288,
+          "donor_plaintext_bits": 64992,
+          "ciphertext_zlib_bits": 68576,
+          "ciphertext_dictionary_bits": 74736,
+          "oracle": {
+            "header_bits": 296,
+            "key_bits": 96,
+            "permutation_information_bits": 89,
+            "explicit_dictionary_bits": 1064,
+            "proposed_plain_payload_bits": 64728,
+            "residual_bits": 128,
+            "residual_tokens": 0,
+            "total_bits": 66312,
+            "exact_replay": true
+          },
+          "blind_proposal": {
+            "header_bits": 296,
+            "key_bits": 96,
+            "permutation_information_bits": 89,
+            "explicit_dictionary_bits": 784,
+            "proposed_plain_payload_bits": 64640,
+            "residual_bits": 368,
+            "residual_tokens": 5,
+            "total_bits": 66184,
+            "exact_replay": true
+          }
+        },
+        "positive_gate": false,
+        "score": {
+          "tokens": 4000,
+          "coded_tokens": 383,
+          "fallback_tokens": 3617,
+          "exact_words": 0.97975,
+          "exact_code_words": 0.7963446475195822,
+          "exact_fallback_words": 0.9991705833563727,
+          "exact_fallback_characters": 0.9997767358785443,
+          "code_candidate_ceiling": 1
+        },
+        "frequency_baseline": {
+          "tokens": 4000,
+          "coded_tokens": 383,
+          "fallback_tokens": 3617,
+          "exact_words": 0.9735,
+          "exact_code_words": 0.7310704960835509,
+          "exact_fallback_words": 0.9991705833563727,
+          "exact_fallback_characters": 0.9997767358785443,
+          "code_candidate_ceiling": 1
+        },
+        "marked_context_test": {
+          "edges": 716,
+          "greater_tail": 0.025,
+          "mean_bits_gain_per_edge": -1.0658273703030159,
+          "mean_shuffled_gain_per_edge": -1.6448856470935682
+        }
+      },
+      {
+        "work": "machiavelli",
+        "kind": "author",
+        "repertoire": "visconti1446",
+        "seed": 485512,
+        "noisy": true,
+        "code_membership_outside_donor": [
+          "que"
+        ],
+        "spelling_search": {
+          "restart": 0,
+          "fit_score": -138672.3271442164,
+          "validation_score": -36031.172658639895,
+          "every_validation_score": [
+            -36031.172658639895,
+            -36031.172658639895,
+            -36031.172658639895,
+            -36031.172658639895,
+            -36031.172658639895
+          ],
+          "proposals": 14000
+        },
+        "correct_letters_in_permutation": 21,
+        "exact_dictionary_entries_in_planted_map": 4,
+        "total_dictionary_entries": 12,
+        "decoder_dictionary_size": 12,
+        "packet": {
+          "plaintext_bits": 68288,
+          "donor_plaintext_bits": 64992,
+          "ciphertext_zlib_bits": 72408,
+          "ciphertext_dictionary_bits": 81200,
+          "oracle": {
+            "header_bits": 296,
+            "key_bits": 96,
+            "permutation_information_bits": 89,
+            "explicit_dictionary_bits": 1064,
+            "proposed_plain_payload_bits": 64728,
+            "residual_bits": 21064,
+            "residual_tokens": 328,
+            "total_bits": 87248,
+            "exact_replay": true
+          },
+          "blind_proposal": {
+            "header_bits": 296,
+            "key_bits": 96,
+            "permutation_information_bits": 89,
+            "explicit_dictionary_bits": 1040,
+            "proposed_plain_payload_bits": 68304,
+            "residual_bits": 296,
+            "residual_tokens": 2,
+            "total_bits": 70032,
+            "exact_replay": true
+          }
+        },
+        "positive_gate": false,
+        "score": {
+          "tokens": 4000,
+          "coded_tokens": 383,
+          "fallback_tokens": 3617,
+          "exact_words": 0.89875,
+          "exact_code_words": 0.7859007832898173,
+          "exact_fallback_words": 0.9106994747027923,
+          "exact_fallback_characters": 0.9805202054029918,
+          "code_candidate_ceiling": 1
+        },
+        "frequency_baseline": {
+          "tokens": 4000,
+          "coded_tokens": 383,
+          "fallback_tokens": 3617,
+          "exact_words": 0.89225,
+          "exact_code_words": 0.7180156657963447,
+          "exact_fallback_words": 0.9106994747027923,
+          "exact_fallback_characters": 0.9805202054029918,
+          "code_candidate_ceiling": 1
+        },
+        "marked_context_test": {
+          "edges": 722,
+          "greater_tail": 0.025,
+          "mean_bits_gain_per_edge": -1.232452846274495,
+          "mean_shuffled_gain_per_edge": -1.7137399507099258
+        }
+      },
+      {
+        "work": "machiavelli",
+        "kind": "author",
+        "repertoire": "visconti1447",
+        "seed": 476505,
+        "noisy": false,
+        "code_membership_outside_donor": [
+          "et",
+          "que"
+        ],
+        "spelling_search": {
+          "restart": 0,
+          "fit_score": -126321.12589994137,
+          "validation_score": -32978.51873891132,
+          "every_validation_score": [
+            -32978.51873891132,
+            -32978.51873891132,
+            -32978.51873891132,
+            -32978.51873891132,
+            -32978.51873891132
+          ],
+          "proposals": 14000
+        },
+        "correct_letters_in_permutation": 21,
+        "exact_dictionary_entries_in_planted_map": 3,
+        "total_dictionary_entries": 12,
+        "decoder_dictionary_size": 7,
+        "packet": {
+          "plaintext_bits": 68288,
+          "donor_plaintext_bits": 64992,
+          "ciphertext_zlib_bits": 68880,
+          "ciphertext_dictionary_bits": 74648,
+          "oracle": {
+            "header_bits": 296,
+            "key_bits": 96,
+            "permutation_information_bits": 89,
+            "explicit_dictionary_bits": 952,
+            "proposed_plain_payload_bits": 64728,
+            "residual_bits": 128,
+            "residual_tokens": 0,
+            "total_bits": 66200,
+            "exact_replay": true
+          },
+          "blind_proposal": {
+            "header_bits": 296,
+            "key_bits": 96,
+            "permutation_information_bits": 89,
+            "explicit_dictionary_bits": 576,
+            "proposed_plain_payload_bits": 64824,
+            "residual_bits": 544,
+            "residual_tokens": 11,
+            "total_bits": 66336,
+            "exact_replay": true
+          }
+        },
+        "positive_gate": false,
+        "score": {
+          "tokens": 4000,
+          "coded_tokens": 349,
+          "fallback_tokens": 3651,
+          "exact_words": 0.9715,
+          "exact_code_words": 0.6819484240687679,
+          "exact_fallback_words": 0.9991783073130649,
+          "exact_fallback_characters": 0.9997809539455671,
+          "code_candidate_ceiling": 0.9914040114613181
+        },
+        "frequency_baseline": {
+          "tokens": 4000,
+          "coded_tokens": 349,
+          "fallback_tokens": 3651,
+          "exact_words": 0.94875,
+          "exact_code_words": 0.42120343839541546,
+          "exact_fallback_words": 0.9991783073130649,
+          "exact_fallback_characters": 0.9997809539455671,
+          "code_candidate_ceiling": 0.9914040114613181
+        },
+        "marked_context_test": {
+          "edges": 666,
+          "greater_tail": 0.025,
+          "mean_bits_gain_per_edge": -1.0329656448746198,
+          "mean_shuffled_gain_per_edge": -1.534826522448858
+        }
+      },
+      {
+        "work": "machiavelli",
+        "kind": "author",
+        "repertoire": "visconti1447",
+        "seed": 476505,
+        "noisy": true,
+        "code_membership_outside_donor": [
+          "et",
+          "que"
+        ],
+        "spelling_search": {
+          "restart": 0,
+          "fit_score": -139555.84750868607,
+          "validation_score": -36172.36466671915,
+          "every_validation_score": [
+            -36172.36466671915,
+            -36172.36466671915,
+            -36172.36466671915,
+            -36172.36466671915,
+            -36172.36466671915
+          ],
+          "proposals": 14000
+        },
+        "correct_letters_in_permutation": 21,
+        "exact_dictionary_entries_in_planted_map": 3,
+        "total_dictionary_entries": 12,
+        "decoder_dictionary_size": 12,
+        "packet": {
+          "plaintext_bits": 68288,
+          "donor_plaintext_bits": 64992,
+          "ciphertext_zlib_bits": 72528,
+          "ciphertext_dictionary_bits": 81144,
+          "oracle": {
+            "header_bits": 296,
+            "key_bits": 96,
+            "permutation_information_bits": 89,
+            "explicit_dictionary_bits": 952,
+            "proposed_plain_payload_bits": 64728,
+            "residual_bits": 20264,
+            "residual_tokens": 308,
+            "total_bits": 86336,
+            "exact_replay": true
+          },
+          "blind_proposal": {
+            "header_bits": 296,
+            "key_bits": 96,
+            "permutation_information_bits": 89,
+            "explicit_dictionary_bits": 1008,
+            "proposed_plain_payload_bits": 68512,
+            "residual_bits": 320,
+            "residual_tokens": 5,
+            "total_bits": 70232,
+            "exact_replay": true
+          }
+        },
+        "positive_gate": false,
+        "score": {
+          "tokens": 4000,
+          "coded_tokens": 349,
+          "fallback_tokens": 3651,
+          "exact_words": 0.89525,
+          "exact_code_words": 0.6790830945558739,
+          "exact_fallback_words": 0.9159134483703095,
+          "exact_fallback_characters": 0.9818739389956739,
+          "code_candidate_ceiling": 0.9914040114613181
+        },
+        "frequency_baseline": {
+          "tokens": 4000,
+          "coded_tokens": 349,
+          "fallback_tokens": 3651,
+          "exact_words": 0.87275,
+          "exact_code_words": 0.42120343839541546,
+          "exact_fallback_words": 0.9159134483703095,
+          "exact_fallback_characters": 0.9818739389956739,
+          "code_candidate_ceiling": 0.9914040114613181
+        },
+        "marked_context_test": {
+          "edges": 678,
+          "greater_tail": 0.025,
+          "mean_bits_gain_per_edge": -1.114452324187179,
+          "mean_shuffled_gain_per_edge": -1.6010832580999597
+        }
+      },
+      {
+        "work": "machiavelli",
+        "kind": "author",
+        "repertoire": "visconti1447",
+        "seed": 486505,
+        "noisy": false,
+        "code_membership_outside_donor": [
+          "et",
+          "que"
+        ],
+        "spelling_search": {
+          "restart": 0,
+          "fit_score": -126321.12589994137,
+          "validation_score": -32978.51873891132,
+          "every_validation_score": [
+            -32978.51873891132,
+            -32978.51873891132,
+            -32978.51873891132,
+            -32978.51873891132,
+            -32978.51873891132
+          ],
+          "proposals": 14000
+        },
+        "correct_letters_in_permutation": 21,
+        "exact_dictionary_entries_in_planted_map": 3,
+        "total_dictionary_entries": 12,
+        "decoder_dictionary_size": 7,
+        "packet": {
+          "plaintext_bits": 68288,
+          "donor_plaintext_bits": 64992,
+          "ciphertext_zlib_bits": 68912,
+          "ciphertext_dictionary_bits": 74624,
+          "oracle": {
+            "header_bits": 296,
+            "key_bits": 96,
+            "permutation_information_bits": 89,
+            "explicit_dictionary_bits": 952,
+            "proposed_plain_payload_bits": 64728,
+            "residual_bits": 128,
+            "residual_tokens": 0,
+            "total_bits": 66200,
+            "exact_replay": true
+          },
+          "blind_proposal": {
+            "header_bits": 296,
+            "key_bits": 96,
+            "permutation_information_bits": 89,
+            "explicit_dictionary_bits": 576,
+            "proposed_plain_payload_bits": 64824,
+            "residual_bits": 544,
+            "residual_tokens": 11,
+            "total_bits": 66336,
+            "exact_replay": true
+          }
+        },
+        "positive_gate": false,
+        "score": {
+          "tokens": 4000,
+          "coded_tokens": 349,
+          "fallback_tokens": 3651,
+          "exact_words": 0.9715,
+          "exact_code_words": 0.6819484240687679,
+          "exact_fallback_words": 0.9991783073130649,
+          "exact_fallback_characters": 0.9997809539455671,
+          "code_candidate_ceiling": 0.9914040114613181
+        },
+        "frequency_baseline": {
+          "tokens": 4000,
+          "coded_tokens": 349,
+          "fallback_tokens": 3651,
+          "exact_words": 0.94875,
+          "exact_code_words": 0.42120343839541546,
+          "exact_fallback_words": 0.9991783073130649,
+          "exact_fallback_characters": 0.9997809539455671,
+          "code_candidate_ceiling": 0.9914040114613181
+        },
+        "marked_context_test": {
+          "edges": 666,
+          "greater_tail": 0.025,
+          "mean_bits_gain_per_edge": -1.0329656448746198,
+          "mean_shuffled_gain_per_edge": -1.5386888510193668
+        }
+      },
+      {
+        "work": "machiavelli",
+        "kind": "author",
+        "repertoire": "visconti1447",
+        "seed": 486505,
+        "noisy": true,
+        "code_membership_outside_donor": [
+          "et",
+          "que"
+        ],
+        "spelling_search": {
+          "restart": 0,
+          "fit_score": -139518.06456053443,
+          "validation_score": -36665.61843296147,
+          "every_validation_score": [
+            -36665.61843296147,
+            -36666.29650486658,
+            -36665.61843296147,
+            -36665.61843296147,
+            -36665.61843296147
+          ],
+          "proposals": 14000
+        },
+        "correct_letters_in_permutation": 24,
+        "exact_dictionary_entries_in_planted_map": 5,
+        "total_dictionary_entries": 12,
+        "decoder_dictionary_size": 10,
+        "packet": {
+          "plaintext_bits": 68288,
+          "donor_plaintext_bits": 64992,
+          "ciphertext_zlib_bits": 73520,
+          "ciphertext_dictionary_bits": 82664,
+          "oracle": {
+            "header_bits": 296,
+            "key_bits": 96,
+            "permutation_information_bits": 89,
+            "explicit_dictionary_bits": 952,
+            "proposed_plain_payload_bits": 64728,
+            "residual_bits": 22512,
+            "residual_tokens": 360,
+            "total_bits": 88584,
+            "exact_replay": true
+          },
+          "blind_proposal": {
+            "header_bits": 296,
+            "key_bits": 96,
+            "permutation_information_bits": 89,
+            "explicit_dictionary_bits": 840,
+            "proposed_plain_payload_bits": 68992,
+            "residual_bits": 648,
+            "residual_tokens": 12,
+            "total_bits": 70872,
+            "exact_replay": true
+          }
+        },
+        "positive_gate": false,
+        "score": {
+          "tokens": 4000,
+          "coded_tokens": 349,
+          "fallback_tokens": 3651,
+          "exact_words": 0.89725,
+          "exact_code_words": 0.8252148997134671,
+          "exact_fallback_words": 0.9041358531909066,
+          "exact_fallback_characters": 0.9801763320738185,
+          "code_candidate_ceiling": 0.9914040114613181
+        },
+        "frequency_baseline": {
+          "tokens": 4000,
+          "coded_tokens": 349,
+          "fallback_tokens": 3651,
+          "exact_words": 0.861,
+          "exact_code_words": 0.40974212034383956,
+          "exact_fallback_words": 0.9041358531909066,
+          "exact_fallback_characters": 0.9801763320738185,
+          "code_candidate_ceiling": 0.9914040114613181
+        },
+        "marked_context_test": {
+          "edges": 676,
+          "greater_tail": 0.025,
+          "mean_bits_gain_per_edge": -1.0773340016660098,
+          "mean_shuffled_gain_per_edge": -1.586877863323801
+        }
+      },
+      {
+        "work": "machiavelli",
+        "kind": "author",
+        "repertoire": "donor_closed",
+        "seed": 800352,
+        "noisy": false,
+        "code_membership_outside_donor": [],
+        "spelling_search": {
+          "restart": 0,
+          "fit_score": -127059.04765694153,
+          "validation_score": -33320.81412028185,
+          "every_validation_score": [
+            -33320.81412028185,
+            -33320.81412028185,
+            -33320.81412028185,
+            -33320.81412028185,
+            -33320.81412028185
+          ],
+          "proposals": 14000
+        },
+        "correct_letters_in_permutation": 22,
+        "exact_dictionary_entries_in_planted_map": 5,
+        "total_dictionary_entries": 12,
+        "decoder_dictionary_size": 12,
+        "packet": {
+          "plaintext_bits": 68288,
+          "donor_plaintext_bits": 64992,
+          "ciphertext_zlib_bits": 69032,
+          "ciphertext_dictionary_bits": 74968,
+          "oracle": {
+            "header_bits": 296,
+            "key_bits": 96,
+            "permutation_information_bits": 89,
+            "explicit_dictionary_bits": 928,
+            "proposed_plain_payload_bits": 64728,
+            "residual_bits": 128,
+            "residual_tokens": 0,
+            "total_bits": 66176,
+            "exact_replay": true
+          },
+          "blind_proposal": {
+            "header_bits": 296,
+            "key_bits": 96,
+            "permutation_information_bits": 89,
+            "explicit_dictionary_bits": 968,
+            "proposed_plain_payload_bits": 64896,
+            "residual_bits": 432,
+            "residual_tokens": 8,
+            "total_bits": 66688,
+            "exact_replay": true
+          }
+        },
+        "positive_gate": false,
+        "score": {
+          "tokens": 4000,
+          "coded_tokens": 252,
+          "fallback_tokens": 3748,
+          "exact_words": 0.9735,
+          "exact_code_words": 0.5912698412698413,
+          "exact_fallback_words": 0.9991995731056563,
+          "exact_fallback_characters": 0.9997845872152512,
+          "code_candidate_ceiling": 1
+        },
+        "frequency_baseline": {
+          "tokens": 4000,
+          "coded_tokens": 252,
+          "fallback_tokens": 3748,
+          "exact_words": 0.9605,
+          "exact_code_words": 0.38492063492063494,
+          "exact_fallback_words": 0.9991995731056563,
+          "exact_fallback_characters": 0.9997845872152512,
+          "code_candidate_ceiling": 1
+        },
+        "marked_context_test": {
+          "edges": 473,
+          "greater_tail": 0.025,
+          "mean_bits_gain_per_edge": -1.1675453079121971,
+          "mean_shuffled_gain_per_edge": -1.8628705802675811
+        }
+      },
+      {
+        "work": "machiavelli",
+        "kind": "author",
+        "repertoire": "donor_closed",
+        "seed": 800352,
+        "noisy": true,
+        "code_membership_outside_donor": [],
+        "spelling_search": {
+          "restart": 0,
+          "fit_score": -139331.54263172002,
+          "validation_score": -36763.88313336521,
+          "every_validation_score": [
+            -36763.88313336521,
+            -36763.88313336521,
+            -36763.88313336521,
+            -36763.88313336521,
+            -36763.88313336521
+          ],
+          "proposals": 14000
+        },
+        "correct_letters_in_permutation": 21,
+        "exact_dictionary_entries_in_planted_map": 5,
+        "total_dictionary_entries": 12,
+        "decoder_dictionary_size": 12,
+        "packet": {
+          "plaintext_bits": 68288,
+          "donor_plaintext_bits": 64992,
+          "ciphertext_zlib_bits": 73128,
+          "ciphertext_dictionary_bits": 82088,
+          "oracle": {
+            "header_bits": 296,
+            "key_bits": 96,
+            "permutation_information_bits": 89,
+            "explicit_dictionary_bits": 928,
+            "proposed_plain_payload_bits": 64728,
+            "residual_bits": 21688,
+            "residual_tokens": 338,
+            "total_bits": 87736,
+            "exact_replay": true
+          },
+          "blind_proposal": {
+            "header_bits": 296,
+            "key_bits": 96,
+            "permutation_information_bits": 89,
+            "explicit_dictionary_bits": 984,
+            "proposed_plain_payload_bits": 68728,
+            "residual_bits": 320,
+            "residual_tokens": 5,
+            "total_bits": 70424,
+            "exact_replay": true
+          }
+        },
+        "positive_gate": false,
+        "score": {
+          "tokens": 4000,
+          "coded_tokens": 252,
+          "fallback_tokens": 3748,
+          "exact_words": 0.89025,
+          "exact_code_words": 0.5833333333333334,
+          "exact_fallback_words": 0.9108858057630737,
+          "exact_fallback_characters": 0.9808821153535462,
+          "code_candidate_ceiling": 1
+        },
+        "frequency_baseline": {
+          "tokens": 4000,
+          "coded_tokens": 252,
+          "fallback_tokens": 3748,
+          "exact_words": 0.8745,
+          "exact_code_words": 0.3333333333333333,
+          "exact_fallback_words": 0.9108858057630737,
+          "exact_fallback_characters": 0.9808821153535462,
+          "code_candidate_ceiling": 1
+        },
+        "marked_context_test": {
+          "edges": 473,
+          "greater_tail": 0.025,
+          "mean_bits_gain_per_edge": -1.2628275044963948,
+          "mean_shuffled_gain_per_edge": -1.9745072627868177
+        }
+      },
+      {
+        "work": "machiavelli",
+        "kind": "no_static_code",
+        "repertoire": "visconti1446",
+        "seed": 800371,
+        "noisy": false,
+        "code_membership_outside_donor": [
+          "que"
+        ],
+        "spelling_search": {
+          "restart": 0,
+          "fit_score": -125437.15889526116,
+          "validation_score": -32982.52360607553,
+          "every_validation_score": [
+            -32982.52360607553,
+            -32982.52360607553,
+            -32982.52360607553,
+            -32982.52360607553,
+            -32982.52360607553
+          ],
+          "proposals": 14000
+        },
+        "correct_letters_in_permutation": 26,
+        "exact_dictionary_entries_in_planted_map": 2,
+        "total_dictionary_entries": 12,
+        "decoder_dictionary_size": 9,
+        "packet": {
+          "plaintext_bits": 68288,
+          "donor_plaintext_bits": 64992,
+          "ciphertext_zlib_bits": 69080,
+          "ciphertext_dictionary_bits": 75056,
+          "oracle": {
+            "header_bits": 296,
+            "key_bits": 96,
+            "permutation_information_bits": 89,
+            "explicit_dictionary_bits": 1064,
+            "proposed_plain_payload_bits": 64728,
+            "residual_bits": 7016,
+            "residual_tokens": 296,
+            "total_bits": 73200,
+            "exact_replay": true
+          },
+          "blind_proposal": {
+            "header_bits": 296,
+            "key_bits": 96,
+            "permutation_information_bits": 89,
+            "explicit_dictionary_bits": 784,
+            "proposed_plain_payload_bits": 65016,
+            "residual_bits": 720,
+            "residual_tokens": 14,
+            "total_bits": 66912,
+            "exact_replay": true
+          }
+        },
+        "positive_gate": false,
+        "score": {
+          "tokens": 4000,
+          "coded_tokens": 383,
+          "fallback_tokens": 3617,
+          "exact_words": 0.9205,
+          "exact_code_words": 0.16971279373368145,
+          "exact_fallback_words": 1,
+          "exact_fallback_characters": 1.0,
+          "code_candidate_ceiling": 1
+        },
+        "frequency_baseline": {
+          "tokens": 4000,
+          "coded_tokens": 383,
+          "fallback_tokens": 3617,
+          "exact_words": 0.924,
+          "exact_code_words": 0.206266318537859,
+          "exact_fallback_words": 1,
+          "exact_fallback_characters": 1.0,
+          "code_candidate_ceiling": 1
+        },
+        "marked_context_test": {
+          "edges": 718,
+          "greater_tail": 0.975,
+          "mean_bits_gain_per_edge": -1.6282413099310318,
+          "mean_shuffled_gain_per_edge": -1.5129169180964839
+        }
+      },
+      {
+        "work": "machiavelli",
+        "kind": "word_shuffle",
+        "repertoire": "visconti1446",
+        "seed": 800375,
+        "noisy": false,
+        "code_membership_outside_donor": [
+          "que"
+        ],
+        "spelling_search": {
+          "restart": 4,
+          "fit_score": -127133.14122960254,
+          "validation_score": -32016.740025886174,
+          "every_validation_score": [
+            -32017.41809779129,
+            -32017.41809779129,
+            -32017.41809779129,
+            -32017.41809779129,
+            -32016.740025886174
+          ],
+          "proposals": 14000
+        },
+        "correct_letters_in_permutation": 22,
+        "exact_dictionary_entries_in_planted_map": 2,
+        "total_dictionary_entries": 12,
+        "decoder_dictionary_size": 10,
+        "packet": {
+          "plaintext_bits": 73328,
+          "donor_plaintext_bits": 69608,
+          "ciphertext_zlib_bits": 73896,
+          "ciphertext_dictionary_bits": 78776,
+          "oracle": {
+            "header_bits": 296,
+            "key_bits": 96,
+            "permutation_information_bits": 89,
+            "explicit_dictionary_bits": 1064,
+            "proposed_plain_payload_bits": 69344,
+            "residual_bits": 128,
+            "residual_tokens": 0,
+            "total_bits": 70928,
+            "exact_replay": true
+          },
+          "blind_proposal": {
+            "header_bits": 296,
+            "key_bits": 96,
+            "permutation_information_bits": 89,
+            "explicit_dictionary_bits": 856,
+            "proposed_plain_payload_bits": 69248,
+            "residual_bits": 208,
+            "residual_tokens": 1,
+            "total_bits": 70704,
+            "exact_replay": true
+          }
+        },
+        "positive_gate": false,
+        "score": {
+          "tokens": 4000,
+          "coded_tokens": 389,
+          "fallback_tokens": 3611,
+          "exact_words": 0.946,
+          "exact_code_words": 0.44473007712082263,
+          "exact_fallback_words": 1,
+          "exact_fallback_characters": 1.0,
+          "code_candidate_ceiling": 1
+        },
+        "frequency_baseline": {
+          "tokens": 4000,
+          "coded_tokens": 389,
+          "fallback_tokens": 3611,
+          "exact_words": 0.9715,
+          "exact_code_words": 0.7069408740359897,
+          "exact_fallback_words": 1,
+          "exact_fallback_characters": 1.0,
+          "code_candidate_ceiling": 1
+        },
+        "marked_context_test": {
+          "edges": 682,
+          "greater_tail": 0.325,
+          "mean_bits_gain_per_edge": -2.1343205303449055,
+          "mean_shuffled_gain_per_edge": -2.156620367495797
+        }
+      },
+      {
+        "work": "machiavelli",
+        "kind": "iid",
+        "repertoire": "visconti1446",
+        "seed": 800522,
+        "noisy": false,
+        "code_membership_outside_donor": [
+          "que"
+        ],
+        "spelling_search": {
+          "restart": 0,
+          "fit_score": -100016.40805183923,
+          "validation_score": -25165.488481357326,
+          "every_validation_score": [
+            -25165.488481357326,
+            -25165.488481357326,
+            -25165.488481357326,
+            -25165.488481357326,
+            -25165.488481357326
+          ],
+          "proposals": 14000
+        },
+        "correct_letters_in_permutation": 24,
+        "exact_dictionary_entries_in_planted_map": 2,
+        "total_dictionary_entries": 12,
+        "decoder_dictionary_size": 12,
+        "packet": {
+          "plaintext_bits": 69120,
+          "donor_plaintext_bits": 62856,
+          "ciphertext_zlib_bits": 69800,
+          "ciphertext_dictionary_bits": 80072,
+          "oracle": {
+            "header_bits": 296,
+            "key_bits": 96,
+            "permutation_information_bits": 89,
+            "explicit_dictionary_bits": 1064,
+            "proposed_plain_payload_bits": 62592,
+            "residual_bits": 128,
+            "residual_tokens": 0,
+            "total_bits": 64176,
+            "exact_replay": true
+          },
+          "blind_proposal": {
+            "header_bits": 296,
+            "key_bits": 96,
+            "permutation_information_bits": 89,
+            "explicit_dictionary_bits": 1096,
+            "proposed_plain_payload_bits": 62760,
+            "residual_bits": 864,
+            "residual_tokens": 15,
+            "total_bits": 65112,
+            "exact_replay": true
+          }
+        },
+        "positive_gate": false,
+        "score": {
+          "tokens": 4000,
+          "coded_tokens": 333,
+          "fallback_tokens": 3667,
+          "exact_words": 0.965,
+          "exact_code_words": 0.5795795795795796,
+          "exact_fallback_words": 1,
+          "exact_fallback_characters": 1.0,
+          "code_candidate_ceiling": 1
+        },
+        "frequency_baseline": {
+          "tokens": 4000,
+          "coded_tokens": 333,
+          "fallback_tokens": 3667,
+          "exact_words": 0.99775,
+          "exact_code_words": 0.972972972972973,
+          "exact_fallback_words": 1,
+          "exact_fallback_characters": 1.0,
+          "code_candidate_ceiling": 1
+        },
+        "marked_context_test": {
+          "edges": 624,
+          "greater_tail": 0.5,
+          "mean_bits_gain_per_edge": -1.944868505154622,
+          "mean_shuffled_gain_per_edge": -1.948756724078732
+        }
+      },
+      {
+        "work": "machiavelli",
+        "kind": "markov",
+        "repertoire": "visconti1446",
+        "seed": 800523,
+        "noisy": false,
+        "code_membership_outside_donor": [
+          "que"
+        ],
+        "spelling_search": {
+          "restart": 0,
+          "fit_score": -100497.04640017213,
+          "validation_score": -25146.914734915998,
+          "every_validation_score": [
+            -25146.914734915998,
+            -25146.914734915998,
+            -25146.914734915998,
+            -25146.914734915998,
+            -25146.914734915998
+          ],
+          "proposals": 14000
+        },
+        "correct_letters_in_permutation": 22,
+        "exact_dictionary_entries_in_planted_map": 11,
+        "total_dictionary_entries": 12,
+        "decoder_dictionary_size": 11,
+        "packet": {
+          "plaintext_bits": 68008,
+          "donor_plaintext_bits": 58712,
+          "ciphertext_zlib_bits": 68744,
+          "ciphertext_dictionary_bits": 79592,
+          "oracle": {
+            "header_bits": 296,
+            "key_bits": 96,
+            "permutation_information_bits": 89,
+            "explicit_dictionary_bits": 1064,
+            "proposed_plain_payload_bits": 58448,
+            "residual_bits": 128,
+            "residual_tokens": 0,
+            "total_bits": 60032,
+            "exact_replay": true
+          },
+          "blind_proposal": {
+            "header_bits": 296,
+            "key_bits": 96,
+            "permutation_information_bits": 89,
+            "explicit_dictionary_bits": 984,
+            "proposed_plain_payload_bits": 58448,
+            "residual_bits": 128,
+            "residual_tokens": 0,
+            "total_bits": 59952,
+            "exact_replay": true
+          }
+        },
+        "positive_gate": true,
+        "score": {
+          "tokens": 4000,
+          "coded_tokens": 349,
+          "fallback_tokens": 3651,
+          "exact_words": 1,
+          "exact_code_words": 1,
+          "exact_fallback_words": 1,
+          "exact_fallback_characters": 1.0,
+          "code_candidate_ceiling": 1
+        },
+        "frequency_baseline": {
+          "tokens": 4000,
+          "coded_tokens": 349,
+          "fallback_tokens": 3651,
+          "exact_words": 0.96375,
+          "exact_code_words": 0.5845272206303725,
+          "exact_fallback_words": 1,
+          "exact_fallback_characters": 1.0,
+          "code_candidate_ceiling": 1
+        },
+        "marked_context_test": {
+          "edges": 648,
+          "greater_tail": 0.025,
+          "mean_bits_gain_per_edge": 1.790954311522905,
+          "mean_shuffled_gain_per_edge": -0.7543085898882367
+        }
+      },
+      {
+        "work": "villani",
+        "kind": "author",
+        "repertoire": "visconti1446",
+        "seed": 479903,
+        "noisy": false,
+        "code_membership_outside_donor": [
+          "que"
+        ],
+        "spelling_search": {
+          "restart": 0,
+          "fit_score": -128186.67615596831,
+          "validation_score": -31427.983597642728,
+          "every_validation_score": [
+            -31427.983597642728,
+            -31427.983597642728,
+            -31427.983597642728,
+            -31427.983597642728,
+            -31427.983597642728
+          ],
+          "proposals": 14000
+        },
+        "correct_letters_in_permutation": 22,
+        "exact_dictionary_entries_in_planted_map": 3,
+        "total_dictionary_entries": 12,
+        "decoder_dictionary_size": 12,
+        "packet": {
+          "plaintext_bits": 63920,
+          "donor_plaintext_bits": 60224,
+          "ciphertext_zlib_bits": 64408,
+          "ciphertext_dictionary_bits": 69896,
+          "oracle": {
+            "header_bits": 296,
+            "key_bits": 96,
+            "permutation_information_bits": 89,
+            "explicit_dictionary_bits": 1064,
+            "proposed_plain_payload_bits": 59960,
+            "residual_bits": 128,
+            "residual_tokens": 0,
+            "total_bits": 61544,
+            "exact_replay": true
+          },
+          "blind_proposal": {
+            "header_bits": 296,
+            "key_bits": 96,
+            "permutation_information_bits": 89,
+            "explicit_dictionary_bits": 1064,
+            "proposed_plain_payload_bits": 60192,
+            "residual_bits": 280,
+            "residual_tokens": 3,
+            "total_bits": 61928,
+            "exact_replay": true
+          }
+        },
+        "positive_gate": false,
+        "score": {
+          "tokens": 4000,
+          "coded_tokens": 304,
+          "fallback_tokens": 3696,
+          "exact_words": 0.9515,
+          "exact_code_words": 0.3618421052631579,
+          "exact_fallback_words": 1,
+          "exact_fallback_characters": 1.0,
+          "code_candidate_ceiling": 0.9901315789473685
+        },
+        "frequency_baseline": {
+          "tokens": 4000,
+          "coded_tokens": 304,
+          "fallback_tokens": 3696,
+          "exact_words": 0.924,
+          "exact_code_words": 0,
+          "exact_fallback_words": 1,
+          "exact_fallback_characters": 1.0,
+          "code_candidate_ceiling": 0.9901315789473685
+        },
+        "marked_context_test": {
+          "edges": 565,
+          "greater_tail": 0.025,
+          "mean_bits_gain_per_edge": -0.8706381741564538,
+          "mean_shuffled_gain_per_edge": -1.437122722468451
+        }
+      },
+      {
+        "work": "villani",
+        "kind": "author",
+        "repertoire": "visconti1446",
+        "seed": 479903,
+        "noisy": true,
+        "code_membership_outside_donor": [
+          "que"
+        ],
+        "spelling_search": {
+          "restart": 0,
+          "fit_score": -140596.93879622832,
+          "validation_score": -34634.20760487812,
+          "every_validation_score": [
+            -34634.20760487812,
+            -34634.20760487812,
+            -34634.20760487812,
+            -34634.20760487812,
+            -34634.20760487812
+          ],
+          "proposals": 14000
+        },
+        "correct_letters_in_permutation": 22,
+        "exact_dictionary_entries_in_planted_map": 3,
+        "total_dictionary_entries": 12,
+        "decoder_dictionary_size": 12,
+        "packet": {
+          "plaintext_bits": 63920,
+          "donor_plaintext_bits": 60224,
+          "ciphertext_zlib_bits": 68464,
+          "ciphertext_dictionary_bits": 76864,
+          "oracle": {
+            "header_bits": 296,
+            "key_bits": 96,
+            "permutation_information_bits": 89,
+            "explicit_dictionary_bits": 1064,
+            "proposed_plain_payload_bits": 59960,
+            "residual_bits": 21144,
+            "residual_tokens": 337,
+            "total_bits": 82560,
+            "exact_replay": true
+          },
+          "blind_proposal": {
+            "header_bits": 296,
+            "key_bits": 96,
+            "permutation_information_bits": 89,
+            "explicit_dictionary_bits": 1056,
+            "proposed_plain_payload_bits": 64504,
+            "residual_bits": 456,
+            "residual_tokens": 7,
+            "total_bits": 66408,
+            "exact_replay": true
+          }
+        },
+        "positive_gate": false,
+        "score": {
+          "tokens": 4000,
+          "coded_tokens": 304,
+          "fallback_tokens": 3696,
+          "exact_words": 0.868,
+          "exact_code_words": 0.3519736842105263,
+          "exact_fallback_words": 0.9104437229437229,
+          "exact_fallback_characters": 0.9799931208438432,
+          "code_candidate_ceiling": 0.9901315789473685
+        },
+        "frequency_baseline": {
+          "tokens": 4000,
+          "coded_tokens": 304,
+          "fallback_tokens": 3696,
+          "exact_words": 0.84125,
+          "exact_code_words": 0,
+          "exact_fallback_words": 0.9104437229437229,
+          "exact_fallback_characters": 0.9799931208438432,
+          "code_candidate_ceiling": 0.9901315789473685
+        },
+        "marked_context_test": {
+          "edges": 565,
+          "greater_tail": 0.025,
+          "mean_bits_gain_per_edge": -0.9999763865244576,
+          "mean_shuffled_gain_per_edge": -1.4507422831447598
+        }
+      },
+      {
+        "work": "villani",
+        "kind": "author",
+        "repertoire": "visconti1446",
+        "seed": 489903,
+        "noisy": false,
+        "code_membership_outside_donor": [
+          "que"
+        ],
+        "spelling_search": {
+          "restart": 0,
+          "fit_score": -128186.67615596831,
+          "validation_score": -31427.983597642728,
+          "every_validation_score": [
+            -31427.983597642728,
+            -31427.983597642728,
+            -31427.983597642728,
+            -31427.983597642728,
+            -31427.983597642728
+          ],
+          "proposals": 14000
+        },
+        "correct_letters_in_permutation": 24,
+        "exact_dictionary_entries_in_planted_map": 3,
+        "total_dictionary_entries": 12,
+        "decoder_dictionary_size": 12,
+        "packet": {
+          "plaintext_bits": 63920,
+          "donor_plaintext_bits": 60224,
+          "ciphertext_zlib_bits": 64392,
+          "ciphertext_dictionary_bits": 69704,
+          "oracle": {
+            "header_bits": 296,
+            "key_bits": 96,
+            "permutation_information_bits": 89,
+            "explicit_dictionary_bits": 1064,
+            "proposed_plain_payload_bits": 59960,
+            "residual_bits": 128,
+            "residual_tokens": 0,
+            "total_bits": 61544,
+            "exact_replay": true
+          },
+          "blind_proposal": {
+            "header_bits": 296,
+            "key_bits": 96,
+            "permutation_information_bits": 89,
+            "explicit_dictionary_bits": 1064,
+            "proposed_plain_payload_bits": 60192,
+            "residual_bits": 280,
+            "residual_tokens": 3,
+            "total_bits": 61928,
+            "exact_replay": true
+          }
+        },
+        "positive_gate": false,
+        "score": {
+          "tokens": 4000,
+          "coded_tokens": 304,
+          "fallback_tokens": 3696,
+          "exact_words": 0.9515,
+          "exact_code_words": 0.3618421052631579,
+          "exact_fallback_words": 1,
+          "exact_fallback_characters": 1.0,
+          "code_candidate_ceiling": 0.9901315789473685
+        },
+        "frequency_baseline": {
+          "tokens": 4000,
+          "coded_tokens": 304,
+          "fallback_tokens": 3696,
+          "exact_words": 0.924,
+          "exact_code_words": 0,
+          "exact_fallback_words": 1,
+          "exact_fallback_characters": 1.0,
+          "code_candidate_ceiling": 0.9901315789473685
+        },
+        "marked_context_test": {
+          "edges": 565,
+          "greater_tail": 0.025,
+          "mean_bits_gain_per_edge": -0.8706381741564538,
+          "mean_shuffled_gain_per_edge": -1.4312092007320114
+        }
+      },
+      {
+        "work": "villani",
+        "kind": "author",
+        "repertoire": "visconti1446",
+        "seed": 489903,
+        "noisy": true,
+        "code_membership_outside_donor": [
+          "que"
+        ],
+        "spelling_search": {
+          "restart": 0,
+          "fit_score": -140237.60408913973,
+          "validation_score": -35091.86429808467,
+          "every_validation_score": [
+            -35091.86429808467,
+            -35091.86429808467,
+            -35091.86429808467,
+            -35091.86429808467,
+            -35091.86429808467
+          ],
+          "proposals": 14000
+        },
+        "correct_letters_in_permutation": 21,
+        "exact_dictionary_entries_in_planted_map": 2,
+        "total_dictionary_entries": 12,
+        "decoder_dictionary_size": 12,
+        "packet": {
+          "plaintext_bits": 63920,
+          "donor_plaintext_bits": 60224,
+          "ciphertext_zlib_bits": 68456,
+          "ciphertext_dictionary_bits": 76968,
+          "oracle": {
+            "header_bits": 296,
+            "key_bits": 96,
+            "permutation_information_bits": 89,
+            "explicit_dictionary_bits": 1064,
+            "proposed_plain_payload_bits": 59960,
+            "residual_bits": 20448,
+            "residual_tokens": 327,
+            "total_bits": 81864,
+            "exact_replay": true
+          },
+          "blind_proposal": {
+            "header_bits": 296,
+            "key_bits": 96,
+            "permutation_information_bits": 89,
+            "explicit_dictionary_bits": 1064,
+            "proposed_plain_payload_bits": 64296,
+            "residual_bits": 128,
+            "residual_tokens": 0,
+            "total_bits": 65880,
+            "exact_replay": true
+          }
+        },
+        "positive_gate": false,
+        "score": {
+          "tokens": 4000,
+          "coded_tokens": 304,
+          "fallback_tokens": 3696,
+          "exact_words": 0.87125,
+          "exact_code_words": 0.35526315789473684,
+          "exact_fallback_words": 0.9136904761904762,
+          "exact_fallback_characters": 0.9807956890621418,
+          "code_candidate_ceiling": 0.9901315789473685
+        },
+        "frequency_baseline": {
+          "tokens": 4000,
+          "coded_tokens": 304,
+          "fallback_tokens": 3696,
+          "exact_words": 0.84425,
+          "exact_code_words": 0,
+          "exact_fallback_words": 0.9136904761904762,
+          "exact_fallback_characters": 0.9807956890621418,
+          "code_candidate_ceiling": 0.9901315789473685
+        },
+        "marked_context_test": {
+          "edges": 565,
+          "greater_tail": 0.025,
+          "mean_bits_gain_per_edge": -0.8919019349864542,
+          "mean_shuffled_gain_per_edge": -1.4300164737387466
+        }
+      },
+      {
+        "work": "villani",
+        "kind": "author",
+        "repertoire": "visconti1447",
+        "seed": 480896,
+        "noisy": false,
+        "code_membership_outside_donor": [
+          "et",
+          "que"
+        ],
+        "spelling_search": {
+          "restart": 0,
+          "fit_score": -126937.95957954225,
+          "validation_score": -31336.3075888799,
+          "every_validation_score": [
+            -31336.3075888799,
+            -31336.3075888799,
+            -31336.3075888799,
+            -31336.3075888799,
+            -31336.3075888799
+          ],
+          "proposals": 14000
+        },
+        "correct_letters_in_permutation": 24,
+        "exact_dictionary_entries_in_planted_map": 7,
+        "total_dictionary_entries": 12,
+        "decoder_dictionary_size": 12,
+        "packet": {
+          "plaintext_bits": 63920,
+          "donor_plaintext_bits": 60224,
+          "ciphertext_zlib_bits": 64680,
+          "ciphertext_dictionary_bits": 69888,
+          "oracle": {
+            "header_bits": 296,
+            "key_bits": 96,
+            "permutation_information_bits": 89,
+            "explicit_dictionary_bits": 952,
+            "proposed_plain_payload_bits": 59960,
+            "residual_bits": 128,
+            "residual_tokens": 0,
+            "total_bits": 61432,
+            "exact_replay": true
+          },
+          "blind_proposal": {
+            "header_bits": 296,
+            "key_bits": 96,
+            "permutation_information_bits": 89,
+            "explicit_dictionary_bits": 984,
+            "proposed_plain_payload_bits": 60120,
+            "residual_bits": 272,
+            "residual_tokens": 3,
+            "total_bits": 61768,
+            "exact_replay": true
+          }
+        },
+        "positive_gate": false,
+        "score": {
+          "tokens": 4000,
+          "coded_tokens": 330,
+          "fallback_tokens": 3670,
+          "exact_words": 0.96775,
+          "exact_code_words": 0.6090909090909091,
+          "exact_fallback_words": 1,
+          "exact_fallback_characters": 1.0,
+          "code_candidate_ceiling": 0.990909090909091
+        },
+        "frequency_baseline": {
+          "tokens": 4000,
+          "coded_tokens": 330,
+          "fallback_tokens": 3670,
+          "exact_words": 0.947,
+          "exact_code_words": 0.3575757575757576,
+          "exact_fallback_words": 1,
+          "exact_fallback_characters": 1.0,
+          "code_candidate_ceiling": 0.990909090909091
+        },
+        "marked_context_test": {
+          "edges": 635,
+          "greater_tail": 0.025,
+          "mean_bits_gain_per_edge": -0.8387645282486883,
+          "mean_shuffled_gain_per_edge": -1.5013466416064833
+        }
+      },
+      {
+        "work": "villani",
+        "kind": "author",
+        "repertoire": "visconti1447",
+        "seed": 480896,
+        "noisy": true,
+        "code_membership_outside_donor": [
+          "et",
+          "que"
+        ],
+        "spelling_search": {
+          "restart": 0,
+          "fit_score": -139770.31709846354,
+          "validation_score": -34692.49500566288,
+          "every_validation_score": [
+            -34692.49500566288,
+            -34692.49500566288,
+            -34692.49500566288,
+            -34692.49500566288,
+            -34692.49500566288
+          ],
+          "proposals": 14000
+        },
+        "correct_letters_in_permutation": 23,
+        "exact_dictionary_entries_in_planted_map": 7,
+        "total_dictionary_entries": 12,
+        "decoder_dictionary_size": 12,
+        "packet": {
+          "plaintext_bits": 63920,
+          "donor_plaintext_bits": 60224,
+          "ciphertext_zlib_bits": 68800,
+          "ciphertext_dictionary_bits": 77480,
+          "oracle": {
+            "header_bits": 296,
+            "key_bits": 96,
+            "permutation_information_bits": 89,
+            "explicit_dictionary_bits": 952,
+            "proposed_plain_payload_bits": 59960,
+            "residual_bits": 22064,
+            "residual_tokens": 348,
+            "total_bits": 83368,
+            "exact_replay": true
+          },
+          "blind_proposal": {
+            "header_bits": 296,
+            "key_bits": 96,
+            "permutation_information_bits": 89,
+            "explicit_dictionary_bits": 984,
+            "proposed_plain_payload_bits": 64544,
+            "residual_bits": 272,
+            "residual_tokens": 3,
+            "total_bits": 66192,
+            "exact_replay": true
+          }
+        },
+        "positive_gate": false,
+        "score": {
+          "tokens": 4000,
+          "coded_tokens": 330,
+          "fallback_tokens": 3670,
+          "exact_words": 0.88125,
+          "exact_code_words": 0.6,
+          "exact_fallback_words": 0.9065395095367847,
+          "exact_fallback_characters": 0.979803181142007,
+          "code_candidate_ceiling": 0.990909090909091
+        },
+        "frequency_baseline": {
+          "tokens": 4000,
+          "coded_tokens": 330,
+          "fallback_tokens": 3670,
+          "exact_words": 0.8615,
+          "exact_code_words": 0.3606060606060606,
+          "exact_fallback_words": 0.9065395095367847,
+          "exact_fallback_characters": 0.979803181142007,
+          "code_candidate_ceiling": 0.990909090909091
+        },
+        "marked_context_test": {
+          "edges": 635,
+          "greater_tail": 0.025,
+          "mean_bits_gain_per_edge": -0.9509939387375987,
+          "mean_shuffled_gain_per_edge": -1.520997561708067
+        }
+      },
+      {
+        "work": "villani",
+        "kind": "author",
+        "repertoire": "visconti1447",
+        "seed": 490896,
+        "noisy": false,
+        "code_membership_outside_donor": [
+          "et",
+          "que"
+        ],
+        "spelling_search": {
+          "restart": 0,
+          "fit_score": -126937.95957954225,
+          "validation_score": -31336.3075888799,
+          "every_validation_score": [
+            -31336.3075888799,
+            -31336.3075888799,
+            -31336.3075888799,
+            -31336.3075888799,
+            -31336.3075888799
+          ],
+          "proposals": 14000
+        },
+        "correct_letters_in_permutation": 22,
+        "exact_dictionary_entries_in_planted_map": 7,
+        "total_dictionary_entries": 12,
+        "decoder_dictionary_size": 12,
+        "packet": {
+          "plaintext_bits": 63920,
+          "donor_plaintext_bits": 60224,
+          "ciphertext_zlib_bits": 64648,
+          "ciphertext_dictionary_bits": 69856,
+          "oracle": {
+            "header_bits": 296,
+            "key_bits": 96,
+            "permutation_information_bits": 89,
+            "explicit_dictionary_bits": 952,
+            "proposed_plain_payload_bits": 59960,
+            "residual_bits": 128,
+            "residual_tokens": 0,
+            "total_bits": 61432,
+            "exact_replay": true
+          },
+          "blind_proposal": {
+            "header_bits": 296,
+            "key_bits": 96,
+            "permutation_information_bits": 89,
+            "explicit_dictionary_bits": 984,
+            "proposed_plain_payload_bits": 60120,
+            "residual_bits": 272,
+            "residual_tokens": 3,
+            "total_bits": 61768,
+            "exact_replay": true
+          }
+        },
+        "positive_gate": false,
+        "score": {
+          "tokens": 4000,
+          "coded_tokens": 330,
+          "fallback_tokens": 3670,
+          "exact_words": 0.96775,
+          "exact_code_words": 0.6090909090909091,
+          "exact_fallback_words": 1,
+          "exact_fallback_characters": 1.0,
+          "code_candidate_ceiling": 0.990909090909091
+        },
+        "frequency_baseline": {
+          "tokens": 4000,
+          "coded_tokens": 330,
+          "fallback_tokens": 3670,
+          "exact_words": 0.947,
+          "exact_code_words": 0.3575757575757576,
+          "exact_fallback_words": 1,
+          "exact_fallback_characters": 1.0,
+          "code_candidate_ceiling": 0.990909090909091
+        },
+        "marked_context_test": {
+          "edges": 635,
+          "greater_tail": 0.025,
+          "mean_bits_gain_per_edge": -0.8387645282486883,
+          "mean_shuffled_gain_per_edge": -1.512621937443366
+        }
+      },
+      {
+        "work": "villani",
+        "kind": "author",
+        "repertoire": "visconti1447",
+        "seed": 490896,
+        "noisy": true,
+        "code_membership_outside_donor": [
+          "et",
+          "que"
+        ],
+        "spelling_search": {
+          "restart": 0,
+          "fit_score": -139689.29998761893,
+          "validation_score": -34756.382236351776,
+          "every_validation_score": [
+            -34756.382236351776,
+            -34778.18567058647,
+            -34756.382236351776,
+            -34756.382236351776,
+            -34778.18567058647
+          ],
+          "proposals": 14000
+        },
+        "correct_letters_in_permutation": 21,
+        "exact_dictionary_entries_in_planted_map": 6,
+        "total_dictionary_entries": 12,
+        "decoder_dictionary_size": 12,
+        "packet": {
+          "plaintext_bits": 63920,
+          "donor_plaintext_bits": 60224,
+          "ciphertext_zlib_bits": 68880,
+          "ciphertext_dictionary_bits": 77232,
+          "oracle": {
+            "header_bits": 296,
+            "key_bits": 96,
+            "permutation_information_bits": 89,
+            "explicit_dictionary_bits": 952,
+            "proposed_plain_payload_bits": 59960,
+            "residual_bits": 20896,
+            "residual_tokens": 327,
+            "total_bits": 82200,
+            "exact_replay": true
+          },
+          "blind_proposal": {
+            "header_bits": 296,
+            "key_bits": 96,
+            "permutation_information_bits": 89,
+            "explicit_dictionary_bits": 992,
+            "proposed_plain_payload_bits": 64336,
+            "residual_bits": 360,
+            "residual_tokens": 4,
+            "total_bits": 66080,
+            "exact_replay": true
+          }
+        },
+        "positive_gate": false,
+        "score": {
+          "tokens": 4000,
+          "coded_tokens": 330,
+          "fallback_tokens": 3670,
+          "exact_words": 0.88325,
+          "exact_code_words": 0.5545454545454546,
+          "exact_fallback_words": 0.9128065395095368,
+          "exact_fallback_characters": 0.9809474768280123,
+          "code_candidate_ceiling": 0.990909090909091
+        },
+        "frequency_baseline": {
+          "tokens": 4000,
+          "coded_tokens": 330,
+          "fallback_tokens": 3670,
+          "exact_words": 0.85325,
+          "exact_code_words": 0.19090909090909092,
+          "exact_fallback_words": 0.9128065395095368,
+          "exact_fallback_characters": 0.9809474768280123,
+          "code_candidate_ceiling": 0.990909090909091
+        },
+        "marked_context_test": {
+          "edges": 635,
+          "greater_tail": 0.025,
+          "mean_bits_gain_per_edge": -1.0193210108200945,
+          "mean_shuffled_gain_per_edge": -1.593275398956244
+        }
+      },
+      {
+        "work": "villani",
+        "kind": "author",
+        "repertoire": "donor_closed",
+        "seed": 809465,
+        "noisy": false,
+        "code_membership_outside_donor": [],
+        "spelling_search": {
+          "restart": 0,
+          "fit_score": -130058.68896372864,
+          "validation_score": -31947.723360949694,
+          "every_validation_score": [
+            -31947.723360949694,
+            -31947.723360949694,
+            -31947.723360949694,
+            -31947.723360949694,
+            -31947.723360949694
+          ],
+          "proposals": 14000
+        },
+        "correct_letters_in_permutation": 24,
+        "exact_dictionary_entries_in_planted_map": 2,
+        "total_dictionary_entries": 12,
+        "decoder_dictionary_size": 8,
+        "packet": {
+          "plaintext_bits": 63920,
+          "donor_plaintext_bits": 60224,
+          "ciphertext_zlib_bits": 64392,
+          "ciphertext_dictionary_bits": 69904,
+          "oracle": {
+            "header_bits": 296,
+            "key_bits": 96,
+            "permutation_information_bits": 89,
+            "explicit_dictionary_bits": 984,
+            "proposed_plain_payload_bits": 59960,
+            "residual_bits": 128,
+            "residual_tokens": 0,
+            "total_bits": 61464,
+            "exact_replay": true
+          },
+          "blind_proposal": {
+            "header_bits": 296,
+            "key_bits": 96,
+            "permutation_information_bits": 89,
+            "explicit_dictionary_bits": 664,
+            "proposed_plain_payload_bits": 59984,
+            "residual_bits": 280,
+            "residual_tokens": 3,
+            "total_bits": 61320,
+            "exact_replay": true
+          }
+        },
+        "positive_gate": false,
+        "score": {
+          "tokens": 4000,
+          "coded_tokens": 121,
+          "fallback_tokens": 3879,
+          "exact_words": 0.99375,
+          "exact_code_words": 0.7933884297520661,
+          "exact_fallback_words": 1,
+          "exact_fallback_characters": 1.0,
+          "code_candidate_ceiling": 1
+        },
+        "frequency_baseline": {
+          "tokens": 4000,
+          "coded_tokens": 121,
+          "fallback_tokens": 3879,
+          "exact_words": 0.96975,
+          "exact_code_words": 0,
+          "exact_fallback_words": 1,
+          "exact_fallback_characters": 1.0,
+          "code_candidate_ceiling": 1
+        },
+        "marked_context_test": {
+          "edges": 236,
+          "greater_tail": 0.025,
+          "mean_bits_gain_per_edge": -0.5762418020762582,
+          "mean_shuffled_gain_per_edge": -1.7099949354370325
+        }
+      },
+      {
+        "work": "villani",
+        "kind": "author",
+        "repertoire": "donor_closed",
+        "seed": 809465,
+        "noisy": true,
+        "code_membership_outside_donor": [],
+        "spelling_search": {
+          "restart": 0,
+          "fit_score": -142165.42622183138,
+          "validation_score": -35303.02306495921,
+          "every_validation_score": [
+            -35303.02306495921,
+            -35303.02306495921,
+            -35303.02306495921,
+            -35303.02306495921,
+            -35303.02306495921
+          ],
+          "proposals": 14000
+        },
+        "correct_letters_in_permutation": 21,
+        "exact_dictionary_entries_in_planted_map": 2,
+        "total_dictionary_entries": 12,
+        "decoder_dictionary_size": 9,
+        "packet": {
+          "plaintext_bits": 63920,
+          "donor_plaintext_bits": 60224,
+          "ciphertext_zlib_bits": 68632,
+          "ciphertext_dictionary_bits": 77920,
+          "oracle": {
+            "header_bits": 296,
+            "key_bits": 96,
+            "permutation_information_bits": 89,
+            "explicit_dictionary_bits": 984,
+            "proposed_plain_payload_bits": 59960,
+            "residual_bits": 23448,
+            "residual_tokens": 379,
+            "total_bits": 84784,
+            "exact_replay": true
+          },
+          "blind_proposal": {
+            "header_bits": 296,
+            "key_bits": 96,
+            "permutation_information_bits": 89,
+            "explicit_dictionary_bits": 784,
+            "proposed_plain_payload_bits": 64400,
+            "residual_bits": 368,
+            "residual_tokens": 4,
+            "total_bits": 65944,
+            "exact_replay": true
+          }
+        },
+        "positive_gate": false,
+        "score": {
+          "tokens": 4000,
+          "coded_tokens": 121,
+          "fallback_tokens": 3879,
+          "exact_words": 0.8995,
+          "exact_code_words": 0.7768595041322314,
+          "exact_fallback_words": 0.9033255993812839,
+          "exact_fallback_characters": 0.9781792067174898,
+          "code_candidate_ceiling": 1
+        },
+        "frequency_baseline": {
+          "tokens": 4000,
+          "coded_tokens": 121,
+          "fallback_tokens": 3879,
+          "exact_words": 0.876,
+          "exact_code_words": 0,
+          "exact_fallback_words": 0.9033255993812839,
+          "exact_fallback_characters": 0.9781792067174898,
+          "code_candidate_ceiling": 1
+        },
+        "marked_context_test": {
+          "edges": 232,
+          "greater_tail": 0.025,
+          "mean_bits_gain_per_edge": -0.8107314846626019,
+          "mean_shuffled_gain_per_edge": -1.8515331100499695
+        }
+      },
+      {
+        "work": "villani",
+        "kind": "no_static_code",
+        "repertoire": "visconti1446",
+        "seed": 809484,
+        "noisy": false,
+        "code_membership_outside_donor": [
+          "que"
+        ],
+        "spelling_search": {
+          "restart": 0,
+          "fit_score": -128186.67615596831,
+          "validation_score": -31427.983597642728,
+          "every_validation_score": [
+            -31427.983597642728,
+            -31427.983597642728,
+            -31427.983597642728,
+            -31427.983597642728,
+            -31427.983597642728
+          ],
+          "proposals": 14000
+        },
+        "correct_letters_in_permutation": 22,
+        "exact_dictionary_entries_in_planted_map": 1,
+        "total_dictionary_entries": 12,
+        "decoder_dictionary_size": 12,
+        "packet": {
+          "plaintext_bits": 63920,
+          "donor_plaintext_bits": 60224,
+          "ciphertext_zlib_bits": 64952,
+          "ciphertext_dictionary_bits": 69960,
+          "oracle": {
+            "header_bits": 296,
+            "key_bits": 96,
+            "permutation_information_bits": 89,
+            "explicit_dictionary_bits": 1064,
+            "proposed_plain_payload_bits": 59960,
+            "residual_bits": 5920,
+            "residual_tokens": 248,
+            "total_bits": 67336,
+            "exact_replay": true
+          },
+          "blind_proposal": {
+            "header_bits": 296,
+            "key_bits": 96,
+            "permutation_information_bits": 89,
+            "explicit_dictionary_bits": 1080,
+            "proposed_plain_payload_bits": 60888,
+            "residual_bits": 280,
+            "residual_tokens": 3,
+            "total_bits": 62640,
+            "exact_replay": true
+          }
+        },
+        "positive_gate": false,
+        "score": {
+          "tokens": 4000,
+          "coded_tokens": 304,
+          "fallback_tokens": 3696,
+          "exact_words": 0.93075,
+          "exact_code_words": 0.08881578947368421,
+          "exact_fallback_words": 1,
+          "exact_fallback_characters": 1.0,
+          "code_candidate_ceiling": 0.9901315789473685
+        },
+        "frequency_baseline": {
+          "tokens": 4000,
+          "coded_tokens": 304,
+          "fallback_tokens": 3696,
+          "exact_words": 0.9315,
+          "exact_code_words": 0.09868421052631579,
+          "exact_fallback_words": 1,
+          "exact_fallback_characters": 1.0,
+          "code_candidate_ceiling": 0.9901315789473685
+        },
+        "marked_context_test": {
+          "edges": 565,
+          "greater_tail": 0.375,
+          "mean_bits_gain_per_edge": -1.3576934674025256,
+          "mean_shuffled_gain_per_edge": -1.3903648545573328
+        }
+      },
+      {
+        "work": "villani",
+        "kind": "word_shuffle",
+        "repertoire": "visconti1446",
+        "seed": 809488,
+        "noisy": false,
+        "code_membership_outside_donor": [
+          "que"
+        ],
+        "spelling_search": {
+          "restart": 0,
+          "fit_score": -126589.4912669512,
+          "validation_score": -31620.036621254178,
+          "every_validation_score": [
+            -31620.036621254178,
+            -31620.036621254178,
+            -31620.036621254178,
+            -31620.036621254178,
+            -31620.036621254178
+          ],
+          "proposals": 14000
+        },
+        "correct_letters_in_permutation": 21,
+        "exact_dictionary_entries_in_planted_map": 0,
+        "total_dictionary_entries": 12,
+        "decoder_dictionary_size": 10,
+        "packet": {
+          "plaintext_bits": 72408,
+          "donor_plaintext_bits": 68688,
+          "ciphertext_zlib_bits": 72832,
+          "ciphertext_dictionary_bits": 77616,
+          "oracle": {
+            "header_bits": 296,
+            "key_bits": 96,
+            "permutation_information_bits": 89,
+            "explicit_dictionary_bits": 1064,
+            "proposed_plain_payload_bits": 68424,
+            "residual_bits": 128,
+            "residual_tokens": 0,
+            "total_bits": 70008,
+            "exact_replay": true
+          },
+          "blind_proposal": {
+            "header_bits": 296,
+            "key_bits": 96,
+            "permutation_information_bits": 89,
+            "explicit_dictionary_bits": 896,
+            "proposed_plain_payload_bits": 68432,
+            "residual_bits": 624,
+            "residual_tokens": 11,
+            "total_bits": 70344,
+            "exact_replay": true
+          }
+        },
+        "positive_gate": false,
+        "score": {
+          "tokens": 4000,
+          "coded_tokens": 275,
+          "fallback_tokens": 3725,
+          "exact_words": 0.931,
+          "exact_code_words": 0,
+          "exact_fallback_words": 0.9997315436241611,
+          "exact_fallback_characters": 0.9999430880427977,
+          "code_candidate_ceiling": 1
+        },
+        "frequency_baseline": {
+          "tokens": 4000,
+          "coded_tokens": 275,
+          "fallback_tokens": 3725,
+          "exact_words": 0.9515,
+          "exact_code_words": 0.29818181818181816,
+          "exact_fallback_words": 0.9997315436241611,
+          "exact_fallback_characters": 0.9999430880427977,
+          "code_candidate_ceiling": 1
+        },
+        "marked_context_test": {
+          "edges": 494,
+          "greater_tail": 0.1,
+          "mean_bits_gain_per_edge": -1.6985879785957485,
+          "mean_shuffled_gain_per_edge": -1.7724782342566268
+        }
+      },
+      {
+        "work": "villani",
+        "kind": "iid",
+        "repertoire": "visconti1446",
+        "seed": 809635,
+        "noisy": false,
+        "code_membership_outside_donor": [
+          "que"
+        ],
+        "spelling_search": {
+          "restart": 0,
+          "fit_score": -100427.16847557208,
+          "validation_score": -24987.72161412917,
+          "every_validation_score": [
+            -24987.72161412917,
+            -24987.72161412917,
+            -24987.72161412917,
+            -24987.72161412917,
+            -24987.72161412917
+          ],
+          "proposals": 14000
+        },
+        "correct_letters_in_permutation": 24,
+        "exact_dictionary_entries_in_planted_map": 3,
+        "total_dictionary_entries": 12,
+        "decoder_dictionary_size": 11,
+        "packet": {
+          "plaintext_bits": 69304,
+          "donor_plaintext_bits": 63264,
+          "ciphertext_zlib_bits": 69888,
+          "ciphertext_dictionary_bits": 79720,
+          "oracle": {
+            "header_bits": 296,
+            "key_bits": 96,
+            "permutation_information_bits": 89,
+            "explicit_dictionary_bits": 1064,
+            "proposed_plain_payload_bits": 63000,
+            "residual_bits": 128,
+            "residual_tokens": 0,
+            "total_bits": 64584,
+            "exact_replay": true
+          },
+          "blind_proposal": {
+            "header_bits": 296,
+            "key_bits": 96,
+            "permutation_information_bits": 89,
+            "explicit_dictionary_bits": 984,
+            "proposed_plain_payload_bits": 63304,
+            "residual_bits": 784,
+            "residual_tokens": 18,
+            "total_bits": 65464,
+            "exact_replay": true
+          }
+        },
+        "positive_gate": false,
+        "score": {
+          "tokens": 4000,
+          "coded_tokens": 353,
+          "fallback_tokens": 3647,
+          "exact_words": 0.97,
+          "exact_code_words": 0.660056657223796,
+          "exact_fallback_words": 1,
+          "exact_fallback_characters": 1.0,
+          "code_candidate_ceiling": 1
+        },
+        "frequency_baseline": {
+          "tokens": 4000,
+          "coded_tokens": 353,
+          "fallback_tokens": 3647,
+          "exact_words": 0.95,
+          "exact_code_words": 0.43342776203966005,
+          "exact_fallback_words": 1,
+          "exact_fallback_characters": 1.0,
+          "code_candidate_ceiling": 1
+        },
+        "marked_context_test": {
+          "edges": 644,
+          "greater_tail": 0.25,
+          "mean_bits_gain_per_edge": -1.9461057310279475,
+          "mean_shuffled_gain_per_edge": -1.9812148042432713
+        }
+      },
+      {
+        "work": "villani",
+        "kind": "markov",
+        "repertoire": "visconti1446",
+        "seed": 809636,
+        "noisy": false,
+        "code_membership_outside_donor": [
+          "que"
+        ],
+        "spelling_search": {
+          "restart": 0,
+          "fit_score": -100394.69036761155,
+          "validation_score": -25843.749324756634,
+          "every_validation_score": [
+            -25843.749324756634,
+            -25843.749324756634,
+            -27010.353845338956,
+            -25843.749324756634,
+            -25843.749324756634
+          ],
+          "proposals": 14000
+        },
+        "correct_letters_in_permutation": 22,
+        "exact_dictionary_entries_in_planted_map": 11,
+        "total_dictionary_entries": 12,
+        "decoder_dictionary_size": 11,
+        "packet": {
+          "plaintext_bits": 66664,
+          "donor_plaintext_bits": 58472,
+          "ciphertext_zlib_bits": 67200,
+          "ciphertext_dictionary_bits": 77856,
+          "oracle": {
+            "header_bits": 296,
+            "key_bits": 96,
+            "permutation_information_bits": 89,
+            "explicit_dictionary_bits": 1064,
+            "proposed_plain_payload_bits": 58208,
+            "residual_bits": 128,
+            "residual_tokens": 0,
+            "total_bits": 59792,
+            "exact_replay": true
+          },
+          "blind_proposal": {
+            "header_bits": 296,
+            "key_bits": 96,
+            "permutation_information_bits": 89,
+            "explicit_dictionary_bits": 984,
+            "proposed_plain_payload_bits": 58208,
+            "residual_bits": 200,
+            "residual_tokens": 1,
+            "total_bits": 59784,
+            "exact_replay": true
+          }
+        },
+        "positive_gate": true,
+        "score": {
+          "tokens": 4000,
+          "coded_tokens": 363,
+          "fallback_tokens": 3637,
+          "exact_words": 0.99975,
+          "exact_code_words": 0.9972451790633609,
+          "exact_fallback_words": 1,
+          "exact_fallback_characters": 1.0,
+          "code_candidate_ceiling": 0.9972451790633609
+        },
+        "frequency_baseline": {
+          "tokens": 4000,
+          "coded_tokens": 363,
+          "fallback_tokens": 3637,
+          "exact_words": 0.94675,
+          "exact_code_words": 0.4132231404958678,
+          "exact_fallback_words": 1,
+          "exact_fallback_characters": 1.0,
+          "code_candidate_ceiling": 0.9972451790633609
+        },
+        "marked_context_test": {
+          "edges": 680,
+          "greater_tail": 0.025,
+          "mean_bits_gain_per_edge": 1.8182851218255243,
+          "mean_shuffled_gain_per_edge": -0.7745360397637627
+        }
+      }
+    ],
+    "representation": "visible marked code and alphabetic fallback",
+    "search_selector_bits": 3
+  },
+  "reproduce": {
+    "dependencies": "Python 3.12, NumPy 2.3.5, project reference normalizer and the pinned Poppler extraction for Boccaccio.",
+    "source_preparation": "Extract sources/prepare_sources.py and its two previous-source dependencies below. Fetch all byte-pinned raw works and key files stated in manifest. Run the prepare script to recreate the same recorded normalized work hashes and tool manifest.",
+    "command": "OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 PYTHONPATH=. python3 /path/calibrate.py data/raw/pg1012.txt /path/sources",
+    "result_sha256": "c4b3358561f77cc0a89b3016fc6cecf4a8b3d7f4229df97209bed1e14103353a",
+    "recorded_prior_source_metadata": {
+      "preprocessing": "Casefold, transliterate œ/æ/þ/ð/ȝ, NFKD, remove combining marks, then maximal contiguous ASCII a–z runs. UTF-8, one space between tokens and final LF.",
+      "preprocessing_script_sha256": "03163b9f6331d4f040a97516bfc2d4fae4dd5eb156a1e484b5e7720be61a3b68",
+      "works": {
+        "boccaccio": {
+          "author": "Giovanni Boccaccio",
+          "title": "Decameron",
+          "date": "mid-14th century",
+          "language": "Old Italian",
+          "genre": "fictional prose with framing verse",
+          "url": "https://www.enteboccaccio.it/files/original/1124/Boccaccio_Decameron_a_cura_di_Maurizio_Fiorilla_%5Baggiornato_2026%5D.pdf",
+          "catalog_url": "https://www.enteboccaccio.it/s/casa-boccaccio/item/1124",
+          "license": "Historical work, open institutional critical text; reuse terms for modern edition not asserted.",
+          "edition": "Maurizio Fiorilla, critical text drawn from the third edition, BUR-Rizzoli 2025; 2026 PDF.",
+          "raw_file": "raw/boccaccio-ente.pdf",
+          "raw_sha256": "28e9f289fb02836bd67ae0af61f74fde307f46affb4fde116670523bd0022c37",
+          "pdf_text_sha256": "c8e10c05dab63dabdf9fec54218d3d10d6fe4626bc4aaf24d049ead60e5b9880",
+          "selection": "Use Poppler pdftotext 25.03.0 -enc UTF-8 -nopgbrk. From the first authorial prose paragraph, Proemio [2], through final authorial [29]. Omit PDF cover, repeated section headers, bare page/novella numerals and final colophon. The source already omits editorial introduction and notes.",
+          "prior_prefix_overlap": false,
+          "file": "boccaccio.txt",
+          "raw_bytes": 4287387,
+          "tokens": 269687,
+          "sha256": "cae3a7bb12bcbcd2ae6097f2c353e9135f1492dd1aaa37d189c990b60d3cee3f"
+        },
+        "villani": {
+          "author": "Matteo Villani",
+          "title": "Cronica, vol. I",
+          "date": "c. 1350",
+          "language": "Old Italian",
+          "genre": "historical prose",
+          "url": "https://gutenberg.pglaf.org/6/9/8/9/69898/69898-0.txt",
+          "catalog_url": "https://www.gutenberg.org/ebooks/69898",
+          "license": "public domain (Gutenberg US)",
+          "raw_file": "raw/villani.txt",
+          "raw_sha256": "3acf82f4b25b636048d915961bb8cec2262e9b7cf9ff860ff056ab4bf1e1fd6e",
+          "selection": "From authorial prologue to TAVOLA DEI CAPITOLI; omit editor's preface, principal chapter headings and contents. Some chapter rubrics may remain.",
+          "prior_prefix_overlap": true,
+          "file": "villani.txt",
+          "raw_bytes": 477875,
+          "tokens": 70877,
+          "sha256": "2addf2bc8b18afd1c350cca074e8babc976492f899a0291ae55d966705ec7a59"
+        }
+      }
+    },
+    "scripts": {
+      "calibrate.py": "\"\"\"Blind recovery of a typed historical-style toy nomenclator.\"\"\"\nimport argparse\nfrom collections import Counter, defaultdict\nfrom hashlib import sha256\nimport json\nfrom math import ceil, exp, log, log2\nfrom pathlib import Path\nfrom random import Random\nfrom statistics import mean\n\nimport numpy as np\nfrom vs.refcorpus import normalize, strip_gutenberg\nfrom wire import ABC, MARK, baseline, decode_words, encode_words, hybrid\n\nFIT, SELECT, TEST=8000,2000,4000\nSTARTS, PROPOSALS=5,2800\nNUM_CANDIDATES=128\nVISCONTI={\n    'visconti1446': ('que','qua','qui','per','che','con','perche','non','quanto','come','quando','pero'),\n    'visconti1447': ('et','que','qui','in','de','con','qua','da','che','cio','per','come'),\n}\nDONOR_HASH='db0181a5820b1a60b93b87036351cad97b86ea3ab0d725b16dbc6017ab5ccd37'\n\ndef digest(path):\n    return sha256(path.read_bytes()).hexdigest()\n\ndef idx(w):\n    return [ord(c)-97 for c in w]\n\ndef spelling_counts(w):\n    symbols=[26,26,*idx(w),26]\n    return zip(symbols,symbols[1:],symbols[2:])\n\ndef character_model(freq, top48):\n    tri=np.zeros((27,27,27),dtype=np.float64)\n    for w,c in freq.items():\n        weight=c*(.75 if w in top48 else 1.)\n        for a,b,d in spelling_counts(w):\n            tri[a,b,d]+=weight\n    big=tri.sum(axis=0)\n    uni=big.sum(axis=0)+1.\n    uni/=uni.sum()\n    pr_big=(big+4.*uni[None,:])/(big.sum(axis=1,keepdims=True)+4.)\n    prob=(tri+12.*pr_big[None,:,:])/(tri.sum(axis=2,keepdims=True)+12.)\n    return np.log2(prob),big.sum(axis=0)\n\ndef prep_literal(tokens):\n    freq=Counter(w for w in tokens if not w.startswith(MARK))\n    tri=Counter()\n    letters=Counter()\n    for w,c in freq.items():\n        letters.update({letter:n*c for letter,n in Counter(w).items()})\n        for t in spelling_counts(w):\n            tri[t]+=c\n    sequences=np.asarray(list(tri),dtype=np.int64)\n    values=np.asarray(list(tri.values()),dtype=np.float64)\n    if not len(sequences):\n        raise ValueError('The declared alphabetic channel is empty')\n    return sequences,values,letters\n\ndef score_all(data,m,model):\n    ix,c,_=data\n    a,b,d=m[ix].T\n    return float(c@model[a,b,d])\n\ndef fit_letters(fit,validation,model,plainletters,rng):\n    data=prep_literal(fit)\n    val=prep_literal(validation)\n    samples,c,_=data\n    touched=[[np.flatnonzero(np.any((samples==i)|(samples==j),axis=1))\n              for j in range(26)] for i in range(26)]\n    letter_stock=data[2]\n    scored=sorted(range(26),key=lambda n:(-letter_stock[ABC[n]],n))\n    decoded=sorted(range(26),key=lambda n:(-plainletters[n],n))\n    starting=np.arange(27,dtype=np.int64)\n    starting[scored]=decoded\n    temperatures=[120.*(.025/120.)**(i/(PROPOSALS-1)) for i in range(PROPOSALS)]\n    rank_options=[]\n    touched_tables=[[(samples[q].T,c[q]) for q in row] for row in touched]\n    for restart in range(STARTS):\n        mapping=starting.copy()\n        if restart>2:\n            fresh=list(range(26))\n            rng.shuffle(fresh)\n            mapping[:26]=fresh\n        elif restart:\n            for _ in range(7):\n                i,j=rng.sample(range(26),2)\n                mapping[i],mapping[j]=mapping[j],mapping[i]\n        current=score_all(data,mapping,model)\n        bestscore=current\n        best=mapping.copy()\n        for temp in temperatures:\n            i,j=rng.sample(range(26),2)\n            (x,y,z),co=touched_tables[i][j]\n            before=float(co@model[mapping[x],mapping[y],mapping[z]])\n            mapping[i],mapping[j]=mapping[j],mapping[i]\n            after=float(co@model[mapping[x],mapping[y],mapping[z]])\n            gain=after-before\n            if gain>=0 or rng.random()<exp(gain/temp):\n                current+=gain\n                if current>bestscore+1e-8:\n                    bestscore=current\n                    best=mapping.copy()\n            else:\n                mapping[i],mapping[j]=mapping[j],mapping[i]\n        exact=score_all(data,best,model)\n        assert abs(bestscore-exact)<1e-6\n        rank_options.append((score_all(val,best,model),restart,exact,best))\n    picked=max(rank_options,key=lambda t:(t[0],-t[1]))\n    best=picked[-1]\n    assert set(best[:26])==set(range(26))\n    return ''.join(ABC[i] for i in best[:26]),dict(restart=picked[1],\n       fit_score=picked[2],validation_score=picked[0],\n       every_validation_score=[q[0] for q in rank_options],proposals=STARTS*PROPOSALS)\n\ndef rectangular_assign(values):\n    \"\"\"Maximize one-to-one scores, with at least as many columns as rows.\"\"\"\n    nr=len(values)\n    nc=len(values[0])\n    assert nr<=nc\n    rp=[0.]*(nr+1)\n    cp=[0.]*(nc+1)\n    matched=[0]*(nc+1)\n    back=[0]*(nc+1)\n    for i in range(1,nr+1):\n        matched[0]=i\n        col=0\n        dist=[float('inf')]*(nc+1)\n        used=[False]*(nc+1)\n        while True:\n            used[col]=True\n            row=matched[col]\n            delta=float('inf')\n            next_col=0\n            for j in range(1,nc+1):\n                if used[j]:\n                    continue\n                reduced=-values[row-1][j-1]-rp[row]-cp[j]\n                if reduced<dist[j]:\n                    dist[j]=reduced\n                    back[j]=col\n                if dist[j]<delta:\n                    delta=dist[j]\n                    next_col=j\n            for j in range(nc+1):\n                if used[j]:\n                    rp[matched[j]]+=delta\n                    cp[j]-=delta\n                else:\n                    dist[j]-=delta\n            col=next_col\n            if matched[col]==0:\n                break\n        while col:\n            prior=back[col]\n            matched[col]=matched[prior]\n            col=prior\n    out=[None]*nr\n    for col in range(1,nc+1):\n        if matched[col]:\n            out[matched[col]-1]=col-1\n    assert len(set(out))==nr\n    return out\n\nclass Donor:\n    def __init__(self,filename):\n        assert digest(filename)==DONOR_HASH\n        self.words=normalize(strip_gutenberg(filename.read_text()),'italian').split()[:60000]\n        self.freq=Counter(self.words)\n        self.preset=' '.join(self.words).encode('ascii')[-32768:]\n        self.candidates=sorted((w for w in self.freq if len(w)>=2),key=lambda w:(-self.freq[w],w))[:NUM_CANDIDATES]\n        self.transition=defaultdict(Counter)\n        for a,b in zip(self.words,self.words[1:]):\n            self.transition[a][b]+=1\n        self.total_transitions={w:x.total() for w,x in self.transition.items()}\n        self.total_freq=len(self.words)+.5*(len(self.freq)+1)\n        self.character,self.letter_freq=character_model(self.freq,set(self.candidates[:48]))\n\n    def unigram(self,w):\n        return (self.freq[w]+.5)/self.total_freq\n\n    def lift(self,left,right):\n        prior=self.unigram(right)\n        row=self.transition.get(left)\n        count=0 if row is None else row[right]\n        p=(count+20*prior)/(self.total_transitions.get(left,0)+20)\n        return log2(p/prior)\n\n    def null_plain(self,style,seed,n):\n        r=Random(seed)\n        ws,weights=zip(*self.freq.items())\n        if style=='iid':\n            return r.choices(ws,weights=weights,k=n)\n        unigram_draws=r.choices(ws,weights=weights,k=n)\n        out=[unigram_draws[0]]\n        for k in range(1,n):\n            transitions=self.transition.get(out[-1])\n            if transitions and r.random()>=.08:\n                a,b=zip(*transitions.items())\n                out.extend(r.choices(a,weights=b,k=1))\n            else:\n                out.append(unigram_draws[k])\n        return out\n\ndef fit_dictionary(received,inverse,donor,contextual):\n    known=decode_words(received,inverse,{})\n    codes=sorted({w for w in received if w.startswith(MARK)})\n    code_counts=Counter(w for w in received if w.startswith(MARK))\n    priors=Counter(w for w in known if w!='?')\n    edges=defaultdict(Counter)\n    for i,(a,b) in enumerate(zip(received,received[1:])):\n        if a.startswith(MARK) and not b.startswith(MARK):\n            edges[a][0,known[i+1]]+=1\n        if b.startswith(MARK) and not a.startswith(MARK):\n            edges[b][1,known[i]]+=1\n    rows=[]\n    for code in codes:\n        values=[]\n        for w in donor.candidates:\n            p=donor.unigram(w)\n            q=code_counts[code]*log2(p)-len(received)*p/log(2)-2*priors[w]\n            if contextual:\n                for (after,neighbor),n in edges[code].items():\n                    q+=n*(donor.lift(neighbor,w) if after else donor.lift(w,neighbor))\n            values.append(q)\n        rows.append(values)\n    return {code:donor.candidates[i] for code,i in zip(codes,rectangular_assign(rows))}\n\ndef null_context(received,decoded,donor,seed):\n    literal_edges=defaultdict(list)\n    marked_set={i for i,x in enumerate(received) if x.startswith(MARK)}\n    marked_indices=sorted(i for i in marked_set if decoded[i]!='?')\n    for i in marked_indices:\n        if i>0 and i-1 not in marked_set:\n            literal_edges[i].append((True,decoded[i-1]))\n        if i+1<len(received) and i+1 not in marked_set:\n            literal_edges[i].append((False,decoded[i+1]))\n    tokens=[decoded[i] for i in marked_indices]\n    if not literal_edges:\n        return None\n    scores={i:{w:sum(donor.lift(near,w) if after else donor.lift(w,near)\n                      for after,near in literal_edges[i]) for w in set(tokens)}\n            for i in marked_indices}\n    def statistic(ws):\n        return sum(scores[i][w] for i,w in zip(marked_indices,ws))\n    value=statistic(tokens)\n    r=Random(seed)\n    draws=[]\n    for _ in range(39):\n        transformed=tokens[:]\n        r.shuffle(transformed)\n        draws.append(statistic(transformed))\n    num_edges=sum(map(len,literal_edges.values()))\n    return dict(edges=num_edges,greater_tail=(1+sum(x>=value-1e-10 for x in draws))/40,\n                mean_bits_gain_per_edge=value/num_edges,\n                mean_shuffled_gain_per_edge=mean(draws)/num_edges)\n\ndef invert(letters):\n    return ''.join(ABC[letters.index(x)] for x in ABC)\n\ndef noise(words,code_ids,seed):\n    r=Random(seed)\n    out=[]\n    for w in words:\n        if w.startswith(MARK):\n            if r.random()<.02:\n                out.append(r.choice([v for v in code_ids if v!=w]))\n            else:\n                out.append(w)\n        else:\n            out.append(''.join(r.choice([x for x in ABC if x!=c]) if r.random()<.02 else c for c in w))\n    return out\n\ndef shatter_codes(words,seed):\n    r=Random(seed)\n    output=words[:]\n    for start,stop in ((0,FIT),(FIT,FIT+SELECT),(FIT+SELECT,len(words))):\n        pos=[i for i in range(start,stop) if words[i].startswith(MARK)]\n        vals=[words[i] for i in pos]\n        r.shuffle(vals)\n        for i,w in zip(pos,vals):\n            output[i]=w\n    return output\n\ndef accuracy(received,gold,decoded,donor):\n    coded=[i for i,w in enumerate(received) if w.startswith(MARK)]\n    fallback=[i for i,w in enumerate(received) if not w.startswith(MARK)]\n    assert coded and fallback\n    char_count=sum(len(gold[i]) for i in fallback)\n    exact_chars=sum(sum(a==b for a,b in zip(gold[i],decoded[i])) for i in fallback)\n    assert all(len(gold[i])==len(decoded[i]) for i in fallback)\n    candidates=set(donor.candidates)\n    return dict(tokens=len(gold),coded_tokens=len(coded),fallback_tokens=len(fallback),\n                exact_words=mean(a==b for a,b in zip(gold,decoded)),\n                exact_code_words=mean(gold[i]==decoded[i] for i in coded),\n                exact_fallback_words=mean(gold[i]==decoded[i] for i in fallback),\n                exact_fallback_characters=exact_chars/char_count,\n                code_candidate_ceiling=mean(gold[i] in candidates for i in coded))\n\ndef trial(name,clear,kind,repertoire,seed,donor,noisy_limits):\n    planted=Random(seed ^ 0x0AC920)\n    key=list(ABC)\n    planted.shuffle(key)\n    letter_key=''.join(key)\n    vocabulary=list(VISCONTI[repertoire]) if repertoire in VISCONTI else planted.sample(donor.candidates[:48],12)\n    planted.shuffle(vocabulary)\n    dictionary={f'{MARK}{i:02d}':w for i,w in enumerate(vocabulary)}\n    clean=encode_words(clear,letter_key,dictionary)\n    assert decode_words(clean,invert(letter_key),dictionary)==clear\n    take=FIT+SELECT\n    output=[]\n    for noisy in noisy_limits:\n        observed=noise(clean,list(dictionary),seed+9107) if noisy else clean\n        if kind=='no_static_code':\n            observed=shatter_codes(observed,seed+25017)\n        input_fit,input_val=observed[:FIT],observed[FIT:take]\n        test=observed[take:]\n        gold=clear[take:]\n        inverse,run=fit_letters(input_fit,input_val,donor.character,donor.letter_freq,Random(610133+seed%5419))\n        decoded_dictionary=fit_dictionary(input_fit,inverse,donor,True)\n        baseline_dictionary=fit_dictionary(input_fit,inverse,donor,False)\n        decoded=decode_words(test,inverse,decoded_dictionary)\n        comparison=decode_words(test,inverse,baseline_dictionary)\n        score=accuracy(test,gold,decoded,donor)\n        exact=sum(inverse[i]==c for i,c in enumerate(invert(letter_key)))\n        recovered_code=sum(dictionary.get(k)==v for k,v in decoded_dictionary.items())\n        null=null_context(test,decoded,donor,seed+55289)\n        result=dict(work=name,kind=kind,repertoire=repertoire,seed=seed,noisy=noisy,\n            code_membership_outside_donor=sorted(set(vocabulary)-set(donor.candidates)),\n            spelling_search=run,correct_letters_in_permutation=exact,\n            exact_dictionary_entries_in_planted_map=recovered_code,\n            total_dictionary_entries=len(dictionary),decoder_dictionary_size=len(decoded_dictionary),\n            packet=dict(plaintext_bits=baseline(gold,'raw'),\n                donor_plaintext_bits=baseline(gold,'raw',donor.preset),\n                ciphertext_zlib_bits=baseline(test,'raw'),ciphertext_dictionary_bits=baseline(test,'vocab'),\n                oracle=hybrid(gold,test,letter_key,dictionary,donor.preset),\n                blind_proposal=hybrid(decoded,test,invert(inverse),decoded_dictionary,donor.preset)),\n            positive_gate=(score['exact_words']>=.90 and score['exact_code_words']>=.80 and\n                           score['exact_fallback_characters']>=.95),\n            score=score,frequency_baseline=accuracy(test,gold,comparison,donor),marked_context_test=null)\n        output.append(result)\n    return output\n\ndef main():\n    p=argparse.ArgumentParser()\n    p.add_argument('donor',type=Path)\n    p.add_argument('sources',type=Path)\n    args=p.parse_args()\n    donor=Donor(args.donor)\n    manifest=json.loads((args.sources/'manifest.json').read_text())\n    out=[]\n    examined={}\n    n=FIT+SELECT+TEST\n    for i,(work,meta) in enumerate(sorted(manifest['works'].items())):\n        path=args.sources/meta['file']\n        assert digest(path)==meta['sha256']\n        tokens=path.read_text().split()\n        assert len(tokens)==meta['tokens'] and len(tokens)>=n+2000\n        words=tokens[2000:n+2000]\n        assert all(w and set(w)<=set(ABC) for w in words)\n        examined[work]=meta\n        for p0,repertoire in enumerate(VISCONTI):\n            for seed in (471121,481121):\n                out.extend(trial(work,words,'author',repertoire,seed+4391*i+993*p0,donor,(False,True)))\n        seed=791239+9113*i\n        out.extend(trial(work,words,'author','donor_closed',seed,donor,(False,True)))\n        out.extend(trial(work,words,'no_static_code','visconti1446',seed+19,donor,(False,)))\n        shuffled=words[:]\n        Random(seed+292).shuffle(shuffled)\n        out.extend(trial(work,shuffled,'word_shuffle','visconti1446',seed+23,donor,(False,)))\n        for j,kind in enumerate(('iid','markov')):\n            invented=donor.null_plain(kind,seed+719+j,n)\n            out.extend(trial(work,invented,kind,'visconti1446',seed+170+j,donor,(False,)))\n    data=dict(sources=examined,donor_digest=DONOR_HASH,donor_tokens=len(donor.words),\n              donor_candidate_digest=sha256(' '.join(donor.candidates).encode('ascii')).hexdigest(),\n              cases=out,representation='visible marked code and alphabetic fallback', search_selector_bits=ceil(log2(STARTS)))\n    print(json.dumps(data,indent=2))\n\nif __name__=='__main__':\n    main()\n",
+      "wire.py": "\"\"\"Exact portfolio of framed baseline and mixed-channel packets.\"\"\"\nfrom hashlib import sha256\nfrom math import factorial\nfrom string import ascii_lowercase\n\nfrom zlib import compress, compressobj, decompress, decompressobj\n\nABC=ascii_lowercase\nMARK='@'\n\nclass Reader:\n    def __init__(self,raw):\n        self.raw=raw\n        self.position=0\n\n    def take(self,n):\n        out=self.raw[self.position:self.position+n]\n        assert len(out)==n\n        self.position+=n\n        return out\n\n    def number(self,n):\n        return int.from_bytes(self.take(n),'big')\n\n    def text(self):\n        return self.take(self.number(2)).decode('ascii')\n\n    def blob(self):\n        return self.take(self.number(4))\n\ndef integer(i,n):\n    return i.to_bytes(n,'big')\n\ndef text(w):\n    raw=w.encode('ascii')\n    return integer(len(raw),2)+raw\n\ndef blob(data):\n    return integer(len(data),4)+data\n\ndef factoradic(order):\n    symbols=list(ABC)\n    rank=0\n    for c in order:\n        i=symbols.index(c)\n        rank+=i*factorial(len(symbols)-1)\n        symbols.pop(i)\n    return rank\n\ndef unfactoradic(rank):\n    symbols=list(ABC)\n    result=[]\n    while symbols:\n        i,rank=divmod(rank,factorial(len(symbols)-1))\n        result.append(symbols.pop(i))\n    return ''.join(result)\n\ndef encode_words(words,letters,dictionary):\n    flip={w:code for code,w in dictionary.items()}\n    encode=str.maketrans(ABC,letters)\n    return [flip.get(w,w.translate(encode)) for w in words]\n\ndef decode_words(words,inverse,dictionary):\n    trans=str.maketrans(ABC,inverse)\n    return [dictionary.get(w,'?') if w.startswith(MARK) else w.translate(trans) for w in words]\n\ndef donor_compress(raw,preset):\n    obj=compressobj(9,zdict=preset)\n    return obj.compress(raw)+obj.flush()\n\ndef donor_decompress(raw,preset):\n    obj=decompressobj(zdict=preset)\n    return obj.decompress(raw)+obj.flush()\n\ndef baseline(tokens,mode,preset=None):\n    raw=' '.join(tokens).encode('ascii')\n    if mode=='vocab':\n        vocab=sorted(set(tokens))\n        lookup={w:i for i,w in enumerate(vocab)}\n        dict_bytes=compress(' '.join(vocab).encode('ascii'),9)\n        indexes=compress(b''.join(integer(lookup[w],2) for w in tokens),9)\n        packet=b'V'+blob(dict_bytes)+blob(indexes)\n        r=Reader(packet)\n        assert r.take(1)==b'V'\n        vocab2=decompress(r.blob()).decode('ascii').split(' ')\n        ints=Reader(decompress(r.blob()))\n        assert len(ints.raw)%2==0\n        decoded=[vocab2[ints.number(2)] for _ in range(len(ints.raw)//2)]\n        assert decoded==tokens and ints.position==len(ints.raw)\n    elif preset is not None:\n        packet=b'D'+sha256(preset).digest()+blob(donor_compress(raw,preset))\n        r=Reader(packet)\n        assert r.take(1)==b'D' and r.take(32)==sha256(preset).digest()\n        assert donor_decompress(r.blob(),preset)==raw\n    else:\n        packet=b'Z'+blob(compress(raw,9))\n        r=Reader(packet)\n        assert r.take(1)==b'Z' and decompress(r.blob())==raw\n    assert r.position==len(packet)\n    return 8*len(packet)\n\ndef hybrid(proposal,received,letters,dictionary,preset):\n    assert set(letters)==set(ABC) and len(letters)==len(ABC)\n    assert len(set(dictionary.values()))==len(dictionary)\n    guessed=encode_words(proposal,letters,dictionary)\n    residuals=[(i,w) for i,(a,w) in enumerate(zip(guessed,received)) if a!=w]\n    if len(proposal)!=len(received):\n        raise ValueError('Proposal length has to match received message slots')\n    key_bytes=integer(factoradic(letters),12)\n    alphabet_bits=(factorial(len(ABC))-1).bit_length()\n    assert alphabet_bits==89\n    dict_bytes=integer(len(dictionary),2)\n    for code,word in sorted(dictionary.items()):\n        dict_bytes+=text(code)+text(word)\n    plain_blob=blob(donor_compress(' '.join(proposal).encode('ascii'),preset))\n    residual_blob=blob(compress(integer(len(residuals),4)+\n                               b''.join(integer(i,4)+text(w) for i,w in residuals),9))\n    header=b'H'+sha256(preset).digest()+integer(len(proposal),4)\n    packet=header+key_bytes+dict_bytes+plain_blob+residual_blob\n    read=Reader(packet)\n    assert read.take(1)==b'H' and read.take(32)==sha256(preset).digest()\n    count=read.number(4)\n    recovered_key=unfactoradic(read.number(12))\n    keys={read.text():read.text() for _ in range(read.number(2))}\n    replay_plain=donor_decompress(read.blob(),preset).decode('ascii').split(' ')\n    assert len(replay_plain)==count\n    replay=encode_words(replay_plain,recovered_key,keys)\n    corrections=Reader(decompress(read.blob()))\n    for _ in range(corrections.number(4)):\n        j=corrections.number(4)\n        replay[j]=corrections.text()\n    assert read.position==len(packet) and corrections.position==len(corrections.raw)\n    assert replay==received and replay_plain==proposal and recovered_key==letters and keys==dictionary\n    cost=dict(header_bits=8*len(header),key_bits=8*len(key_bytes),\n              permutation_information_bits=alphabet_bits,\n              explicit_dictionary_bits=8*len(dict_bytes),proposed_plain_payload_bits=8*len(plain_blob),\n              residual_bits=8*len(residual_blob),residual_tokens=len(residuals),total_bits=8*len(packet),\n              exact_replay=True)\n    assert sum(cost[k] for k in ('header_bits','key_bits','explicit_dictionary_bits',\n                                'proposed_plain_payload_bits','residual_bits'))==cost['total_bits']\n    return cost\n",
+      "sources/prepare_sources.py": "\"\"\"Verify source bytes and derive bounded historical Italian token files.\"\"\"\nimport json\nimport re\nimport subprocess\nimport xml.etree.ElementTree as ET\nfrom hashlib import sha256\nfrom html import unescape\nfrom pathlib import Path\nfrom zipfile import ZipFile\n\nfrom previous_prepare_readings import boccaccio, normalize, villani\n\n\nROOT = Path(__file__).resolve().parent\nXHTML = \"{http://www.w3.org/1999/xhtml}\"\nOPF = \"{http://www.idpf.org/2007/opf}\"\nREVISION = \"7db0b8d2e32817c47e72e098c482f5c2eea313d3\"\nMACHIAVELLI = {\n    \"author\": \"Niccolò Machiavelli\",\n    \"title\": \"Discorsi sopra la prima Deca di Tito Livio\",\n    \"date\": \"composed c. 1513–1517, first published 1531\",\n    \"language\": \"Early Modern Italian\",\n    \"genre\": \"political and historical prose\",\n    \"url\": (\n        \"https://www.liberliber.eu/mediateca/libri/m/machiavelli/\"\n        \"discorsi_sopra_la_prima_deca_di_tito_livio/epub/\"\n        \"machiavelli_discorsi_sopra_la_prima_deca_di_tito_livio.epub\"\n    ),\n    \"catalog_url\": (\n        \"https://liberliber.it/autori/autori-m/niccol-machiavelli/\"\n        \"discorsi-sopra-la-prima-deca-di-tito-livio/\"\n    ),\n    \"license\": \"Liber Liber digital edition CC BY-NC-SA 4.0; underlying authorial work public domain.\",\n    \"edition\": \"Mario Martelli, Tutte le opere, Sansoni 1971; Liber Liber EPUB modified 2018-04-10.\",\n    \"raw_file\": \"raw/machiavelli-discorsi.epub\",\n    \"raw_sha256\": \"d5408f429d2d3b2ff98c65cf24429e722a55f7b7ad84eeaf0d1f8c9c5683610b\",\n    \"selection\": (\n        \"Paragraphs in EPUB spine entries 6–149, all three books from \"\n        \"the first authorial prologue through Book III, chapter 49. \"\n        \"Exclude the cover, digital colophon, contents, dedication, book and chapter headings. \"\n        \"Retain embedded quotations within paragraphs.\"\n    ),\n    \"file\": \"machiavelli.txt\",\n}\n\nKEY_METADATA = {\n    \"visconti1446\": {\n        \"title\": \"Filippo Maria Visconti to Francesco Sforza, cipher of November 1446–March 1447\",\n        \"archive\": \"ASMi Carteggio Visconteo-Sforzesco cart. 1597 no. 23, later copy; DECODE R5323\",\n        \"comparisons\": \"BnF italien 1584 f. 8 ciphertext and f. 9 contemporary clear version\",\n        \"catalog_url\": \"https://cyphersolver.com/visconti1446.html\",\n        \"archive_record\": \"https://de-crypt.org/decrypt-web/RecordsView/5323\",\n        \"sha256\": \"44fc94391c65d4c8b987adc8503152c2b3e70a252462d52732b3387aa9c782b1\",\n        \"listed_common_word_lexemes\": [\n            \"que\", \"qua\", \"qui\", \"per\", \"che\", \"con\", \"perché\", \"non\",\n            \"quanto\", \"come\", \"quando\", \"però\",\n        ],\n    },\n    \"visconti1447\": {\n        \"title\": \"Filippo Maria Visconti to Francesco Sforza, second cipher, 23 January 1447\",\n        \"archive\": \"ASMi Carteggio Visconteo-Sforzesco cart. 1597 no. 24, later copy; DECODE R5324\",\n        \"comparisons\": \"BnF italien 1584 f. 15 ciphertext and f. 16 contemporary clear version\",\n        \"catalog_url\": \"https://dbourdeau.github.io/cyphersolver/visconti1447.html\",\n        \"archive_record\": \"https://de-crypt.org/decrypt-web/RecordsView/5324\",\n        \"sha256\": \"5e315d1ed3249567596c449767ad9674ec4689c2e622ed21c953d1c53f03cca2\",\n        \"listed_common_word_lexemes\": [\n            \"et\", \"que\", \"qui\", \"in\", \"de\", \"con\", \"qua\", \"da\", \"che\", \"per\", \"come\", \"ciò\", \"di\",\n        ],\n        \"additional_single_lexemes_in_names_and_words\": [\n            \"lettere\", \"date\", \"havemo\", \"Papa\", \"Ambassadore\", \"questo\", \"cosa\", \"vuy\",\n        ],\n    },\n}\n\n\ndef digest(data):\n    return sha256(data).hexdigest()\n\n\ndef numeric_entity(match):\n    replaced = unescape(match[0])\n    if replaced == match[0]:\n        return match[0]\n    return \"\".join(f\"&#{ord(character)};\" for character in replaced)\n\n\ndef machiavelli(path):\n    paragraphs = []\n    book_chapters = []\n    with ZipFile(path) as archive:\n        package = ET.fromstring(archive.read(\"OEBPS/content.opf\"))\n        files = {item.get(\"id\"): item.get(\"href\") for item in package.find(OPF + \"manifest\")}\n        spine = [files[item.get(\"idref\")] for item in package.find(OPF + \"spine\")]\n        assert len(spine) == 149\n        assert spine[5] == \"Text/Section0006.xhtml\" and spine[-1] == \"Text/Section0149.xhtml\"\n        for file in spine[5:]:\n            member = \"OEBPS/\" + file\n            source = archive.read(member).decode(\"utf-8-sig\")\n            section = ET.fromstring(re.sub(r\"&[a-zA-Z]+;\", numeric_entity, source))\n            body = section.find(f\"{XHTML}body\")\n            assert body is not None\n            if body.find(XHTML + \"h1\") is not None:\n                book_chapters.append([])\n            if (heading := body.find(XHTML + \"h2\")) is not None:\n                book_chapters[-1].append(int(\"\".join(heading.itertext()).split()[0]))\n            section_prose = [\"\".join(p.itertext()) for p in body.iter(f\"{XHTML}p\")]\n            assert any(p.strip() for p in section_prose), member\n            paragraphs.extend(section_prose)\n    assert book_chapters == [list(range(1, length + 1)) for length in (60, 33, 49)]\n    assert paragraphs[0].startswith(\"Ancora che, per la invida natura\")\n    return \"\\n\".join(paragraphs)\n\n\ndef historic_stream(source, extractor):\n    file = ROOT / source[\"raw_file\"]\n    raw = file.read_bytes()\n    assert digest(raw) == source[\"raw_sha256\"], file\n    if file.suffix == \".pdf\":\n        raw = subprocess.check_output([\"pdftotext\", \"-enc\", \"UTF-8\", \"-nopgbrk\", str(file), \"-\"])\n        assert digest(raw) == source[\"pdf_text_sha256\"], file\n    if file.suffix == \".epub\":\n        text = extractor(file)\n    else:\n        text = extractor(raw.decode(\"utf-8-sig\").replace(\"\\r\\n\", \"\\n\"))\n    tokens = normalize(text)\n    assert len(tokens) >= 16_000\n    payload = (\" \".join(tokens) + \"\\n\").encode()\n    output = ROOT / source[\"file\"]\n    if output.exists():\n        assert output.read_bytes() == payload, output\n    else:\n        output.write_bytes(payload)\n    return dict(source, raw_bytes=file.stat().st_size, tokens=len(tokens), sha256=digest(payload))\n\n\ndef main():\n    previous = json.loads((ROOT / \"previous_readings_metadata.json\").read_text(encoding=\"utf-8\"))\n    previous_extractor = ROOT / \"previous_prepare_readings.py\"\n    assert digest(previous_extractor.read_bytes()) == previous[\"preprocessing_script_sha256\"]\n    works = {\n        \"boccaccio\": historic_stream(previous[\"works\"][\"boccaccio\"], boccaccio),\n        \"villani\": historic_stream(previous[\"works\"][\"villani\"], villani),\n        \"machiavelli\": historic_stream(MACHIAVELLI, machiavelli),\n    }\n    for name in (\"boccaccio\", \"villani\"):\n        assert works[name][\"sha256\"] == previous[\"works\"][name][\"sha256\"]\n    keys = {}\n    for name, source in KEY_METADATA.items():\n        file = f\"historical-keys/{name}.md\"\n        assert digest((ROOT / file).read_bytes()) == source[\"sha256\"], file\n        keys[name] = dict(\n            source,\n            file=file,\n            url=f\"https://raw.githubusercontent.com/dbourdeau/cyphersolver/{REVISION}/targets/{name}/key.md\",\n            author=\"Daniel Bourdeau\",\n            license=\"CC BY 4.0 reconstruction text\",\n            primary_letter_volume=\"https://gallica.bnf.fr/ark:/12148/btv1b100373864\",\n        )\n    manifest = {\n        \"preprocessing\": previous[\"preprocessing\"],\n        \"preprocessing_script_sha256\": digest(Path(__file__).read_bytes()),\n        \"previous_preprocessing_script_sha256\": previous[\"preprocessing_script_sha256\"],\n        \"works\": works,\n        \"historical_keys\": keys,\n        \"key_scope\": (\n            \"The files include the credited transcriptions. The selected word inventories \"\n            \"are not claims to reproduce the historical alphabets, syllables, nulls or framing.\"\n        ),\n    }\n    (ROOT / \"manifest.json\").write_text(\n        json.dumps(manifest, indent=2, ensure_ascii=False) + \"\\n\", encoding=\"utf-8\"\n    )\n\n\nif __name__ == \"__main__\":\n    main()\n",
+      "sources/previous_prepare_readings.py": "\"\"\"Derive bounded historical word streams from public pinned source bytes.\"\"\"\nfrom hashlib import sha256\nfrom pathlib import Path\nimport json\nimport re\nimport subprocess\nimport unicodedata\nimport xml.etree.ElementTree as ET\n\n\nROOT = Path(__file__).resolve().parent\nTEI = \"{http://www.tei-c.org/ns/1.0}\"\nTRANSLITERATE = str.maketrans({\"œ\": \"oe\", \"æ\": \"ae\", \"þ\": \"th\", \"ð\": \"th\", \"ȝ\": \"gh\"})\n\n\ndef digest(data):\n    return sha256(data).hexdigest()\n\n\ndef normalize(text):\n    decomposed = unicodedata.normalize(\"NFKD\", text.casefold().translate(TRANSLITERATE))\n    stripped = \"\".join(c for c in decomposed if not unicodedata.combining(c))\n    return re.findall(r\"[a-z]+\", stripped)\n\n\ndef gower(text):\n    opening = \"Of hem that writen ous tofore\"\n    body = opening + text.split(\"\\n\" + opening, 1)[1].split(\"[End of CONFESSIO AMANTIS]\", 1)[0]\n    body = re.sub(r\"_[^_]*_\", \"\", body, flags=re.S)\n    body = re.sub(r\"\\[[^\\[\\]]*\\]\", \"\", body, flags=re.S)\n    return \"\\n\".join(line for line in body.splitlines()\n                     if not re.match(r\"^\\s*(?:Incipit|Explicit)\\s\", line))\n\n\ndef malory(text):\n    body = text.split(\"\\nBOOK I.\\n\", 1)[1]\n    body = body.split(\"\\nEnd of the Project Gutenberg EBook\", 1)[0]\n    return \"\\n\".join(block for block in re.split(r\"\\n\\s*\\n\", body)\n                     if not re.match(r\"\\s*(?:CHAPTER|BOOK)\\s+[IVXLCDM]+\\.\", block))\n\n\ndef caesar(text):\n    xml = ET.fromstring(text)\n    books = xml.findall(f\".//{TEI}div[@subtype='book']\")\n    assert [book.get(\"n\") for book in books] == list(map(str, range(1, 9)))\n    return \"\\n\".join(\"\".join(p.itertext()) for book in books[:7] for p in book.iter(f\"{TEI}p\"))\n\n\ndef juan_manuel(text):\n    opening = \"Acaesció una vez, que el conde Lucanor estaba fablando en su poridad\"\n    body = opening + text.split(opening, 1)[1].split(\"\\nEJEMPLO LI\\n\", 1)[0]\n    kept = []\n    for block in re.split(r\"\\n\\s*\\n\", body):\n        if re.match(r\"^\\s*(?:\\[\\d+\\]|(?:ENXEMPLO|EXEMPLO|ENJIEMPLO|EJEMPLO)\\s+[IVXLCDM]+\\s*$)\", block):\n            continue\n        kept.append(re.sub(r\"\\[\\d+\\]\", \"\", block))\n    return \"\\n\".join(kept)\n\n\ndef llull(text):\n    assert text.startswith(\"Senyor Deus gloriós\")\n    assert \"Acabat es lo romanç de Evast e Blanquerna\" in text[-500:]\n    return text\n\n\ndef villani(text):\n    opening = \"Esaminando nell’animo la vostra esortazione\"\n    body = opening + text.split(opening, 1)[1].split(\"\\nTAVOLA DEI CAPITOLI\\n\", 1)[0]\n    body = re.sub(r\"(?m)^\\s*(?:CAP\\. (?:[IVXLCDM]+)\\.|CAPITOLO PRIMO|LIBRO SECONDO)\\s*$\", \"\", body)\n    body = re.sub(r\"(?m)^_[^_\\n]*_\\s*$\", \"\", body)\n    return body\n\n\ndef boccaccio(text):\n    opening = \"[2] Umana cosa è aver compassione degli afflitti\"\n    ending = \"[30] Qui finisce la Decima e ultima giornata\"\n    assert text.count(opening) == text.count(ending) == 1\n    body = opening + text.split(opening, 1)[1].split(ending, 1)[0]\n    # The PDF repeats the section name at page boundaries.\n    heading = re.compile(r\"\\s*(?:Proemio|[IVXLCDM]+ Giornata(?:\\s*[–-]\\s*.+)?|Conclusione dell’autore|\\d+)\\s*\",\n                         re.IGNORECASE)\n    return \"\\n\".join(line for line in body.splitlines() if not heading.fullmatch(line))\n\n\nWORKS = {\n    \"gower\": {\n        \"author\": \"John Gower\", \"title\": \"Confessio Amantis\", \"date\": \"late 14th century\",\n        \"language\": \"Middle English\", \"genre\": \"narrative verse, Macaulay edition\",\n        \"url\": \"https://gutenberg.pglaf.org/2/6/266/266-0.txt\",\n        \"catalog_url\": \"https://www.gutenberg.org/ebooks/266\", \"license\": \"public domain (Gutenberg US)\",\n        \"raw_file\": \"raw/gower.txt\",\n        \"raw_sha256\": \"7ec852c556d9a0f44ad32fcf2de4d55f0256dd1354fa2448b00d5bff3d5ed3fe\",\n        \"selection\": \"Prologue and eight books from opening line to End of CONFESSIO AMANTIS marker; exclude underscored Latin sections, bracketed inserts, Incipit/Explicit headings and numbering by normalization.\",\n        \"prior_prefix_overlap\": False,\n    },\n    \"malory\": {\n        \"author\": \"Thomas Malory\", \"title\": \"Le Morte d'Arthur, volume I\", \"date\": \"c. 1470\",\n        \"language\": \"Middle English\", \"genre\": \"Arthurian prose, later editorial spelling\",\n        \"url\": \"https://gutenberg.pglaf.org/1/2/5/1251/1251-0.txt\",\n        \"catalog_url\": \"https://www.gutenberg.org/ebooks/1251\", \"license\": \"public domain (Gutenberg US)\",\n        \"raw_file\": \"raw/malory-1.txt\",\n        \"raw_sha256\": \"221629ab7ba850df63e5eab73206cec5b286e406f609550cc92f51c2cc1008e9\",\n        \"selection\": \"Main book text from first unindented BOOK I. heading to the Gutenberg footer; exclude TOC, editor/preliminary text, chapter/book-heading blocks.\",\n        \"prior_prefix_overlap\": False,\n    },\n    \"caesar\": {\n        \"author\": \"Gaius Julius Caesar\", \"title\": \"De bello Gallico\", \"date\": \"c. 50 BCE\",\n        \"language\": \"Latin\", \"genre\": \"military prose, T. Rice Holmes 1914, Perseus Latin TEI\",\n        \"url\": \"https://raw.githubusercontent.com/PerseusDL/canonical-latinLit/master/data/phi0448/phi001/phi0448.phi001.perseus-lat2.xml\",\n        \"catalog_url\": \"https://atlas.perseus.tufts.edu/library/urn:cts:latinLit:phi0448.phi001.perseus-lat2/\",\n        \"license\": \"CC BY-SA 4.0 (TEI declaration)\",\n        \"raw_file\": \"raw/caesar.xml\",\n        \"raw_sha256\": \"15ec3ef2a36352742ddb75d4f7da23a143899b6b60ee3a7ca3192d4917ca1568\",\n        \"selection\": \"TEI p text in Books I–VII in source order; exclude TEI header, book headings, and Aulus Hirtius's Book VIII. Editorial text inside author paragraph elements retained.\",\n        \"prior_prefix_overlap\": False,\n    },\n    \"juan_manuel\": {\n        \"author\": \"Don Juan Manuel\", \"title\": \"El conde Lucanor\", \"date\": \"c. 1335\",\n        \"language\": \"Old Castilian\", \"genre\": \"exempla, mediated by the Gutenberg edition\",\n        \"url\": \"https://gutenberg.pglaf.org/6/5/7/3/65738/65738-0.txt\",\n        \"catalog_url\": \"https://www.gutenberg.org/ebooks/65738\", \"license\": \"public domain (Gutenberg US)\",\n        \"raw_file\": \"raw/juan-manuel.txt\",\n        \"raw_sha256\": \"86d4d832a39a3647fd752ed0a9953d853855136cbf061a041334ad818d199ff4\",\n        \"selection\": \"Retain examples I–L, beginning with first narrative paragraph. Omit introduction, later parts, and disputed example LI, skip numbered note paragraphs and chapter headings; residual inline editorial material and chapter subtitles may remain.\",\n        \"prior_prefix_overlap\": False,\n    },\n    \"llull\": {\n        \"author\": \"Ramon Llull\", \"title\": \"Libre de Blanquerna\", \"date\": \"c. 1283\",\n        \"language\": \"Old Catalan\", \"genre\": \"narrative prose with verse and devotional fragments; Palma 1914 edition\",\n        \"url\": \"https://raw.githubusercontent.com/mubadala777/voynich-swarm/1b18408523f96c1772ed06d38899d0496b1e33d1/libre-de-blanquerna.txt\",\n        \"catalog_url\": \"https://voynichswarm.com\",\n        \"license\": \"public domain, confirmed in corpus pin\",\n        \"raw_file\": \"raw/llull.txt\",\n        \"raw_sha256\": \"54a4ab12539d54c375033e6ca7d08cb1fcfc83b353995ee9b37d7ffd8a499753\",\n        \"selection\": \"Use verified body-only corpus pin from invocation to explicit final colophon, strip accents, punctuation and numbering by normalization.\",\n        \"prior_prefix_overlap\": False,\n    },\n    \"villani\": {\n        \"author\": \"Matteo Villani\", \"title\": \"Cronica, vol. I\", \"date\": \"c. 1350\",\n        \"language\": \"Old Italian\", \"genre\": \"historical prose\",\n        \"url\": \"https://gutenberg.pglaf.org/6/9/8/9/69898/69898-0.txt\",\n        \"catalog_url\": \"https://www.gutenberg.org/ebooks/69898\", \"license\": \"public domain (Gutenberg US)\",\n        \"raw_file\": \"raw/villani.txt\",\n        \"raw_sha256\": \"3acf82f4b25b636048d915961bb8cec2262e9b7cf9ff860ff056ab4bf1e1fd6e\",\n        \"selection\": \"From authorial prologue to TAVOLA DEI CAPITOLI; omit editor's preface, principal chapter headings and contents. Some chapter rubrics may remain.\",\n        \"prior_prefix_overlap\": True,\n    },\n    \"boccaccio\": {\n        \"author\": \"Giovanni Boccaccio\", \"title\": \"Decameron\", \"date\": \"mid-14th century\",\n        \"language\": \"Old Italian\", \"genre\": \"fictional prose with framing verse\",\n        \"url\": \"https://www.enteboccaccio.it/files/original/1124/Boccaccio_Decameron_a_cura_di_Maurizio_Fiorilla_%5Baggiornato_2026%5D.pdf\",\n        \"catalog_url\": \"https://www.enteboccaccio.it/s/casa-boccaccio/item/1124\",\n        \"license\": \"Historical work, open institutional critical text; reuse terms for modern edition not asserted.\",\n        \"edition\": \"Maurizio Fiorilla, critical text drawn from the third edition, BUR-Rizzoli 2025; 2026 PDF.\",\n        \"raw_file\": \"raw/boccaccio-ente.pdf\",\n        \"raw_sha256\": \"28e9f289fb02836bd67ae0af61f74fde307f46affb4fde116670523bd0022c37\",\n        \"pdf_text_sha256\": \"c8e10c05dab63dabdf9fec54218d3d10d6fe4626bc4aaf24d049ead60e5b9880\",\n        \"selection\": \"Use Poppler pdftotext 25.03.0 -enc UTF-8 -nopgbrk. From the first authorial prose paragraph, Proemio [2], through final authorial [29]. Omit PDF cover, repeated section headers, bare page/novella numerals and final colophon. The source already omits editorial introduction and notes.\",\n        \"prior_prefix_overlap\": False,\n    },\n}\n\n\ndef main():\n    results = {}\n    for ident, meta in WORKS.items():\n        path = ROOT / meta[\"raw_file\"]\n        raw = path.read_bytes()\n        assert digest(raw) == meta[\"raw_sha256\"], ident\n        if path.suffix == \".pdf\":\n            raw = subprocess.check_output([\"pdftotext\", \"-enc\", \"UTF-8\", \"-nopgbrk\", str(path), \"-\"])\n            assert digest(raw) == meta[\"pdf_text_sha256\"], ident\n        body = globals()[ident](raw.decode(\"utf-8-sig\").replace(\"\\r\\n\", \"\\n\"))\n        words = normalize(body)\n        assert len(words) >= 30_000, (ident, len(words))\n        filename = ident + \".txt\"\n        tokens = (\" \".join(words) + \"\\n\").encode()\n        (ROOT / filename).write_bytes(tokens)\n        results[ident] = {**meta, \"file\": filename, \"raw_bytes\": path.stat().st_size,\n                          \"tokens\": len(words), \"sha256\": digest(tokens)}\n    manifest = {\n        \"preprocessing\": \"Casefold, transliterate œ/æ/þ/ð/ȝ, NFKD, remove combining marks, then maximal contiguous ASCII a–z runs. UTF-8, one space between tokens and final LF.\",\n        \"preprocessing_script_sha256\": digest(Path(__file__).read_bytes()),\n        \"works\": results,\n    }\n    (ROOT / \"manifest.json\").write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + \"\\n\",\n                                       encoding=\"utf-8\")\n\n\nif __name__ == \"__main__\":\n    main()\n"
+    }
+  }
+}
