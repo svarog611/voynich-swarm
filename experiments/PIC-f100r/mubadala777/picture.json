@@ -1,0 +1,426 @@
+{
+  "folio": "f100r",
+  "canvas": "https://collections.library.yale.edu/manifests/oid/2002046/canvas/1006248",
+  "blind": true,
+  "statement": "The f100r page has two red cylindrical vessels and sixteen botanical drawings. This inventory uses the Beinecke colour scan as a second blind seat. Nearby script was located visually before assigning ZL identifiers by band and object order. The upper-right caption is split around a blue-tipped branch. Three lower caption loci remain candidates because of neighboring plant forms and the paragraph margin. Coordinates are estimates on the 1850-by-2597 Yale IIIF image. Both vessels are recorded with unassigned captions.",
+  "objects": [
+    {
+      "id": "band-1-item-1",
+      "kind": "jar",
+      "features": {
+        "colour": "red",
+        "band": 1,
+        "bbox_scan_px": [
+          120,
+          107,
+          135,
+          362
+        ],
+        "description": "Tall red cylinder with a pale oval top, a single pale belt and a rounded lower outline."
+      },
+      "label": null
+    },
+    {
+      "id": "band-1-item-2",
+      "kind": "plant_part",
+      "features": {
+        "colour": "mixed",
+        "band": 1,
+        "bbox_scan_px": [
+          238,
+          140,
+          248,
+          356
+        ],
+        "description": "Grouped green round, cup-like lobes with tapered tips on a shared curved stalk. Pale and rusty root strands bend down from the join.",
+        "caption_bbox_scan_px": [
+          296,
+          116,
+          191,
+          52
+        ]
+      },
+      "label": "f100r.1"
+    },
+    {
+      "id": "band-1-item-3",
+      "kind": "plant_part",
+      "features": {
+        "colour": "mixed",
+        "band": 1,
+        "bbox_scan_px": [
+          426,
+          162,
+          369,
+          331
+        ],
+        "description": "Rust-coloured coiled branch with small arrow- or triangular-shaped green blades on short stalks and two fine curved basal extensions.",
+        "caption_bbox_scan_px": [
+          505,
+          84,
+          178,
+          76
+        ]
+      },
+      "label": "f100r.2"
+    },
+    {
+      "id": "band-1-item-4",
+      "kind": "plant_part",
+      "features": {
+        "colour": "green",
+        "band": 1,
+        "bbox_scan_px": [
+          668,
+          89,
+          388,
+          374
+        ],
+        "description": "A central upright stalk with paired tapering, finely toothed green blades in three levels and a fan of delicate pale roots.",
+        "caption_bbox_scan_px": [
+          738,
+          72,
+          116,
+          58
+        ]
+      },
+      "label": "f100r.3"
+    },
+    {
+      "id": "band-1-item-5",
+      "kind": "plant_part",
+      "features": {
+        "colour": "green",
+        "band": 1,
+        "bbox_scan_px": [
+          1053,
+          202,
+          198,
+          268
+        ],
+        "description": "Green lobes form a jagged, radiating cluster above a curved pale stem with several claw-like roots.",
+        "caption_bbox_scan_px": [
+          1058,
+          120,
+          144,
+          70
+        ]
+      },
+      "label": "f100r.4"
+    },
+    {
+      "id": "band-1-item-6",
+      "kind": "plant_part",
+      "features": {
+        "colour": "mixed",
+        "band": 1,
+        "bbox_scan_px": [
+          1212,
+          96,
+          398,
+          392
+        ],
+        "description": "Three green bell-like forms face up, left and right on a common branched stem. Each has a dark blue pointed tip. The thin roots have a rusty central section.",
+        "caption_bbox_scan_px": [
+          1247,
+          126,
+          333,
+          73
+        ],
+        "caption_segments_scan_px": [
+          [
+            1247,
+            127,
+            155,
+            64
+          ],
+          [
+            1444,
+            148,
+            132,
+            59
+          ]
+        ],
+        "caption_uncertainty": "Two short ink segments flank the upright blue-tipped branch. The visual inventory associates the split region with this drawing."
+      },
+      "label": "f100r.5"
+    },
+    {
+      "id": "band-2-item-1",
+      "kind": "plant_part",
+      "features": {
+        "colour": "mixed",
+        "band": 2,
+        "bbox_scan_px": [
+          92,
+          499,
+          232,
+          349
+        ],
+        "description": "Three toothed green blades, each with one outlined spot, on a pale stalk ending in an irregular dark reddish base.",
+        "caption_bbox_scan_px": [
+          179,
+          486,
+          96,
+          44
+        ]
+      },
+      "label": "f100r.6"
+    },
+    {
+      "id": "band-2-item-2",
+      "kind": "plant_part",
+      "features": {
+        "colour": "green",
+        "band": 2,
+        "bbox_scan_px": [
+          281,
+          517,
+          310,
+          389
+        ],
+        "description": "A series of narrow green blades radiates along one side of a curved pale oval outline, with fine recurved basal lines.",
+        "caption_bbox_scan_px": [
+          445,
+          733,
+          153,
+          70
+        ]
+      },
+      "label": "f100r.7"
+    },
+    {
+      "id": "band-2-item-3",
+      "kind": "plant_part",
+      "features": {
+        "colour": "mixed",
+        "band": 2,
+        "bbox_scan_px": [
+          591,
+          433,
+          208,
+          388
+        ],
+        "description": "Single tall asymmetric green blade with irregular spurs, above a small reddish bent root and a fine downward stroke.",
+        "caption_bbox_scan_px": [
+          671,
+          719,
+          101,
+          61
+        ]
+      },
+      "label": "f100r.8"
+    },
+    {
+      "id": "band-2-item-4",
+      "kind": "plant_part",
+      "features": {
+        "colour": "mixed",
+        "band": 2,
+        "bbox_scan_px": [
+          746,
+          366,
+          245,
+          484
+        ],
+        "description": "A sharply pointed green blade with several downward strips and a darkened patch. A curved, thick reddish root is visible beneath it.",
+        "caption_bbox_scan_px": [
+          992,
+          693,
+          111,
+          59
+        ]
+      },
+      "label": "f100r.9"
+    },
+    {
+      "id": "band-2-item-5",
+      "kind": "plant_part",
+      "features": {
+        "colour": "mixed",
+        "band": 2,
+        "bbox_scan_px": [
+          1038,
+          480,
+          292,
+          366
+        ],
+        "description": "A compact fan of curled, paired green blades over several orange-brown root strokes and longer fine pale filaments.",
+        "caption_bbox_scan_px": [
+          1266,
+          676,
+          128,
+          65
+        ]
+      },
+      "label": "f100r.10"
+    },
+    {
+      "id": "band-2-item-6",
+      "kind": "plant_part",
+      "features": {
+        "colour": "green",
+        "band": 2,
+        "bbox_scan_px": [
+          1368,
+          420,
+          325,
+          479
+        ],
+        "description": "Two large green blades hang down on either side of pale central stalks and several fine branching roots.",
+        "caption_bbox_scan_px": [
+          1515,
+          350,
+          131,
+          68
+        ]
+      },
+      "label": "f100r.11"
+    },
+    {
+      "id": "band-3-item-1",
+      "kind": "jar",
+      "features": {
+        "colour": "red",
+        "band": 3,
+        "bbox_scan_px": [
+          213,
+          1144,
+          157,
+          405
+        ],
+        "description": "Upright red cylinder with a pale greenish oval top, pale bands separating three red sections and a pale basal rim."
+      },
+      "label": null
+    },
+    {
+      "id": "band-3-item-2",
+      "kind": "plant_part",
+      "features": {
+        "colour": "green",
+        "band": 3,
+        "bbox_scan_px": [
+          355,
+          1134,
+          298,
+          509
+        ],
+        "description": "Three elongated green blades form a fork on one stalk. Its base is a pale pointed bundle with several fine internal lines.",
+        "candidate_loci": [
+          "f100r.16",
+          "f100r.17"
+        ],
+        "candidate_caption_boxes_scan_px": [
+          [
+            446,
+            1398,
+            125,
+            67
+          ],
+          [
+            571,
+            1152,
+            131,
+            63
+          ]
+        ],
+        "caption_uncertainty": "One inscription sits beside this stem and a second lies above the gap with the next drawing. Their unique attribution could not be resolved blind."
+      },
+      "label": null
+    },
+    {
+      "id": "band-3-item-3",
+      "kind": "plant_part",
+      "features": {
+        "colour": "green",
+        "band": 3,
+        "bbox_scan_px": [
+          494,
+          1185,
+          367,
+          456
+        ],
+        "description": "Dark green rounded lobes form a crown on several pale branches. A thick pale taper bends left and divides into fine strands.",
+        "caption_bbox_scan_px": [
+          601,
+          1400,
+          95,
+          65
+        ]
+      },
+      "label": "f100r.18"
+    },
+    {
+      "id": "band-3-item-4",
+      "kind": "plant_part",
+      "features": {
+        "colour": "green",
+        "band": 3,
+        "bbox_scan_px": [
+          731,
+          1202,
+          361,
+          417
+        ],
+        "description": "A lone broad green blade with a toothed outline and scattered short internal marks hangs from a long arched stem, ending in several pale roots.",
+        "caption_bbox_scan_px": [
+          983,
+          1366,
+          137,
+          70
+        ]
+      },
+      "label": "f100r.19"
+    },
+    {
+      "id": "band-3-item-5",
+      "kind": "plant_part",
+      "features": {
+        "colour": "green",
+        "band": 3,
+        "bbox_scan_px": [
+          1030,
+          1147,
+          279,
+          431
+        ],
+        "description": "Several overlapping round, scalloped green blades on pale stalks that meet above a dark hook and finer projections.",
+        "caption_bbox_scan_px": [
+          1222,
+          1318,
+          120,
+          67
+        ]
+      },
+      "label": "f100r.20"
+    },
+    {
+      "id": "band-3-item-6",
+      "kind": "plant_part",
+      "features": {
+        "colour": "mixed",
+        "band": 3,
+        "bbox_scan_px": [
+          1181,
+          925,
+          562,
+          687
+        ],
+        "description": "Large, pointed, deeply toothed green blades on a pale bend, with several orange-brown roots extending to the sides and down.",
+        "candidate_loci": [
+          "f100r.21"
+        ],
+        "candidate_caption_boxes_scan_px": [
+          [
+            1195,
+            1083,
+            100,
+            68
+          ]
+        ],
+        "caption_uncertainty": "This short line aligns with the right end of the upper paragraph band. Its position also permits association with either of the two right-hand plants."
+      },
+      "label": null
+    }
+  ]
+}
