@@ -1,0 +1,1906 @@
+{
+  "title": "At least seven in ten eligible paragraph boundaries are end-to-start-class pairs",
+  "statement": "Under the pinned default uncertain-space policy, at least 70% of eligible consecutive word pairs within paragraph lines have an end-preferring final grapheme on the left and a start-preferring initial grapheme on the right, using only training pages to assign grapheme classes with the fixed Parisel pool and strict 2:1 rule.",
+  "spec": {
+    "select": {
+      "unit": [
+        "P"
+      ],
+      "certain": true
+    },
+    "statistic": {
+      "boundary_class_rate": true
+    },
+    "compare": [
+      {
+        "op": ">=",
+        "value": 0.7
+      }
+    ]
+  },
+  "evidence": {
+    "protocol": "# P-L1-024 training-fitted positional boundary classes\n\nThe claim is a descriptive corpus statistic with a lower bound of seven in ten. This round threshold is fixed using the independent published P-L1-024 public measurement of .7166 to .7364 across witnesses and uncertain-space treatments, before the new released-primitive run. Fit glyph classes using only the scorer's training pages, its prescribed Parisel longest-match pool and strict 2:1 endpoint preference. Use all certain, alphabetic paragraph tokens with at least two raw characters. A score includes only physically consecutive eligible words in their original line, with ineligible positions as barriers. An unknown class contributes no end-to-start hit. Ordinary hidden submission uses the pinned default split-at-uncertain-space reading.\n\nThe primary fact uses the fraction of qualifying observed eligible pairs, not a directional transition test. On the public practice split measure ZL, Takahashi and RF with witness-specific classes and with split and joined uncertain spaces. As an auxiliary diagnostic apply an exact complete-run word permutation null (199 draws) to the same class rate. Its expectation is computed independently using e end-preferring endings, s start-preferring onsets, b words satisfying both, and n words per eligible run. The expected number of hits in that run is (e*s−b)/n for n≥2. The boundary counts, evaluation folios and train fit are pinned before these comparisons. Use identical same-manuscript witnesses as alternative readings, not independent manuscripts. External corpus controls and artificial planted streams assess behavior of the measure, not the provenance or language of the manuscript.\n",
+    "predicate_sources": {
+      "paper": "https://arxiv.org/abs/2604.19762",
+      "parisel_code": "https://github.com/labyrinthinesecurity/currier-signatures",
+      "prior_public_replay": "https://github.com/Ayan-Bandyopadhyay/voynich-swarm/pull/758",
+      "trusted_primitive": "https://github.com/Ayan-Bandyopadhyay/voynich-swarm/pull/772"
+    },
+    "released_primitive_public": {
+      "zl:split": {
+        "official_threshold": {
+          "value": 0.723352,
+          "pass": true,
+          "detail": {
+            "tokens": 5461,
+            "boundary_class_rate": {
+              "pairs": 4475,
+              "unknown_pairs": 0
+            },
+            ">= 0.7": true
+          }
+        },
+        "class_counts": {
+          "ambig": 13,
+          "start": 22,
+          "end": 27
+        },
+        "classes": {
+          "s": "ambig",
+          "ds": "start",
+          "f": "start",
+          "r": "start",
+          "dy": "end",
+          "z": "start",
+          "in": "end",
+          "aiin": "end",
+          "ry": "ambig",
+          "x": "ambig",
+          "v": "start",
+          "ok": "start",
+          "ly": "ambig",
+          "m": "end",
+          "h": "end",
+          "k": "start",
+          "dl": "ambig",
+          "b": "end",
+          "iir": "end",
+          "u": "end",
+          "dar": "ambig",
+          "edy": "end",
+          "q": "start",
+          "ir": "end",
+          "ch": "start",
+          "al": "end",
+          "cth": "start",
+          "j": "ambig",
+          "es": "end",
+          "sh": "start",
+          "cph": "start",
+          "n": "end",
+          "eey": "end",
+          "ck": "start",
+          "dal": "ambig",
+          "ed": "end",
+          "an": "end",
+          "ey": "end",
+          "iin": "end",
+          "dm": "ambig",
+          "eedy": "end",
+          "t": "start",
+          "e": "ambig",
+          "ldy": "ambig",
+          "i": "ambig",
+          "g": "end",
+          "l": "start",
+          "ckh": "start",
+          "p": "start",
+          "ot": "start",
+          "a": "start",
+          "cfh": "start",
+          "am": "end",
+          "c": "start",
+          "ain": "end",
+          "ar": "end",
+          "my": "end",
+          "d": "start",
+          "ol": "end",
+          "o": "ambig",
+          "y": "end",
+          "or": "end"
+        },
+        "exact_run_shuffle_expectation": 0.6998167047105595,
+        "observed_minus_expected": 0.02353529528944054,
+        "shuffle_diagnostic": {
+          "p": 0.005,
+          "perms": 199
+        }
+      },
+      "zl:join": {
+        "official_threshold": {
+          "value": 0.655886,
+          "pass": false,
+          "detail": {
+            "tokens": 5065,
+            "boundary_class_rate": {
+              "pairs": 4298,
+              "unknown_pairs": 0
+            },
+            ">= 0.7": false
+          }
+        },
+        "class_counts": {
+          "ambig": 13,
+          "start": 22,
+          "end": 27
+        },
+        "classes": {
+          "s": "ambig",
+          "ds": "start",
+          "f": "start",
+          "r": "start",
+          "dy": "end",
+          "z": "start",
+          "in": "end",
+          "aiin": "end",
+          "ry": "ambig",
+          "x": "ambig",
+          "v": "start",
+          "ok": "start",
+          "ly": "end",
+          "m": "end",
+          "h": "end",
+          "k": "start",
+          "dl": "ambig",
+          "b": "end",
+          "iir": "end",
+          "u": "end",
+          "dar": "ambig",
+          "edy": "end",
+          "q": "start",
+          "ir": "end",
+          "ch": "start",
+          "al": "end",
+          "cth": "start",
+          "j": "ambig",
+          "es": "end",
+          "sh": "start",
+          "cph": "start",
+          "n": "end",
+          "eey": "end",
+          "ck": "start",
+          "dal": "ambig",
+          "ed": "end",
+          "an": "end",
+          "iin": "end",
+          "ey": "end",
+          "dm": "ambig",
+          "eedy": "end",
+          "t": "start",
+          "e": "ambig",
+          "ldy": "ambig",
+          "i": "ambig",
+          "g": "end",
+          "l": "start",
+          "ckh": "start",
+          "p": "start",
+          "ot": "start",
+          "a": "start",
+          "cfh": "start",
+          "am": "end",
+          "c": "start",
+          "ain": "end",
+          "ar": "end",
+          "my": "end",
+          "d": "start",
+          "ol": "ambig",
+          "o": "ambig",
+          "y": "end",
+          "or": "end"
+        },
+        "exact_run_shuffle_expectation": 0.6429373648429023,
+        "observed_minus_expected": 0.012948635157097654,
+        "shuffle_diagnostic": {
+          "p": 0.005,
+          "perms": 199
+        }
+      },
+      "it:split": {
+        "official_threshold": {
+          "value": 0.718859,
+          "pass": true,
+          "detail": {
+            "tokens": 5394,
+            "boundary_class_rate": {
+              "pairs": 4592,
+              "unknown_pairs": 0
+            },
+            ">= 0.7": true
+          }
+        },
+        "class_counts": {
+          "ambig": 11,
+          "start": 21,
+          "end": 26
+        },
+        "classes": {
+          "s": "ambig",
+          "ds": "start",
+          "f": "start",
+          "r": "start",
+          "dy": "end",
+          "z": "start",
+          "in": "end",
+          "aiin": "end",
+          "ry": "ambig",
+          "x": "ambig",
+          "ok": "start",
+          "ly": "ambig",
+          "m": "end",
+          "h": "end",
+          "k": "start",
+          "dl": "ambig",
+          "iir": "end",
+          "dar": "ambig",
+          "edy": "end",
+          "q": "start",
+          "ir": "end",
+          "ch": "start",
+          "al": "end",
+          "cth": "start",
+          "es": "end",
+          "sh": "start",
+          "cph": "start",
+          "n": "end",
+          "eey": "end",
+          "ck": "start",
+          "dal": "ambig",
+          "ed": "end",
+          "an": "end",
+          "iin": "end",
+          "ey": "end",
+          "dm": "end",
+          "eedy": "end",
+          "t": "start",
+          "e": "ambig",
+          "ldy": "ambig",
+          "i": "ambig",
+          "g": "end",
+          "l": "start",
+          "ckh": "start",
+          "p": "start",
+          "ot": "start",
+          "a": "start",
+          "cfh": "start",
+          "am": "end",
+          "c": "start",
+          "ain": "end",
+          "ar": "end",
+          "my": "end",
+          "d": "start",
+          "ol": "end",
+          "o": "ambig",
+          "y": "end",
+          "or": "end"
+        },
+        "exact_run_shuffle_expectation": 0.6970846208814414,
+        "observed_minus_expected": 0.021774379118558618,
+        "shuffle_diagnostic": {
+          "p": 0.005,
+          "perms": 199
+        }
+      },
+      "it:join": {
+        "official_threshold": {
+          "value": 0.718859,
+          "pass": true,
+          "detail": {
+            "tokens": 5394,
+            "boundary_class_rate": {
+              "pairs": 4592,
+              "unknown_pairs": 0
+            },
+            ">= 0.7": true
+          }
+        },
+        "class_counts": {
+          "ambig": 11,
+          "start": 21,
+          "end": 26
+        },
+        "classes": {
+          "s": "ambig",
+          "ds": "start",
+          "f": "start",
+          "r": "start",
+          "dy": "end",
+          "z": "start",
+          "in": "end",
+          "aiin": "end",
+          "ry": "ambig",
+          "x": "ambig",
+          "ok": "start",
+          "ly": "ambig",
+          "m": "end",
+          "h": "end",
+          "k": "start",
+          "dl": "ambig",
+          "iir": "end",
+          "dar": "ambig",
+          "edy": "end",
+          "q": "start",
+          "ir": "end",
+          "ch": "start",
+          "al": "end",
+          "cth": "start",
+          "es": "end",
+          "sh": "start",
+          "cph": "start",
+          "n": "end",
+          "eey": "end",
+          "ck": "start",
+          "dal": "ambig",
+          "ed": "end",
+          "an": "end",
+          "iin": "end",
+          "ey": "end",
+          "dm": "end",
+          "eedy": "end",
+          "t": "start",
+          "e": "ambig",
+          "ldy": "ambig",
+          "i": "ambig",
+          "g": "end",
+          "l": "start",
+          "ckh": "start",
+          "p": "start",
+          "ot": "start",
+          "a": "start",
+          "cfh": "start",
+          "am": "end",
+          "c": "start",
+          "ain": "end",
+          "ar": "end",
+          "my": "end",
+          "d": "start",
+          "ol": "end",
+          "o": "ambig",
+          "y": "end",
+          "or": "end"
+        },
+        "exact_run_shuffle_expectation": 0.6970846208814414,
+        "observed_minus_expected": 0.021774379118558618,
+        "shuffle_diagnostic": {
+          "p": 0.005,
+          "perms": 199
+        }
+      },
+      "rf:split": {
+        "official_threshold": {
+          "value": 0.716626,
+          "pass": true,
+          "detail": {
+            "tokens": 4879,
+            "boundary_class_rate": {
+              "pairs": 3723,
+              "unknown_pairs": 0
+            },
+            ">= 0.7": true
+          }
+        },
+        "class_counts": {
+          "ambig": 13,
+          "start": 21,
+          "end": 27
+        },
+        "classes": {
+          "s": "ambig",
+          "ds": "start",
+          "f": "start",
+          "r": "start",
+          "dy": "end",
+          "z": "start",
+          "in": "end",
+          "aiin": "end",
+          "ry": "ambig",
+          "x": "ambig",
+          "ok": "start",
+          "ly": "ambig",
+          "m": "end",
+          "h": "end",
+          "k": "start",
+          "dl": "ambig",
+          "b": "end",
+          "iir": "end",
+          "u": "end",
+          "dar": "ambig",
+          "edy": "end",
+          "q": "start",
+          "ir": "end",
+          "ch": "start",
+          "al": "end",
+          "cth": "start",
+          "j": "ambig",
+          "es": "end",
+          "sh": "start",
+          "cph": "start",
+          "n": "end",
+          "eey": "end",
+          "ck": "start",
+          "dal": "ambig",
+          "ed": "end",
+          "an": "end",
+          "iin": "end",
+          "ey": "end",
+          "dm": "ambig",
+          "eedy": "end",
+          "t": "start",
+          "e": "ambig",
+          "ldy": "ambig",
+          "i": "ambig",
+          "g": "end",
+          "l": "start",
+          "ckh": "start",
+          "p": "start",
+          "ot": "start",
+          "cfh": "start",
+          "am": "end",
+          "c": "start",
+          "ain": "end",
+          "ar": "end",
+          "my": "end",
+          "ol": "end",
+          "d": "start",
+          "a": "start",
+          "o": "ambig",
+          "y": "end",
+          "or": "end"
+        },
+        "exact_run_shuffle_expectation": 0.696777003102547,
+        "observed_minus_expected": 0.01984899689745301,
+        "shuffle_diagnostic": {
+          "p": 0.005,
+          "perms": 199
+        }
+      },
+      "rf:join": {
+        "official_threshold": {
+          "value": 0.721031,
+          "pass": true,
+          "detail": {
+            "tokens": 4796,
+            "boundary_class_rate": {
+              "pairs": 3685,
+              "unknown_pairs": 0
+            },
+            ">= 0.7": true
+          }
+        },
+        "class_counts": {
+          "ambig": 13,
+          "start": 21,
+          "end": 27
+        },
+        "classes": {
+          "s": "ambig",
+          "ds": "start",
+          "f": "start",
+          "r": "start",
+          "dy": "end",
+          "z": "start",
+          "in": "end",
+          "aiin": "end",
+          "ry": "ambig",
+          "x": "ambig",
+          "ok": "start",
+          "ly": "ambig",
+          "m": "end",
+          "h": "end",
+          "k": "start",
+          "dl": "ambig",
+          "b": "end",
+          "iir": "end",
+          "u": "end",
+          "dar": "ambig",
+          "edy": "end",
+          "q": "start",
+          "ir": "end",
+          "ch": "start",
+          "al": "end",
+          "cth": "start",
+          "j": "ambig",
+          "es": "end",
+          "sh": "start",
+          "cph": "start",
+          "n": "end",
+          "eey": "end",
+          "ck": "start",
+          "dal": "ambig",
+          "ed": "end",
+          "an": "end",
+          "iin": "end",
+          "ey": "end",
+          "dm": "ambig",
+          "eedy": "end",
+          "t": "start",
+          "e": "ambig",
+          "ldy": "ambig",
+          "i": "ambig",
+          "g": "end",
+          "l": "start",
+          "ckh": "start",
+          "p": "start",
+          "ot": "start",
+          "cfh": "start",
+          "am": "end",
+          "c": "start",
+          "ain": "end",
+          "ar": "end",
+          "my": "end",
+          "ol": "end",
+          "d": "start",
+          "a": "start",
+          "o": "ambig",
+          "y": "end",
+          "or": "end"
+        },
+        "exact_run_shuffle_expectation": 0.7012343475911997,
+        "observed_minus_expected": 0.01979665240880024,
+        "shuffle_diagnostic": {
+          "p": 0.005,
+          "perms": 199
+        }
+      }
+    },
+    "independent_public_replay": {
+      "shared_loci": 4118,
+      "class_totals": {
+        "end": 27,
+        "start": 22,
+        "ambig": 13
+      },
+      "shared_locus_reference": {
+        "zl_split": {
+          "tokens": 5268,
+          "pairs": 4475,
+          "hits": 3237,
+          "unknown_pairs": 0,
+          "rate": 0.7233519553072626,
+          "mi_bits": 0.39555760419721364,
+          "exact_null_rate_mean": 0.6998167047105595,
+          "null_mi_bits": 0.20394963009885891,
+          "null_rate_mean": 0.7000178770949721,
+          "null_rate_range": [
+            0.6929608938547486,
+            0.7074860335195531
+          ],
+          "upper_rate_add_one": 0.009900990099009901
+        },
+        "zl_join": {
+          "tokens": 5006,
+          "pairs": 4298,
+          "hits": 3165,
+          "unknown_pairs": 0,
+          "rate": 0.7363890181479757,
+          "mi_bits": 0.36607290353043465,
+          "exact_null_rate_mean": 0.7113887334164207,
+          "null_mi_bits": 0.20194897061916275,
+          "null_rate_mean": 0.7111540251279664,
+          "null_rate_range": [
+            0.7012563983248022,
+            0.7175430432759423
+          ],
+          "upper_rate_add_one": 0.009900990099009901
+        },
+        "it_split": {
+          "tokens": 5304,
+          "pairs": 4592,
+          "hits": 3301,
+          "unknown_pairs": 0,
+          "rate": 0.7188588850174216,
+          "mi_bits": 0.3809950872244543,
+          "exact_null_rate_mean": 0.6970846208814414,
+          "null_mi_bits": 0.19582092505169313,
+          "null_rate_mean": 0.696890243902439,
+          "null_rate_range": [
+            0.6903310104529616,
+            0.7042682926829268
+          ],
+          "upper_rate_add_one": 0.009900990099009901
+        },
+        "it_join": {
+          "tokens": 5304,
+          "pairs": 4592,
+          "hits": 3301,
+          "unknown_pairs": 0,
+          "rate": 0.7188588850174216,
+          "mi_bits": 0.3809950872244543,
+          "exact_null_rate_mean": 0.6970846208814414,
+          "null_mi_bits": 0.19582092505169313,
+          "null_rate_mean": 0.696890243902439,
+          "null_rate_range": [
+            0.6903310104529616,
+            0.7042682926829268
+          ],
+          "upper_rate_add_one": 0.009900990099009901
+        },
+        "rf_split": {
+          "tokens": 4756,
+          "pairs": 3723,
+          "hits": 2668,
+          "unknown_pairs": 0,
+          "rate": 0.7166263765780285,
+          "mi_bits": 0.4218569283813556,
+          "exact_null_rate_mean": 0.696777003102547,
+          "null_mi_bits": 0.2348359370668755,
+          "null_rate_mean": 0.6967902229384905,
+          "null_rate_range": [
+            0.6854687080311577,
+            0.7042707493956487
+          ],
+          "upper_rate_add_one": 0.009900990099009901
+        },
+        "rf_join": {
+          "tokens": 4699,
+          "pairs": 3685,
+          "hits": 2657,
+          "unknown_pairs": 0,
+          "rate": 0.7210312075983718,
+          "mi_bits": 0.4179360252369757,
+          "exact_null_rate_mean": 0.7012343475911997,
+          "null_mi_bits": 0.23252419860892298,
+          "null_rate_mean": 0.7015549525101764,
+          "null_rate_range": [
+            0.6966078697421981,
+            0.7096336499321574
+          ],
+          "upper_rate_add_one": 0.009900990099009901
+        }
+      },
+      "primitive_independent_replay": {
+        "zl_split": {
+          "tokens": 5268,
+          "pairs": 4475,
+          "hits": 3237,
+          "unknown_pairs": 0,
+          "rate": 0.7233519553072626,
+          "mi_bits": 0.39555760419721364,
+          "exact_null_rate_mean": 0.6998167047105595,
+          "null_mi_bits": 0.20394963009885891,
+          "null_rate_mean": 0.7000178770949721,
+          "null_rate_range": [
+            0.6929608938547486,
+            0.7074860335195531
+          ],
+          "upper_rate_add_one": 0.009900990099009901,
+          "class_totals": {
+            "end": 27,
+            "start": 22,
+            "ambig": 13
+          }
+        },
+        "zl_join": {
+          "tokens": 5006,
+          "pairs": 4298,
+          "hits": 2819,
+          "unknown_pairs": 0,
+          "rate": 0.655886458818055,
+          "mi_bits": 0.36607290353043465,
+          "exact_null_rate_mean": 0.6429373648429023,
+          "null_mi_bits": 0.20194897061916275,
+          "null_rate_mean": 0.6426756630991158,
+          "null_rate_range": [
+            0.6328524895300139,
+            0.6516984644020475
+          ],
+          "upper_rate_add_one": 0.009900990099009901,
+          "class_totals": {
+            "end": 27,
+            "start": 22,
+            "ambig": 13
+          }
+        },
+        "it_split": {
+          "tokens": 5304,
+          "pairs": 4592,
+          "hits": 3301,
+          "unknown_pairs": 0,
+          "rate": 0.7188588850174216,
+          "mi_bits": 0.3809950872244543,
+          "exact_null_rate_mean": 0.6970846208814414,
+          "null_mi_bits": 0.19582092505169313,
+          "null_rate_mean": 0.696890243902439,
+          "null_rate_range": [
+            0.6903310104529616,
+            0.7042682926829268
+          ],
+          "upper_rate_add_one": 0.009900990099009901,
+          "class_totals": {
+            "end": 26,
+            "start": 21,
+            "ambig": 11
+          }
+        },
+        "it_join": {
+          "tokens": 5304,
+          "pairs": 4592,
+          "hits": 3301,
+          "unknown_pairs": 0,
+          "rate": 0.7188588850174216,
+          "mi_bits": 0.3809950872244543,
+          "exact_null_rate_mean": 0.6970846208814414,
+          "null_mi_bits": 0.19582092505169313,
+          "null_rate_mean": 0.696890243902439,
+          "null_rate_range": [
+            0.6903310104529616,
+            0.7042682926829268
+          ],
+          "upper_rate_add_one": 0.009900990099009901,
+          "class_totals": {
+            "end": 26,
+            "start": 21,
+            "ambig": 11
+          }
+        },
+        "rf_split": {
+          "tokens": 4756,
+          "pairs": 3723,
+          "hits": 2668,
+          "unknown_pairs": 0,
+          "rate": 0.7166263765780285,
+          "mi_bits": 0.4218569283813556,
+          "exact_null_rate_mean": 0.696777003102547,
+          "null_mi_bits": 0.2348359370668755,
+          "null_rate_mean": 0.6967902229384905,
+          "null_rate_range": [
+            0.6854687080311577,
+            0.7042707493956487
+          ],
+          "upper_rate_add_one": 0.009900990099009901,
+          "class_totals": {
+            "end": 27,
+            "start": 21,
+            "ambig": 13
+          }
+        },
+        "rf_join": {
+          "tokens": 4699,
+          "pairs": 3685,
+          "hits": 2657,
+          "unknown_pairs": 0,
+          "rate": 0.7210312075983718,
+          "mi_bits": 0.4179360252369757,
+          "exact_null_rate_mean": 0.7012343475911997,
+          "null_mi_bits": 0.23252419860892298,
+          "null_rate_mean": 0.7015549525101764,
+          "null_rate_range": [
+            0.6966078697421981,
+            0.7096336499321574
+          ],
+          "upper_rate_add_one": 0.009900990099009901,
+          "class_totals": {
+            "end": 27,
+            "start": 21,
+            "ambig": 13
+          }
+        }
+      },
+      "space_policy_class_changes": {
+        "zl": {
+          "changed_symbols": {
+            "ly": {
+              "split": {
+                "class": "ambig",
+                "training_initial": 11,
+                "training_final": 20
+              },
+              "join": {
+                "class": "end",
+                "training_initial": 8,
+                "training_final": 22
+              }
+            },
+            "ol": {
+              "split": {
+                "class": "end",
+                "training_initial": 1295,
+                "training_final": 2764
+              },
+              "join": {
+                "class": "ambig",
+                "training_initial": 1236,
+                "training_final": 2449
+              }
+            }
+          },
+          "joined_hits_lost_by_refit": 347,
+          "joined_hits_gained_by_refit": 1
+        },
+        "it": {
+          "changed_symbols": {},
+          "joined_hits_lost_by_refit": 0,
+          "joined_hits_gained_by_refit": 0
+        },
+        "rf": {
+          "changed_symbols": {},
+          "joined_hits_lost_by_refit": 0,
+          "joined_hits_gained_by_refit": 0
+        }
+      }
+    },
+    "synthetic_public_calibration": {
+      "spec": {
+        "select": {
+          "unit": [
+            "P"
+          ],
+          "certain": true
+        },
+        "statistic": {
+          "boundary_class_rate": true
+        },
+        "compare": [
+          {
+            "op": ">=",
+            "value": 0.7
+          }
+        ]
+      },
+      "diagnostic": {
+        "null": "shuffle_within_line",
+        "direction": "greater",
+        "p": 0.01,
+        "perms": 199
+      },
+      "permutation_seed_pinned_by_scorer": 408,
+      "regimes": {
+        "ordered_positive": {
+          "summary": {
+            "replicates": 8,
+            "absolute_passes": 8,
+            "diagnostic_null_rejections": 8,
+            "rate_range": [
+              0.777778,
+              0.777778
+            ],
+            "shuffle_p_range": [
+              0.005,
+              0.005
+            ]
+          },
+          "results": [
+            {
+              "seed": 109093,
+              "scorer": {
+                "value": 0.777778,
+                "pass": true,
+                "detail": {
+                  "tokens": 320,
+                  "boundary_class_rate": {
+                    "pairs": 288,
+                    "unknown_pairs": 0
+                  },
+                  ">= 0.7": true,
+                  "shuffle_within_line": {
+                    "p": 0.005,
+                    "perms": 199
+                  }
+                }
+              },
+              "reference": {
+                "eligible_pairs": 288,
+                "qualifying_pairs": 224,
+                "unknown_pairs": 0,
+                "rate": 0.7777777777777778,
+                "expected_shuffle_rate": 0.6444444444444445,
+                "expected_shuffle_rate_exact": "29/45"
+              },
+              "threshold_pass": true,
+              "shuffle_p": 0.005
+            },
+            {
+              "seed": 109200,
+              "scorer": {
+                "value": 0.777778,
+                "pass": true,
+                "detail": {
+                  "tokens": 320,
+                  "boundary_class_rate": {
+                    "pairs": 288,
+                    "unknown_pairs": 0
+                  },
+                  ">= 0.7": true,
+                  "shuffle_within_line": {
+                    "p": 0.005,
+                    "perms": 199
+                  }
+                }
+              },
+              "reference": {
+                "eligible_pairs": 288,
+                "qualifying_pairs": 224,
+                "unknown_pairs": 0,
+                "rate": 0.7777777777777778,
+                "expected_shuffle_rate": 0.6444444444444445,
+                "expected_shuffle_rate_exact": "29/45"
+              },
+              "threshold_pass": true,
+              "shuffle_p": 0.005
+            },
+            {
+              "seed": 109307,
+              "scorer": {
+                "value": 0.777778,
+                "pass": true,
+                "detail": {
+                  "tokens": 320,
+                  "boundary_class_rate": {
+                    "pairs": 288,
+                    "unknown_pairs": 0
+                  },
+                  ">= 0.7": true,
+                  "shuffle_within_line": {
+                    "p": 0.005,
+                    "perms": 199
+                  }
+                }
+              },
+              "reference": {
+                "eligible_pairs": 288,
+                "qualifying_pairs": 224,
+                "unknown_pairs": 0,
+                "rate": 0.7777777777777778,
+                "expected_shuffle_rate": 0.6444444444444445,
+                "expected_shuffle_rate_exact": "29/45"
+              },
+              "threshold_pass": true,
+              "shuffle_p": 0.005
+            },
+            {
+              "seed": 109414,
+              "scorer": {
+                "value": 0.777778,
+                "pass": true,
+                "detail": {
+                  "tokens": 320,
+                  "boundary_class_rate": {
+                    "pairs": 288,
+                    "unknown_pairs": 0
+                  },
+                  ">= 0.7": true,
+                  "shuffle_within_line": {
+                    "p": 0.005,
+                    "perms": 199
+                  }
+                }
+              },
+              "reference": {
+                "eligible_pairs": 288,
+                "qualifying_pairs": 224,
+                "unknown_pairs": 0,
+                "rate": 0.7777777777777778,
+                "expected_shuffle_rate": 0.6444444444444445,
+                "expected_shuffle_rate_exact": "29/45"
+              },
+              "threshold_pass": true,
+              "shuffle_p": 0.005
+            },
+            {
+              "seed": 109521,
+              "scorer": {
+                "value": 0.777778,
+                "pass": true,
+                "detail": {
+                  "tokens": 320,
+                  "boundary_class_rate": {
+                    "pairs": 288,
+                    "unknown_pairs": 0
+                  },
+                  ">= 0.7": true,
+                  "shuffle_within_line": {
+                    "p": 0.005,
+                    "perms": 199
+                  }
+                }
+              },
+              "reference": {
+                "eligible_pairs": 288,
+                "qualifying_pairs": 224,
+                "unknown_pairs": 0,
+                "rate": 0.7777777777777778,
+                "expected_shuffle_rate": 0.6444444444444445,
+                "expected_shuffle_rate_exact": "29/45"
+              },
+              "threshold_pass": true,
+              "shuffle_p": 0.005
+            },
+            {
+              "seed": 109628,
+              "scorer": {
+                "value": 0.777778,
+                "pass": true,
+                "detail": {
+                  "tokens": 320,
+                  "boundary_class_rate": {
+                    "pairs": 288,
+                    "unknown_pairs": 0
+                  },
+                  ">= 0.7": true,
+                  "shuffle_within_line": {
+                    "p": 0.005,
+                    "perms": 199
+                  }
+                }
+              },
+              "reference": {
+                "eligible_pairs": 288,
+                "qualifying_pairs": 224,
+                "unknown_pairs": 0,
+                "rate": 0.7777777777777778,
+                "expected_shuffle_rate": 0.6444444444444445,
+                "expected_shuffle_rate_exact": "29/45"
+              },
+              "threshold_pass": true,
+              "shuffle_p": 0.005
+            },
+            {
+              "seed": 109735,
+              "scorer": {
+                "value": 0.777778,
+                "pass": true,
+                "detail": {
+                  "tokens": 320,
+                  "boundary_class_rate": {
+                    "pairs": 288,
+                    "unknown_pairs": 0
+                  },
+                  ">= 0.7": true,
+                  "shuffle_within_line": {
+                    "p": 0.005,
+                    "perms": 199
+                  }
+                }
+              },
+              "reference": {
+                "eligible_pairs": 288,
+                "qualifying_pairs": 224,
+                "unknown_pairs": 0,
+                "rate": 0.7777777777777778,
+                "expected_shuffle_rate": 0.6444444444444445,
+                "expected_shuffle_rate_exact": "29/45"
+              },
+              "threshold_pass": true,
+              "shuffle_p": 0.005
+            },
+            {
+              "seed": 109842,
+              "scorer": {
+                "value": 0.777778,
+                "pass": true,
+                "detail": {
+                  "tokens": 320,
+                  "boundary_class_rate": {
+                    "pairs": 288,
+                    "unknown_pairs": 0
+                  },
+                  ">= 0.7": true,
+                  "shuffle_within_line": {
+                    "p": 0.005,
+                    "perms": 199
+                  }
+                }
+              },
+              "reference": {
+                "eligible_pairs": 288,
+                "qualifying_pairs": 224,
+                "unknown_pairs": 0,
+                "rate": 0.7777777777777778,
+                "expected_shuffle_rate": 0.6444444444444445,
+                "expected_shuffle_rate_exact": "29/45"
+              },
+              "threshold_pass": true,
+              "shuffle_p": 0.005
+            }
+          ]
+        },
+        "equal_inventory_null": {
+          "summary": {
+            "replicates": 8,
+            "absolute_passes": 0,
+            "diagnostic_null_rejections": 0,
+            "rate_range": [
+              0.625,
+              0.663194
+            ],
+            "shuffle_p_range": [
+              0.08,
+              0.935
+            ]
+          },
+          "results": [
+            {
+              "seed": 109093,
+              "scorer": {
+                "value": 0.631944,
+                "pass": false,
+                "detail": {
+                  "tokens": 320,
+                  "boundary_class_rate": {
+                    "pairs": 288,
+                    "unknown_pairs": 0
+                  },
+                  ">= 0.7": false,
+                  "shuffle_within_line": {
+                    "p": 0.845,
+                    "perms": 199
+                  }
+                }
+              },
+              "reference": {
+                "eligible_pairs": 288,
+                "qualifying_pairs": 182,
+                "unknown_pairs": 0,
+                "rate": 0.6319444444444444,
+                "expected_shuffle_rate": 0.6444444444444445,
+                "expected_shuffle_rate_exact": "29/45"
+              },
+              "threshold_pass": false,
+              "shuffle_p": 0.845
+            },
+            {
+              "seed": 109200,
+              "scorer": {
+                "value": 0.638889,
+                "pass": false,
+                "detail": {
+                  "tokens": 320,
+                  "boundary_class_rate": {
+                    "pairs": 288,
+                    "unknown_pairs": 0
+                  },
+                  ">= 0.7": false,
+                  "shuffle_within_line": {
+                    "p": 0.675,
+                    "perms": 199
+                  }
+                }
+              },
+              "reference": {
+                "eligible_pairs": 288,
+                "qualifying_pairs": 184,
+                "unknown_pairs": 0,
+                "rate": 0.6388888888888888,
+                "expected_shuffle_rate": 0.6444444444444445,
+                "expected_shuffle_rate_exact": "29/45"
+              },
+              "threshold_pass": false,
+              "shuffle_p": 0.675
+            },
+            {
+              "seed": 109307,
+              "scorer": {
+                "value": 0.638889,
+                "pass": false,
+                "detail": {
+                  "tokens": 320,
+                  "boundary_class_rate": {
+                    "pairs": 288,
+                    "unknown_pairs": 0
+                  },
+                  ">= 0.7": false,
+                  "shuffle_within_line": {
+                    "p": 0.71,
+                    "perms": 199
+                  }
+                }
+              },
+              "reference": {
+                "eligible_pairs": 288,
+                "qualifying_pairs": 184,
+                "unknown_pairs": 0,
+                "rate": 0.6388888888888888,
+                "expected_shuffle_rate": 0.6444444444444445,
+                "expected_shuffle_rate_exact": "29/45"
+              },
+              "threshold_pass": false,
+              "shuffle_p": 0.71
+            },
+            {
+              "seed": 109414,
+              "scorer": {
+                "value": 0.645833,
+                "pass": false,
+                "detail": {
+                  "tokens": 320,
+                  "boundary_class_rate": {
+                    "pairs": 288,
+                    "unknown_pairs": 0
+                  },
+                  ">= 0.7": false,
+                  "shuffle_within_line": {
+                    "p": 0.515,
+                    "perms": 199
+                  }
+                }
+              },
+              "reference": {
+                "eligible_pairs": 288,
+                "qualifying_pairs": 186,
+                "unknown_pairs": 0,
+                "rate": 0.6458333333333334,
+                "expected_shuffle_rate": 0.6444444444444445,
+                "expected_shuffle_rate_exact": "29/45"
+              },
+              "threshold_pass": false,
+              "shuffle_p": 0.515
+            },
+            {
+              "seed": 109521,
+              "scorer": {
+                "value": 0.625,
+                "pass": false,
+                "detail": {
+                  "tokens": 320,
+                  "boundary_class_rate": {
+                    "pairs": 288,
+                    "unknown_pairs": 0
+                  },
+                  ">= 0.7": false,
+                  "shuffle_within_line": {
+                    "p": 0.935,
+                    "perms": 199
+                  }
+                }
+              },
+              "reference": {
+                "eligible_pairs": 288,
+                "qualifying_pairs": 180,
+                "unknown_pairs": 0,
+                "rate": 0.625,
+                "expected_shuffle_rate": 0.6444444444444445,
+                "expected_shuffle_rate_exact": "29/45"
+              },
+              "threshold_pass": false,
+              "shuffle_p": 0.935
+            },
+            {
+              "seed": 109628,
+              "scorer": {
+                "value": 0.649306,
+                "pass": false,
+                "detail": {
+                  "tokens": 320,
+                  "boundary_class_rate": {
+                    "pairs": 288,
+                    "unknown_pairs": 0
+                  },
+                  ">= 0.7": false,
+                  "shuffle_within_line": {
+                    "p": 0.375,
+                    "perms": 199
+                  }
+                }
+              },
+              "reference": {
+                "eligible_pairs": 288,
+                "qualifying_pairs": 187,
+                "unknown_pairs": 0,
+                "rate": 0.6493055555555556,
+                "expected_shuffle_rate": 0.6444444444444445,
+                "expected_shuffle_rate_exact": "29/45"
+              },
+              "threshold_pass": false,
+              "shuffle_p": 0.375
+            },
+            {
+              "seed": 109735,
+              "scorer": {
+                "value": 0.635417,
+                "pass": false,
+                "detail": {
+                  "tokens": 320,
+                  "boundary_class_rate": {
+                    "pairs": 288,
+                    "unknown_pairs": 0
+                  },
+                  ">= 0.7": false,
+                  "shuffle_within_line": {
+                    "p": 0.78,
+                    "perms": 199
+                  }
+                }
+              },
+              "reference": {
+                "eligible_pairs": 288,
+                "qualifying_pairs": 183,
+                "unknown_pairs": 0,
+                "rate": 0.6354166666666666,
+                "expected_shuffle_rate": 0.6444444444444445,
+                "expected_shuffle_rate_exact": "29/45"
+              },
+              "threshold_pass": false,
+              "shuffle_p": 0.78
+            },
+            {
+              "seed": 109842,
+              "scorer": {
+                "value": 0.663194,
+                "pass": false,
+                "detail": {
+                  "tokens": 320,
+                  "boundary_class_rate": {
+                    "pairs": 288,
+                    "unknown_pairs": 0
+                  },
+                  ">= 0.7": false,
+                  "shuffle_within_line": {
+                    "p": 0.08,
+                    "perms": 199
+                  }
+                }
+              },
+              "reference": {
+                "eligible_pairs": 288,
+                "qualifying_pairs": 191,
+                "unknown_pairs": 0,
+                "rate": 0.6631944444444444,
+                "expected_shuffle_rate": 0.6444444444444445,
+                "expected_shuffle_rate_exact": "29/45"
+              },
+              "threshold_pass": false,
+              "shuffle_p": 0.08
+            }
+          ]
+        },
+        "composition_heavy_null": {
+          "summary": {
+            "replicates": 8,
+            "absolute_passes": 8,
+            "diagnostic_null_rejections": 0,
+            "rate_range": [
+              0.791667,
+              0.815972
+            ],
+            "shuffle_p_range": [
+              0.365,
+              0.99
+            ]
+          },
+          "results": [
+            {
+              "seed": 109093,
+              "scorer": {
+                "value": 0.795139,
+                "pass": false,
+                "detail": {
+                  "tokens": 320,
+                  "boundary_class_rate": {
+                    "pairs": 288,
+                    "unknown_pairs": 0
+                  },
+                  ">= 0.7": true,
+                  "shuffle_within_line": {
+                    "p": 0.97,
+                    "perms": 199
+                  }
+                }
+              },
+              "reference": {
+                "eligible_pairs": 288,
+                "qualifying_pairs": 229,
+                "unknown_pairs": 0,
+                "rate": 0.7951388888888888,
+                "expected_shuffle_rate": 0.8111111111111111,
+                "expected_shuffle_rate_exact": "73/90"
+              },
+              "threshold_pass": true,
+              "shuffle_p": 0.97
+            },
+            {
+              "seed": 109200,
+              "scorer": {
+                "value": 0.8125,
+                "pass": false,
+                "detail": {
+                  "tokens": 320,
+                  "boundary_class_rate": {
+                    "pairs": 288,
+                    "unknown_pairs": 0
+                  },
+                  ">= 0.7": true,
+                  "shuffle_within_line": {
+                    "p": 0.54,
+                    "perms": 199
+                  }
+                }
+              },
+              "reference": {
+                "eligible_pairs": 288,
+                "qualifying_pairs": 234,
+                "unknown_pairs": 0,
+                "rate": 0.8125,
+                "expected_shuffle_rate": 0.8111111111111111,
+                "expected_shuffle_rate_exact": "73/90"
+              },
+              "threshold_pass": true,
+              "shuffle_p": 0.54
+            },
+            {
+              "seed": 109307,
+              "scorer": {
+                "value": 0.815972,
+                "pass": false,
+                "detail": {
+                  "tokens": 320,
+                  "boundary_class_rate": {
+                    "pairs": 288,
+                    "unknown_pairs": 0
+                  },
+                  ">= 0.7": true,
+                  "shuffle_within_line": {
+                    "p": 0.365,
+                    "perms": 199
+                  }
+                }
+              },
+              "reference": {
+                "eligible_pairs": 288,
+                "qualifying_pairs": 235,
+                "unknown_pairs": 0,
+                "rate": 0.8159722222222222,
+                "expected_shuffle_rate": 0.8111111111111111,
+                "expected_shuffle_rate_exact": "73/90"
+              },
+              "threshold_pass": true,
+              "shuffle_p": 0.365
+            },
+            {
+              "seed": 109414,
+              "scorer": {
+                "value": 0.809028,
+                "pass": false,
+                "detail": {
+                  "tokens": 320,
+                  "boundary_class_rate": {
+                    "pairs": 288,
+                    "unknown_pairs": 0
+                  },
+                  ">= 0.7": true,
+                  "shuffle_within_line": {
+                    "p": 0.685,
+                    "perms": 199
+                  }
+                }
+              },
+              "reference": {
+                "eligible_pairs": 288,
+                "qualifying_pairs": 233,
+                "unknown_pairs": 0,
+                "rate": 0.8090277777777778,
+                "expected_shuffle_rate": 0.8111111111111111,
+                "expected_shuffle_rate_exact": "73/90"
+              },
+              "threshold_pass": true,
+              "shuffle_p": 0.685
+            },
+            {
+              "seed": 109521,
+              "scorer": {
+                "value": 0.791667,
+                "pass": false,
+                "detail": {
+                  "tokens": 320,
+                  "boundary_class_rate": {
+                    "pairs": 288,
+                    "unknown_pairs": 0
+                  },
+                  ">= 0.7": true,
+                  "shuffle_within_line": {
+                    "p": 0.99,
+                    "perms": 199
+                  }
+                }
+              },
+              "reference": {
+                "eligible_pairs": 288,
+                "qualifying_pairs": 228,
+                "unknown_pairs": 0,
+                "rate": 0.7916666666666666,
+                "expected_shuffle_rate": 0.8111111111111111,
+                "expected_shuffle_rate_exact": "73/90"
+              },
+              "threshold_pass": true,
+              "shuffle_p": 0.99
+            },
+            {
+              "seed": 109628,
+              "scorer": {
+                "value": 0.805556,
+                "pass": false,
+                "detail": {
+                  "tokens": 320,
+                  "boundary_class_rate": {
+                    "pairs": 288,
+                    "unknown_pairs": 0
+                  },
+                  ">= 0.7": true,
+                  "shuffle_within_line": {
+                    "p": 0.805,
+                    "perms": 199
+                  }
+                }
+              },
+              "reference": {
+                "eligible_pairs": 288,
+                "qualifying_pairs": 232,
+                "unknown_pairs": 0,
+                "rate": 0.8055555555555556,
+                "expected_shuffle_rate": 0.8111111111111111,
+                "expected_shuffle_rate_exact": "73/90"
+              },
+              "threshold_pass": true,
+              "shuffle_p": 0.805
+            },
+            {
+              "seed": 109735,
+              "scorer": {
+                "value": 0.798611,
+                "pass": false,
+                "detail": {
+                  "tokens": 320,
+                  "boundary_class_rate": {
+                    "pairs": 288,
+                    "unknown_pairs": 0
+                  },
+                  ">= 0.7": true,
+                  "shuffle_within_line": {
+                    "p": 0.96,
+                    "perms": 199
+                  }
+                }
+              },
+              "reference": {
+                "eligible_pairs": 288,
+                "qualifying_pairs": 230,
+                "unknown_pairs": 0,
+                "rate": 0.7986111111111112,
+                "expected_shuffle_rate": 0.8111111111111111,
+                "expected_shuffle_rate_exact": "73/90"
+              },
+              "threshold_pass": true,
+              "shuffle_p": 0.96
+            },
+            {
+              "seed": 109842,
+              "scorer": {
+                "value": 0.805556,
+                "pass": false,
+                "detail": {
+                  "tokens": 320,
+                  "boundary_class_rate": {
+                    "pairs": 288,
+                    "unknown_pairs": 0
+                  },
+                  ">= 0.7": true,
+                  "shuffle_within_line": {
+                    "p": 0.74,
+                    "perms": 199
+                  }
+                }
+              },
+              "reference": {
+                "eligible_pairs": 288,
+                "qualifying_pairs": 232,
+                "unknown_pairs": 0,
+                "rate": 0.8055555555555556,
+                "expected_shuffle_rate": 0.8111111111111111,
+                "expected_shuffle_rate_exact": "73/90"
+              },
+              "threshold_pass": true,
+              "shuffle_p": 0.74
+            }
+          ]
+        }
+      },
+      "mask_and_scope_fixture": {
+        "scope_hand_1_currier_a": {
+          "scorer": {
+            "value": 0.5,
+            "pass": false,
+            "detail": {
+              "tokens": 192,
+              "boundary_class_rate": {
+                "pairs": 96,
+                "unknown_pairs": 32
+              },
+              ">= 0.7": false,
+              "shuffle_within_line": {
+                "p": 1.0,
+                "perms": 199
+              }
+            }
+          },
+          "reference": {
+            "eligible_pairs": 96,
+            "qualifying_pairs": 48,
+            "unknown_pairs": 32,
+            "rate": 0.5,
+            "expected_shuffle_rate": 0.625,
+            "expected_shuffle_rate_exact": "5/8"
+          },
+          "threshold_pass": false,
+          "shuffle_p": 1.0
+        },
+        "scope_hand_1_all_currier": {
+          "scorer": {
+            "value": 0.8,
+            "pass": false,
+            "detail": {
+              "tokens": 352,
+              "boundary_class_rate": {
+                "pairs": 240,
+                "unknown_pairs": 32
+              },
+              ">= 0.7": true,
+              "shuffle_within_line": {
+                "p": 1.0,
+                "perms": 199
+              }
+            }
+          },
+          "reference": {
+            "eligible_pairs": 240,
+            "qualifying_pairs": 192,
+            "unknown_pairs": 32,
+            "rate": 0.8,
+            "expected_shuffle_rate": 0.85,
+            "expected_shuffle_rate_exact": "17/20"
+          },
+          "threshold_pass": true,
+          "shuffle_p": 1.0
+        },
+        "frozen_classes": {
+          "q": "start",
+          "y": "end"
+        },
+        "evaluation_refit_would_add": [
+          "b"
+        ],
+        "barrier_and_run_multiset_permutations_verified": 16
+      },
+      "refusals": {
+        "invariant_absolute_result": {
+          "scorer": {
+            "value": 1.0,
+            "pass": true,
+            "detail": {
+              "tokens": 320,
+              "boundary_class_rate": {
+                "pairs": 288,
+                "unknown_pairs": 0
+              },
+              ">= 0.7": true
+            }
+          },
+          "reference": {
+            "eligible_pairs": 288,
+            "qualifying_pairs": 288,
+            "unknown_pairs": 0,
+            "rate": 1.0,
+            "expected_shuffle_rate": 1.0,
+            "expected_shuffle_rate_exact": "1"
+          },
+          "threshold_pass": true,
+          "shuffle_p": null
+        },
+        "insufficient_training": "boundary_class_rate needs at least 100 eligible training words",
+        "overlapping_pages": "boundary_class_rate training and evaluation pages overlap",
+        "invariant_shuffle": "shuffle_within_line cannot move this statistic on this selection: it is no test of it"
+      }
+    },
+    "exact_synthetic_order_orbits": {
+      "equal_inventory": {
+        "line_bag": {
+          "yy": 2,
+          "qq": 2,
+          "qy": 6
+        },
+        "one_line_qualifying_pair_count_distribution": {
+          "5": 441,
+          "6": 637,
+          "7": 175,
+          "8": 7
+        },
+        "line_count": 32,
+        "book_pair_count": 288,
+        "book_score_range": [
+          0.5555555555555556,
+          0.8888888888888888
+        ],
+        "exact_expected_share": "29/45",
+        "threshold": 0.7,
+        "exact_threshold_pass_probability": "5134013909206237710286394314065817402693535551463830493972983740883/147475597129606822752771635881652791541760000000000000000000000000000000",
+        "threshold_pass_probability": 3.4812633473823356e-05,
+        "ordered_positive_equal_inventory_exact_tail": "27326543215238291471453087344868724169019676335987/5462059152948400842695245773394547834880000000000000000000000000000000"
+      },
+      "composition_heavy": {
+        "line_bag": {
+          "yy": 1,
+          "qq": 1,
+          "qy": 8
+        },
+        "one_line_qualifying_pair_count_distribution": {
+          "7": 64,
+          "8": 25,
+          "9": 1
+        },
+        "line_count": 32,
+        "book_pair_count": 288,
+        "book_score_range": [
+          0.7777777777777778,
+          1.0
+        ],
+        "exact_expected_share": "73/90",
+        "threshold": 0.7,
+        "exact_threshold_pass_probability": "1",
+        "threshold_pass_probability": 1.0,
+        "ordered_positive_equal_inventory_exact_tail": null
+      }
+    },
+    "historical_controls": {
+      "spec": {
+        "select": {
+          "unit": [
+            "P"
+          ],
+          "certain": true
+        },
+        "statistic": {
+          "boundary_class_rate": true
+        },
+        "compare": [
+          {
+            "op": ">=",
+            "value": 0.7
+          }
+        ]
+      },
+      "layout": "public-practice ZL nonempty paragraph-line widths, identical for every source and each role; no source line breaks used",
+      "layout_pages": 34,
+      "layout_lines": 652,
+      "layout_tokens": 5484,
+      "results": [
+        {
+          "id": "latin",
+          "sources": {
+            "fit": {
+              "author": "Bede",
+              "title": "Historia ecclesiastica gentis Anglorum, Book I",
+              "sha256": "c301bc53373ad304de9f295eabf3bdca0c8e2577aab2ef9b153e74d898935920",
+              "source_url": "https://www.thelatinlibrary.com/bede/bede1.shtml"
+            },
+            "evaluation": {
+              "author": "Thomas à Kempis (traditional attribution)",
+              "title": "De imitatione Christi, Book I",
+              "sha256": "89c635bc539961deda35bf01b3006ebd4ec339ffd90220367ad529d150023a8b",
+              "source_url": "https://www.thelatinlibrary.com/kempis/kempis1.shtml"
+            }
+          },
+          "rate": 0.4288110715034598,
+          "hits": 2045,
+          "eligible_boundaries": 4769,
+          "unknown_class_boundaries": 2,
+          "eligible_evaluation_words": 5450,
+          "eligible_training_words": 5430,
+          "class_counts": {
+            "end": 12,
+            "start": 21,
+            "ambig": 3
+          },
+          "exact_mean_under_uniform_eligible_run_shuffle": 0.4334987087188808,
+          "eligible_run_reordering_upper_bound_hits": 2910,
+          "eligible_run_reordering_upper_bound_rate": 0.6101908156846299,
+          "absolute_threshold_pass": false
+        },
+        {
+          "id": "english",
+          "sources": {
+            "fit": {
+              "author": "John Gower",
+              "title": "Confessio Amantis, Book I",
+              "sha256": "0595a1067b730739d978c721621f40a9616c80c0d5bc6a429d3df9f4791eb571",
+              "source_url": "https://gutenberg.pglaf.org/2/6/266/266-0.txt"
+            },
+            "evaluation": {
+              "author": "Geoffrey Chaucer",
+              "title": "The Knight’s Tale",
+              "sha256": "02dcbfa49db2ccc2f91861d17aafc76779cf119331d3a01114f8f93d6c67c67a",
+              "source_url": "https://gutenberg.pglaf.org/2/3/8/2383/2383-0.txt"
+            }
+          },
+          "rate": 0.1842818428184282,
+          "hits": 816,
+          "eligible_boundaries": 4428,
+          "unknown_class_boundaries": 5,
+          "eligible_evaluation_words": 5253,
+          "eligible_training_words": 5269,
+          "class_counts": {
+            "start": 15,
+            "end": 19,
+            "ambig": 16
+          },
+          "exact_mean_under_uniform_eligible_run_shuffle": 0.18654498166693306,
+          "eligible_run_reordering_upper_bound_hits": 1739,
+          "eligible_run_reordering_upper_bound_rate": 0.39272809394760616,
+          "absolute_threshold_pass": false
+        },
+        {
+          "id": "spanish",
+          "sources": {
+            "fit": {
+              "author": "Don Juan Manuel",
+              "title": "El conde Lucanor, Examples I–X",
+              "sha256": "33e827d908a0a99f43a996e3bb9e338f1e9c5d380bf650258664f7e73cb30696",
+              "source_url": "https://gutenberg.pglaf.org/6/5/7/3/65738/65738-0.txt"
+            },
+            "evaluation": {
+              "author": "Juan Ruiz",
+              "title": "Libro de Buen Amor, stanzas 892–1229",
+              "sha256": "f9ac998f95aa83dab02185e41866a214c4d1aefefdcc61666ffb9e9ec585e2a1",
+              "source_url": "https://gutenberg.pglaf.org/1/6/6/2/16625/16625-0.txt"
+            }
+          },
+          "rate": 0.3176554006145119,
+          "hits": 1344,
+          "eligible_boundaries": 4231,
+          "unknown_class_boundaries": 49,
+          "eligible_evaluation_words": 5138,
+          "eligible_training_words": 5345,
+          "class_counts": {
+            "end": 14,
+            "start": 13,
+            "ambig": 9
+          },
+          "exact_mean_under_uniform_eligible_run_shuffle": 0.31864766480401063,
+          "eligible_run_reordering_upper_bound_hits": 2256,
+          "eligible_run_reordering_upper_bound_rate": 0.5332072796029308,
+          "absolute_threshold_pass": false
+        }
+      ]
+    },
+    "interpretation": [
+      "The 0.70 cutoff is the lower descriptive prediction chosen from the earlier independent publication and applies to the default split policy. The new public measurements are 0.723352 ZL, 0.718859 IT, and 0.716626 RF in that policy.",
+      "With ZL uncertain spaces joined and the classes re-estimated from the likewise joined training pages, the fraction is 0.655886. The ol class crosses the strict 2:1 boundary. Freezing the split-trained classes on the same joined evaluation words gives 0.736389, which explains the apparent difference from the previous fixed-class sensitivity.",
+      "The within-run shuffle expectation and Monte Carlo comparison measure an additional ordering effect. On the joined-refit ZL example the expectation is 0.642937 and the observed excess is about 0.01295. This is an ancillary diagnostic outside the registered threshold spec.",
+      "The ordered synthetic positives exceed both the rate criterion and the line null. The exchangeable high-composition synthetic bag exceeds 0.70 in every exact orbit outcome. The registered descriptive cutoff can therefore be reached through token-class inventory alone.",
+      "The selected Latin, Middle English and Old Spanish controls give 0.428811, 0.184282 and 0.317655. For these particular pseudo-line inventories, even optimal within-run reordering is bounded by 0.610191, 0.392728 and 0.533207. These ceilings constrain the selected samples under the same tokenizer.",
+      "The pinned witnesses are alternative readings of the same manuscript. The formal comparison uses only the released primitive and default word-boundary policy. The extra diagnostics are measured on public pages or independent controls."
+    ],
+    "scripts": {
+      "analyze-primitive.py": {
+        "text": "from collections import Counter\nfrom fractions import Fraction\nimport json\nfrom pathlib import Path\n\nfrom vs import corpus, dsl, ivtff, path\n\nWORK = Path(__file__).resolve().parent\nSPEC = json.loads((WORK / \"fact-spec.json\").read_text())\nWITH_NULL = {**SPEC, \"compare\": [\n    {\"null\": \"shuffle_within_line\", \"direction\": \"greater\", \"p\": .01, \"perms\": 199}\n]}\n\n\ndef load(transliteration, mode):\n    training, practice = corpus.split_pages(\"practice\", transliteration)\n    if mode == \"split\":\n        return training, practice\n    joined = {page.id: page for page in ivtff.parse(\n        path(\"data\", \"raw\", corpus.TRANSLITERATIONS[transliteration]), uncertain_space=\"join\"\n    )}\n    return [joined[p.id] for p in training], [joined[p.id] for p in practice]\n\n\ndef exact_null(eval_tokens, classes):\n    hits = Fraction(0)\n    pairs = 0\n    for run in dsl.runs_of([token for token in eval_tokens if dsl._boundary_eligible(token)]):\n        if len(run) < 2:\n            continue\n        states = []\n        for token in run:\n            glyphs = dsl._boundary_seg(token[\"w\"])\n            states.append((classes.get(glyphs[0]) == \"start\", classes.get(glyphs[-1]) == \"end\"))\n        ending = sum(b for a, b in states)\n        starting = sum(a for a, b in states)\n        both = sum(a and b for a, b in states)\n        hits += Fraction(ending * starting - both, len(run))\n        pairs += len(run) - 1\n    return float(hits / pairs), pairs\n\n\ndef main():\n    report = {}\n    for trans in corpus.EVA_TRANSLITERATIONS:\n        for mode in (\"split\", \"join\"):\n            training, practice = load(trans, mode)\n            official = dsl.evaluate(SPEC, practice, training)\n            classes = dsl._boundary_classes(dsl.tokens(training))\n            expected, pairs = exact_null(dsl.tokens(practice), classes)\n            assert official[\"detail\"][\"boundary_class_rate\"][\"pairs\"] == pairs\n            try:\n                direction = dsl.evaluate(WITH_NULL, practice, training)[\"detail\"][\"shuffle_within_line\"]\n            except dsl.SpecError as exc:\n                direction = {\"undefined\": str(exc)}\n            row = {\"official_threshold\": official, \"class_counts\": dict(Counter(classes.values())),\n                   \"classes\": classes,\n                   \"exact_run_shuffle_expectation\": expected,\n                   \"observed_minus_expected\": official[\"value\"] - expected,\n                   \"shuffle_diagnostic\": direction}\n            print(trans, mode, official[\"value\"], official[\"pass\"], pairs, expected, direction, flush=True)\n            report[f\"{trans}:{mode}\"] = row\n    (WORK / \"primitive-results.json\").write_text(json.dumps(report, indent=2) + \"\\n\")\n\n\nif __name__ == \"__main__\":\n    main()\n",
+        "sha256": "26dbd4d8e9ef3b133d12065fa28db81a846624e349d1576ea1749cab71b5c62b"
+      },
+      "independent_replay.py": {
+        "text": "\"\"\"Independent public replication of archived #758 and primitive diagnostics.\"\"\"\n\nfrom collections import Counter\nfrom fractions import Fraction\nfrom itertools import groupby, pairwise\nfrom math import log2\nfrom random import Random\nfrom pathlib import Path\nimport json\nimport re\n\nfrom vs import corpus, dsl, ivtff, path\n\n# The symbol inventory is the union of the author's listed prefix and suffix pools.\nSYMBOLS = \"\"\"\no a q d s t k p f c ch sh ck cth cph ok ot ol or k2 t2 p2 f2 d2 s2\nch2 sh2 ckh cth2 cfh dy dl dm ds dar dal iin in ir iir iiir al am an ar\nain aiin ey ed es edy eey eedy ly ry ny my ldy\n\"\"\".split()\nPATTERN = re.compile(\"|\".join(map(re.escape, sorted(SYMBOLS, key=lambda s: (-len(s), s)))) + \"|.\")\nMODES = (\"split\", \"join\")\n\n\ndef endpoints(word):\n    symbols = PATTERN.findall(word)\n    return symbols[0], symbols[-1]\n\n\ndef eligible(word):\n    return len(word) > 1 and word.isalpha()\n\n\ndef line_index(pages):\n    return {line.id: (page.id, line.words) for page in pages for line in page.lines if line.unit == \"P\"}\n\n\ndef adjacency_runs(lines, ids, loci):\n    for line_id in sorted(loci):\n        page, words = lines[line_id]\n        if page in ids:\n            for selected, stream in groupby(words, eligible):\n                if selected:\n                    yield list(map(endpoints, stream))\n\n\ndef learn(runs):\n    starts, ends = marginal_counts(runs)\n    return {\n        symbol: (\n            \"start\" if starts[symbol] > 2 * ends[symbol]\n            else \"end\" if ends[symbol] > 2 * starts[symbol]\n            else \"ambig\"\n        )\n        for symbol in starts.keys() | ends.keys()\n    }\n\n\ndef marginal_counts(runs):\n    starts, ends = Counter(), Counter()\n    for run in runs:\n        for first, last in run:\n            starts[first] += 1\n            ends[last] += 1\n    return starts, ends\n\n\ndef edges(runs):\n    return Counter((end, start) for run in runs for (_, end), (start, _) in pairwise(run))\n\n\ndef information(counts):\n    outgoing = Counter()\n    incoming = Counter()\n    total = sum(counts.values())\n    for (left, right), count in counts.items():\n        outgoing[left] += count\n        incoming[right] += count\n    return sum(\n        (count / total) * log2(count * total / (outgoing[left] * incoming[right]))\n        for (left, right), count in counts.items()\n    )\n\n\ndef is_end_start(pair, classes):\n    left, right = pair\n    return classes.get(left) == \"end\" and classes.get(right) == \"start\"\n\n\ndef exact_null_rate(runs, classes, n_pairs):\n    expectation = Fraction(0)\n    for run in runs:\n        n_end = sum(classes.get(last) == \"end\" for _, last in run)\n        n_start = sum(classes.get(first) == \"start\" for first, _ in run)\n        n_both = sum(classes.get(first) == \"start\" and classes.get(last) == \"end\"\n                     for first, last in run)\n        # A directed slot pair samples two distinct members of the run.\n        expectation += Fraction(n_end * n_start - n_both, len(run))\n    return float(expectation / n_pairs)\n\n\ndef measure(runs, classes):\n    pairs = edges(runs)\n    n_pairs = sum(pairs.values())\n    hits = sum(n for pair, n in pairs.items() if is_end_start(pair, classes))\n    unknown = sum(n for pair, n in pairs.items() if any(symbol not in classes for symbol in pair))\n    rng = Random(2711)\n    mi_null = []\n    rate_null = []\n    for _ in range(100):\n        reordered = [list(run) for run in runs]\n        for run in reordered:\n            rng.shuffle(run)\n        null = edges(reordered)\n        mi_null.append(information(null))\n        rate_null.append(sum(n for pair, n in null.items() if is_end_start(pair, classes)) / n_pairs)\n    return {\n        \"tokens\": sum(map(len, runs)),\n        \"pairs\": n_pairs,\n        \"hits\": hits,\n        \"unknown_pairs\": unknown,\n        \"rate\": hits / n_pairs,\n        \"mi_bits\": information(pairs),\n        \"exact_null_rate_mean\": exact_null_rate(runs, classes, n_pairs),\n        \"null_mi_bits\": sum(mi_null) / len(mi_null),\n        \"null_rate_mean\": sum(rate_null) / len(rate_null),\n        \"null_rate_range\": [min(rate_null), max(rate_null)],\n        \"upper_rate_add_one\": (1 + sum(x >= hits / n_pairs for x in rate_null)) / (len(rate_null) + 1),\n    }\n\n\ndef main():\n    stock_train, stock_eval = corpus.split_pages(\"practice\", \"zl\")\n    train_ids = {page.id for page in stock_train}\n    eval_ids = {page.id for page in stock_eval}\n    views = {\n        (trans, mode): ivtff.parse(path(\"data\", \"raw\", corpus.TRANSLITERATIONS[trans]), uncertain_space=mode)\n        for trans in corpus.EVA_TRANSLITERATIONS for mode in MODES\n    }\n    indexes = {view: line_index(pages) for view, pages in views.items()}\n    common = set.intersection(*(set(index) for index in indexes.values()))\n    classes = learn(adjacency_runs(indexes[\"zl\", \"split\"], train_ids, common))\n    reports = {\n        \"shared_loci\": len(common),\n        \"class_totals\": dict(Counter(classes.values())),\n        \"shared_locus_reference\": {\n            f\"{trans}_{mode}\": measure(list(adjacency_runs(index, eval_ids, common)), classes)\n            for (trans, mode), index in indexes.items()\n        },\n        \"primitive_independent_replay\": {},\n        \"space_policy_class_changes\": {},\n    }\n    for (trans, mode), index in indexes.items():\n        pages = views[trans, mode]\n        train = [page for page in pages if page.id in train_ids]\n        evaluation = [page for page in pages if page.id in eval_ids]\n        own_classes = learn(adjacency_runs(index, train_ids, index))\n        section = measure(list(adjacency_runs(index, eval_ids, index)), own_classes)\n        section[\"class_totals\"] = dict(Counter(own_classes.values()))\n        # Independently compare our measurements to the production code. The parser is shared.\n        calc = dsl._boundary_classes(dsl.tokens(train))\n        assert calc == own_classes, (trans, mode, {\"mine\": own_classes, \"primitive\": calc})\n        val, details = dsl._boundary_class_value(dsl.tokens(evaluation), calc)\n        assert val == section[\"rate\"] and details[\"pairs\"] == section[\"pairs\"], (trans, mode)\n        reports[\"primitive_independent_replay\"][f\"{trans}_{mode}\"] = section\n    for trans in corpus.EVA_TRANSLITERATIONS:\n        views_of_class = {\n            mode: learn(adjacency_runs(indexes[trans, mode], train_ids, indexes[trans, mode]))\n            for mode in MODES\n        }\n        views_of_count = {\n            mode: marginal_counts(adjacency_runs(indexes[trans, mode], train_ids, indexes[trans, mode]))\n            for mode in MODES\n        }\n        first, second = (views_of_class[mode] for mode in MODES)\n        joined = indexes[trans, \"join\"]\n        joined_pairs = edges(adjacency_runs(joined, eval_ids, joined))\n        reports[\"space_policy_class_changes\"][trans] = {\n            \"changed_symbols\": {\n                symbol: {\n                    mode: {\"class\": views_of_class[mode].get(symbol),\n                           \"training_initial\": views_of_count[mode][0][symbol],\n                           \"training_final\": views_of_count[mode][1][symbol]}\n                    for mode in MODES\n                }\n                for symbol in sorted(first.keys() | second.keys())\n                if first.get(symbol) != second.get(symbol)\n            },\n            \"joined_hits_lost_by_refit\": sum(\n                count for pair, count in joined_pairs.items()\n                if is_end_start(pair, first) and not is_end_start(pair, second)\n            ),\n            \"joined_hits_gained_by_refit\": sum(\n                count for pair, count in joined_pairs.items()\n                if is_end_start(pair, second) and not is_end_start(pair, first)\n            ),\n        }\n    target = Path(__file__).with_name(\"independent-replay.json\")\n    target.write_text(json.dumps(reports, indent=2) + \"\\n\")\n    print(json.dumps(reports, indent=2))\n\n\nif __name__ == \"__main__\":\n    main()\n",
+        "sha256": "dd5f91eeaa22437c7d47ff31bce993f40214066c63fabcec52a2192c0a0d6483"
+      },
+      "independent_null_tails.py": {
+        "text": "\"\"\"Finite-sample tails under the exact full eligible-run shuffling null.\"\"\"\n\nfrom collections import Counter\nfrom functools import cache\n\nimport numpy as np\n\nfrom independent_replay import MODES, adjacency_runs, edges, is_end_start, learn, line_index\nfrom vs import corpus, ivtff, path\n\n\n@cache\ndef sequence_counts(remaining, previous_ends):\n    \"\"\"Count category sequences by their number of end-to-start edges.\n\n    Category bit 0 indicates an initial start class and bit 1 a final end\n    class. With a fixed category multiset, every category sequence has the\n    same number of underlying whole-word permutations.\n    \"\"\"\n    size = sum(remaining)\n    if size == 0:\n        return (1,)\n    answer = [0] * (size + int(previous_ends))\n    for category, occurrences in enumerate(remaining):\n        if occurrences == 0:\n            continue\n        reduced = list(remaining)\n        reduced[category] -= 1\n        increment = int(previous_ends and (category & 1))\n        for count, frequency in enumerate(sequence_counts(tuple(reduced), bool(category & 2))):\n            answer[count + increment] += frequency\n    return tuple(answer)\n\n\ndef permutation_distribution(runs, classes):\n    category_bags = Counter()\n    for run in runs:\n        if len(run) < 2:\n            continue\n        bag = Counter(\n            int(classes.get(first) == \"start\") + 2 * int(classes.get(last) == \"end\")\n            for first, last in run\n        )\n        category_bags[tuple(bag[i] for i in range(4))] += 1\n    distribution = np.array([1], dtype=np.longdouble)\n    for category_bag, repetitions in category_bags.items():\n        frequencies = sequence_counts(category_bag, False)\n        weights = np.array(frequencies, dtype=np.longdouble) / np.longdouble(sum(frequencies))\n        for _ in range(repetitions):\n            distribution = np.convolve(distribution, weights)\n    return distribution\n\n\ndef main():\n    training, evaluation = corpus.split_pages(\"practice\")\n    train_ids, eval_ids = ({page.id for page in pages} for pages in (training, evaluation))\n    for transliteration in corpus.EVA_TRANSLITERATIONS:\n        for space_policy in MODES:\n            index = line_index(ivtff.parse(\n                path(\"data\", \"raw\", corpus.TRANSLITERATIONS[transliteration]),\n                uncertain_space=space_policy,\n            ))\n            classes = learn(adjacency_runs(index, train_ids, index))\n            runs = list(adjacency_runs(index, eval_ids, index))\n            distribution = permutation_distribution(runs, classes)\n            observed = sum(count for pair, count in edges(runs).items() if is_end_start(pair, classes))\n            assert np.isclose(distribution.sum(), 1)\n            mean = (distribution * np.arange(len(distribution))).sum()\n            print(transliteration, space_policy, observed, float(mean),\n                  float(distribution[observed:].sum()))\n\n\nif __name__ == \"__main__\":\n    main()\n",
+        "sha256": "9d85b538c6e572562e749bebf58800bfd6953f46fa6affad5b241566872253e7"
+      },
+      "boundary_exact_orbit.py": {
+        "text": "\"\"\"Exact line-bag permutation distributions for the synthetic threshold controls.\"\"\"\nfrom collections import Counter\nfrom fractions import Fraction\nfrom itertools import combinations\nimport json\nfrom pathlib import Path\n\nN_LINES = 32\nLINE_LENGTH = 10\nPAIRS = N_LINES * (LINE_LENGTH - 1)\nTHRESHOLD = Fraction(7, 10)\nCASES = {\"equal_inventory\": (2, 2), \"composition_heavy\": (1, 1)}\n\n\ndef line_distribution(yy, qq):\n    positions = set(range(LINE_LENGTH))\n    distribution = Counter()\n    for y in combinations(sorted(positions), yy):\n        for q in combinations(sorted(positions.difference(y)), qq):\n            row = [\"qy\"] * LINE_LENGTH\n            for i in y:\n                row[i] = \"yy\"\n            for i in q:\n                row[i] = \"qq\"\n            slots = sum(a[-1] == \"y\" and b[0] == \"q\" for a, b in zip(row, row[1:]))\n            distribution[slots] += 1\n    return distribution\n\n\ndef independent_lines(distribution):\n    accumulated = Counter({0: 1})\n    for _ in range(N_LINES):\n        next_values = Counter()\n        for a, count_a in accumulated.items():\n            for b, count_b in distribution.items():\n                next_values[a + b] += count_a * count_b\n        accumulated = next_values\n    return accumulated\n\n\ndef main():\n    out = {}\n    for case, counts in CASES.items():\n        scores = line_distribution(*counts)\n        totals = independent_lines(scores)\n        outcomes = sum(totals.values())\n        at_or_above = sum(v for x, v in totals.items() if Fraction(x, PAIRS) >= THRESHOLD)\n        out[case] = {\n            \"line_bag\": {\"yy\": counts[0], \"qq\": counts[1], \"qy\": LINE_LENGTH - sum(counts)},\n            \"one_line_qualifying_pair_count_distribution\": dict(sorted(scores.items())),\n            \"line_count\": N_LINES,\n            \"book_pair_count\": PAIRS,\n            \"book_score_range\": [min(totals) / PAIRS, max(totals) / PAIRS],\n            \"exact_expected_share\": str(Fraction(sum(x * n for x, n in totals.items()), PAIRS * outcomes)),\n            \"threshold\": float(THRESHOLD),\n            \"exact_threshold_pass_probability\": str(Fraction(at_or_above, outcomes)),\n            \"threshold_pass_probability\": at_or_above / outcomes,\n            \"ordered_positive_equal_inventory_exact_tail\": str(Fraction(sum(n for score, n in totals.items() if score >= N_LINES * 7), outcomes))\n            if case == \"equal_inventory\" else None,\n        }\n    dest = Path(__file__).with_name(\"boundary_exact_orbit.json\")\n    dest.write_text(json.dumps(out, indent=2) + \"\\n\")\n    print(dest)\n    for name, result in out.items():\n        print(name, result[\"one_line_qualifying_pair_count_distribution\"],\n              result[\"exact_expected_share\"], result[\"threshold_pass_probability\"])\n\n\nif __name__ == \"__main__\":\n    main()\n",
+        "sha256": "8f189aeb3ebf717839fa122ff91f254bbe2bc2771aabc94d36457c0dc4c5d526"
+      },
+      "calibrate_boundary_controls.py": {
+        "text": "\"\"\"Public-only synthetic controls for the released boundary-class statistic.\"\"\"\nfrom collections import Counter\nfrom concurrent.futures import ProcessPoolExecutor\nfrom fractions import Fraction\nimport json\nfrom pathlib import Path\nfrom random import Random\n\nfrom vs import dsl\nfrom vs.ivtff import Line, Page\n\nSPEC = {\n    \"select\": {\"unit\": [\"P\"], \"certain\": True},\n    \"statistic\": {\"boundary_class_rate\": True},\n    \"compare\": [{\"op\": \">=\", \"value\": .70}],\n}\nNULL = {\"null\": \"shuffle_within_line\", \"direction\": \"greater\", \"p\": .01, \"perms\": 199}\nSEEDS = [109093 + i * 107 for i in range(8)]\nORDERED = [\"yy\"] * 2 + [\"qy\"] * 6 + [\"qq\"] * 2\nHEAVY = [\"yy\"] + [\"qy\"] * 8 + [\"qq\"]\n\n\ndef pages(prefix, rows, hand=\"1\", section=\"H\", language=\"A\", unit=\"P\"):\n    out = []\n    for i in range(0, len(rows), 4):\n        name = f\"{prefix}{i // 4 + 1}\"\n        lines = [Line(f\"{name}.{j}\", name, j, unit, \"0\", list(row), j == 1, False)\n                 for j, row in enumerate(rows[i:i + 4], 1)]\n        out.append(Page(name, i // 4, {\"H\": hand, \"I\": section, \"L\": language}, lines))\n    return out\n\n\ndef exact_reference(lines):\n    \"\"\"For our q,y,b vocabulary, compute counts without using scorer classes/tokenizer.\"\"\"\n    eligible = lambda word: len(word) > 1 and word.isalpha()\n    pairs = qualifying = unknown = 0\n    null_hits = Fraction()\n    for line in lines:\n        for a, b in zip(line, line[1:]):\n            if eligible(a) and eligible(b):\n                pairs += 1\n                qualifying += a[-1] == \"y\" and b[0] == \"q\"\n                unknown += a[-1] not in \"qy\" or b[0] not in \"qy\"\n        run = []\n        for word in [*line, \"?\"]:\n            if eligible(word):\n                run.append(word)\n                continue\n            n = len(run)\n            if n > 1:\n                left = sum(w[-1] == \"y\" for w in run)\n                right = sum(w[0] == \"q\" for w in run)\n                both = sum(w[0] == \"q\" and w[-1] == \"y\" for w in run)\n                null_hits += Fraction(left * right - both, n)\n            run = []\n    return {\n        \"eligible_pairs\": pairs,\n        \"qualifying_pairs\": qualifying,\n        \"unknown_pairs\": unknown,\n        \"rate\": qualifying / pairs,\n        \"expected_shuffle_rate\": float(null_hits / pairs),\n        \"expected_shuffle_rate_exact\": str(null_hits / pairs),\n    }\n\n\ndef verified(train, test, lines, scope=None, null=True):\n    checks = SPEC[\"compare\"] + ([NULL] if null else [])\n    spec = {**SPEC, \"compare\": checks}\n    if scope is not None:\n        spec[\"scope\"] = scope\n    scored = dsl.evaluate(spec, test, train)\n    reference = exact_reference(lines)\n    assert abs(scored[\"value\"] - reference[\"rate\"]) < 0.00000051, (scored, reference)\n    detail = scored[\"detail\"][\"boundary_class_rate\"]\n    assert detail[\"pairs\"] == reference[\"eligible_pairs\"]\n    assert detail[\"unknown_pairs\"] == reference[\"unknown_pairs\"]\n    return {\n        \"scorer\": scored,\n        \"reference\": reference,\n        \"threshold_pass\": scored[\"detail\"][\">= 0.7\"],\n        \"shuffle_p\": scored[\"detail\"].get(\"shuffle_within_line\", {}).get(\"p\"),\n    }\n\n\ndef sample(task):\n    regime, seed = task\n    bag = HEAVY if regime == \"composition_heavy_null\" else ORDERED\n    rows = [bag.copy() for _ in range(32)]\n    if regime != \"ordered_positive\":\n        rng = Random(seed)\n        for row in rows:\n            rng.shuffle(row)\n    train = pages(\"training\", [[\"qy\"] * 16 for _ in range(8)])\n    return seed, verified(train, pages(\"evaluation\", rows), rows)\n\n\ndef mask_fixture():\n    main = [\"yy\", \"qy\", \"?\", \"qq\", \"yy\", \"z\", \"qy\", \"qy\", \"q1\", \"qy\", \"by\", \"qb\", \"qy\"]\n    b_only = [\"qy\"] * 10\n    lines_a, lines_b = [main] * 16, [b_only] * 16\n    train = pages(\"training\", [[\"qy\"] * 16 for _ in range(8)])\n    train += pages(\"training-other-hand\", [[\"yq\"] * 30 for _ in range(8)], hand=\"2\")\n    train += pages(\"training-label\", [[\"by\"] * 30 for _ in range(8)], unit=\"L\")\n    test = pages(\"eval-a\", lines_a) + pages(\"eval-b\", lines_b, language=\"B\")\n    test += pages(\"eval-label\", [b_only] * 16, unit=\"L\")\n    test += pages(\"eval-other-hand\", [b_only] * 16, hand=\"2\")\n    scoped = verified(train, test, lines_a, {\"hand\": \"1\", \"language\": \"A\"})\n    both_currier = verified(train, test, lines_a + lines_b, {\"hand\": \"1\"})\n    selected = dsl.tokens(test, {\"hand\": \"1\", \"language\": \"A\"})\n\n    # Independently identify groups by the original line coordinates, and make\n    # sure no word from either side can migrate across a barrier.\n    line_records = {}\n    for record in selected:\n        line_records.setdefault(record[\"line\"], []).append(record)\n    groups, ineligible = [], []\n    for vals in line_records.values():\n        run = []\n        for t in vals:\n            word = t[\"w\"]\n            idx = (t[\"line\"], t[\"k\"])\n            if t[\"unit\"] == \"P\" and len(word) > 1 and word.isalpha():\n                run.append((idx, word))\n            else:\n                ineligible.append((idx, word))\n                if run:\n                    groups.append(run)\n                run = []\n        if run:\n            groups.append(run)\n    rng = Random(383)\n    for _ in range(16):\n        result = dsl._shuffled(selected, \"shuffle_within_line\", rng, \"boundary_class_rate\")\n        by_index = {(t[\"line\"], t[\"k\"]): t[\"w\"] for t in result}\n        assert all(by_index[idx] == word for idx, word in ineligible)\n        for run in groups:\n            assert Counter(by_index[idx] for idx, _ in run) == Counter(word for _, word in run)\n\n    classes = dsl._boundary_classes(dsl.tokens(train, {\"hand\": \"1\", \"language\": \"A\"}))\n    assert classes == {\"q\": \"start\", \"y\": \"end\"}\n    # Deliberately show why classes cannot be fitted on the evaluation side.\n    refitted = dsl._boundary_classes(selected)\n    assert \"b\" in refitted and \"b\" not in classes\n    return {\n        \"scope_hand_1_currier_a\": scoped,\n        \"scope_hand_1_all_currier\": both_currier,\n        \"frozen_classes\": classes,\n        \"evaluation_refit_would_add\": sorted(set(refitted) - set(classes)),\n        \"barrier_and_run_multiset_permutations_verified\": 16,\n    }\n\n\ndef refusals():\n    train = pages(\"training\", [[\"qy\"] * 16 for _ in range(8)])\n    ordered = pages(\"evaluation\", [ORDERED] * 32)\n    same = pages(\"invariant\", [[\"qy\"] * 10 for _ in range(32)])\n    out = {\n        \"invariant_absolute_result\": verified(train, same, [[\"qy\"] * 10 for _ in range(32)], null=False),\n    }\n    for name, a, b in [\n        (\"insufficient_training\", ordered, pages(\"short-training\", [[\"qy\"] * 10])),\n        (\"overlapping_pages\", train, train),\n        (\"invariant_shuffle\", same, train),\n    ]:\n        try:\n            dsl.evaluate({**SPEC, \"compare\": SPEC[\"compare\"] + [NULL]}, a, b)\n        except dsl.SpecError as exc:\n            out[name] = str(exc)\n        else:\n            raise AssertionError(name)\n    return out\n\n\ndef main():\n    regimes = (\"ordered_positive\", \"equal_inventory_null\", \"composition_heavy_null\")\n    jobs = [(name, seed) for name in regimes for seed in SEEDS]\n    with ProcessPoolExecutor(max_workers=3) as pool:\n        all_rows = list(pool.map(sample, jobs))\n    out = {\"spec\": SPEC, \"diagnostic\": NULL, \"permutation_seed_pinned_by_scorer\": 408, \"regimes\": {}}\n    for j, name in enumerate(regimes):\n        rows = [{\"seed\": seed, **r} for seed, r in all_rows[j * len(SEEDS):(j + 1) * len(SEEDS)]]\n        summary = {\n            \"replicates\": len(rows),\n            \"absolute_passes\": sum(x[\"threshold_pass\"] for x in rows),\n            \"diagnostic_null_rejections\": sum(x[\"shuffle_p\"] <= .01 for x in rows),\n            \"rate_range\": [min(x[\"scorer\"][\"value\"] for x in rows), max(x[\"scorer\"][\"value\"] for x in rows)],\n            \"shuffle_p_range\": [min(x[\"shuffle_p\"] for x in rows), max(x[\"shuffle_p\"] for x in rows)],\n        }\n        out[\"regimes\"][name] = {\"summary\": summary, \"results\": rows}\n    out[\"mask_and_scope_fixture\"] = mask_fixture()\n    out[\"refusals\"] = refusals()\n    dest = Path(__file__).with_name(\"synthetic_boundary_controls.json\")\n    dest.write_text(json.dumps(out, indent=2) + \"\\n\")\n    print(dest)\n    for name, result in out[\"regimes\"].items():\n        print(name, result[\"summary\"])\n\n\nif __name__ == \"__main__\":\n    main()\n",
+        "sha256": "a76191dc750c70a964f6916da265d540531c1abfa635414b5efed0e969250aac"
+      },
+      "historical-boundaries.py": {
+        "text": "\"\"\"Historical-only controls for the Parisel boundary rate.\n\nReuse the public practice ZL paragraph line widths solely as pseudo-layout;\nthe schedule is identical for each clean training and evaluation text.\n\"\"\"\nfrom collections import Counter\nfrom itertools import islice\nfrom pathlib import Path\nimport hashlib\nimport json\nimport sys\n\nfrom vs import dsl, ivtff, split\n\nSPEC = {\n    \"select\": {\"unit\": [\"P\"], \"certain\": True},\n    \"statistic\": {\"boundary_class_rate\": True},\n    \"compare\": [{\"op\": \">=\", \"value\": .70}],\n}\n\n\ndef pages_with_layout(words, layout, label):\n    words = iter(words)\n    pages = []\n    for i, widths in enumerate(layout):\n        lines = []\n        page_id = f\"{label}-{i}\"\n        for j, width in enumerate(widths, 1):\n            line = list(islice(words, width))\n            if len(line) != width:\n                raise ValueError(f\"insufficient source at {page_id}.{j}\")\n            lines.append(ivtff.Line(f\"{page_id}.{j}\", page_id, j, \"P\", \"\", line, j == 1, j == len(widths)))\n        pages.append(ivtff.Page(page_id, i, {}, lines))\n    return pages\n\n\ndef layout_from_practice(zl_path):\n    pages = ivtff.parse(zl_path)\n    practice = set(split.select(\"practice\", pages))\n    return [[len(l.words) for l in page.lines if l.unit == \"P\" and l.words]\n            for page in pages if page.id in practice]\n\n\ndef measure(train, evaluation):\n    result = dsl.evaluate(SPEC, evaluation, train)\n    train_tokens = dsl.tokens(train)\n    evaluation_tokens = dsl.tokens(evaluation)\n    classes = dsl._boundary_classes(train_tokens)\n    eligible = [t for t in evaluation_tokens if dsl._boundary_eligible(t)]\n    runs = dsl.runs_of(eligible)\n    expected_hits, hits, edges, ordering_cap_hits = 0., 0, 0, 0\n    for row in runs:\n        n = len(row)\n        words = [dsl._boundary_seg(t[\"w\"]) for t in row]\n        ends = [classes.get(word[-1]) == \"end\" for word in words]\n        starts = [classes.get(word[0]) == \"start\" for word in words]\n        if n >= 2:\n            end_count, start_count = sum(ends), sum(starts)\n            expected_hits += (end_count * start_count - sum(a and b for a, b in zip(ends, starts))) / n\n            ordering_cap_hits += min(end_count, start_count, n - 1)\n            hits += sum(a and b for a, b in zip(ends, starts[1:]))\n            edges += n - 1\n    assert edges == result[\"detail\"][\"boundary_class_rate\"][\"pairs\"]\n    assert abs(hits / edges - result[\"value\"]) <= 1e-6\n    return {\n        \"rate\": hits / edges,\n        \"hits\": hits,\n        \"eligible_boundaries\": edges,\n        \"unknown_class_boundaries\": result[\"detail\"][\"boundary_class_rate\"][\"unknown_pairs\"],\n        \"eligible_evaluation_words\": len(eligible),\n        \"eligible_training_words\": sum(dsl._boundary_eligible(t) for t in train_tokens),\n        \"class_counts\": dict(Counter(classes.values())),\n        \"exact_mean_under_uniform_eligible_run_shuffle\": expected_hits / edges,\n        \"eligible_run_reordering_upper_bound_hits\": ordering_cap_hits,\n        \"eligible_run_reordering_upper_bound_rate\": ordering_cap_hits / edges,\n        \"absolute_threshold_pass\": result[\"pass\"],\n    }\n\n\ndef main():\n    source_dir, zl, out_path = (Path(arg) for arg in sys.argv[1:4])\n    manifest = json.loads((source_dir / \"external-streams.json\").read_text())\n    layout = layout_from_practice(zl)\n    output = {\n        \"spec\": SPEC,\n        \"layout\": \"public-practice ZL nonempty paragraph-line widths, identical for every source and each role; no source line breaks used\",\n        \"layout_pages\": len(layout),\n        \"layout_lines\": sum(map(len, layout)),\n        \"layout_tokens\": sum(sum(widths) for widths in layout),\n        \"results\": [],\n    }\n    for case in manifest[\"pairs\"]:\n        texts, sources = {}, {}\n        for role in (\"fit\", \"evaluation\"):\n            source = manifest[\"works\"][case[role]]\n            raw = (source_dir / source[\"file\"]).read_bytes()\n            assert hashlib.sha256(raw).hexdigest() == source[\"sha256\"]\n            texts[role] = raw.decode().split()\n            sources[role] = {key: source[key] for key in (\"author\", \"title\", \"sha256\", \"source_url\")}\n        train = pages_with_layout(texts[\"fit\"], layout, \"fit\")\n        evaluation = pages_with_layout(texts[\"evaluation\"], layout, \"eval\")\n        assert texts[\"fit\"] != texts[\"evaluation\"]\n        output[\"results\"].append({\n            \"id\": case[\"id\"],\n            \"sources\": sources,\n            **measure(train, evaluation),\n        })\n    out_path.write_text(json.dumps(output, indent=2, ensure_ascii=False) + \"\\n\")\n    print(json.dumps(output, ensure_ascii=False))\n\n\nif __name__ == \"__main__\":\n    main()\n",
+        "sha256": "bcc0289cd6fef89df075759e987f7e9a9e1a876e2588b479099800194d12b107"
+      }
+    }
+  }
+}
