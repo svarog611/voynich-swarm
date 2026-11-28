@@ -1,0 +1,991 @@
+{
+  "folio": "f68r2",
+  "canvas": "https://collections.library.yale.edu/manifests/oid/2002046/canvas/1006196",
+  "blind": true,
+  "statement": "Independent scan-only inventory of the middle panel of the 68r foldout: 59 separate stars and two face medallions. No other f68r2 annotation or transcription words were read. The full 7993 by 3828 canvas was inspected at 2200 px width, followed by a direct middle-panel crop and a native-resolution central detail. Neighboring f68r1 and f68r3 drawings are excluded. Only verified ZL locus identifiers were extracted: five paragraph loci, circular loci .6 and .31, and 24 star-label loci .7–.30. Star counts were made from the image, not forced to the number of labels. All label values remain null because no blind coordinate-to-locus key was obtained. Six rays are recorded on three stars clearly resolved in the detail; remaining ray counts are unclear. An unclear centre or colour is unscored uncertainty, not absence of the feature.",
+  "provenance": {
+    "manifest_sha256": "317d58fd9ea90392a83d9858a91eada3d0b41416a3c835857dc0154bd123a309",
+    "zl_sha256": "bf5b6d4ac1e3a51b1847a9c388318d609020441ccd56984c901c32b09beccafc",
+    "full_overview": "https://collections.library.yale.edu/iiif/2/1006196/full/2200,/0/default.jpg",
+    "inspection_crop": "https://collections.library.yale.edu/iiif/2/1006196/2420,0,2180,3828/1200,/0/default.jpg",
+    "native_detail": "https://collections.library.yale.edu/iiif/2/1006196/2900,1150,1400,1400/full/0/default.jpg",
+    "coordinates": "Approximate [x,y] centres in the displayed 1200-wide crop (height 2107); origin top-left. Native x = 2420 + x*2180/1200; native y = y*2180/1200. These are image locations, not angular astronomical measurements.",
+    "ordering": "Two composite medallions, then separate stars sorted by y and x; object IDs are local drawing IDs, not ZL numbers.",
+    "scope": "Stars form an open field, not a single circular ring; no ring class or clock angle is imposed. Tiny pen flourishes, written glyphs and border ornament are not separate stars. Three six-ray counts are supplied; other point counts remain unclear. The lower disc is described as a diagram rather than guessing a celestial identity.",
+    "limits": "One reader; approximate manual centres. No label-text mapping, astronomical identification, or independent rater agreement claimed. The earlier annotation was not inspected."
+  },
+  "objects": [
+    {
+      "id": "upper-crescent",
+      "kind": "moon",
+      "features": {
+        "colour": "yellow",
+        "centre": "face",
+        "position_xy": [
+          630,
+          515
+        ],
+        "shape": "Upper circular medallion: yellow crescent on the left surrounds a pale face; writing follows the outside. This is one composite object, not a separate human figure."
+      },
+      "label": null
+    },
+    {
+      "id": "lower-face-disc",
+      "kind": "diagram",
+      "features": {
+        "colour": "mixed",
+        "centre": "face",
+        "position_xy": [
+          602,
+          1420
+        ],
+        "shape": "Lower circular medallion: tilted pale face encircled by blue curved petal/flame-like shapes and a pale yellow/brown border. Circular writing outside. No certain sun/moon identity assigned."
+      },
+      "label": null
+    },
+    {
+      "id": "star-01",
+      "kind": "star",
+      "features": {
+        "colour": "yellow",
+        "centre": "unclear",
+        "points": "unclear",
+        "tail": "no",
+        "position_xy": [
+          418,
+          485
+        ],
+        "shape": "Separate multi-pointed radial star drawing in the open field between or beside the two face medallions. A numerical ray count is supplied only where resolved in the native-resolution detail."
+      },
+      "label": null
+    },
+    {
+      "id": "star-02",
+      "kind": "star",
+      "features": {
+        "colour": "yellow",
+        "centre": "unclear",
+        "points": "unclear",
+        "tail": "no",
+        "position_xy": [
+          329,
+          522
+        ],
+        "shape": "Separate multi-pointed radial star drawing in the open field between or beside the two face medallions. A numerical ray count is supplied only where resolved in the native-resolution detail."
+      },
+      "label": null
+    },
+    {
+      "id": "star-03",
+      "kind": "star",
+      "features": {
+        "colour": "yellow",
+        "centre": "unclear",
+        "points": "unclear",
+        "tail": "no",
+        "position_xy": [
+          835,
+          525
+        ],
+        "shape": "Separate multi-pointed radial star drawing in the open field between or beside the two face medallions. A numerical ray count is supplied only where resolved in the native-resolution detail."
+      },
+      "label": null
+    },
+    {
+      "id": "star-04",
+      "kind": "star",
+      "features": {
+        "colour": "yellow",
+        "centre": "unclear",
+        "points": "unclear",
+        "tail": "no",
+        "position_xy": [
+          248,
+          583
+        ],
+        "shape": "Separate multi-pointed radial star drawing in the open field between or beside the two face medallions. A numerical ray count is supplied only where resolved in the native-resolution detail."
+      },
+      "label": null
+    },
+    {
+      "id": "star-05",
+      "kind": "star",
+      "features": {
+        "colour": "yellow",
+        "centre": "unclear",
+        "points": "unclear",
+        "tail": "no",
+        "position_xy": [
+          753,
+          585
+        ],
+        "shape": "Separate multi-pointed radial star drawing in the open field between or beside the two face medallions. A numerical ray count is supplied only where resolved in the native-resolution detail."
+      },
+      "label": null
+    },
+    {
+      "id": "star-06",
+      "kind": "star",
+      "features": {
+        "colour": "yellow",
+        "centre": "unclear",
+        "points": "unclear",
+        "tail": "no",
+        "position_xy": [
+          920,
+          586
+        ],
+        "shape": "Separate multi-pointed radial star drawing in the open field between or beside the two face medallions. A numerical ray count is supplied only where resolved in the native-resolution detail."
+      },
+      "label": null
+    },
+    {
+      "id": "star-07",
+      "kind": "star",
+      "features": {
+        "colour": "yellow",
+        "centre": "unclear",
+        "points": "unclear",
+        "tail": "no",
+        "position_xy": [
+          386,
+          603
+        ],
+        "shape": "Separate multi-pointed radial star drawing in the open field between or beside the two face medallions. A numerical ray count is supplied only where resolved in the native-resolution detail."
+      },
+      "label": null
+    },
+    {
+      "id": "star-08",
+      "kind": "star",
+      "features": {
+        "colour": "yellow",
+        "centre": "unclear",
+        "points": "unclear",
+        "tail": "no",
+        "position_xy": [
+          981,
+          658
+        ],
+        "shape": "Separate multi-pointed radial star drawing in the open field between or beside the two face medallions. A numerical ray count is supplied only where resolved in the native-resolution detail."
+      },
+      "label": null
+    },
+    {
+      "id": "star-09",
+      "kind": "star",
+      "features": {
+        "colour": "yellow",
+        "centre": "unclear",
+        "points": "unclear",
+        "tail": "no",
+        "position_xy": [
+          680,
+          664
+        ],
+        "shape": "Separate multi-pointed radial star drawing in the open field between or beside the two face medallions. A numerical ray count is supplied only where resolved in the native-resolution detail."
+      },
+      "label": null
+    },
+    {
+      "id": "star-10",
+      "kind": "star",
+      "features": {
+        "colour": "yellow",
+        "centre": "unclear",
+        "points": "unclear",
+        "tail": "no",
+        "position_xy": [
+          182,
+          672
+        ],
+        "shape": "Separate multi-pointed radial star drawing in the open field between or beside the two face medallions. A numerical ray count is supplied only where resolved in the native-resolution detail."
+      },
+      "label": null
+    },
+    {
+      "id": "star-11",
+      "kind": "star",
+      "features": {
+        "colour": "yellow",
+        "centre": "ring",
+        "points": "unclear",
+        "tail": "no",
+        "position_xy": [
+          283,
+          683
+        ],
+        "shape": "Separate multi-pointed radial star drawing in the open field between or beside the two face medallions. A numerical ray count is supplied only where resolved in the native-resolution detail."
+      },
+      "label": null
+    },
+    {
+      "id": "star-12",
+      "kind": "star",
+      "features": {
+        "colour": "yellow",
+        "centre": "unclear",
+        "points": "unclear",
+        "tail": "no",
+        "position_xy": [
+          852,
+          691
+        ],
+        "shape": "Separate multi-pointed radial star drawing in the open field between or beside the two face medallions. A numerical ray count is supplied only where resolved in the native-resolution detail."
+      },
+      "label": null
+    },
+    {
+      "id": "star-13",
+      "kind": "star",
+      "features": {
+        "colour": "yellow",
+        "centre": "unclear",
+        "points": "unclear",
+        "tail": "no",
+        "position_xy": [
+          467,
+          705
+        ],
+        "shape": "Separate multi-pointed radial star drawing in the open field between or beside the two face medallions. A numerical ray count is supplied only where resolved in the native-resolution detail."
+      },
+      "label": null
+    },
+    {
+      "id": "star-14",
+      "kind": "star",
+      "features": {
+        "colour": "yellow",
+        "centre": "unclear",
+        "points": "unclear",
+        "tail": "no",
+        "position_xy": [
+          1033,
+          740
+        ],
+        "shape": "Separate multi-pointed radial star drawing in the open field between or beside the two face medallions. A numerical ray count is supplied only where resolved in the native-resolution detail."
+      },
+      "label": null
+    },
+    {
+      "id": "star-15",
+      "kind": "star",
+      "features": {
+        "colour": "yellow",
+        "centre": "unclear",
+        "points": "unclear",
+        "tail": "no",
+        "position_xy": [
+          141,
+          763
+        ],
+        "shape": "Separate multi-pointed radial star drawing in the open field between or beside the two face medallions. A numerical ray count is supplied only where resolved in the native-resolution detail."
+      },
+      "label": null
+    },
+    {
+      "id": "star-16",
+      "kind": "star",
+      "features": {
+        "colour": "yellow",
+        "centre": "unclear",
+        "points": "unclear",
+        "tail": "no",
+        "position_xy": [
+          354,
+          772
+        ],
+        "shape": "Separate multi-pointed radial star drawing in the open field between or beside the two face medallions. A numerical ray count is supplied only where resolved in the native-resolution detail."
+      },
+      "label": null
+    },
+    {
+      "id": "star-17",
+      "kind": "star",
+      "features": {
+        "colour": "yellow",
+        "centre": "ring",
+        "points": "unclear",
+        "tail": "no",
+        "position_xy": [
+          766,
+          773
+        ],
+        "shape": "Separate multi-pointed radial star drawing in the open field between or beside the two face medallions. A numerical ray count is supplied only where resolved in the native-resolution detail."
+      },
+      "label": null
+    },
+    {
+      "id": "star-18",
+      "kind": "star",
+      "features": {
+        "colour": "yellow",
+        "centre": "unclear",
+        "points": "unclear",
+        "tail": "no",
+        "position_xy": [
+          954,
+          805
+        ],
+        "shape": "Separate multi-pointed radial star drawing in the open field between or beside the two face medallions. A numerical ray count is supplied only where resolved in the native-resolution detail."
+      },
+      "label": null
+    },
+    {
+      "id": "star-19",
+      "kind": "star",
+      "features": {
+        "colour": "yellow",
+        "centre": "unclear",
+        "points": "unclear",
+        "tail": "no",
+        "position_xy": [
+          649,
+          808
+        ],
+        "shape": "Separate multi-pointed radial star drawing in the open field between or beside the two face medallions. A numerical ray count is supplied only where resolved in the native-resolution detail."
+      },
+      "label": null
+    },
+    {
+      "id": "star-20",
+      "kind": "star",
+      "features": {
+        "colour": "yellow",
+        "centre": "unclear",
+        "points": "unclear",
+        "tail": "no",
+        "position_xy": [
+          204,
+          824
+        ],
+        "shape": "Separate multi-pointed radial star drawing in the open field between or beside the two face medallions. A numerical ray count is supplied only where resolved in the native-resolution detail."
+      },
+      "label": null
+    },
+    {
+      "id": "star-21",
+      "kind": "star",
+      "features": {
+        "colour": "yellow",
+        "centre": "unclear",
+        "points": "unclear",
+        "tail": "no",
+        "position_xy": [
+          821,
+          836
+        ],
+        "shape": "Separate multi-pointed radial star drawing in the open field between or beside the two face medallions. A numerical ray count is supplied only where resolved in the native-resolution detail."
+      },
+      "label": null
+    },
+    {
+      "id": "star-22",
+      "kind": "star",
+      "features": {
+        "colour": "yellow",
+        "centre": "unclear",
+        "points": "unclear",
+        "tail": "no",
+        "position_xy": [
+          1065,
+          838
+        ],
+        "shape": "Separate multi-pointed radial star drawing in the open field between or beside the two face medallions. A numerical ray count is supplied only where resolved in the native-resolution detail."
+      },
+      "label": null
+    },
+    {
+      "id": "star-23",
+      "kind": "star",
+      "features": {
+        "colour": "yellow",
+        "centre": "unclear",
+        "points": "unclear",
+        "tail": "no",
+        "position_xy": [
+          372,
+          854
+        ],
+        "shape": "Separate multi-pointed radial star drawing in the open field between or beside the two face medallions. A numerical ray count is supplied only where resolved in the native-resolution detail."
+      },
+      "label": null
+    },
+    {
+      "id": "star-24",
+      "kind": "star",
+      "features": {
+        "colour": "yellow",
+        "centre": "unclear",
+        "points": "unclear",
+        "tail": "no",
+        "position_xy": [
+          97,
+          883
+        ],
+        "shape": "Separate multi-pointed radial star drawing in the open field between or beside the two face medallions. A numerical ray count is supplied only where resolved in the native-resolution detail."
+      },
+      "label": null
+    },
+    {
+      "id": "star-25",
+      "kind": "star",
+      "features": {
+        "colour": "yellow",
+        "centre": "none",
+        "points": "6",
+        "tail": "no",
+        "position_xy": [
+          494,
+          900
+        ],
+        "shape": "Separate multi-pointed radial star drawing in the open field between or beside the two face medallions. A numerical ray count is supplied only where resolved in the native-resolution detail."
+      },
+      "label": null
+    },
+    {
+      "id": "star-26",
+      "kind": "star",
+      "features": {
+        "colour": "yellow",
+        "centre": "ring",
+        "points": "unclear",
+        "tail": "no",
+        "position_xy": [
+          885,
+          909
+        ],
+        "shape": "Separate multi-pointed radial star drawing in the open field between or beside the two face medallions. A numerical ray count is supplied only where resolved in the native-resolution detail."
+      },
+      "label": null
+    },
+    {
+      "id": "star-27",
+      "kind": "star",
+      "features": {
+        "colour": "yellow",
+        "centre": "unclear",
+        "points": "unclear",
+        "tail": "no",
+        "position_xy": [
+          625,
+          917
+        ],
+        "shape": "Separate multi-pointed radial star drawing in the open field between or beside the two face medallions. A numerical ray count is supplied only where resolved in the native-resolution detail."
+      },
+      "label": null
+    },
+    {
+      "id": "star-28",
+      "kind": "star",
+      "features": {
+        "colour": "yellow",
+        "centre": "unclear",
+        "points": "unclear",
+        "tail": "no",
+        "position_xy": [
+          1098,
+          920
+        ],
+        "shape": "Separate multi-pointed radial star drawing in the open field between or beside the two face medallions. A numerical ray count is supplied only where resolved in the native-resolution detail."
+      },
+      "label": null
+    },
+    {
+      "id": "star-29",
+      "kind": "star",
+      "features": {
+        "colour": "yellow",
+        "centre": "unclear",
+        "points": "unclear",
+        "tail": "no",
+        "position_xy": [
+          189,
+          938
+        ],
+        "shape": "Separate multi-pointed radial star drawing in the open field between or beside the two face medallions. A numerical ray count is supplied only where resolved in the native-resolution detail."
+      },
+      "label": null
+    },
+    {
+      "id": "star-30",
+      "kind": "star",
+      "features": {
+        "colour": "yellow",
+        "centre": "unclear",
+        "points": "unclear",
+        "tail": "no",
+        "position_xy": [
+          338,
+          958
+        ],
+        "shape": "Separate multi-pointed radial star drawing in the open field between or beside the two face medallions. A numerical ray count is supplied only where resolved in the native-resolution detail."
+      },
+      "label": null
+    },
+    {
+      "id": "star-31",
+      "kind": "star",
+      "features": {
+        "colour": "yellow",
+        "centre": "unclear",
+        "points": "unclear",
+        "tail": "no",
+        "position_xy": [
+          1019,
+          980
+        ],
+        "shape": "Separate multi-pointed radial star drawing in the open field between or beside the two face medallions. A numerical ray count is supplied only where resolved in the native-resolution detail."
+      },
+      "label": null
+    },
+    {
+      "id": "star-32",
+      "kind": "star",
+      "features": {
+        "colour": "yellow",
+        "centre": "none",
+        "points": "6",
+        "tail": "no",
+        "position_xy": [
+          493,
+          986
+        ],
+        "shape": "Separate multi-pointed radial star drawing in the open field between or beside the two face medallions. A numerical ray count is supplied only where resolved in the native-resolution detail."
+      },
+      "label": null
+    },
+    {
+      "id": "star-33",
+      "kind": "star",
+      "features": {
+        "colour": "yellow",
+        "centre": "unclear",
+        "points": "unclear",
+        "tail": "no",
+        "position_xy": [
+          948,
+          990
+        ],
+        "shape": "Separate multi-pointed radial star drawing in the open field between or beside the two face medallions. A numerical ray count is supplied only where resolved in the native-resolution detail."
+      },
+      "label": null
+    },
+    {
+      "id": "star-34",
+      "kind": "star",
+      "features": {
+        "colour": "yellow",
+        "centre": "unclear",
+        "points": "unclear",
+        "tail": "no",
+        "position_xy": [
+          704,
+          1010
+        ],
+        "shape": "Separate multi-pointed radial star drawing in the open field between or beside the two face medallions. A numerical ray count is supplied only where resolved in the native-resolution detail."
+      },
+      "label": null
+    },
+    {
+      "id": "star-35",
+      "kind": "star",
+      "features": {
+        "colour": "yellow",
+        "centre": "unclear",
+        "points": "unclear",
+        "tail": "no",
+        "position_xy": [
+          1109,
+          1015
+        ],
+        "shape": "Separate multi-pointed radial star drawing in the open field between or beside the two face medallions. A numerical ray count is supplied only where resolved in the native-resolution detail."
+      },
+      "label": null
+    },
+    {
+      "id": "star-36",
+      "kind": "star",
+      "features": {
+        "colour": "yellow",
+        "centre": "unclear",
+        "points": "unclear",
+        "tail": "no",
+        "position_xy": [
+          110,
+          1021
+        ],
+        "shape": "Separate multi-pointed radial star drawing in the open field between or beside the two face medallions. A numerical ray count is supplied only where resolved in the native-resolution detail."
+      },
+      "label": null
+    },
+    {
+      "id": "star-37",
+      "kind": "star",
+      "features": {
+        "colour": "yellow",
+        "centre": "none",
+        "points": "6",
+        "tail": "no",
+        "position_xy": [
+          597,
+          1040
+        ],
+        "shape": "Separate multi-pointed radial star drawing in the open field between or beside the two face medallions. A numerical ray count is supplied only where resolved in the native-resolution detail."
+      },
+      "label": null
+    },
+    {
+      "id": "star-38",
+      "kind": "star",
+      "features": {
+        "colour": "yellow",
+        "centre": "unclear",
+        "points": "unclear",
+        "tail": "no",
+        "position_xy": [
+          194,
+          1057
+        ],
+        "shape": "Separate multi-pointed radial star drawing in the open field between or beside the two face medallions. A numerical ray count is supplied only where resolved in the native-resolution detail."
+      },
+      "label": null
+    },
+    {
+      "id": "star-39",
+      "kind": "star",
+      "features": {
+        "colour": "yellow",
+        "centre": "unclear",
+        "points": "unclear",
+        "tail": "no",
+        "position_xy": [
+          388,
+          1068
+        ],
+        "shape": "Separate multi-pointed radial star drawing in the open field between or beside the two face medallions. A numerical ray count is supplied only where resolved in the native-resolution detail."
+      },
+      "label": null
+    },
+    {
+      "id": "star-40",
+      "kind": "star",
+      "features": {
+        "colour": "yellow",
+        "centre": "ring",
+        "points": "unclear",
+        "tail": "no",
+        "position_xy": [
+          876,
+          1085
+        ],
+        "shape": "Separate multi-pointed radial star drawing in the open field between or beside the two face medallions. A numerical ray count is supplied only where resolved in the native-resolution detail."
+      },
+      "label": null
+    },
+    {
+      "id": "star-41",
+      "kind": "star",
+      "features": {
+        "colour": "yellow",
+        "centre": "unclear",
+        "points": "unclear",
+        "tail": "no",
+        "position_xy": [
+          263,
+          1116
+        ],
+        "shape": "Separate multi-pointed radial star drawing in the open field between or beside the two face medallions. A numerical ray count is supplied only where resolved in the native-resolution detail."
+      },
+      "label": null
+    },
+    {
+      "id": "star-42",
+      "kind": "star",
+      "features": {
+        "colour": "yellow",
+        "centre": "unclear",
+        "points": "unclear",
+        "tail": "no",
+        "position_xy": [
+          1092,
+          1120
+        ],
+        "shape": "Separate multi-pointed radial star drawing in the open field between or beside the two face medallions. A numerical ray count is supplied only where resolved in the native-resolution detail."
+      },
+      "label": null
+    },
+    {
+      "id": "star-43",
+      "kind": "star",
+      "features": {
+        "colour": "yellow",
+        "centre": "unclear",
+        "points": "unclear",
+        "tail": "no",
+        "position_xy": [
+          654,
+          1123
+        ],
+        "shape": "Separate multi-pointed radial star drawing in the open field between or beside the two face medallions. A numerical ray count is supplied only where resolved in the native-resolution detail."
+      },
+      "label": null
+    },
+    {
+      "id": "star-44",
+      "kind": "star",
+      "features": {
+        "colour": "unclear",
+        "centre": "unclear",
+        "points": "unclear",
+        "tail": "no",
+        "position_xy": [
+          140,
+          1154
+        ],
+        "shape": "Separate multi-pointed radial star drawing in the open field between or beside the two face medallions. A numerical ray count is supplied only where resolved in the native-resolution detail."
+      },
+      "label": null
+    },
+    {
+      "id": "star-45",
+      "kind": "star",
+      "features": {
+        "colour": "yellow",
+        "centre": "ring",
+        "points": "unclear",
+        "tail": "no",
+        "position_xy": [
+          922,
+          1188
+        ],
+        "shape": "Separate multi-pointed radial star drawing in the open field between or beside the two face medallions. A numerical ray count is supplied only where resolved in the native-resolution detail."
+      },
+      "label": null
+    },
+    {
+      "id": "star-46",
+      "kind": "star",
+      "features": {
+        "colour": "yellow",
+        "centre": "unclear",
+        "points": "unclear",
+        "tail": "no",
+        "position_xy": [
+          288,
+          1190
+        ],
+        "shape": "Separate multi-pointed radial star drawing in the open field between or beside the two face medallions. A numerical ray count is supplied only where resolved in the native-resolution detail."
+      },
+      "label": null
+    },
+    {
+      "id": "star-47",
+      "kind": "star",
+      "features": {
+        "colour": "yellow",
+        "centre": "unclear",
+        "points": "unclear",
+        "tail": "no",
+        "position_xy": [
+          486,
+          1190
+        ],
+        "shape": "Separate multi-pointed radial star drawing in the open field between or beside the two face medallions. A numerical ray count is supplied only where resolved in the native-resolution detail."
+      },
+      "label": null
+    },
+    {
+      "id": "star-48",
+      "kind": "star",
+      "features": {
+        "colour": "yellow",
+        "centre": "unclear",
+        "points": "unclear",
+        "tail": "no",
+        "position_xy": [
+          780,
+          1191
+        ],
+        "shape": "Separate multi-pointed radial star drawing in the open field between or beside the two face medallions. A numerical ray count is supplied only where resolved in the native-resolution detail."
+      },
+      "label": null
+    },
+    {
+      "id": "star-49",
+      "kind": "star",
+      "features": {
+        "colour": "yellow",
+        "centre": "ring",
+        "points": "unclear",
+        "tail": "no",
+        "position_xy": [
+          573,
+          1237
+        ],
+        "shape": "Separate multi-pointed radial star drawing in the open field between or beside the two face medallions. A numerical ray count is supplied only where resolved in the native-resolution detail."
+      },
+      "label": null
+    },
+    {
+      "id": "star-50",
+      "kind": "star",
+      "features": {
+        "colour": "yellow",
+        "centre": "unclear",
+        "points": "unclear",
+        "tail": "no",
+        "position_xy": [
+          1047,
+          1237
+        ],
+        "shape": "Separate multi-pointed radial star drawing in the open field between or beside the two face medallions. A numerical ray count is supplied only where resolved in the native-resolution detail."
+      },
+      "label": null
+    },
+    {
+      "id": "star-51",
+      "kind": "star",
+      "features": {
+        "colour": "yellow",
+        "centre": "unclear",
+        "points": "unclear",
+        "tail": "no",
+        "position_xy": [
+          199,
+          1255
+        ],
+        "shape": "Separate multi-pointed radial star drawing in the open field between or beside the two face medallions. A numerical ray count is supplied only where resolved in the native-resolution detail."
+      },
+      "label": null
+    },
+    {
+      "id": "star-52",
+      "kind": "star",
+      "features": {
+        "colour": "yellow",
+        "centre": "unclear",
+        "points": "unclear",
+        "tail": "no",
+        "position_xy": [
+          754,
+          1303
+        ],
+        "shape": "Separate multi-pointed radial star drawing in the open field between or beside the two face medallions. A numerical ray count is supplied only where resolved in the native-resolution detail."
+      },
+      "label": null
+    },
+    {
+      "id": "star-53",
+      "kind": "star",
+      "features": {
+        "colour": "yellow",
+        "centre": "unclear",
+        "points": "unclear",
+        "tail": "no",
+        "position_xy": [
+          370,
+          1318
+        ],
+        "shape": "Separate multi-pointed radial star drawing in the open field between or beside the two face medallions. A numerical ray count is supplied only where resolved in the native-resolution detail."
+      },
+      "label": null
+    },
+    {
+      "id": "star-54",
+      "kind": "star",
+      "features": {
+        "colour": "unclear",
+        "centre": "unclear",
+        "points": "unclear",
+        "tail": "no",
+        "position_xy": [
+          970,
+          1326
+        ],
+        "shape": "Separate multi-pointed radial star drawing in the open field between or beside the two face medallions. A numerical ray count is supplied only where resolved in the native-resolution detail."
+      },
+      "label": null
+    },
+    {
+      "id": "star-55",
+      "kind": "star",
+      "features": {
+        "colour": "yellow",
+        "centre": "unclear",
+        "points": "unclear",
+        "tail": "no",
+        "position_xy": [
+          276,
+          1355
+        ],
+        "shape": "Separate multi-pointed radial star drawing in the open field between or beside the two face medallions. A numerical ray count is supplied only where resolved in the native-resolution detail."
+      },
+      "label": null
+    },
+    {
+      "id": "star-56",
+      "kind": "star",
+      "features": {
+        "colour": "unclear",
+        "centre": "unclear",
+        "points": "unclear",
+        "tail": "no",
+        "position_xy": [
+          797,
+          1379
+        ],
+        "shape": "Separate multi-pointed radial star drawing in the open field between or beside the two face medallions. A numerical ray count is supplied only where resolved in the native-resolution detail."
+      },
+      "label": null
+    },
+    {
+      "id": "star-57",
+      "kind": "star",
+      "features": {
+        "colour": "unclear",
+        "centre": "unclear",
+        "points": "unclear",
+        "tail": "no",
+        "position_xy": [
+          882,
+          1403
+        ],
+        "shape": "Separate multi-pointed radial star drawing in the open field between or beside the two face medallions. A numerical ray count is supplied only where resolved in the native-resolution detail."
+      },
+      "label": null
+    },
+    {
+      "id": "star-58",
+      "kind": "star",
+      "features": {
+        "colour": "yellow",
+        "centre": "unclear",
+        "points": "unclear",
+        "tail": "no",
+        "position_xy": [
+          379,
+          1433
+        ],
+        "shape": "Separate multi-pointed radial star drawing in the open field between or beside the two face medallions. A numerical ray count is supplied only where resolved in the native-resolution detail."
+      },
+      "label": null
+    },
+    {
+      "id": "star-59",
+      "kind": "star",
+      "features": {
+        "colour": "unclear",
+        "centre": "unclear",
+        "points": "unclear",
+        "tail": "no",
+        "position_xy": [
+          778,
+          1466
+        ],
+        "shape": "Separate multi-pointed radial star drawing in the open field between or beside the two face medallions. A numerical ray count is supplied only where resolved in the native-resolution detail."
+      },
+      "label": null
+    }
+  ]
+}
