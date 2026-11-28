@@ -1,0 +1,24 @@
+{
+  "title": "Crux of the MATTR: Voynichese Morphological Complexity",
+  "authors": "Luke Lindemann",
+  "year": 2022,
+  "url": "https://ceur-ws.org/Vol-3313/paper9.pdf",
+  "summary": "The study compares Voynich word-distribution statistics with modern and historical language samples to infer a morphological profile, conditional on manuscript spaces corresponding to words. It acknowledges that a constructed meaningless procedure could imitate such distributions; neither language identity nor meaning follows directly from these statistics.",
+  "established": [
+    "The study uses Takahashi paragraph text in 10,000-word samples, with 160 modern language texts grouped into ten families and four historical comparison texts. It selects a 1,000-word MATTR window and top 70 words using the modern corpus family-variance criterion.",
+    "In its reported family ranking the full Voynich, A, and B samples rank Iranian first by Euclidean distance in the two chosen statistics; the author interprets the profile as intermediate morphological complexity. The method assumes that spaces separate words conventionally.",
+    "The paper reports an ambiguity-deletion sensitivity check: deleting unresolved words would remove 45% of the full running text and shift MATTR by 8.4% and MCW by -6.5%. It uses the unaltered Takahashi transcription for its primary results."
+  ],
+  "open": [
+    {
+      "question": "How stable are the calibrated family rankings under held-out reference works and selection of the MATTR window and top-word count on training samples only?",
+      "front": "J",
+      "check": "Fit window and count on grouped training texts; evaluate family ranking on independent historical works and report uncertainty by language and work."
+    },
+    {
+      "question": "Can a trained meaningless copy or table process reproduce the joint MATTR and top-70-word profile when evaluated at the same 10,000-token sample size?",
+      "front": "G",
+      "check": "Fit without evaluation pages and compare joint metrics over multiple random seeds to held-out Voynich samples and historical references."
+    }
+  ]
+}
