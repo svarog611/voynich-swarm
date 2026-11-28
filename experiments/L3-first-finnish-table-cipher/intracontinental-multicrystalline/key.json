@@ -1,0 +1,43 @@
+{
+  "id": "K-finnish-table-cipher-001",
+  "family": "table-cipher",
+  "segmentation": "eva-basic",
+  "target": {
+    "language": "finnish",
+    "period": "early-modern Finnish, 1776 Bible (proxy)"
+  },
+  "key": {
+    "map": {
+      "a": "a",
+      "d": "b",
+      "e": "d",
+      "f": "e",
+      "g": "g",
+      "i": "h",
+      "j": "i",
+      "k": "j",
+      "l": "k",
+      "m": "l",
+      "n": "m",
+      "o": "n",
+      "p": "o",
+      "q": "p",
+      "r": "r",
+      "s": "s",
+      "t": "t",
+      "v": "u",
+      "x": "v",
+      "y": "y"
+    },
+    "shifts": [
+      19,
+      14
+    ]
+  },
+  "search": {
+    "budget": {
+      "max_period": 4,
+      "sweeps": 4
+    }
+  }
+}
