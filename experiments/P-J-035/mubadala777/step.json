@@ -1,0 +1,1039 @@
+{
+  "title": "Audit longer paired references before using 1509 herbal OCR as Latin training text",
+  "statement": "Across 30 preselected prose lines on six PDF pages of the 1509 Herbarius latinus, the OCR needs 131/234 word edits (56.0%, 47.9–65.2% descriptive page-bootstrap range) and 177/1522 character edits including spaces (11.6%). Page word-edit rates span 43.6–76.9%. The two independent readings differ by 2/240 words before adjudicated line joins. The word-edit rate is 128/240 (53.3%) against either unadjudicated reading. The earlier page 21 pilot reproduces 19/30 word and 19/204 character edits. A six-entry long-s correction fitted only on page 21 removes five edits in the audit, leaving 126/234 word edits (53.8%). Errors include long-s substitutions, word fusions, line division and intruding character groups. The current OCR and this correction are insufficient for a corpus pin. The attached data preserve the aligned crops and counts.",
+  "program": "J",
+  "check": "Recompute both distances from the stored normalized strings, using six pages and the separate page 21 training sample. To qualify a better text, record a new disjoint fit and evaluation split, independently transcribe enough body lines to construct matched-length controls, and report fixed-budget planted-key recovery on adjudicated, corrected and raw text under identical length, key and scoring settings before adding a corpus.",
+  "on_path": true,
+  "hard": true,
+  "protocol": {
+    "source": {
+      "title": "Incipit Tractatus de virtutibus herbarum",
+      "year": 1509,
+      "license": "public-domain",
+      "catalogue": "https://archive.org/details/CAT31000255",
+      "pdf": "https://archive.org/download/CAT31000255/cat31000255.pdf",
+      "pdf_sha256": "f90aa0aa04c21ec0acc2f8e0946e3bfa73802a46bc2c2bcd91dad8803352f79d",
+      "ocr_xml": "https://archive.org/download/CAT31000255/cat31000255_djvu.xml",
+      "ocr_xml_sha256": "37c3fc25581f7df6c4bcc5b140f7f0506c4e7dfb3bc7b73033e5713f4efc2c9f"
+    },
+    "sampler": "Using CPython random.Random(1509), take and sort the sample of size 2 from each inclusive one-based PDF range 31–105, 125–199 and 219–293. Freeze page selection 49/66, 134/158, 221/238 before seeing images or OCR. Take the first five prose lines after any heading or engraving, left column first if applicable. No page was replaced.",
+    "alignment": "Render pages to 2100 px tall with Poppler. Set left/top/right/bottom on the image around the five body lines. Scale XML WORD box centers into the raster dimensions, include centers in the crop, assign each XML LINE group's selected tokens to a physical row by its median y against the listed row cuts, and sort fragments within each row by x. Exclude headings and marginalia by the window. Blur and misplaced boxes can still contribute to the measured error.",
+    "transcription": "Two readers per page use only the same scan crop, with no OCR or other transcript. Keep historical spelling, treat long s as s, expand clearly readable abbreviations, represent a visible line division stroke as a hyphen, and leave beginning and ending word fragments. On review also join six unambiguous broken words without a legible division stroke and record those joins. All reader alternatives are retained.",
+    "normalization": "Join line-end hyphens across physical lines within the crop. Expand ampersands to et in all variants. Use vs.refcorpus.normalize(..., 'latin') to fold j/v, diacritics and punctuation. Unrecognized OCR marks are handled by that normalizer. Use unit-cost Levenshtein at word level and at character level including spaces. Letter-only counts exclude spaces. Denominators are the corresponding reference lengths.",
+    "uncertainty": "Compute a descriptive page bootstrap by enumerating all 6^6 ordered page resamples and taking the nearest-index 0.025 and 0.975 quantiles of the pooled edit rate. This small-sample range reflects variation among the audited opening prose snippets, without estimating accuracy for a whole book or another edition. Separate OCR rates against A and B show sensitivity to reader decisions. Reader agreement is measured before the six additional joins.",
+    "separate_pilot_correction": "Train on the prior P-J-035 page 21 reference and OCR strings only. For every normalized pilot OCR token absent from the pilot reference vocabulary, keep an exact-token mapping if exactly one same-length reference token differs only by one or more f-to-s substitutions. Apply this fixed table to exact normalized tokens on the six audit pages. No page used for this correction was used to evaluate it.",
+    "control_status": "No matched-length fixed-budget cipher recovery was run because this correction leaves more than half of reference words edited and the manually transcribed reference is only 1294 letters. No corpus was added. Any proposed corpus should first show recovery from longer paired reference and corrected text with the same key, corruption controls, test length and budget."
+  },
+  "evidence": {
+    "pages": {
+      "49": {
+        "raster_size": [
+          1543,
+          2100
+        ],
+        "ocr_size": [
+          2298,
+          3128
+        ],
+        "box": [
+          169,
+          1295,
+          1265,
+          1594
+        ],
+        "row_cuts": [
+          1361,
+          1419,
+          1477,
+          1535
+        ],
+        "lines": [
+          "€ Betoriíca ^ eftcalída & ficca íntertío, E Habetuírtu",
+          "tein abftergendi & incídendi eroffos humorés ídeo",
+          "daletad 2. 24s frangédum : M d lapidem f renum & - e uefic: PLoX.c & p^ (DEC",
+          "qgcát mehiftrua & ualet í doloríbus laterum, Et ua",
+          "i contra opílatíonem e hac omnía con^"
+        ],
+        "transcripts": {
+          "reader_a": {
+            "lines": [
+              "Betonica est calida & sicca in tertio. Habet uirtu",
+              "tem abstergendi & incidendi grossos humores ideo",
+              "ualet ad frangendum lapidem renum & uesicæ & pro-",
+              "uocat menstrua & ualet in doloribus laterum. Et ua-",
+              "let contra opilationem splenis. Ad hæc omnia con-"
+            ],
+            "notes": [
+              "The hyphen after ua is partly visible at the right edge. No clear hyphen follows uirtu within the crop.",
+              "The abbreviation at the end of line 3 reads pro-, continued by uocat. The initial paragraph mark is omitted."
+            ]
+          },
+          "reader_b": {
+            "lines": [
+              "¶ Betonica est calida & sicca in tertio. Habet uirtu",
+              "tem abstergendi & incidendi grossos humores ideo",
+              "ualet ad frangendum lapidem renum & uesicæ & pro-",
+              "uocat menstrua & ualet in doloribus laterum. Et ua-",
+              "let contra opilationem splenis. Ad hæc omnia con-"
+            ],
+            "notes": [
+              "Line 3 reads an abbreviation for pro before the break into uocat. The ampersand immediately before it is faint.",
+              "Line 4 has a partly clipped hyphen after ua."
+            ]
+          },
+          "adjudicated": {
+            "lines": [
+              "¶ Betonica est calida & sicca in tertio. Habet uirtu-",
+              "tem abstergendi & incidendi grossos humores ideo",
+              "ualet ad frangendum lapidem renum & uesicæ & pro-",
+              "uocat menstrua & ualet in doloribus laterum. Et ua-",
+              "let contra opilationem splenis. Ad hæc omnia con-"
+            ],
+            "notes": [
+              "Join lines 1 and 2 at an unequivocal broken word even though no division mark is legible.",
+              "The line 3 compendium expands to pro- and the following printed line begins uocat."
+            ]
+          }
+        },
+        "ocr_normalized": "betoriica eftcalida et ficca intertio e habetuirtu tein abftergendi et incidendi eroffos humores ideo daletad s frangedum m d lapidem f renum et e uefic plox c et p dec qgcat mehiftrua et ualet i doloribus laterum et ua i contra opilationem e hac omnia con",
+        "ocr_pilot_corrected": "betoriica eftcalida et sicca intertio e habetuirtu tein abftergendi et incidendi eroffos humores ideo daletad s frangedum m d lapidem f renum et e uefic plox c et p dec qgcat mehiftrua et ualet i doloribus laterum et ua i contra opilationem e hac omnia con",
+        "reference_normalized": {
+          "reader_a": "betonica est calida et sicca in tertio habet uirtu tem abstergendi et incidendi grossos humores ideo ualet ad frangendum lapidem renum et uesicae et prouocat menstrua et ualet in doloribus laterum et ualet contra opilationem splenis ad haec omnia con",
+          "reader_b": "betonica est calida et sicca in tertio habet uirtu tem abstergendi et incidendi grossos humores ideo ualet ad frangendum lapidem renum et uesicae et prouocat menstrua et ualet in doloribus laterum et ualet contra opilationem splenis ad haec omnia con",
+          "adjudicated": "betonica est calida et sicca in tertio habet uirtutem abstergendi et incidendi grossos humores ideo ualet ad frangendum lapidem renum et uesicae et prouocat menstrua et ualet in doloribus laterum et ualet contra opilationem splenis ad haec omnia con"
+        },
+        "reading_disagreement": {
+          "word_edits": 0,
+          "ref_words": 40,
+          "char_edits": 0,
+          "ref_chars": 250,
+          "letter_edits": 0,
+          "ref_letters": 211
+        },
+        "original": {
+          "reader_a": {
+            "word_edits": 31,
+            "ref_words": 40,
+            "char_edits": 60,
+            "ref_chars": 250,
+            "letter_edits": 45,
+            "ref_letters": 211
+          },
+          "reader_b": {
+            "word_edits": 31,
+            "ref_words": 40,
+            "char_edits": 60,
+            "ref_chars": 250,
+            "letter_edits": 45,
+            "ref_letters": 211
+          },
+          "adjudicated": {
+            "word_edits": 30,
+            "ref_words": 39,
+            "char_edits": 61,
+            "ref_chars": 249,
+            "letter_edits": 45,
+            "ref_letters": 211
+          }
+        },
+        "pilot_corrected": {
+          "reader_a": {
+            "word_edits": 30,
+            "ref_words": 40,
+            "char_edits": 59,
+            "ref_chars": 250,
+            "letter_edits": 44,
+            "ref_letters": 211
+          },
+          "reader_b": {
+            "word_edits": 30,
+            "ref_words": 40,
+            "char_edits": 59,
+            "ref_chars": 250,
+            "letter_edits": 44,
+            "ref_letters": 211
+          },
+          "adjudicated": {
+            "word_edits": 29,
+            "ref_words": 39,
+            "char_edits": 60,
+            "ref_chars": 249,
+            "letter_edits": 44,
+            "ref_letters": 211
+          }
+        }
+      },
+      "66": {
+        "raster_size": [
+          1551,
+          2100
+        ],
+        "ocr_size": [
+          2287,
+          3098
+        ],
+        "box": [
+          324,
+          151,
+          1416,
+          449
+        ],
+        "row_cuts": [
+          222,
+          279,
+          334,
+          390
+        ],
+        "lines": [
+          "cótra emotoídas ipfa tota áaton & taxus barbatus",
+          "-«cü uino & aqua cocta & fiat fuper illud eücácifmae",
+          "ídem ualet ad fícus círcaanumifV alet etíam herba",
+          "ipfa contra frígída apoftemata trita cum ueteri axü",
+          "&ía & calída: apponatumlV aet etíam contra fcrofu"
+        ],
+        "transcripts": {
+          "reader_a": {
+            "lines": [
+              "contra emoroidas ipsa tota aaron & taxus barbatus",
+              "cum uino & aqua cocta & fiat super illud eucacisma.",
+              "idem ualet ad ficus circa anum Valet etiam herba",
+              "ipsa contra frigida apostemata trita cum ueteri axun",
+              "gia & calidæ apponatur Valet etiam contra scrofu"
+            ],
+            "notes": [
+              "The bath term looks like eucacisma, though the handwritten mark above it makes the middle letters less clear.",
+              "axun expands the nasal abbreviation before the next line's gia. Paragraph marks before Valet are omitted."
+            ]
+          },
+          "reader_b": {
+            "lines": [
+              "contra emoroidas ipsa tota aaron & taxus barbatus",
+              "cum uino & aqua cocta & fiat super illud eucacisma.",
+              "idem ualet ad ficus circa anum ¶ Valet etiam herba",
+              "ipsa contra frigida apostemata trita cum ueteri axun",
+              "gia & calidæ apponatur ¶ Valet etiam contra scrofu"
+            ],
+            "notes": [
+              "Line 2 appears to read eucacisma. The u could be n in this type.",
+              "Line 4 ends axũ, here expanded to axun because the following line starts gia.",
+              "The paragraph marks before Valet on lines 3 and 5 overlap the capitals."
+            ]
+          },
+          "adjudicated": {
+            "lines": [
+              "contra emoroidas ipsa tota aaron & taxus barbatus",
+              "cum uino & aqua cocta & fiat super illud eucacisma.",
+              "idem ualet ad ficus circa anum ¶ Valet etiam herba",
+              "ipsa contra frigida apostemata trita cum ueteri axun-",
+              "gia & calidæ apponatur ¶ Valet etiam contra scrofu"
+            ],
+            "notes": [
+              "Join lines 4 and 5 at an unequivocal broken word even though no division mark is legible.",
+              "Read the unclear bath term eucacisma as both readers did. No handwritten correction is included."
+            ]
+          }
+        },
+        "ocr_normalized": "cotra emotoidas ipfa tota aaton et taxus barbatus cu uino et aqua cocta et fiat fuper illud eucacifmae idem ualet ad ficus circaanumifu alet etiam herba ipfa contra frigida apoftemata trita cum ueteri axu et ia et calida apponatumlu aet etiam contra fcrofu",
+        "ocr_pilot_corrected": "cotra emotoidas ipfa tota aaton et taxus barbatus cu uino et aqua cocta et fiat fuper illud eucacifmae idem ualet ad ficus circaanumifu alet etiam herba ipfa contra frigida apoftemata trita cum ueteri axu et ia et calida apponatumlu aet etiam contra fcrofu",
+        "reference_normalized": {
+          "reader_a": "contra emoroidas ipsa tota aaron et taxus barbatus cum uino et aqua cocta et fiat super illud eucacisma idem ualet ad ficus circa anum ualet etiam herba ipsa contra frigida apostemata trita cum ueteri axun gia et calidae apponatur ualet etiam contra scrofu",
+          "reader_b": "contra emoroidas ipsa tota aaron et taxus barbatus cum uino et aqua cocta et fiat super illud eucacisma idem ualet ad ficus circa anum ualet etiam herba ipsa contra frigida apostemata trita cum ueteri axun gia et calidae apponatur ualet etiam contra scrofu",
+          "adjudicated": "contra emoroidas ipsa tota aaron et taxus barbatus cum uino et aqua cocta et fiat super illud eucacisma idem ualet ad ficus circa anum ualet etiam herba ipsa contra frigida apostemata trita cum ueteri axungia et calidae apponatur ualet etiam contra scrofu"
+        },
+        "reading_disagreement": {
+          "word_edits": 0,
+          "ref_words": 43,
+          "char_edits": 0,
+          "ref_chars": 256,
+          "letter_edits": 0,
+          "ref_letters": 214
+        },
+        "original": {
+          "reader_a": {
+            "word_edits": 19,
+            "ref_words": 43,
+            "char_edits": 24,
+            "ref_chars": 256,
+            "letter_edits": 19,
+            "ref_letters": 214
+          },
+          "reader_b": {
+            "word_edits": 19,
+            "ref_words": 43,
+            "char_edits": 24,
+            "ref_chars": 256,
+            "letter_edits": 19,
+            "ref_letters": 214
+          },
+          "adjudicated": {
+            "word_edits": 19,
+            "ref_words": 42,
+            "char_edits": 24,
+            "ref_chars": 255,
+            "letter_edits": 19,
+            "ref_letters": 214
+          }
+        },
+        "pilot_corrected": {
+          "reader_a": {
+            "word_edits": 19,
+            "ref_words": 43,
+            "char_edits": 24,
+            "ref_chars": 256,
+            "letter_edits": 19,
+            "ref_letters": 214
+          },
+          "reader_b": {
+            "word_edits": 19,
+            "ref_words": 43,
+            "char_edits": 24,
+            "ref_chars": 256,
+            "letter_edits": 19,
+            "ref_letters": 214
+          },
+          "adjudicated": {
+            "word_edits": 19,
+            "ref_words": 42,
+            "char_edits": 24,
+            "ref_chars": 255,
+            "letter_edits": 19,
+            "ref_letters": 214
+          }
+        }
+      },
+      "134": {
+        "raster_size": [
+          1568,
+          2100
+        ],
+        "ocr_size": [
+          2278,
+          3052
+        ],
+        "box": [
+          289,
+          149,
+          1399,
+          446
+        ],
+        "row_cuts": [
+          213,
+          269,
+          329,
+          385
+        ],
+        "lines": [
+          "quens potus tumefactioni plenis & omni opilatio^",
+          "ni fplenís:& alíís dífcrafíis uitio fplenís proueníentt",
+          "bus:ut 'ebrís quartana. ydropifim., ycterícía níora",
+          "a caufa fríoída, Recipe fuccos; edere terreftrís. íco",
+          "lopendríax afi .lib.í. folíorum extremitatum abfin»"
+        ],
+        "transcripts": {
+          "reader_a": {
+            "lines": [
+              "quens potus tumefactioni splenis & omni opilatio-",
+              "ni splenis: & aliis discrasiis uitio splenis prouenienti",
+              "bus: ut febris quartana. ydropisim. yctericia nigra",
+              "a causa frigida. Recipe succorum ederę terrestris. sco",
+              "lopendriæ ana .lib.i. foliorum extremitatum absin-"
+            ],
+            "notes": [
+              "The ending of ederę is printed with e caudata. The dosage abbreviation .lib.i. is retained because its grammatical expansion is uncertain."
+            ]
+          },
+          "reader_b": {
+            "lines": [
+              "quens potus tumefactioni splenis & omni opilatio-",
+              "ni splenis: & aliis discrasiis uitio splenis prouenienti",
+              "bus: ut febris quartana. ydropisim. yctericia nigra",
+              "a causa frigida. Recipe succorum ederę terrestris. sco",
+              "lopendriæ ana .lib. i. foliorum extremitatum absin-"
+            ],
+            "notes": [
+              "Line 4 has the e caudata in ederę and a contracted ending in succorum.",
+              "Line 5 expands añ as ana. The printed punctuation around the weight is close-set and resembles .lib.i."
+            ]
+          },
+          "adjudicated": {
+            "lines": [
+              "quens potus tumefactioni splenis & omni opilatio-",
+              "ni splenis: & aliis discrasiis uitio splenis prouenienti-",
+              "bus: ut febris quartana. ydropisim. yctericia nigra",
+              "a causa frigida. Recipe succorum ederę terrestris. sco-",
+              "lopendriæ ana .lib. i. foliorum extremitatum absin-"
+            ],
+            "notes": [
+              "Join lines 2 and 3 at an unequivocal broken word even though no division mark is legible.",
+              "Join lines 4 and 5 at an unequivocal broken word even though no division mark is legible.",
+              "Leave lib. as printed, with the neighboring i. separated by punctuation."
+            ]
+          }
+        },
+        "ocr_normalized": "quens potus tumefactioni plenis et omni opilatio ni fplenis et aliis difcrafiis uitio fplenis prouenientt bus ut ebris quartana ydropifim yctericia niora a caufa frioida recipe fuccos edere terreftris ico lopendriax afi lib i foliorum extremitatum abfin",
+        "ocr_pilot_corrected": "quens potus tumefactioni plenis et omni opilatio ni fplenis et aliis difcrafiis uitio fplenis prouenientt bus ut ebris quartana ydropifim yctericia niora a caufa frioida recipe fuccos edere terreftris ico lopendriax afi lib i foliorum extremitatum abfin",
+        "reference_normalized": {
+          "reader_a": "quens potus tumefactioni splenis et omni opilationi splenis et aliis discrasiis uitio splenis prouenienti bus ut febris quartana ydropisim yctericia nigra a causa frigida recipe succorum edere terrestris sco lopendriae ana lib i foliorum extremitatum absin",
+          "reader_b": "quens potus tumefactioni splenis et omni opilationi splenis et aliis discrasiis uitio splenis prouenienti bus ut febris quartana ydropisim yctericia nigra a causa frigida recipe succorum edere terrestris sco lopendriae ana lib i foliorum extremitatum absin",
+          "adjudicated": "quens potus tumefactioni splenis et omni opilationi splenis et aliis discrasiis uitio splenis prouenientibus ut febris quartana ydropisim yctericia nigra a causa frigida recipe succorum edere terrestris scolopendriae ana lib i foliorum extremitatum absin"
+        },
+        "reading_disagreement": {
+          "word_edits": 0,
+          "ref_words": 36,
+          "char_edits": 0,
+          "ref_chars": 256,
+          "letter_edits": 0,
+          "ref_letters": 221
+        },
+        "original": {
+          "reader_a": {
+            "word_edits": 18,
+            "ref_words": 36,
+            "char_edits": 22,
+            "ref_chars": 256,
+            "letter_edits": 21,
+            "ref_letters": 221
+          },
+          "reader_b": {
+            "word_edits": 18,
+            "ref_words": 36,
+            "char_edits": 22,
+            "ref_chars": 256,
+            "letter_edits": 21,
+            "ref_letters": 221
+          },
+          "adjudicated": {
+            "word_edits": 19,
+            "ref_words": 34,
+            "char_edits": 24,
+            "ref_chars": 254,
+            "letter_edits": 21,
+            "ref_letters": 221
+          }
+        },
+        "pilot_corrected": {
+          "reader_a": {
+            "word_edits": 18,
+            "ref_words": 36,
+            "char_edits": 22,
+            "ref_chars": 256,
+            "letter_edits": 21,
+            "ref_letters": 221
+          },
+          "reader_b": {
+            "word_edits": 18,
+            "ref_words": 36,
+            "char_edits": 22,
+            "ref_chars": 256,
+            "letter_edits": 21,
+            "ref_letters": 221
+          },
+          "adjudicated": {
+            "word_edits": 19,
+            "ref_words": 34,
+            "char_edits": 24,
+            "ref_chars": 254,
+            "letter_edits": 21,
+            "ref_letters": 221
+          }
+        }
+      },
+      "158": {
+        "raster_size": [
+          1546,
+          2100
+        ],
+        "ocr_size": [
+          2280,
+          3099
+        ],
+        "box": [
+          277,
+          184,
+          1373,
+          486
+        ],
+        "row_cuts": [
+          250,
+          305,
+          362,
+          419
+        ],
+        "lines": [
+          "theticis paffionibus.Et quía nocét ftomacho & nau",
+          "feam pra'íftat & uentofitates iprégnatídeo ualet ra^",
+          "díci hermodattult mifcere zínciber & mafticé & ci^",
+          "mínum & dofl.eíus eft a. 5.í.ad.íí.Mefue.FHec radíx.",
+          "fí crudz comedatur occídít ftrangulando fícut fun"
+        ],
+        "transcripts": {
+          "reader_a": {
+            "lines": [
+              "theticis passionibus. Et quia nocet stomacho & nau",
+              "seam præstat & uentositates impregnat ideo ualet ra-",
+              "dici hermodattuli miscere zinciber & masticem & ci-",
+              "minum & doss. eius est a. ʒ.i.ad.ii. Mesue. Hęc radix",
+              "si crudæ comedatur occidit strangulando sicut fun-"
+            ],
+            "notes": [
+              "The blurred line 1 ending reads nau, confirmed by seam on line 2. No hyphen is distinguishable at the end of line 1.",
+              "The herb appears to read hermodattuli. The adjoining pair could be a ct ligature.",
+              "The nasal bar in masticē is expanded to m. An n expansion is also possible.",
+              "The dose abbreviation looks like doss. and its unit sign like ʒ. Line 5 seems to print crudæ."
+            ]
+          },
+          "reader_b": {
+            "lines": [
+              "theticis passionibus. Et quia nocet stomacho & nau",
+              "seam præstat & uentositates impregnat ideo ualet ra-",
+              "dici hermodattuli miscere zinciber & masticem & ci-",
+              "minum & doss. eius est a. ʒ. i. ad. ii. Mesue. Hęc radix",
+              "si crudæ comedatur occidit strangulando sicut fun-"
+            ],
+            "notes": [
+              "Line 1 final nau reads through blur and continues as seam; no hyphen is discernible in the blur.",
+              "Line 1 reads nocet in context. A small mark above the e could be read as a nasal stroke.",
+              "Line 4 dosage sign transcribed as ʒ; doss. retained as a printed abbreviation."
+            ]
+          },
+          "adjudicated": {
+            "lines": [
+              "theticis passionibus. Et quia nocet stomacho & nau-",
+              "seam præstat & uentositates impregnat ideo ualet ra-",
+              "dici hermodattuli miscere zinciber & masticem & ci-",
+              "minum & doss. eius est a. ʒ. i. ad. ii. Mesue. Hęc radix",
+              "si crudæ comedatur occidit strangulando sicut fun-"
+            ],
+            "notes": [
+              "Join lines 1 and 2 at an unequivocal broken word even though no division mark is legible.",
+              "Keep hermodattuli, masticem, doss. and the dose sign ʒ as independently read. The blurred nau continues into seam."
+            ]
+          }
+        },
+        "ocr_normalized": "theticis paffionibus et quia nocet ftomacho et nau feam pra iftat et uentofitates ipregnatideo ualet ra dici hermodattult mifcere zinciber et maftice et ci minum et dofl eius eft a i ad ii mefue fhec radix fi crudz comedatur occidit ftrangulando ficut fun",
+        "ocr_pilot_corrected": "theticis paffionibus et quia nocet ftomacho et nau feam pra iftat et uentofitates ipregnatideo ualet ra dici hermodattult mifcere zinciber et maftice et ci minum et dofl eius est a i ad ii mefue fhec radix fi crudz comedatur occidit ftrangulando ficut fun",
+        "reference_normalized": {
+          "reader_a": "theticis passionibus et quia nocet stomacho et nau seam praestat et uentositates impregnat ideo ualet radici hermodattuli miscere zinciber et masticem et ciminum et doss eius est a i ad ii mesue hec radix si crudae comedatur occidit strangulando sicut fun",
+          "reader_b": "theticis passionibus et quia nocet stomacho et nau seam praestat et uentositates impregnat ideo ualet radici hermodattuli miscere zinciber et masticem et ciminum et doss eius est a i ad ii mesue hec radix si crudae comedatur occidit strangulando sicut fun",
+          "adjudicated": "theticis passionibus et quia nocet stomacho et nauseam praestat et uentositates impregnat ideo ualet radici hermodattuli miscere zinciber et masticem et ciminum et doss eius est a i ad ii mesue hec radix si crudae comedatur occidit strangulando sicut fun"
+        },
+        "reading_disagreement": {
+          "word_edits": 0,
+          "ref_words": 41,
+          "char_edits": 0,
+          "ref_chars": 255,
+          "letter_edits": 0,
+          "ref_letters": 215
+        },
+        "original": {
+          "reader_a": {
+            "word_edits": 23,
+            "ref_words": 41,
+            "char_edits": 26,
+            "ref_chars": 255,
+            "letter_edits": 22,
+            "ref_letters": 215
+          },
+          "reader_b": {
+            "word_edits": 23,
+            "ref_words": 41,
+            "char_edits": 26,
+            "ref_chars": 255,
+            "letter_edits": 22,
+            "ref_letters": 215
+          },
+          "adjudicated": {
+            "word_edits": 24,
+            "ref_words": 40,
+            "char_edits": 27,
+            "ref_chars": 254,
+            "letter_edits": 22,
+            "ref_letters": 215
+          }
+        },
+        "pilot_corrected": {
+          "reader_a": {
+            "word_edits": 22,
+            "ref_words": 41,
+            "char_edits": 25,
+            "ref_chars": 255,
+            "letter_edits": 21,
+            "ref_letters": 215
+          },
+          "reader_b": {
+            "word_edits": 22,
+            "ref_words": 41,
+            "char_edits": 25,
+            "ref_chars": 255,
+            "letter_edits": 21,
+            "ref_letters": 215
+          },
+          "adjudicated": {
+            "word_edits": 23,
+            "ref_words": 40,
+            "char_edits": 26,
+            "ref_chars": 254,
+            "letter_edits": 21,
+            "ref_letters": 215
+          }
+        }
+      },
+      "221": {
+        "raster_size": [
+          1541,
+          2100
+        ],
+        "ocr_size": [
+          2301,
+          3137
+        ],
+        "box": [
+          142,
+          1299,
+          1231,
+          1590
+        ],
+        "row_cuts": [
+          1362,
+          1420,
+          1479,
+          1537
+        ],
+        "lines": [
+          "K | Polípodium calídum eft in fecundo : fíccusin ter^",
+          "tío oradu, V írtus eftín radíce qua ín fapore dulcis",
+          "é & nodofa. & quod nafcítur fuper radices quercus",
+          "eft efficatíus, Eft refolutíuus uentofitatum & humi",
+          "dítatum & ín decoctíone polípodií debet poni ali^"
+        ],
+        "transcripts": {
+          "reader_a": {
+            "lines": [
+              "¶Polipodium calidum est in secundo: siccum in ter-",
+              "tio gradu. Virtus est in radice quæ in sapore dulcis",
+              "est & nodosa. & quod nascitur super radices quercus",
+              "est efficatius. Est resolutiuum uentositatum & humi",
+              "ditatum & in decoctione polipodii debet poni ali-"
+            ],
+            "notes": [
+              "The opening paragraph sign is blurred. A small mark after efficatius. is indistinct.",
+              "No hyphen is distinguishable after humi."
+            ]
+          },
+          "reader_b": {
+            "lines": [
+              "¶Polipodium calidum est in secundo : siccus in ter-",
+              "tio gradu. Virtus est in radice quæ in sapore dulcis",
+              "est & nodosa. & quod nascitur super radices quercus",
+              "est efficatius. Est resolutiuus uentositatum & humi",
+              "ditatum & in decoctione polipodii debet poni ali-"
+            ],
+            "notes": [
+              "The blurred character before Polipodium appears to be a pilcrow.",
+              "The colon after secundo is partially obscured.",
+              "Line 4 ends in humi, continued by ditatum, without a discernible hyphen."
+            ]
+          },
+          "adjudicated": {
+            "lines": [
+              "¶Polipodium calidum est in secundo : siccus in ter-",
+              "tio gradu. Virtus est in radice quæ in sapore dulcis",
+              "est & nodosa. & quod nascitur super radices quercus",
+              "est efficatius. Est resolutiuus uentositatum & humi-",
+              "ditatum & in decoctione polipodii debet poni ali-"
+            ],
+            "notes": [
+              "Join lines 4 and 5 at an unequivocal broken word even though no division mark is legible.",
+              "Record siccus and resolutiuus on the letter form of the printed ending. Reader A instead gives the grammatically expected neuter endings. Retain both readings for sensitivity."
+            ]
+          }
+        },
+        "ocr_normalized": "k polipodium calidum eft in fecundo ficcusin ter tio oradu u irtus eftin radice qua in fapore dulcis e et nodofa et quod nafcitur fuper radices quercus eft efficatius eft refolutiuus uentofitatum et humi ditatum et in decoctione polipodii debet poni ali",
+        "ocr_pilot_corrected": "k polipodium calidum est in fecundo ficcusin ter tio oradu u irtus eftin radice qua in fapore dulcis e et nodofa et quod nafcitur fuper radices quercus est efficatius est refolutiuus uentofitatum et humi ditatum et in decoctione polipodii debet poni ali",
+        "reference_normalized": {
+          "reader_a": "polipodium calidum est in secundo siccum in tertio gradu uirtus est in radice quae in sapore dulcis est et nodosa et quod nascitur super radices quercus est efficatius est resolutiuum uentositatum et humi ditatum et in decoctione polipodii debet poni ali",
+          "reader_b": "polipodium calidum est in secundo siccus in tertio gradu uirtus est in radice quae in sapore dulcis est et nodosa et quod nascitur super radices quercus est efficatius est resolutiuus uentositatum et humi ditatum et in decoctione polipodii debet poni ali",
+          "adjudicated": "polipodium calidum est in secundo siccus in tertio gradu uirtus est in radice quae in sapore dulcis est et nodosa et quod nascitur super radices quercus est efficatius est resolutiuus uentositatum et humiditatum et in decoctione polipodii debet poni ali"
+        },
+        "reading_disagreement": {
+          "word_edits": 2,
+          "ref_words": 41,
+          "char_edits": 2,
+          "ref_chars": 254,
+          "letter_edits": 2,
+          "ref_letters": 214
+        },
+        "original": {
+          "reader_a": {
+            "word_edits": 20,
+            "ref_words": 41,
+            "char_edits": 24,
+            "ref_chars": 254,
+            "letter_edits": 19,
+            "ref_letters": 214
+          },
+          "reader_b": {
+            "word_edits": 20,
+            "ref_words": 41,
+            "char_edits": 22,
+            "ref_chars": 254,
+            "letter_edits": 17,
+            "ref_letters": 214
+          },
+          "adjudicated": {
+            "word_edits": 22,
+            "ref_words": 40,
+            "char_edits": 23,
+            "ref_chars": 253,
+            "letter_edits": 17,
+            "ref_letters": 214
+          }
+        },
+        "pilot_corrected": {
+          "reader_a": {
+            "word_edits": 17,
+            "ref_words": 41,
+            "char_edits": 21,
+            "ref_chars": 254,
+            "letter_edits": 16,
+            "ref_letters": 214
+          },
+          "reader_b": {
+            "word_edits": 17,
+            "ref_words": 41,
+            "char_edits": 19,
+            "ref_chars": 254,
+            "letter_edits": 14,
+            "ref_letters": 214
+          },
+          "adjudicated": {
+            "word_edits": 19,
+            "ref_words": 40,
+            "char_edits": 20,
+            "ref_chars": 253,
+            "letter_edits": 14,
+            "ref_letters": 214
+          }
+        }
+      },
+      "238": {
+        "raster_size": [
+          1543,
+          2100
+        ],
+        "ocr_size": [
+          2283,
+          3109
+        ],
+        "box": [
+          284,
+          155,
+          1383,
+          461
+        ],
+        "row_cuts": [
+          224,
+          282,
+          340,
+          397
+        ],
+        "lines": [
+          "autem tepide confert doloribus eius ; It&ab ifta at2",
+          "bore fluit refína.& hec réfína à dyafcoríde & ab alíís",
+          "medícínalís iudícatur . & fanguinem (tríngít: fudo^",
+          "ges & alíos fluxos noxíos compefcít. Ex cis quídam",
+          "fumítatibus ante productionem folíorum folet fieri"
+        ],
+        "transcripts": {
+          "reader_a": {
+            "lines": [
+              "aurem tepide confert doloribus eius: Item ab ista ar-",
+              "bore fluit resina. & hęc resina à dyascoride & ab aliis",
+              "medicinalis iudicatur. & sanguinem stringit: sudo-",
+              "res & alios fluxos noxios compescit. Ex eis quidam",
+              "sumitatibus ante productionem foliorum solet fieri"
+            ],
+            "notes": [
+              "The punctuation after eius looks like a colon. The short stroke above a in line 2 looks like a grave accent."
+            ]
+          },
+          "reader_b": {
+            "lines": [
+              "aurem tepide confert doloribus eius : Item ab ista ar-",
+              "bore fluit resina. & hęc resina à dyascoride & ab aliis",
+              "medicinalis iudicatur. & sanguinem stringit: sudo-",
+              "res & alios fluxos noxios compescit. Ex eis quidam",
+              "sumitatibus ante productionem foliorum solet fieri"
+            ],
+            "notes": [
+              "The punctuation after eius in line 1 is faint, read as a colon.",
+              "Line 4 ampersand is blurred."
+            ]
+          },
+          "adjudicated": {
+            "lines": [
+              "aurem tepide confert doloribus eius : Item ab ista ar-",
+              "bore fluit resina. & hęc resina à dyascoride & ab aliis",
+              "medicinalis iudicatur. & sanguinem stringit: sudo-",
+              "res & alios fluxos noxios compescit. Ex eis quidam",
+              "sumitatibus ante productionem foliorum solet fieri"
+            ],
+            "notes": [
+              "Both readers include the faint conjunction after res and read the word after eius as Item."
+            ]
+          }
+        },
+        "ocr_normalized": "autem tepide confert doloribus eius it et ab ifta at bore fluit refina et hec refina a dyafcoride et ab aliis medicinalis iudicatur et fanguinem tringit fudo ges et alios fluxos noxios compefcit ex cis quidam fumitatibus ante productionem foliorum folet fieri",
+        "ocr_pilot_corrected": "autem tepide confert doloribus eius it et ab ifta at bore fluit refina et hec refina a dyafcoride et ab aliis medicinalis iudicatur et fanguinem tringit fudo ges et alios fluxos noxios compefcit ex cis quidam fumitatibus ante productionem foliorum folet fieri",
+        "reference_normalized": {
+          "reader_a": "aurem tepide confert doloribus eius item ab ista arbore fluit resina et hec resina a dyascoride et ab aliis medicinalis iudicatur et sanguinem stringit sudores et alios fluxos noxios compescit ex eis quidam sumitatibus ante productionem foliorum solet fieri",
+          "reader_b": "aurem tepide confert doloribus eius item ab ista arbore fluit resina et hec resina a dyascoride et ab aliis medicinalis iudicatur et sanguinem stringit sudores et alios fluxos noxios compescit ex eis quidam sumitatibus ante productionem foliorum solet fieri",
+          "adjudicated": "aurem tepide confert doloribus eius item ab ista arbore fluit resina et hec resina a dyascoride et ab aliis medicinalis iudicatur et sanguinem stringit sudores et alios fluxos noxios compescit ex eis quidam sumitatibus ante productionem foliorum solet fieri"
+        },
+        "reading_disagreement": {
+          "word_edits": 0,
+          "ref_words": 39,
+          "char_edits": 0,
+          "ref_chars": 257,
+          "letter_edits": 0,
+          "ref_letters": 219
+        },
+        "original": {
+          "reader_a": {
+            "word_edits": 17,
+            "ref_words": 39,
+            "char_edits": 18,
+            "ref_chars": 257,
+            "letter_edits": 15,
+            "ref_letters": 219
+          },
+          "reader_b": {
+            "word_edits": 17,
+            "ref_words": 39,
+            "char_edits": 18,
+            "ref_chars": 257,
+            "letter_edits": 15,
+            "ref_letters": 219
+          },
+          "adjudicated": {
+            "word_edits": 17,
+            "ref_words": 39,
+            "char_edits": 18,
+            "ref_chars": 257,
+            "letter_edits": 15,
+            "ref_letters": 219
+          }
+        },
+        "pilot_corrected": {
+          "reader_a": {
+            "word_edits": 17,
+            "ref_words": 39,
+            "char_edits": 18,
+            "ref_chars": 257,
+            "letter_edits": 15,
+            "ref_letters": 219
+          },
+          "reader_b": {
+            "word_edits": 17,
+            "ref_words": 39,
+            "char_edits": 18,
+            "ref_chars": 257,
+            "letter_edits": 15,
+            "ref_letters": 219
+          },
+          "adjudicated": {
+            "word_edits": 17,
+            "ref_words": 39,
+            "char_edits": 18,
+            "ref_chars": 257,
+            "letter_edits": 15,
+            "ref_letters": 219
+          }
+        }
+      }
+    },
+    "pilot_reproduction": {
+      "word_edits": 19,
+      "ref_words": 30,
+      "char_edits": 19,
+      "ref_chars": 204,
+      "letter_edits": 12,
+      "ref_letters": 175
+    },
+    "pilot_correction_map": {
+      "abftergere": "abstergere",
+      "eft": "est",
+      "ficca": "sicca",
+      "funt": "sunt",
+      "ipfius": "ipsius",
+      "refoluere": "resoluere"
+    },
+    "reading_disagreement": {
+      "word_edits": 2,
+      "ref_words": 240,
+      "char_edits": 2,
+      "ref_chars": 1528,
+      "letter_edits": 2,
+      "ref_letters": 1294,
+      "word_rate": 0.008333333333333333,
+      "word_page_bootstrap_95": [
+        0.0,
+        0.024896265560165973
+      ],
+      "char_rate": 0.0013089005235602095,
+      "char_page_bootstrap_95": [
+        0.0,
+        0.003937007874015748
+      ],
+      "letter_rate": 0.0015455950540958269,
+      "letter_page_bootstrap_95": [
+        0.0,
+        0.004662004662004662
+      ]
+    },
+    "pooled": {
+      "original": {
+        "reader_a": {
+          "word_edits": 128,
+          "ref_words": 240,
+          "char_edits": 174,
+          "ref_chars": 1528,
+          "letter_edits": 141,
+          "ref_letters": 1294,
+          "word_rate": 0.5333333333333333,
+          "word_page_bootstrap_95": [
+            0.45714285714285713,
+            0.6375
+          ],
+          "char_rate": 0.11387434554973822,
+          "char_page_bootstrap_95": [
+            0.08208469055374593,
+            0.16611733684904417
+          ],
+          "letter_rate": 0.10896445131375579,
+          "letter_page_bootstrap_95": [
+            0.08186687069625095,
+            0.15205585725368503
+          ]
+        },
+        "reader_b": {
+          "word_edits": 128,
+          "ref_words": 240,
+          "char_edits": 172,
+          "ref_chars": 1528,
+          "letter_edits": 139,
+          "ref_letters": 1294,
+          "word_rate": 0.5333333333333333,
+          "word_page_bootstrap_95": [
+            0.45714285714285713,
+            0.6375
+          ],
+          "char_rate": 0.112565445026178,
+          "char_page_bootstrap_95": [
+            0.08083441981747067,
+            0.16479894528675015
+          ],
+          "letter_rate": 0.10741885625965997,
+          "letter_page_bootstrap_95": [
+            0.07963246554364471,
+            0.15125391849529782
+          ]
+        },
+        "adjudicated": {
+          "word_edits": 131,
+          "ref_words": 234,
+          "char_edits": 177,
+          "ref_chars": 1522,
+          "letter_edits": 139,
+          "ref_letters": 1294,
+          "word_rate": 0.5598290598290598,
+          "word_page_bootstrap_95": [
+            0.4788135593220339,
+            0.6523605150214592
+          ],
+          "char_rate": 0.11629434954007885,
+          "char_page_bootstrap_95": [
+            0.08403908794788274,
+            0.16887417218543047
+          ],
+          "letter_rate": 0.10741885625965997,
+          "letter_page_bootstrap_95": [
+            0.07963246554364471,
+            0.15125391849529782
+          ]
+        }
+      },
+      "pilot_corrected": {
+        "reader_a": {
+          "word_edits": 123,
+          "ref_words": 240,
+          "char_edits": 169,
+          "ref_chars": 1528,
+          "letter_edits": 136,
+          "ref_letters": 1294,
+          "word_rate": 0.5125,
+          "word_page_bootstrap_95": [
+            0.4393305439330544,
+            0.6170212765957447
+          ],
+          "char_rate": 0.1106020942408377,
+          "char_page_bootstrap_95": [
+            0.080078125,
+            0.1617161716171617
+          ],
+          "letter_rate": 0.10510046367851623,
+          "letter_page_bootstrap_95": [
+            0.07835531419705198,
+            0.14742589703588144
+          ]
+        },
+        "reader_b": {
+          "word_edits": 123,
+          "ref_words": 240,
+          "char_edits": 167,
+          "ref_chars": 1528,
+          "letter_edits": 134,
+          "ref_letters": 1294,
+          "word_rate": 0.5125,
+          "word_page_bootstrap_95": [
+            0.4393305439330544,
+            0.6170212765957447
+          ],
+          "char_rate": 0.10929319371727748,
+          "char_page_bootstrap_95": [
+            0.078125,
+            0.16094986807387862
+          ],
+          "letter_rate": 0.1035548686244204,
+          "letter_page_bootstrap_95": [
+            0.07519379844961241,
+            0.14673913043478262
+          ]
+        },
+        "adjudicated": {
+          "word_edits": 126,
+          "ref_words": 234,
+          "char_edits": 172,
+          "ref_chars": 1522,
+          "letter_edits": 134,
+          "ref_letters": 1294,
+          "word_rate": 0.5384615384615384,
+          "word_page_bootstrap_95": [
+            0.4661016949152542,
+            0.6343612334801763
+          ],
+          "char_rate": 0.11300919842312747,
+          "char_page_bootstrap_95": [
+            0.08093994778067885,
+            0.1656726308813784
+          ],
+          "letter_rate": 0.1035548686244204,
+          "letter_page_bootstrap_95": [
+            0.07519379844961241,
+            0.14673913043478262
+          ]
+        }
+      }
+    }
+  }
+}
