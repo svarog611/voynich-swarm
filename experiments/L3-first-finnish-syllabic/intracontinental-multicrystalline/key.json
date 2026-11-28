@@ -1,0 +1,74 @@
+{
+  "id": "K-finnish-syllabic-001",
+  "family": "syllabic",
+  "segmentation": "eva-basic",
+  "target": {
+    "language": "finnish",
+    "period": "early-modern Finnish, 1776 Bible (proxy)"
+  },
+  "key": {
+    "marker": "q",
+    "map": {
+      "e": "i",
+      "o": "a",
+      "y": "a",
+      "a": "e",
+      "d": "n",
+      "i": "l",
+      "ch": "s",
+      "l": "n",
+      "k": "n",
+      "r": "n",
+      "n": "a",
+      "t": "n",
+      "sh": "s",
+      "s": "n",
+      "m": "n",
+      "p": "a",
+      "cth": "s",
+      "ckh": "a",
+      "f": "a",
+      "h": "n",
+      "cph": "s",
+      "?": "a",
+      "c": "a",
+      "g": "a",
+      "*": "a",
+      "cfh": "n",
+      "x": "h",
+      "v": "h",
+      "j": "n",
+      "b": "s",
+      "z": "l",
+      "u": "e",
+      "qo": "ha",
+      "qe": "si",
+      "qk": "va",
+      "qy": "ja",
+      "qcth": "si",
+      "qckh": "si",
+      "qa": "si",
+      "q*": "mi",
+      "q?": "pa",
+      "qch": "ma",
+      "qcph": "ha"
+    }
+  },
+  "search": {
+    "budget": {
+      "syllable_candidates": 64,
+      "sign_limit": 24,
+      "lexical_sweeps": 5,
+      "restarts": 4,
+      "iterations": 6000,
+      "seed": 1404,
+      "bpe_merges": 30,
+      "verbose_segmentations": [
+        "bpe-greedy",
+        "fixed-2"
+      ],
+      "verbose_min_unit_share": 0.0005,
+      "substitution_group_swap": 0.2
+    }
+  }
+}

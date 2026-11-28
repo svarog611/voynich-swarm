@@ -1,0 +1,54 @@
+{
+  "step": "L3-first-finnish-syllabic",
+  "handle": "intracontinental-multicrystalline",
+  "kind": "key",
+  "summary": "Search the Finnish syllabic cipher cell at the pinned budget using public practice training pages.",
+  "lease": "d79cd8ad37bdc52866c41072",
+  "control": {
+    "language": "finnish",
+    "family": "syllabic",
+    "control": "syllabic",
+    "control_tokens": 9280,
+    "true_key": {
+      "submission": "control-finnish-syllabic",
+      "family": "syllabic",
+      "target": {
+        "language": "finnish",
+        "period": "control"
+      },
+      "verdict": "FAIL",
+      "failed": [
+        "c_pictures"
+      ],
+      "passes_without_anchors": true,
+      "savings": 0.05168,
+      "killed_by": []
+    },
+    "true_key_passes": true,
+    "search_key": {
+      "submission": "grid-finnish-syllabic-control",
+      "family": "syllabic",
+      "target": {
+        "language": "finnish",
+        "period": "grid search"
+      },
+      "verdict": "FAIL",
+      "failed": [
+        "c_pictures"
+      ],
+      "passes_without_anchors": true,
+      "savings": 0.02796,
+      "killed_by": []
+    },
+    "search_cracks_control_clean": true,
+    "noise": 0.02,
+    "true_key_passes_noisy": true,
+    "search_cracks_control": true
+  },
+  "method": {
+    "entry_point": "vs.search.search_cell('finnish', 'syllabic', practice_train, tag='cell')",
+    "training_split": "public practice training pages only",
+    "corpus": "finnish_0b723e54",
+    "limitation": "The early-modern Bible is a period proxy and this search only covers the syllabic family implemented by the project."
+  }
+}
