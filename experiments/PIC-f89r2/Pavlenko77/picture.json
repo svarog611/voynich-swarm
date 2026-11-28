@@ -1,0 +1,289 @@
+{
+  "folio": "f89r2",
+  "canvas": "https://collections.library.yale.edu/manifests/oid/2002046/canvas/1006233",
+  "blind": true,
+  "statement": "First independent scan-only inventory of the f89r2 portion of canvas 1006233. No other f89r2 annotation or transcription words were read. Full-spread context, a direct panel crop and top/bottom details were inspected. Neighboring 88v and f89r1 excluded. Four vessels and sixteen provisional plant/root drawing units are recorded. Fragment counts follow visible connections and are not forced to match label counts. The faint lower-fold unit and several crossings remain uncertain; this is not a claim of sixteen securely distinct botanical specimens.",
+  "label_mapping": {
+    "basis": "Only the verified ZL locus IDs and types were extracted. Blocks are Lc .1 then four Lf .2–.5 and paragraph .6–.8; Lc .9 then Lf .10–.11 and paragraph .12–.15; Lc .16 then Lf .17–.21 and paragraph .22–.28; Lc .29,+Lc .30 then Lf .31–.34.",
+    "vessels": "The four unique left-margin vessels occupy these four horizontal blocks in the same top-to-bottom order. Assign .1, .9, .16 and .29 structurally, without matching glyph strings. The bottom caption occupies two lines; .30 is retained as an additional associated locus, while the schema label field uses .29.",
+    "additional_associated_loci": {
+      "vessel-4": [
+        "f89r2.30"
+      ]
+    },
+    "fragments": "All individual fragment labels stay null: non-specific @Lf locators and sequence numbers do not give a secure coordinate key. Third-row inventory has six provisional visible units although there are five Lf loci; some units may be unlabelled or merged, and this discrepancy is not resolved by guessing label identities."
+  },
+  "provenance": {
+    "manifest_sha256": "317d58fd9ea90392a83d9858a91eada3d0b41416a3c835857dc0154bd123a309",
+    "zl_sha256": "bf5b6d4ac1e3a51b1847a9c388318d609020441ccd56984c901c32b09beccafc",
+    "overview": "https://collections.library.yale.edu/iiif/2/1006233/full/2400,/0/default.jpg",
+    "panel": "https://collections.library.yale.edu/iiif/2/1006233/5200,0,3878,3777/1600,/0/default.jpg",
+    "top_detail": "https://collections.library.yale.edu/iiif/2/1006233/5550,200,3000,1300/1500,/0/default.jpg",
+    "bottom_detail": "https://collections.library.yale.edu/iiif/2/1006233/5200,2500,3878,1277/1600,/0/default.jpg",
+    "coordinates": "Approximate [x,y] centres on the displayed 1600-wide panel crop, height 1558. Origin top-left. Native x=5200+x*3878/1600; native y=y*3878/1600. Free position features are not scored vocabulary.",
+    "ordering": "Four vessels, then drawing units in visual rows top-to-bottom and left-to-right. IDs are local object identifiers, not ZL numbers.",
+    "limits": "One reader. Species identities and word meanings not inferred. A lower-fold form may be an offset or fragment; it is retained with unclear colour and explicit provisional status rather than silently certified. Root crossings and some connected-unit boundaries are uncertain. Caption-to-vessel assignments are structural inferences, not independently confirmed word alignments."
+  },
+  "objects": [
+    {
+      "id": "vessel-1",
+      "kind": "jar",
+      "features": {
+        "colour": "mixed",
+        "position_xy": [
+          90,
+          300
+        ],
+        "shape": "Uppermost vessel: narrow elongated neck, broad body with alternating red and green horizontal bands, pale decorated collar and spreading foot."
+      },
+      "label": "f89r2.1"
+    },
+    {
+      "id": "vessel-2",
+      "kind": "jar",
+      "features": {
+        "colour": "mixed",
+        "position_xy": [
+          88,
+          620
+        ],
+        "shape": "Second vessel: lidded pale body with long vertical red stripes, green neck bands and green branched foot."
+      },
+      "label": "f89r2.9"
+    },
+    {
+      "id": "vessel-3",
+      "kind": "jar",
+      "features": {
+        "colour": "mixed",
+        "position_xy": [
+          88,
+          925
+        ],
+        "shape": "Third vessel: compound pale vessel with rounded stacked sections, thin red bands, green stem segments and a green splayed foot."
+      },
+      "label": "f89r2.16"
+    },
+    {
+      "id": "vessel-4",
+      "kind": "jar",
+      "features": {
+        "colour": "mixed",
+        "position_xy": [
+          100,
+          1270
+        ],
+        "shape": "Bottom vessel: bulbous oval body with curved alternating red and green stripes, green stem sections and a wide pale ochre foot. Two-line caption beside the body."
+      },
+      "label": "f89r2.29"
+    },
+    {
+      "id": "row1-01",
+      "kind": "plant_part",
+      "features": {
+        "colour": "mixed",
+        "position_xy": [
+          219,
+          280
+        ],
+        "shape": "Red-brown elongated root fragment splitting into several pointed lower branches, with a few pale/green upright stalks."
+      },
+      "label": null
+    },
+    {
+      "id": "row1-02",
+      "kind": "root",
+      "features": {
+        "colour": "mixed",
+        "position_xy": [
+          350,
+          270
+        ],
+        "shape": "Bundle of thin pale upright stalks above several descending red-brown roots; no securely filled blade identified."
+      },
+      "label": null
+    },
+    {
+      "id": "row1-03",
+      "kind": "plant",
+      "features": {
+        "colour": "mixed",
+        "position_xy": [
+          720,
+          240
+        ],
+        "shape": "Complex connected drawing with paired rounded toothed green blades, a larger lobed green upper mass, pale upright stems and a large tan bulb with long curved root extensions. Exact extent at the crease uncertain."
+      },
+      "label": null
+    },
+    {
+      "id": "row1-04",
+      "kind": "plant",
+      "features": {
+        "colour": "mixed",
+        "position_xy": [
+          1350,
+          290
+        ],
+        "shape": "Long bent ochre root/stem, pale spreading upright branches and a large elongated green blade toward the far right; tapered curved root descends at the edge."
+      },
+      "label": null
+    },
+    {
+      "id": "row2-01",
+      "kind": "plant",
+      "features": {
+        "colour": "mixed",
+        "position_xy": [
+          527,
+          620
+        ],
+        "shape": "Large green deeply lobed left blade linked by pale stems to a tan knotted root and a long open cage-like network of ochre roots with a darker oval interior."
+      },
+      "label": null
+    },
+    {
+      "id": "row2-02",
+      "kind": "plant",
+      "features": {
+        "colour": "green",
+        "position_xy": [
+          1120,
+          634
+        ],
+        "shape": "Two green lobed blades to the left of a small pale oval body with fine long curving root lines extending right. Boundaries near the fold and neighboring root are faint."
+      },
+      "label": null
+    },
+    {
+      "id": "row3-01",
+      "kind": "plant",
+      "features": {
+        "colour": "mixed",
+        "position_xy": [
+          260,
+          913
+        ],
+        "shape": "Several curved green leaflets on pale stalks above an ochre bulbous root with a pale slit and a few long forked extensions."
+      },
+      "label": null
+    },
+    {
+      "id": "row3-02",
+      "kind": "plant",
+      "features": {
+        "colour": "mixed",
+        "position_xy": [
+          391,
+          903
+        ],
+        "shape": "Three small green blades along one upright stem, attached to a bent red-brown lobed root."
+      },
+      "label": null
+    },
+    {
+      "id": "row3-03",
+      "kind": "plant",
+      "features": {
+        "colour": "mixed",
+        "position_xy": [
+          527,
+          898
+        ],
+        "shape": "One small rounded green blade on a branching stem above a pale ochre root tuft with several pointed strands."
+      },
+      "label": null
+    },
+    {
+      "id": "row3-04",
+      "kind": "plant",
+      "features": {
+        "colour": "mixed",
+        "position_xy": [
+          682,
+          893
+        ],
+        "shape": "Star-like lobed green blade and pale curved stalks above a red-brown root with several long descending branches."
+      },
+      "label": null
+    },
+    {
+      "id": "row3-05",
+      "kind": "plant",
+      "features": {
+        "colour": "mixed",
+        "position_xy": [
+          873,
+          900
+        ],
+        "shape": "Single narrow toothed horizontal green blade above a thin stem and a pale bent root with several long parallel curved strands."
+      },
+      "label": null
+    },
+    {
+      "id": "row3-06",
+      "kind": "plant",
+      "features": {
+        "colour": "mixed",
+        "position_xy": [
+          1295,
+          976
+        ],
+        "shape": "Large red-brown oval root with many long thick reddish branches running down and right; two pale stalks reach a rounded ragged green head and a narrow green upper blade. Kept separate from the neighboring thin-root fragment."
+      },
+      "label": null
+    },
+    {
+      "id": "row4-01",
+      "kind": "plant",
+      "features": {
+        "colour": "mixed",
+        "position_xy": [
+          324,
+          1304
+        ],
+        "shape": "Rounded green blade with a pale curved division above a thick short pink-red root bending downward; small detached reddish dash nearby not a separate plant."
+      },
+      "label": null
+    },
+    {
+      "id": "row4-02",
+      "kind": "plant_part",
+      "features": {
+        "colour": "mixed",
+        "position_xy": [
+          520,
+          1250
+        ],
+        "shape": "Horizontal dark-green serrated oblong fragment with a thin pale rightward stem ending in a faint reddish attachment. Exact boundary near the damaged crease uncertain."
+      },
+      "label": null
+    },
+    {
+      "id": "row4-03",
+      "kind": "plant_part",
+      "features": {
+        "colour": "unclear",
+        "position_xy": [
+          746,
+          1320
+        ],
+        "shape": "Faint green lobed form near the damaged fold with a long thin curved brown outline descending toward the bottom. Separation from its neighbors is provisional; possible offset or incompletely visible fragment."
+      },
+      "label": null
+    },
+    {
+      "id": "row4-04",
+      "kind": "plant",
+      "features": {
+        "colour": "mixed",
+        "position_xy": [
+          1230,
+          1350
+        ],
+        "shape": "Rounded toothed green blade on a pale stalk attached to a very large ochre root system, with thick descending branches partly cut off by the page edge and faint upright shoots."
+      },
+      "label": null
+    }
+  ]
+}
