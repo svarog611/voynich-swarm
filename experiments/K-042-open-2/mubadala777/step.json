@@ -1,0 +1,4699 @@
+{
+  "title": "Image-align more physical line transitions and calibrate predecessor comparisons across endpoint class frequencies",
+  "statement": "A scan-first audit found separate consecutive baselines for all 50 selected transition pairs on 10 public practice folios. The outgoing and incoming word positions were mapped in 44 pairs; six have uncertain edge grouping. Requiring all of the compared words to pass the uncertainty filter in ZL, IT and RF left 26 matched triplets on eight folios. With pooled within-line association transferred to event-specific baselines, first-to-second minus cross-line gain is +0.0156, +0.0177 and +0.0138 nats per target in ZL, IT and RF. Midpoint minus cross-line gain is −0.0240, +0.0116 and −0.1034. Event-specific predecessor fits give respectively +0.0741, +0.0824 and +0.0024 for the first contrast, and +0.0371, +0.0354 and −0.1207 for the second. All 12 paired folio-bootstrap intervals include zero. In 32/32 synthetic trials with unchanged conditional log odds and shifted target and predecessor frequencies, both methods give a lower cross-line gain than either within-line comparison. The public trial establishes scan alignment in this sample but leaves Dominik’s prediction contrast unresolved.",
+  "program": "L1",
+  "on_path": true,
+  "hard": true,
+  "check": "Freeze a larger stratified sample of physical lines on new public leaves before obtaining image-based determinations. Have two separate readers first map row geometry then align the chosen loci and edge word groups; report gaps, intervening loci, uncertain separators and source-selection attrition. Verify the manuscript classes and the previous boundary model against the author’s full implementation if available. Compare the event-specific and transport models on matched triplets along with marginal-preserving common-association and reset controls. Report folio-level uncertainty and test whether endpoint imbalance or independent training refits can account for any measured gain gap.",
+  "source": [
+    {
+      "title": "Line-Conditioned Orthographic Organization in the Voynich Manuscript v1.0, Matthew Dominik, §3.3",
+      "url": "https://zenodo.org/records/23407412",
+      "pdf_sha256": "700b8a70cabcc7b49e87c57fad397701cce05d9f72d577f3f670b28bcd4920b4",
+      "reported_prior_boundary_gains_nats": [
+        0.1458,
+        0.1074,
+        -0.0273
+      ],
+      "note": "The paper did not confirm any of its 30 scan candidates or release the full class/model definitions."
+    },
+    {
+      "title": "Yale Beinecke MS 408, IIIF manifest",
+      "url": "https://collections.library.yale.edu/manifests/2002046",
+      "manifest_sha256": "317d58fd9ea90392a83d9858a91eada3d0b41416a3c835857dc0154bd123a309"
+    },
+    {
+      "title": "IVTFF source and locator convention",
+      "url": "https://voynich.nu/software/ivtt/IVTFF_format.pdf"
+    }
+  ],
+  "method": {
+    "frame": "Public practice folios, sampling before image retrieval by SHA-256 rank under K-042-open-2-v1. Select ten folios from six section/dialect strata with >=5 eligible transitions and then five pairs per folio. Every source witness had adjacent loci of unit P, sequential numbering, >=4 tokens per row and no paragraph end/start marker between.",
+    "visual": "Three readers independently handled different assigned groups of unmarked 1800-pixel Yale images without transcripts or chosen-pair coordinates. Each saved row geometry before aligning selected loci with ZL edge groups. Ambiguous grouping was retained explicitly and excluded from the primary complete-case comparison.",
+    "training": "Fit separately for ZL, IT, RF on public practice training leaves after excluding entire numbered leaves with a practice evaluation side. Classify by the first EVA character from acdefgiklmnopqrsy plus other. Require the two words in each compared pair to have no uncertainty character in all three witnesses for evaluation.",
+    "pairs": "Compare upper last to lower first, lower first to second, and lower central adjacency from the same boundary triplet.",
+    "score": "Natural log of predictive-probability ratio to a baseline for event, section/dialect and binned lower-row length. Each hierarchy level takes 24 pseudo-observations. The transferred model reweights the baseline by the pooled within-line predecessor probability divided by its marginal, and normalizes. The other fits separately by event within the training data with the same shrinkage mass. The bootstrap resamples folios, and the exploratory control permutes predecessor classes independently by folio and event. There are 4,999 draws of each.",
+    "controls": "32 independent seeds per regime. Equal conditional odds across events; equal odds with shifted class frequencies; true reset with the same shifted cross-line target marginal; and independence throughout. Oracle gains are enumerated for the binary population. Each simulation fits 2,110 triplets and tests 310."
+  },
+  "limitations": "The full classes, cut and fitted boundary model of the source were unspecified. The public estimate uses a declared alternative class encoding and models. The three witnesses cover the same physical rows; RF combines transcription sources. Each scan was read blind by one seat before its subsequent endpoint mapping, not independently by two. The main complete-case subset drops two sampled folios and cannot represent excluded uncertain alignments, foldouts beyond the selected panel, or the whole manuscript. Bootstrap results are conditional on trained models. Within-folio shuffling provides a descriptive comparison and does not guarantee exchangeability of physical lines.",
+  "frozen_sampling_sha256": "9e06d9f6eecdea7413a872d92bc26f9e57c47d42fd666a10aae1d62881a50456",
+  "estimator_sha256": "5ac2a2bba820c3b863c0b46c6f45315b4b72a728bbe441044045771f2a17c005",
+  "sample": {
+    "f13v": {
+      "stratum": [
+        "H",
+        "A"
+      ],
+      "candidates": 7,
+      "pairs": [
+        [
+          "f13v.2",
+          "f13v.3"
+        ],
+        [
+          "f13v.3",
+          "f13v.4"
+        ],
+        [
+          "f13v.7",
+          "f13v.8"
+        ],
+        [
+          "f13v.8",
+          "f13v.9"
+        ],
+        [
+          "f13v.9",
+          "f13v.10"
+        ]
+      ],
+      "images": [
+        {
+          "canvas": "https://collections.library.yale.edu/manifests/oid/2002046/canvas/1006099",
+          "label": "13v",
+          "width": 2812,
+          "height": 3770
+        }
+      ]
+    },
+    "f52r": {
+      "stratum": [
+        "H",
+        "A"
+      ],
+      "candidates": 7,
+      "pairs": [
+        [
+          "f52r.1",
+          "f52r.2"
+        ],
+        [
+          "f52r.3",
+          "f52r.4"
+        ],
+        [
+          "f52r.4",
+          "f52r.5"
+        ],
+        [
+          "f52r.6",
+          "f52r.7"
+        ],
+        [
+          "f52r.7",
+          "f52r.8"
+        ]
+      ],
+      "images": [
+        {
+          "canvas": "https://collections.library.yale.edu/manifests/oid/2002046/canvas/1006176",
+          "label": "52r",
+          "width": 2826,
+          "height": 3757
+        }
+      ]
+    },
+    "f41r": {
+      "stratum": [
+        "H",
+        "B"
+      ],
+      "candidates": 9,
+      "pairs": [
+        [
+          "f41r.1",
+          "f41r.2"
+        ],
+        [
+          "f41r.2",
+          "f41r.3"
+        ],
+        [
+          "f41r.4",
+          "f41r.5"
+        ],
+        [
+          "f41r.6",
+          "f41r.7"
+        ],
+        [
+          "f41r.10",
+          "f41r.11"
+        ]
+      ],
+      "images": [
+        {
+          "canvas": "https://collections.library.yale.edu/manifests/oid/2002046/canvas/1006154",
+          "label": "41r",
+          "width": 2840,
+          "height": 3743
+        }
+      ]
+    },
+    "f102v1": {
+      "stratum": [
+        "P",
+        "A"
+      ],
+      "candidates": 11,
+      "pairs": [
+        [
+          "f102v1.9",
+          "f102v1.10"
+        ],
+        [
+          "f102v1.10",
+          "f102v1.11"
+        ],
+        [
+          "f102v1.20",
+          "f102v1.21"
+        ],
+        [
+          "f102v1.21",
+          "f102v1.22"
+        ],
+        [
+          "f102v1.23",
+          "f102v1.24"
+        ]
+      ],
+      "images": [
+        {
+          "canvas": "https://collections.library.yale.edu/manifests/oid/2002046/canvas/1006252",
+          "label": "102v (part)",
+          "width": 2981,
+          "height": 3795
+        },
+        {
+          "canvas": "https://collections.library.yale.edu/manifests/oid/2002046/canvas/1006253",
+          "label": "102v (part)",
+          "width": 2838,
+          "height": 3697
+        }
+      ]
+    },
+    "f88r": {
+      "stratum": [
+        "P",
+        "A"
+      ],
+      "candidates": 13,
+      "pairs": [
+        [
+          "f88r.8",
+          "f88r.9"
+        ],
+        [
+          "f88r.10",
+          "f88r.11"
+        ],
+        [
+          "f88r.20",
+          "f88r.21"
+        ],
+        [
+          "f88r.26",
+          "f88r.27"
+        ],
+        [
+          "f88r.29",
+          "f88r.30"
+        ]
+      ],
+      "images": [
+        {
+          "canvas": "https://collections.library.yale.edu/manifests/oid/2002046/canvas/1037112",
+          "label": "88r",
+          "width": 2714,
+          "height": 3735
+        }
+      ]
+    },
+    "f78v": {
+      "stratum": [
+        "B",
+        "B"
+      ],
+      "candidates": 30,
+      "pairs": [
+        [
+          "f78v.2",
+          "f78v.3"
+        ],
+        [
+          "f78v.3",
+          "f78v.4"
+        ],
+        [
+          "f78v.7",
+          "f78v.8"
+        ],
+        [
+          "f78v.10",
+          "f78v.11"
+        ],
+        [
+          "f78v.27",
+          "f78v.28"
+        ]
+      ],
+      "images": [
+        {
+          "canvas": "https://collections.library.yale.edu/manifests/oid/2002046/canvas/1006215",
+          "label": "78v",
+          "width": 2841,
+          "height": 3706
+        }
+      ]
+    },
+    "f82v": {
+      "stratum": [
+        "B",
+        "B"
+      ],
+      "candidates": 28,
+      "pairs": [
+        [
+          "f82v.6",
+          "f82v.7"
+        ],
+        [
+          "f82v.12",
+          "f82v.13"
+        ],
+        [
+          "f82v.16",
+          "f82v.17"
+        ],
+        [
+          "f82v.24",
+          "f82v.25"
+        ],
+        [
+          "f82v.29",
+          "f82v.30"
+        ]
+      ],
+      "images": [
+        {
+          "canvas": "https://collections.library.yale.edu/manifests/oid/2002046/canvas/1006223",
+          "label": "82v",
+          "width": 2821,
+          "height": 3709
+        }
+      ]
+    },
+    "f58v": {
+      "stratum": [
+        "S",
+        "A"
+      ],
+      "candidates": 32,
+      "pairs": [
+        [
+          "f58v.2",
+          "f58v.3"
+        ],
+        [
+          "f58v.10",
+          "f58v.11"
+        ],
+        [
+          "f58v.11",
+          "f58v.12"
+        ],
+        [
+          "f58v.18",
+          "f58v.19"
+        ],
+        [
+          "f58v.38",
+          "f58v.39"
+        ]
+      ],
+      "images": [
+        {
+          "canvas": "https://collections.library.yale.edu/manifests/oid/2002046/canvas/1006189",
+          "label": "58v",
+          "width": 2986,
+          "height": 3769
+        }
+      ]
+    },
+    "f107r": {
+      "stratum": [
+        "S",
+        "B"
+      ],
+      "candidates": 33,
+      "pairs": [
+        [
+          "f107r.2",
+          "f107r.3"
+        ],
+        [
+          "f107r.10",
+          "f107r.11"
+        ],
+        [
+          "f107r.11",
+          "f107r.12"
+        ],
+        [
+          "f107r.30",
+          "f107r.31"
+        ],
+        [
+          "f107r.45",
+          "f107r.46"
+        ]
+      ],
+      "images": [
+        {
+          "canvas": "https://collections.library.yale.edu/manifests/oid/2002046/canvas/1006262",
+          "label": "107r",
+          "width": 2641,
+          "height": 3787
+        }
+      ]
+    },
+    "f76r": {
+      "stratum": [
+        "T",
+        "B"
+      ],
+      "candidates": 34,
+      "pairs": [
+        [
+          "f76r.1",
+          "f76r.2"
+        ],
+        [
+          "f76r.8",
+          "f76r.9"
+        ],
+        [
+          "f76r.11",
+          "f76r.12"
+        ],
+        [
+          "f76r.19",
+          "f76r.20"
+        ],
+        [
+          "f76r.53",
+          "f76r.54"
+        ]
+      ],
+      "images": [
+        {
+          "canvas": "https://collections.library.yale.edu/manifests/oid/2002046/canvas/1006210",
+          "label": "76r",
+          "width": 2793,
+          "height": 3769
+        }
+      ]
+    }
+  },
+  "physical_audit": [
+    {
+      "pair": [
+        "f13v.2",
+        "f13v.3"
+      ],
+      "verdict": "verified",
+      "canvas_id": "1006099",
+      "upper_row": 2,
+      "lower_row": 3,
+      "coords": "1800-wide viewing JPG, upper outer baseline (1308, 426), lower initial baseline (576, 448); each x,y approximate",
+      "reason": "The upper block has distinct adjacent rows. Upper right choty follows cphol; the lower left begins qokchy qokod, with two repeated qok stems visible."
+    },
+    {
+      "pair": [
+        "f13v.3",
+        "f13v.4"
+      ],
+      "verdict": "verified",
+      "canvas_id": "1006099",
+      "upper_row": 3,
+      "lower_row": 4,
+      "coords": "1800-wide viewing JPG, upper outer baseline (1288, 474), lower initial baseline (588, 506); each x,y approximate",
+      "reason": "Upper right cthody has the conspicuous crossing/tall form after otchy; lower-left rounded initial o followed by small detached/close forms and chey. The uncertain separators in o,l,s do not move the physical endpoint."
+    },
+    {
+      "pair": [
+        "f13v.7",
+        "f13v.8"
+      ],
+      "verdict": "verified",
+      "canvas_id": "1006099",
+      "upper_row": 7,
+      "lower_row": 8,
+      "coords": "1800-wide viewing JPG, upper outer baseline (1482, 1590), lower initial baseline (490, 1594); each x,y approximate",
+      "reason": "Across two stem breaks, shon lies in the rightmost continuation of the upper tier, separate from the neighboring tiers; lower left otchy daiin begins the next tier."
+    },
+    {
+      "pair": [
+        "f13v.8",
+        "f13v.9"
+      ],
+      "verdict": "verified",
+      "canvas_id": "1006099",
+      "upper_row": 8,
+      "lower_row": 9,
+      "coords": "1800-wide viewing JPG, upper outer baseline (1548, 1638), lower initial baseline (480, 1644); each x,y approximate",
+      "reason": "Upper-right continuation across the second stem has the d,y,taiin group; the tall tchtod form and otal below begin the next tier at far left. Comma splits in the upper endpoint cluster are transcription choices."
+    },
+    {
+      "pair": [
+        "f13v.9",
+        "f13v.10"
+      ],
+      "verdict": "verified",
+      "canvas_id": "1006099",
+      "upper_row": 9,
+      "lower_row": 10,
+      "coords": "1800-wide viewing JPG, upper outer baseline (1552, 1686), lower initial baseline (496, 1702); each x,y approximate",
+      "reason": "Last upper right group qocthy begins with the projecting q shape after sho; next, short row starts y,ol at far left with no middle or right continuation. The plant separates fragments of the upper row but not its physical end."
+    },
+    {
+      "pair": [
+        "f52r.1",
+        "f52r.2"
+      ],
+      "verdict": "verified",
+      "canvas_id": "1006176",
+      "upper_row": 1,
+      "lower_row": 2,
+      "coords": "1800-wide viewing JPG, upper outer baseline (1334, 306), lower initial baseline (230, 360); each x,y approximate",
+      "reason": "First tier runs across the upper text field, ending dar yty. Next tier starts at the left margin with oty shor; it later continues beyond the blue flower in a lateral fragment."
+    },
+    {
+      "pair": [
+        "f52r.3",
+        "f52r.4"
+      ],
+      "verdict": "verified",
+      "canvas_id": "1006176",
+      "upper_row": 3,
+      "lower_row": 4,
+      "coords": "1800-wide viewing JPG, upper outer baseline (1348, 406), lower initial baseline (230, 466); each x,y approximate",
+      "reason": "Upper tier ends in the single right-hand ytoldy group beyond the blue flower. Lower tier starts at left with the projecting l and shopchy group, followed by qoky qotchy. l,shopchy has an uncertain written space."
+    },
+    {
+      "pair": [
+        "f52r.4",
+        "f52r.5"
+      ],
+      "verdict": "verified",
+      "canvas_id": "1006176",
+      "upper_row": 4,
+      "lower_row": 5,
+      "coords": "1800-wide viewing JPG, upper outer baseline (1348, 458), lower initial baseline (238, 514); each x,y approximate",
+      "reason": "Upper right continuation is the lone ychcthod group beyond the flower; next tier starts oky chor at the left margin. The heavy blue shape interrupts the text horizontally, leaving rows distinct vertically."
+    },
+    {
+      "pair": [
+        "f52r.6",
+        "f52r.7"
+      ],
+      "verdict": "verified",
+      "canvas_id": "1006176",
+      "upper_row": 6,
+      "lower_row": 7,
+      "coords": "1800-wide viewing JPG, upper outer baseline (1352, 554), lower initial baseline (246, 600); each x,y approximate",
+      "reason": "Upper right continuation across the branch ends okchol do, with the small two-character group separate; the lower left starts qokchy qockhom with two pointed q stems, directly below."
+    },
+    {
+      "pair": [
+        "f52r.7",
+        "f52r.8"
+      ],
+      "verdict": "verified",
+      "canvas_id": "1006176",
+      "upper_row": 7,
+      "lower_row": 8,
+      "coords": "1800-wide viewing JPG, upper outer baseline (1360, 600), lower initial baseline (250, 646); each x,y approximate",
+      "reason": "Upper-right branch continuation ends with the compact am shape after ykeey daig; the following left side starts or,cheey and then dor. Alternate reading at the right endpoint and an uncertain separator at the left do not obscure the physical boundary."
+    },
+    {
+      "pair": [
+        "f41r.1",
+        "f41r.2"
+      ],
+      "verdict": "verified",
+      "canvas_id": "1006154",
+      "upper_row": 1,
+      "lower_row": 2,
+      "coords": "1800-wide viewing JPG, upper outer baseline (1432, 224), lower initial baseline (226, 260); each x,y approximate",
+      "reason": "The top five line tiers split on opposite sides of the plant. First tier upper right is a four-group sequence ending in a faint long shkakeedy group after qotchedy. Lower left begins the distinctive run ykeeo alshey. The internal plant overlap is clearer geometrically than the exact pale glyph shapes."
+    },
+    {
+      "pair": [
+        "f41r.2",
+        "f41r.3"
+      ],
+      "verdict": "verified",
+      "canvas_id": "1006154",
+      "upper_row": 2,
+      "lower_row": 3,
+      "coords": "1800-wide viewing JPG, upper outer baseline (1448, 264), lower initial baseline (238, 290); each x,y approximate",
+      "reason": "Far-right end of the second tier has qokedy and the short dy; far-left third tier begins qok and sa[y:?], below the second. Central illustration has overlapped ink but is away from the exterior endpoints."
+    },
+    {
+      "pair": [
+        "f41r.4",
+        "f41r.5"
+      ],
+      "verdict": "verified",
+      "canvas_id": "1006154",
+      "upper_row": 4,
+      "lower_row": 5,
+      "coords": "1800-wide viewing JPG, upper outer baseline (1418, 332), lower initial baseline (232, 368); each x,y approximate",
+      "reason": "Fourth tier right continuation ends with a short da[m:g] after otal; the fifth tier begins qotchy sal to the left of the plant. Matching text fragments and slopes assign the two outer endpoints to distinct adjacent tiers."
+    },
+    {
+      "pair": [
+        "f41r.6",
+        "f41r.7"
+      ],
+      "verdict": "verified",
+      "canvas_id": "1006154",
+      "upper_row": 6,
+      "lower_row": 7,
+      "coords": "1800-wide viewing JPG, upper outer baseline (1502, 1734), lower initial baseline (192, 1772); each x,y approximate",
+      "reason": "Bottom first tier joins the left text to isolated right chkeeod and then ypchedpy shepy shedy at matching heights around foliage. Next left tier starts with the conspicuous p-shaped parchdy, above the third tier. The spellings and matching right-group count disambiguate the blind lower-left/right groups."
+    },
+    {
+      "pair": [
+        "f41r.10",
+        "f41r.11"
+      ],
+      "verdict": "verified",
+      "canvas_id": "1006154",
+      "upper_row": 10,
+      "lower_row": 11,
+      "coords": "1800-wide viewing JPG, upper outer baseline (1428, 1870), lower initial baseline (206, 1906); each x,y approximate",
+      "reason": "The last of five right tiers matches the qok-initial continuation of left tier five and ends qokeg. The distinct short next left tier starts ykeod and ends cheked with no corresponding right continuation. Blind 6+5 grouping is reconciled by the five ZL drawing breaks and final left-only row."
+    },
+    {
+      "pair": [
+        "f102v1.9",
+        "f102v1.10"
+      ],
+      "verdict": "verified",
+      "canvas_id": "1006253",
+      "upper_row": 3,
+      "lower_row": 4,
+      "coords": "1800-wide viewing JPG, upper outer baseline (1562, 956), lower initial baseline (448, 1014); each x,y approximate",
+      "reason": "Canvas 1006253 matches f102v1 through 8+6 rows and upper first poaiin, whereas 1006252 has 7+10. In upper rows three and four, the end qoteor dar and the next tall k at kochor, before ol, lie on consecutive lines."
+    },
+    {
+      "pair": [
+        "f102v1.10",
+        "f102v1.11"
+      ],
+      "verdict": "verified",
+      "canvas_id": "1006253",
+      "upper_row": 4,
+      "lower_row": 5,
+      "coords": "1800-wide viewing JPG, upper outer baseline (1562, 1002), lower initial baseline (450, 1054); each x,y approximate",
+      "reason": "Upper fourth row ends in compact dy after qokey. The next begins with the small sol,chol cluster before the pointed q of qooiin, on the fifth tier. The uncertain comma is internal to its first cluster."
+    },
+    {
+      "pair": [
+        "f102v1.20",
+        "f102v1.21"
+      ],
+      "verdict": "verified",
+      "canvas_id": "1006253",
+      "upper_row": 10,
+      "lower_row": 11,
+      "coords": "1800-wide viewing JPG, upper outer baseline (1618, 1668), lower initial baseline (474, 1710); each x,y approximate",
+      "reason": "Lower second row has the rightmost dam group after okeey; below-left, qoeeody ychey opens the next line with the prominent q and adjacent looped forms."
+    },
+    {
+      "pair": [
+        "f102v1.21",
+        "f102v1.22"
+      ],
+      "verdict": "verified",
+      "canvas_id": "1006253",
+      "upper_row": 11,
+      "lower_row": 12,
+      "coords": "1800-wide viewing JPG, upper outer baseline (1636, 1706), lower initial baseline (494, 1774); each x,y approximate",
+      "reason": "Lower third row ends ram after cheody; the next opens ykeeody chodaiin, with a tall gallows and following looped sequence."
+    },
+    {
+      "pair": [
+        "f102v1.23",
+        "f102v1.24"
+      ],
+      "verdict": "verified",
+      "canvas_id": "1006253",
+      "upper_row": 13,
+      "lower_row": 14,
+      "coords": "1800-wide viewing JPG, upper outer baseline (1630, 1808), lower initial baseline (496, 1876); each x,y approximate",
+      "reason": "Lower fifth ends okchody. The short sixth tier starts from the left with a distinctive y+s+aiin cluster and ascender-containing ckhey, then ends around x500, matching the four written groups."
+    },
+    {
+      "pair": [
+        "f88r.8",
+        "f88r.9"
+      ],
+      "verdict": "verified",
+      "canvas_id": "1037112",
+      "upper_row": 2,
+      "lower_row": 3,
+      "coords": "1800 px scan approximate. Upper right [1490, 684]; lower left [370, 690]; traces at x=560, y=652/698.",
+      "reason": "Within upper text block. The upper outer cluster with a hooked ending matches the position of ZL sam after oky. The next line starts with the small round o plus the inclined strokes of oain. No writing intervenes."
+    },
+    {
+      "pair": [
+        "f88r.10",
+        "f88r.11"
+      ],
+      "verdict": "verified",
+      "canvas_id": "1037112",
+      "upper_row": 4,
+      "lower_row": 5,
+      "coords": "1800 px scan approximate. Upper right [1548, 776]; lower left [388, 776]; traces at x=560, y=736/778.",
+      "reason": "Within upper text block. The final cheo[j:m]am-like cluster with a sweeping final above the green drawing sits at the upper right. The next line begins yokeody beside the jar. This physical row match is independent of the bracketed glyph choice."
+    },
+    {
+      "pair": [
+        "f88r.20",
+        "f88r.21"
+      ],
+      "verdict": "verified",
+      "canvas_id": "1037112",
+      "upper_row": 8,
+      "lower_row": 9,
+      "coords": "1800 px scan approximate. Upper right [1478, 1372]; lower left [414, 1380]; traces at x=560, y=1348/1386.",
+      "reason": "Within middle text block. The upper line ends with the chosals-shaped rightmost cluster. The next line begins with the high gallows of teol at the left edge."
+    },
+    {
+      "pair": [
+        "f88r.26",
+        "f88r.27"
+      ],
+      "verdict": "verified",
+      "canvas_id": "1037112",
+      "upper_row": 11,
+      "lower_row": 12,
+      "coords": "1800 px scan approximate. Upper right [1276, 1772]; lower left [384, 1806]; traces at x=560, y=1772/1814.",
+      "reason": "Within lower text block. A green leaf interrupts the upper baseline between s and the isolated okoldy at the far right. The latter is visibly at the same row level with the preceding writing and no intervening running row. The next baseline opens qokol beside the jar. Flag as visually interrupted upper line for any clean-line sensitivity exclusion."
+    },
+    {
+      "pair": [
+        "f88r.29",
+        "f88r.30"
+      ],
+      "verdict": "verified",
+      "canvas_id": "1037112",
+      "upper_row": 14,
+      "lower_row": 15,
+      "coords": "1800 px scan approximate. Upper right [1340, 1908]; lower left [398, 1942]; traces at x=560, y=1908/1954.",
+      "reason": "Within lower text block. The outer chol,dal sequence at the end of the upper row sits before the root at right and above the following next-row onset ykeeey. The word division in chol,dal remains a transcription choice."
+    },
+    {
+      "pair": [
+        "f78v.2",
+        "f78v.3"
+      ],
+      "verdict": "verified",
+      "canvas_id": "1006215",
+      "upper_row": 2,
+      "lower_row": 3,
+      "coords": "1800 px scan approximate. Upper right [1654, 254]; lower left [628, 354]; traces at x=754, y=308/344.",
+      "reason": "Follow the upward-sloping second baseline to the d-a-l-shaped group at its far right, then the third starts qokedy at the left beside the pipe. The y positions at opposite ends differ markedly."
+    },
+    {
+      "pair": [
+        "f78v.3",
+        "f78v.4"
+      ],
+      "verdict": "verified",
+      "canvas_id": "1006215",
+      "upper_row": 3,
+      "lower_row": 4,
+      "coords": "1800 px scan approximate. Upper right [1666, 296]; lower left [630, 384]; traces at x=754, y=344/378.",
+      "reason": "Third sloping baseline reaches the ol,dam-shaped ending at the right. The fourth starts ol,chy with the next word cluster beginning with a round o. The uncertain space is a transcription choice."
+    },
+    {
+      "pair": [
+        "f78v.7",
+        "f78v.8"
+      ],
+      "verdict": "verified",
+      "canvas_id": "1006215",
+      "upper_row": 7,
+      "lower_row": 8,
+      "coords": "1800 px scan approximate. Upper right [1628, 444]; lower left [638, 522]; traces at x=754, y=486/518.",
+      "reason": "Seventh line ends with otedy-shaped word below the previous line ending qokedy,qol. Eighth starts with the long-descending q of qokedy at the left."
+    },
+    {
+      "pair": [
+        "f78v.10",
+        "f78v.11"
+      ],
+      "verdict": "verified",
+      "canvas_id": "1006215",
+      "upper_row": 10,
+      "lower_row": 11,
+      "coords": "1800 px scan approximate. Upper right [1604, 572]; lower left [646, 636]; traces at x=754, y=594/634.",
+      "reason": "The upper endpoint opchedy shows the distinctive tall gallows/bench complex at the right. The next line has qol at the left below the dshedy opening."
+    },
+    {
+      "pair": [
+        "f78v.27",
+        "f78v.28"
+      ],
+      "verdict": "verified",
+      "canvas_id": "1006215",
+      "upper_row": 27,
+      "lower_row": 28,
+      "coords": "1800 px scan approximate. Upper right [1642, 1698]; lower left [656, 1722]; traces at x=754, y=1684/1724.",
+      "reason": "Within lower block, after the pool. The upper endpoint olkaiin is visibly separate from the next baseline below; the next starts olkain, left aligned. Its similar letters are at opposite row ends."
+    },
+    {
+      "pair": [
+        "f82v.6",
+        "f82v.7"
+      ],
+      "verdict": "verified",
+      "canvas_id": "1006223",
+      "upper_row": 2,
+      "lower_row": 3,
+      "coords": "1800 px scan approximate. Upper right [1600, 428]; lower left [596, 504]; traces at x=720, y=466/502.",
+      "reason": "In the upper text run, lokam is the rightmost group on the sloped upper baseline before the right vessel. The next row starts dair at left, with its figure-eight initial."
+    },
+    {
+      "pair": [
+        "f82v.12",
+        "f82v.13"
+      ],
+      "verdict": "verified",
+      "canvas_id": "1006223",
+      "upper_row": 8,
+      "lower_row": 9,
+      "coords": "1800 px scan approximate. Upper right [1666, 656]; lower left [590, 730]; traces at x=720, y=696/734.",
+      "reason": "In the second text run, qoky is the terminal group at right. The following row starts under the old opening with the notable tall gallows of tchedy."
+    },
+    {
+      "pair": [
+        "f82v.16",
+        "f82v.17"
+      ],
+      "verdict": "verified",
+      "canvas_id": "1006223",
+      "upper_row": 12,
+      "lower_row": 13,
+      "coords": "1800 px scan approximate. Upper right [1666, 818]; lower left [600, 882]; traces at x=720, y=844/880.",
+      "reason": "In the third text run, the upper line reaches the hooked lchedam ending on the right. The next line starts or,ain along the left column next to the green illustrated arch. Detached labels nearby are on other baselines."
+    },
+    {
+      "pair": [
+        "f82v.24",
+        "f82v.25"
+      ],
+      "verdict": "uncertain",
+      "canvas_id": "1006223",
+      "upper_row": 20,
+      "lower_row": 21,
+      "coords": "1800 px scan approximate. Upper right [1600, 1130]; lower left [610, 1172]; traces at x=720, y=1136/1172.",
+      "reason": "The two central running baselines are physically adjacent, and the lower starts qok. The upper has a tight, unusual terminal cluster against an illustrated figure and the ZL dytar,y,l@152;l ending has both an extended sign and ambiguous spaces. The exact outer token grouping cannot be certified from the image."
+    },
+    {
+      "pair": [
+        "f82v.29",
+        "f82v.30"
+      ],
+      "verdict": "verified",
+      "canvas_id": "1006223",
+      "upper_row": 25,
+      "lower_row": 26,
+      "coords": "1800 px scan approximate. Upper right [1556, 1328]; lower left [538, 1358]; traces at x=720, y=1326/1360.",
+      "reason": "In the fifth text run, the upper line ends qotar at the right and the next row begins pol with a prominent gallows on the left. No manuscript mark is interposed as separate running text."
+    },
+    {
+      "pair": [
+        "f58v.2",
+        "f58v.3"
+      ],
+      "verdict": "verified",
+      "canvas_id": "1006189",
+      "upper_row": 2,
+      "lower_row": 3,
+      "coords": "1800px view; left baselines y 291 and 329; upper endpoint x 1580–1656, y 265–289; lower opening x 591–683, y 310–336",
+      "reason": "Upper right orky has the loop/raised-stem pattern after alor; lower starts with tall t in todal."
+    },
+    {
+      "pair": [
+        "f58v.10",
+        "f58v.11"
+      ],
+      "verdict": "uncertain",
+      "canvas_id": "1006189",
+      "upper_row": 10,
+      "lower_row": 11,
+      "coords": "1800px view; left baselines y 587 and 622; upper endpoint x 1575–1645, y 541–569; lower opening x 590–757, y 599–627",
+      "reason": "Clear separate consecutive baselines. Upper ory is visible. ZL gives lower tchol,shol; the two ink groups are visible but their boundary is narrower than the following gap, so strict isolated first-token status is uncertain."
+    },
+    {
+      "pair": [
+        "f58v.11",
+        "f58v.12"
+      ],
+      "verdict": "verified",
+      "canvas_id": "1006189",
+      "upper_row": 11,
+      "lower_row": 12,
+      "coords": "1800px view; left baselines y 622 and 656; upper endpoint x 1535–1630, y 574–604; lower opening x 592–685, y 628–663",
+      "reason": "Upper line ends the tall-stem otals cluster beneath the previous ory; lower oreeey has the opening loop and shallow e-series. Upward extension of the following gallows crosses the apparent y of the upper endpoint without adding a row."
+    },
+    {
+      "pair": [
+        "f58v.18",
+        "f58v.19"
+      ],
+      "verdict": "verified",
+      "canvas_id": "1006189",
+      "upper_row": 18,
+      "lower_row": 19,
+      "coords": "1800px view; left baselines y 861 and 895; upper endpoint x 1495–1596, y 844–879; lower opening x 590–685, y 880–909",
+      "reason": "Upper aral closes the row, and next starts okain with a tall k and an i-series ending."
+    },
+    {
+      "pair": [
+        "f58v.38",
+        "f58v.39"
+      ],
+      "verdict": "verified",
+      "canvas_id": "1006189",
+      "upper_row": 38,
+      "lower_row": 39,
+      "coords": "1800px view; left baselines y 1673 and 1716; upper endpoint x 1500–1590, y 1638–1667; lower opening x 578–656, y 1692–1723",
+      "reason": "Upper sydy compact hooked ending precedes a lower oshar beginning with an isolated o; lower row stops well left of upper endpoint."
+    },
+    {
+      "pair": [
+        "f107r.2",
+        "f107r.3"
+      ],
+      "verdict": "verified",
+      "canvas_id": "1006262",
+      "upper_row": 2,
+      "lower_row": 3,
+      "coords": "1800px view; left baselines y 206 and 248; upper endpoint x 1500–1570, y 151–180; lower opening x 212–303, y 230–253",
+      "reason": "Upper lor is after qeeey on the second row. Lower olcheey starts with o and long l, continuing across a short third row of the same starred group. Upper right folio number is isolated."
+    },
+    {
+      "pair": [
+        "f107r.10",
+        "f107r.11"
+      ],
+      "verdict": "uncertain",
+      "canvas_id": "1006262",
+      "upper_row": 10,
+      "lower_row": 11,
+      "coords": "1800px view; left baselines y 524 and 556; upper endpoint x 1454–1545, y 458–500; lower opening x 228–311, y 538–562",
+      "reason": "Clear adjacent baselines in star group three. ZL divides the upper final alo,m with a comma and the final m-shaped loop abuts the preceding group. Lower cheeo is visible."
+    },
+    {
+      "pair": [
+        "f107r.11",
+        "f107r.12"
+      ],
+      "verdict": "uncertain",
+      "canvas_id": "1006262",
+      "upper_row": 11,
+      "lower_row": 12,
+      "coords": "1800px view; left baselines y 556 and 596; upper endpoint x 1445–1570, y 505–536; lower opening x 230–331, y 574–604",
+      "reason": "Clear adjacent baselines. Upper otaram is aligned. Lower y,chol uses a comma and the long gallows of the following paragraph intrudes in the left crop; exact ZL first-token division is uncertain."
+    },
+    {
+      "pair": [
+        "f107r.30",
+        "f107r.31"
+      ],
+      "verdict": "verified",
+      "canvas_id": "1006262",
+      "upper_row": 30,
+      "lower_row": 31,
+      "coords": "1800px view; left baselines y 1362 and 1398; upper endpoint x 1552–1612, y 1278–1316; lower opening x 276–349, y 1372–1404",
+      "reason": "Upper has tall k followed by y near right margin; lower daiin opens with d and minims. The parchment flaw below this transition affects later rows, outside these endpoints."
+    },
+    {
+      "pair": [
+        "f107r.45",
+        "f107r.46"
+      ],
+      "verdict": "verified",
+      "canvas_id": "1006262",
+      "upper_row": 45,
+      "lower_row": 46,
+      "coords": "1800px view; left baselines y 1977 and 2013; upper endpoint x 1460–1574, y 1873–1905; lower opening x 305–370, y 1991–2021",
+      "reason": "Strong upward slope on the right makes the otaram endpoint much higher than the left baseline; its final complex flourish is visible. Next baseline starts sar in the same starred group."
+    },
+    {
+      "pair": [
+        "f76r.1",
+        "f76r.2"
+      ],
+      "verdict": "uncertain",
+      "canvas_id": "1006210",
+      "upper_row": 1,
+      "lower_row": 2,
+      "coords": "1800px view; left baselines y 206 and 246; upper endpoint x 1397–1500, y 192–231; lower opening x 193–286, y 228–254",
+      "reason": "Adjacency of the top two baselines and second-row dshedy are clear. ZL separates upper as,y by comma; isolated final y boundary is uncertain."
+    },
+    {
+      "pair": [
+        "f76r.8",
+        "f76r.9"
+      ],
+      "verdict": "verified",
+      "canvas_id": "1006210",
+      "upper_row": 6,
+      "lower_row": 7,
+      "coords": "1800px view; left baselines y 396 and 433; upper endpoint x 1420–1520, y 374–407; lower opening x 207–255, y 414–437",
+      "reason": "Upper oldy at right, lower shed starts with the ornamented sh bench. Isolated sign before upper text near x 169 is a left marginal column, not an independent intervening baseline."
+    },
+    {
+      "pair": [
+        "f76r.11",
+        "f76r.12"
+      ],
+      "verdict": "verified",
+      "canvas_id": "1006210",
+      "upper_row": 8,
+      "lower_row": 9,
+      "coords": "1800px view; left baselines y 469 and 507; upper endpoint x 1420–1506, y 451–482; lower opening x 207–308, y 487–514",
+      "reason": "Upper oty ends after rar, lower solshedy starts with the tall curved s and loop. Isolated sign before upper text is separate marginal markup."
+    },
+    {
+      "pair": [
+        "f76r.19",
+        "f76r.20"
+      ],
+      "verdict": "verified",
+      "canvas_id": "1006210",
+      "upper_row": 14,
+      "lower_row": 15,
+      "coords": "1800px view; left baselines y 684 and 718; upper endpoint x 1410–1507, y 655–691; lower opening x 210–302, y 697–726",
+      "reason": "Upper long-l ending in otedyl and lower dshedy are visible. Aligned isolated left-side o is preceding marginal markup, not an extra intervening row."
+    },
+    {
+      "pair": [
+        "f76r.53",
+        "f76r.54"
+      ],
+      "verdict": "uncertain",
+      "canvas_id": "1006210",
+      "upper_row": 44,
+      "lower_row": 45,
+      "coords": "1800px view; left baselines y 1808 and 1847; upper endpoint x 1413–1510, y 1782–1817; lower opening x 213–415, y 1823–1856",
+      "reason": "Clear adjacent baselines and upper chedyl with small terminal upright. Lower edge maps to dal,or,chedy with both uncertain separators. The three recognizable groups are present, but isolated first-token status depends on transcription splitting."
+    }
+  ],
+  "blind_geometry": {
+    "a": {
+      "method": "Independent visual reading of five Yale jpgs only. Prose baselines follow top-to-bottom within a block. Horizontal fragment order is left-to-right. Each fragment is [x_left, y_left, x_right, y_right] in viewing images resized to width 900; multiply coordinates by two for the corresponding 1800-wide download. y is near the bottom of ordinary letter bodies, ignoring conspicuous ascenders and descenders. Values are approximate, generally within 5 viewing pixels, with greater uncertainty at the illustration and margins.",
+      "scans": {
+        "f13v-1006099.jpg": {
+          "groups": [
+            {
+              "id": "top",
+              "rows": [
+                [
+                  [
+                    293,
+                    177,
+                    766,
+                    184
+                  ]
+                ],
+                [
+                  [
+                    292,
+                    200,
+                    654,
+                    213
+                  ]
+                ],
+                [
+                  [
+                    288,
+                    224,
+                    644,
+                    237
+                  ]
+                ],
+                [
+                  [
+                    294,
+                    253,
+                    641,
+                    266
+                  ]
+                ],
+                [
+                  [
+                    295,
+                    283,
+                    400,
+                    288
+                  ]
+                ]
+              ]
+            },
+            {
+              "id": "bottom",
+              "rows": [
+                [
+                  [
+                    242,
+                    751,
+                    475,
+                    766
+                  ],
+                  [
+                    509,
+                    762,
+                    662,
+                    774
+                  ],
+                  [
+                    697,
+                    772,
+                    756,
+                    776
+                  ]
+                ],
+                [
+                  [
+                    246,
+                    775,
+                    478,
+                    787
+                  ],
+                  [
+                    517,
+                    784,
+                    663,
+                    793
+                  ],
+                  [
+                    698,
+                    791,
+                    741,
+                    795
+                  ]
+                ],
+                [
+                  [
+                    245,
+                    797,
+                    500,
+                    807
+                  ],
+                  [
+                    536,
+                    807,
+                    665,
+                    818
+                  ],
+                  [
+                    683,
+                    812,
+                    774,
+                    819
+                  ]
+                ],
+                [
+                  [
+                    240,
+                    822,
+                    505,
+                    834
+                  ],
+                  [
+                    553,
+                    837,
+                    634,
+                    843
+                  ],
+                  [
+                    671,
+                    837,
+                    776,
+                    843
+                  ]
+                ],
+                [
+                  [
+                    248,
+                    851,
+                    511,
+                    857
+                  ]
+                ]
+              ]
+            }
+          ],
+          "notes": "Five rows at top and five near the lower stem, separated by blank/plant field. The lower four long rows are interrupted by one or both plant stems. The repeated fragment slopes and row separations support the indicated left-to-right alignments. Row 3 of the upper block stretches toward the leaves and row 4 ends against the foliage. A small smudge over the top text lacks a prose baseline."
+        },
+        "f52r-1006176.jpg": {
+          "groups": [
+            {
+              "id": "top",
+              "rows": [
+                [
+                  [
+                    105,
+                    157,
+                    667,
+                    153
+                  ]
+                ],
+                [
+                  [
+                    115,
+                    180,
+                    520,
+                    175
+                  ],
+                  [
+                    592,
+                    172,
+                    662,
+                    175
+                  ]
+                ],
+                [
+                  [
+                    115,
+                    206,
+                    514,
+                    202
+                  ],
+                  [
+                    606,
+                    202,
+                    674,
+                    203
+                  ]
+                ],
+                [
+                  [
+                    115,
+                    233,
+                    507,
+                    228
+                  ],
+                  [
+                    600,
+                    229,
+                    674,
+                    229
+                  ]
+                ],
+                [
+                  [
+                    119,
+                    257,
+                    505,
+                    250
+                  ],
+                  [
+                    602,
+                    252,
+                    676,
+                    254
+                  ]
+                ],
+                [
+                  [
+                    121,
+                    278,
+                    510,
+                    274
+                  ],
+                  [
+                    603,
+                    274,
+                    676,
+                    277
+                  ]
+                ],
+                [
+                  [
+                    123,
+                    300,
+                    517,
+                    298
+                  ],
+                  [
+                    556,
+                    297,
+                    680,
+                    300
+                  ]
+                ],
+                [
+                  [
+                    125,
+                    323,
+                    515,
+                    323
+                  ]
+                ]
+              ]
+            }
+          ],
+          "notes": "One block of eight. Tall blue flower and green stem interrupt rows 2–7. In row 7 the right fragment starts much farther left than the right edges of rows 2–6, since the obstruction is only a stem here. Blue marks elsewhere are illustration/show-through, with no additional dry-brown prose baseline."
+        },
+        "f41r-1006154.jpg": {
+          "groups": [
+            {
+              "id": "top",
+              "rows": [
+                [
+                  [
+                    114,
+                    108,
+                    326,
+                    110
+                  ],
+                  [
+                    470,
+                    110,
+                    716,
+                    112
+                  ]
+                ],
+                [
+                  [
+                    113,
+                    130,
+                    336,
+                    131
+                  ],
+                  [
+                    465,
+                    130,
+                    724,
+                    132
+                  ]
+                ],
+                [
+                  [
+                    119,
+                    145,
+                    327,
+                    147
+                  ],
+                  [
+                    472,
+                    146,
+                    717,
+                    149
+                  ]
+                ],
+                [
+                  [
+                    117,
+                    163,
+                    353,
+                    169
+                  ],
+                  [
+                    482,
+                    163,
+                    709,
+                    166
+                  ]
+                ],
+                [
+                  [
+                    116,
+                    184,
+                    307,
+                    185
+                  ],
+                  [
+                    482,
+                    183,
+                    696,
+                    181
+                  ]
+                ]
+              ]
+            },
+            {
+              "id": "lower-left",
+              "rows": [
+                [
+                  [
+                    100,
+                    864,
+                    371,
+                    864
+                  ]
+                ],
+                [
+                  [
+                    96,
+                    886,
+                    345,
+                    881
+                  ]
+                ],
+                [
+                  [
+                    101,
+                    904,
+                    344,
+                    902
+                  ]
+                ],
+                [
+                  [
+                    99,
+                    921,
+                    338,
+                    918
+                  ]
+                ],
+                [
+                  [
+                    99,
+                    940,
+                    338,
+                    938
+                  ]
+                ],
+                [
+                  [
+                    103,
+                    953,
+                    332,
+                    949
+                  ]
+                ]
+              ]
+            },
+            {
+              "id": "lower-right",
+              "rows": [
+                [
+                  [
+                    465,
+                    868,
+                    751,
+                    867
+                  ]
+                ],
+                [
+                  [
+                    467,
+                    887,
+                    753,
+                    883
+                  ]
+                ],
+                [
+                  [
+                    470,
+                    908,
+                    749,
+                    903
+                  ]
+                ],
+                [
+                  [
+                    471,
+                    928,
+                    752,
+                    921
+                  ]
+                ],
+                [
+                  [
+                    463,
+                    945,
+                    714,
+                    935
+                  ]
+                ]
+              ]
+            }
+          ],
+          "notes": "Five clearly visible top tiers, each split laterally by drawn plant with some overlapped ink. Bottom: six rows at left and five at right around the root. At the bottom the first five left and right segments are near-aligned, but whether to join the lower segments or read blocks in some other order cannot be established by scan geometry alone. The separate groups record this visual ambiguity. Lower right top stroke has a large internal leaf gap but only one tier. The upper-right folio numeral is outside the prose."
+        },
+        "f102v1-1006252.jpg": {
+          "groups": [
+            {
+              "id": "upper-prose",
+              "rows": [
+                [
+                  [
+                    177,
+                    359,
+                    651,
+                    374
+                  ]
+                ],
+                [
+                  [
+                    179,
+                    381,
+                    497,
+                    390
+                  ]
+                ],
+                [
+                  [
+                    178,
+                    399,
+                    611,
+                    406
+                  ]
+                ],
+                [
+                  [
+                    176,
+                    415,
+                    799,
+                    429
+                  ]
+                ],
+                [
+                  [
+                    179,
+                    435,
+                    811,
+                    446
+                  ]
+                ],
+                [
+                  [
+                    177,
+                    455,
+                    806,
+                    467
+                  ]
+                ],
+                [
+                  [
+                    202,
+                    474,
+                    480,
+                    479
+                  ]
+                ]
+              ]
+            },
+            {
+              "id": "lower-prose",
+              "rows": [
+                [
+                  [
+                    204,
+                    722,
+                    761,
+                    733
+                  ]
+                ],
+                [
+                  [
+                    217,
+                    745,
+                    770,
+                    754
+                  ]
+                ],
+                [
+                  [
+                    214,
+                    768,
+                    751,
+                    774
+                  ]
+                ],
+                [
+                  [
+                    216,
+                    786,
+                    775,
+                    791
+                  ]
+                ],
+                [
+                  [
+                    213,
+                    808,
+                    768,
+                    811
+                  ]
+                ],
+                [
+                  [
+                    220,
+                    831,
+                    777,
+                    834
+                  ]
+                ],
+                [
+                  [
+                    219,
+                    851,
+                    743,
+                    854
+                  ]
+                ],
+                [
+                  [
+                    219,
+                    876,
+                    779,
+                    872
+                  ]
+                ],
+                [
+                  [
+                    213,
+                    900,
+                    765,
+                    898
+                  ]
+                ],
+                [
+                  [
+                    222,
+                    925,
+                    504,
+                    918
+                  ]
+                ]
+              ]
+            }
+          ],
+          "notes": "Central leaf numbered 102, not slivers behind upper fold or along far left. Seven upper and ten lower prose tiers. First prose block starts beneath isolated plant labels and is followed by a second row of pictures and labels before the lower prose block. Plant touches left and lower margins of the upper block, especially tiers 6–7. Right margin ink brown and faint but no extra prose tier identified."
+        },
+        "f102v1-1006253.jpg": {
+          "groups": [
+            {
+              "id": "upper-prose",
+              "rows": [
+                [
+                  [
+                    224,
+                    432,
+                    789,
+                    427
+                  ]
+                ],
+                [
+                  [
+                    221,
+                    457,
+                    788,
+                    452
+                  ]
+                ],
+                [
+                  [
+                    222,
+                    482,
+                    781,
+                    478
+                  ]
+                ],
+                [
+                  [
+                    224,
+                    507,
+                    781,
+                    501
+                  ]
+                ],
+                [
+                  [
+                    225,
+                    527,
+                    780,
+                    528
+                  ]
+                ],
+                [
+                  [
+                    226,
+                    551,
+                    760,
+                    553
+                  ]
+                ],
+                [
+                  [
+                    224,
+                    575,
+                    776,
+                    574
+                  ]
+                ],
+                [
+                  [
+                    227,
+                    599,
+                    531,
+                    598
+                  ]
+                ]
+              ]
+            },
+            {
+              "id": "lower-prose",
+              "rows": [
+                [
+                  [
+                    242,
+                    813,
+                    806,
+                    811
+                  ]
+                ],
+                [
+                  [
+                    238,
+                    837,
+                    809,
+                    834
+                  ]
+                ],
+                [
+                  [
+                    237,
+                    855,
+                    818,
+                    853
+                  ]
+                ],
+                [
+                  [
+                    247,
+                    887,
+                    811,
+                    876
+                  ]
+                ],
+                [
+                  [
+                    247,
+                    910,
+                    815,
+                    904
+                  ]
+                ],
+                [
+                  [
+                    248,
+                    938,
+                    500,
+                    932
+                  ]
+                ]
+              ]
+            }
+          ],
+          "notes": "Eight upper and six lower prose tiers. The rows are separated by a wide band of container and plant images with isolated labels. Upper last tier and lower last tier stop around halfway across the page. Roots and decoration can touch edges at lower first line, but no extra prose tier is evident."
+        }
+      }
+    },
+    "b": {
+      "method": "Image-only review. Scans reduced to 900 px width for visual row and coordinate reading, then coordinates doubled to the delivered 1800 px images. Baselines approximate; span ends trace row identity at text extremities and include no separate label where distinguishable. Row numbering is ordinal running-text row, separate from any transcription locus.",
+      "folios": {
+        "f88r": {
+          "image": "f88r-1037112.jpg",
+          "dimensions_xy": [
+            1800,
+            2477
+          ],
+          "guide_x": 560,
+          "guide_y": [
+            604,
+            652,
+            698,
+            736,
+            778,
+            1266,
+            1308,
+            1348,
+            1386,
+            1426,
+            1772,
+            1814,
+            1864,
+            1908,
+            1954,
+            2004
+          ],
+          "span_left": [
+            [
+              370,
+              598
+            ],
+            [
+              372,
+              648
+            ],
+            [
+              370,
+              690
+            ],
+            [
+              374,
+              728
+            ],
+            [
+              388,
+              776
+            ],
+            [
+              474,
+              1262
+            ],
+            [
+              436,
+              1302
+            ],
+            [
+              414,
+              1344
+            ],
+            [
+              414,
+              1380
+            ],
+            [
+              428,
+              1422
+            ],
+            [
+              386,
+              1762
+            ],
+            [
+              384,
+              1806
+            ],
+            [
+              388,
+              1854
+            ],
+            [
+              388,
+              1896
+            ],
+            [
+              398,
+              1942
+            ],
+            [
+              398,
+              1994
+            ]
+          ],
+          "span_right": [
+            [
+              1520,
+              640
+            ],
+            [
+              1490,
+              684
+            ],
+            [
+              1542,
+              728
+            ],
+            [
+              1548,
+              776
+            ],
+            [
+              1180,
+              812
+            ],
+            [
+              1456,
+              1288
+            ],
+            [
+              1446,
+              1330
+            ],
+            [
+              1478,
+              1372
+            ],
+            [
+              1470,
+              1412
+            ],
+            [
+              1226,
+              1458
+            ],
+            [
+              1276,
+              1772
+            ],
+            [
+              1296,
+              1808
+            ],
+            [
+              1320,
+              1860
+            ],
+            [
+              1340,
+              1908
+            ],
+            [
+              1380,
+              1958
+            ],
+            [
+              1092,
+              2002
+            ]
+          ],
+          "row_blocks": [
+            [
+              1,
+              5
+            ],
+            [
+              6,
+              10
+            ],
+            [
+              11,
+              16
+            ]
+          ],
+          "notes": [
+            "Three unmistakable text blocks separated vertically by rows of illuminated roots and plants. Detached plant labels occur throughout the illustrations. Some run close to the last text line but I did not count them as prose.",
+            "First block slopes down to the right. Row 5 starts beside the upper jar and terminates appreciably left of row 4. The last strokes at its right fall just above illustrated greenery.",
+            "Middle block is partially constrained by roots at the left and leaf shapes at the right. Row 6 is slightly inset. Row 10 ends above a plant. Last block runs up against leaf/root contours to the right. Row 16 is short."
+          ],
+          "row_count": 16
+        },
+        "f78v": {
+          "image": "f78v-1006215.jpg",
+          "dimensions_xy": [
+            1800,
+            2348
+          ],
+          "guide_x": 754,
+          "guide_y": [
+            272,
+            308,
+            344,
+            378,
+            414,
+            452,
+            486,
+            518,
+            556,
+            594,
+            634,
+            668,
+            706,
+            746,
+            780,
+            818,
+            850,
+            886,
+            922,
+            1420,
+            1456,
+            1494,
+            1532,
+            1570,
+            1602,
+            1648,
+            1684,
+            1724,
+            1760,
+            1800,
+            1848,
+            1888
+          ],
+          "span_left": [
+            [
+              624,
+              278
+            ],
+            [
+              626,
+              316
+            ],
+            [
+              628,
+              354
+            ],
+            [
+              630,
+              384
+            ],
+            [
+              632,
+              422
+            ],
+            [
+              634,
+              454
+            ],
+            [
+              638,
+              490
+            ],
+            [
+              638,
+              522
+            ],
+            [
+              644,
+              560
+            ],
+            [
+              650,
+              600
+            ],
+            [
+              646,
+              636
+            ],
+            [
+              650,
+              670
+            ],
+            [
+              656,
+              712
+            ],
+            [
+              660,
+              748
+            ],
+            [
+              664,
+              784
+            ],
+            [
+              660,
+              814
+            ],
+            [
+              658,
+              848
+            ],
+            [
+              658,
+              886
+            ],
+            [
+              658,
+              922
+            ],
+            [
+              658,
+              1416
+            ],
+            [
+              664,
+              1452
+            ],
+            [
+              664,
+              1490
+            ],
+            [
+              664,
+              1528
+            ],
+            [
+              662,
+              1568
+            ],
+            [
+              660,
+              1600
+            ],
+            [
+              662,
+              1646
+            ],
+            [
+              664,
+              1684
+            ],
+            [
+              656,
+              1722
+            ],
+            [
+              656,
+              1758
+            ],
+            [
+              662,
+              1806
+            ],
+            [
+              652,
+              1850
+            ],
+            [
+              654,
+              1890
+            ]
+          ],
+          "span_right": [
+            [
+              1620,
+              216
+            ],
+            [
+              1654,
+              254
+            ],
+            [
+              1666,
+              296
+            ],
+            [
+              1634,
+              332
+            ],
+            [
+              1666,
+              372
+            ],
+            [
+              1646,
+              408
+            ],
+            [
+              1628,
+              444
+            ],
+            [
+              1642,
+              482
+            ],
+            [
+              1646,
+              524
+            ],
+            [
+              1604,
+              572
+            ],
+            [
+              1620,
+              608
+            ],
+            [
+              1606,
+              644
+            ],
+            [
+              1596,
+              682
+            ],
+            [
+              1600,
+              722
+            ],
+            [
+              1652,
+              764
+            ],
+            [
+              1654,
+              806
+            ],
+            [
+              1622,
+              840
+            ],
+            [
+              1634,
+              886
+            ],
+            [
+              1450,
+              926
+            ],
+            [
+              1612,
+              1434
+            ],
+            [
+              1604,
+              1476
+            ],
+            [
+              1604,
+              1510
+            ],
+            [
+              1614,
+              1558
+            ],
+            [
+              1626,
+              1594
+            ],
+            [
+              1638,
+              1626
+            ],
+            [
+              1650,
+              1662
+            ],
+            [
+              1642,
+              1698
+            ],
+            [
+              1650,
+              1744
+            ],
+            [
+              1624,
+              1772
+            ],
+            [
+              1644,
+              1806
+            ],
+            [
+              1608,
+              1848
+            ],
+            [
+              1252,
+              1898
+            ]
+          ],
+          "row_blocks": [
+            [
+              1,
+              19
+            ],
+            [
+              20,
+              32
+            ]
+          ],
+          "notes": [
+            "Large wide pool illustration between rows 19 and 20. The upper block is markedly sloped upward to the right through the first half; horizontal projection alone would mispair the edges.",
+            "The ornamental short ink stroke above upper-left row 1 is attached to an elevated glyph in that row. It is not a separately running line. The blue contour alongside the text is an illustration edge.",
+            "Rows 19 and 32 are noticeably short. Inside each main block no clearly interleaved detached text."
+          ],
+          "row_count": 32
+        },
+        "f82v": {
+          "image": "f82v-1006223.jpg",
+          "dimensions_xy": [
+            1800,
+            2367
+          ],
+          "guide_x": 720,
+          "guide_y": [
+            428,
+            466,
+            502,
+            540,
+            582,
+            614,
+            658,
+            696,
+            734,
+            770,
+            806,
+            844,
+            880,
+            912,
+            948,
+            992,
+            1032,
+            1068,
+            1096,
+            1136,
+            1172,
+            1214,
+            1246,
+            1286,
+            1326,
+            1360,
+            1394,
+            1434,
+            1478,
+            1510,
+            1556,
+            1596,
+            1630,
+            1666
+          ],
+          "span_left": [
+            [
+              594,
+              430
+            ],
+            [
+              598,
+              470
+            ],
+            [
+              596,
+              504
+            ],
+            [
+              598,
+              540
+            ],
+            [
+              598,
+              580
+            ],
+            [
+              600,
+              616
+            ],
+            [
+              590,
+              656
+            ],
+            [
+              592,
+              692
+            ],
+            [
+              590,
+              730
+            ],
+            [
+              594,
+              770
+            ],
+            [
+              600,
+              806
+            ],
+            [
+              600,
+              846
+            ],
+            [
+              600,
+              882
+            ],
+            [
+              600,
+              916
+            ],
+            [
+              598,
+              952
+            ],
+            [
+              608,
+              990
+            ],
+            [
+              612,
+              1028
+            ],
+            [
+              612,
+              1062
+            ],
+            [
+              610,
+              1100
+            ],
+            [
+              610,
+              1138
+            ],
+            [
+              610,
+              1172
+            ],
+            [
+              608,
+              1210
+            ],
+            [
+              530,
+              1246
+            ],
+            [
+              538,
+              1282
+            ],
+            [
+              534,
+              1322
+            ],
+            [
+              538,
+              1358
+            ],
+            [
+              538,
+              1392
+            ],
+            [
+              538,
+              1430
+            ],
+            [
+              528,
+              1470
+            ],
+            [
+              536,
+              1504
+            ],
+            [
+              532,
+              1546
+            ],
+            [
+              528,
+              1580
+            ],
+            [
+              536,
+              1616
+            ],
+            [
+              530,
+              1660
+            ]
+          ],
+          "span_right": [
+            [
+              1578,
+              392
+            ],
+            [
+              1600,
+              428
+            ],
+            [
+              1616,
+              460
+            ],
+            [
+              1650,
+              500
+            ],
+            [
+              1674,
+              534
+            ],
+            [
+              1332,
+              588
+            ],
+            [
+              1644,
+              620
+            ],
+            [
+              1666,
+              656
+            ],
+            [
+              1654,
+              696
+            ],
+            [
+              1306,
+              754
+            ],
+            [
+              1652,
+              782
+            ],
+            [
+              1666,
+              818
+            ],
+            [
+              1652,
+              860
+            ],
+            [
+              1668,
+              894
+            ],
+            [
+              1492,
+              932
+            ],
+            [
+              1580,
+              976
+            ],
+            [
+              1594,
+              1012
+            ],
+            [
+              1592,
+              1054
+            ],
+            [
+              1570,
+              1092
+            ],
+            [
+              1600,
+              1130
+            ],
+            [
+              1580,
+              1164
+            ],
+            [
+              1562,
+              1202
+            ],
+            [
+              1434,
+              1244
+            ],
+            [
+              1570,
+              1290
+            ],
+            [
+              1556,
+              1328
+            ],
+            [
+              1616,
+              1368
+            ],
+            [
+              1624,
+              1412
+            ],
+            [
+              1192,
+              1430
+            ],
+            [
+              1644,
+              1484
+            ],
+            [
+              1618,
+              1524
+            ],
+            [
+              1610,
+              1562
+            ],
+            [
+              1610,
+              1600
+            ],
+            [
+              1620,
+              1634
+            ],
+            [
+              1018,
+              1670
+            ]
+          ],
+          "row_blocks": [
+            [
+              1,
+              6
+            ],
+            [
+              7,
+              10
+            ],
+            [
+              11,
+              15
+            ],
+            [
+              16,
+              22
+            ],
+            [
+              23,
+              28
+            ],
+            [
+              29,
+              34
+            ]
+          ],
+          "notes": [
+            "Continuous central field bounded by figures. Proposed visual runs use left-edge initials/short prior line; no large vertical gaps across the runs. The break between runs 4 and 5 is also an approximately 37 px leftward margin expansion at 900 px image width.",
+            "In parallel with row 15 at far right, a very short, detached inscription by the female figure at roughly (822,463) in 900 px view is excluded from running text. Check its association if the line endpoint matters.",
+            "A short detached inscription roughly (275,515) in 900 px view lies immediately to the left of row 17 alongside the figure, at nearly the same vertical position. I exclude it from prose provisionally based on its grouping with the figure and gap from the aligned left margin. It may be a same-baseline interleaving and needs separate alignment if an endpoint is sampled.",
+            "Several other detached labels sit above row 1 and beneath row 34 around figures and pipes. The central prose remains one physical column despite changing left and right boundaries."
+          ],
+          "row_count": 34
+        }
+      }
+    },
+    "c": {
+      "method": "Image-only visual count of running text in the original 1800 pixel wide Yale JPEGs using x strips and y rulers. y is approximate core-text baseline near each row start (allow about 8 pixels for endpoints), not the base of long descending strokes. Row ordinals are one-based in top-to-bottom visual reading order. Group indices describe observed layout.",
+      "f58v": {
+        "source": "f58v-1006189.jpg",
+        "dimensions": [
+          1800,
+          2272
+        ],
+        "row_start_x_approx": 600,
+        "group_baseline_ys": [
+          [
+            252,
+            291,
+            329,
+            362,
+            401,
+            435,
+            470,
+            509,
+            549,
+            587,
+            622,
+            656,
+            687,
+            720,
+            751,
+            789,
+            825,
+            861,
+            895,
+            934,
+            972,
+            1001
+          ],
+          [
+            1064,
+            1098,
+            1132,
+            1164,
+            1196,
+            1230
+          ],
+          [
+            1327,
+            1360,
+            1396,
+            1435,
+            1464
+          ],
+          [
+            1528,
+            1565,
+            1599,
+            1635,
+            1673,
+            1716
+          ]
+        ],
+        "exceptional_row_starts": [
+          {
+            "row": 22,
+            "x": 959,
+            "y": 1001,
+            "note": "Three apparent text groups, physically separate, centered well right of normal left edge. Included as a visible physical row; its logical attachment to the preceding prose is uncertain."
+          }
+        ],
+        "notes": [
+          "Large star and long descending tail at x 590 above the first text row, with no extra text baseline.",
+          "First block has dense vertical overlap of gallows at the right. A left-starting line near y 720 has a short/irregular extent and interlines at the right are particularly difficult to assign by right y alone between roughly y 610 and 760.",
+          "Short final rows in the third and fourth blocks stop well left of the normal right edge. Fourth block starts slightly closer to preceding block.",
+          "An extreme right edge green figure is on the adjacent surface and does not form a line."
+        ],
+        "running_row_count": 39
+      },
+      "f107r": {
+        "source": "f107r-1006262.jpg",
+        "dimensions": [
+          1800,
+          2581
+        ],
+        "row_start_x_approx": 245,
+        "group_baseline_ys": [
+          [
+            164,
+            206,
+            248
+          ],
+          [
+            288,
+            327,
+            365,
+            407
+          ],
+          [
+            446,
+            484,
+            524,
+            556,
+            596
+          ],
+          [
+            639,
+            677,
+            714
+          ],
+          [
+            756,
+            797
+          ],
+          [
+            852,
+            890,
+            927
+          ],
+          [
+            962,
+            1005,
+            1047
+          ],
+          [
+            1092,
+            1130,
+            1169
+          ],
+          [
+            1226,
+            1264,
+            1304
+          ],
+          [
+            1362,
+            1398,
+            1442,
+            1483
+          ],
+          [
+            1526,
+            1567,
+            1601,
+            1640
+          ],
+          [
+            1691,
+            1726,
+            1766,
+            1806
+          ],
+          [
+            1864,
+            1899,
+            1934
+          ],
+          [
+            1977,
+            2013,
+            2052
+          ],
+          [
+            2106,
+            2144,
+            2181,
+            2216
+          ]
+        ],
+        "notes": [
+          "Fifteen margin stars mark visual group starts. Sequence stays in a single continuous text column, with neighboring folio text cropped at far left.",
+          "Upper right 107 is a numeral, and three small dots left of star 11 at y 1522 are isolated.",
+          "Near the right margin around x 1445, y 1419 an approximately circular blemish/hole separates ink on horizontal bands. Visual rows 32 and 33 continue to its right; left-side baseline order remains clear but identify individual terminal groups at right separately.",
+          "Text in last paragraphs, especially groups 14 and 15, rises strongly toward the right. Dotted and filled stars and lengthy ascenders are not extra text rows."
+        ],
+        "running_row_count": 51
+      },
+      "f76r": {
+        "source": "f76r-1006210.jpg",
+        "dimensions": [
+          1800,
+          2429
+        ],
+        "row_start_x_approx": 212,
+        "group_baseline_ys": [
+          [
+            206,
+            246,
+            285,
+            319,
+            361,
+            396,
+            433,
+            469,
+            507,
+            545,
+            583,
+            620,
+            653,
+            684,
+            718,
+            753,
+            789,
+            827,
+            861,
+            891,
+            922,
+            956,
+            989,
+            1023,
+            1058,
+            1092,
+            1125,
+            1158,
+            1190
+          ],
+          [
+            1251,
+            1287,
+            1322,
+            1355,
+            1393
+          ],
+          [
+            1452,
+            1489,
+            1529,
+            1566,
+            1605,
+            1647,
+            1684,
+            1727,
+            1768,
+            1808,
+            1847,
+            1888,
+            1930
+          ]
+        ],
+        "marginal_sign_ys": [
+          309,
+          385,
+          463,
+          571,
+          675,
+          786,
+          915,
+          1009,
+          1167
+        ],
+        "notes": [
+          "Nine isolated signs to the left of the running column in the first group. They do not make separate running baselines; whether they are associated with individual adjacent rows is outside a purely visual row count.",
+          "Top-right 76 is separated from the Voynich prose; the large flourish near x 205–360 at top connects to the first text line rather than constituting a separate row.",
+          "Large opening gallows and a gap demarcate three visible groups. Page has no other detached text-like blocks."
+        ],
+        "running_row_count": 47
+      }
+    }
+  },
+  "scan_files": [
+    {
+      "file": "f102v1-1006252.jpg",
+      "sha256": "aeeb526e92103d15eb27118a34b03915a2014b77f867db9ac3f97ebb71e624cf",
+      "review_url": "https://collections.library.yale.edu/iiif/2/1006252/full/1800,/0/default.jpg"
+    },
+    {
+      "file": "f102v1-1006253.jpg",
+      "sha256": "2f22fbe56b474e751dc4d94300a92abb4530b92d7a697b1b760c7cdc578f30b5",
+      "review_url": "https://collections.library.yale.edu/iiif/2/1006253/full/1800,/0/default.jpg"
+    },
+    {
+      "file": "f107r-1006262.jpg",
+      "sha256": "f63ec7e9ab25f69af5c94e4d44fe53befc8d6137342295ad7ca1edaea00836dc",
+      "review_url": "https://collections.library.yale.edu/iiif/2/1006262/full/1800,/0/default.jpg"
+    },
+    {
+      "file": "f13v-1006099.jpg",
+      "sha256": "fb9d809a628fc9eb2ca913882cbdbc26176f7543407fcbcead176fe6e0be8503",
+      "review_url": "https://collections.library.yale.edu/iiif/2/1006099/full/1800,/0/default.jpg"
+    },
+    {
+      "file": "f41r-1006154.jpg",
+      "sha256": "cb353d503f69f8189debc4da1fe740d03487ef74a1b661a02def2610e2b0f245",
+      "review_url": "https://collections.library.yale.edu/iiif/2/1006154/full/1800,/0/default.jpg"
+    },
+    {
+      "file": "f52r-1006176.jpg",
+      "sha256": "b3dbed851ebe8d113f70439d7d3dbf884de83f5ee1d48da8e302200d9d28a7ed",
+      "review_url": "https://collections.library.yale.edu/iiif/2/1006176/full/1800,/0/default.jpg"
+    },
+    {
+      "file": "f58v-1006189.jpg",
+      "sha256": "12bf1bb6b48c8fcac2c9d76b0bdce0aaa05789b7d2aa89d6ffc1437067b59678",
+      "review_url": "https://collections.library.yale.edu/iiif/2/1006189/full/1800,/0/default.jpg"
+    },
+    {
+      "file": "f76r-1006210.jpg",
+      "sha256": "d2b1d77a84cbf985b3dc7a6298d5194e91fd0c7946bd58a52c5ef4b44795fdc1",
+      "review_url": "https://collections.library.yale.edu/iiif/2/1006210/full/1800,/0/default.jpg"
+    },
+    {
+      "file": "f78v-1006215.jpg",
+      "sha256": "0ec47c31b5ff91c0fe39979b93e908353b1a05c281a6bc281d1a12219eef4402",
+      "review_url": "https://collections.library.yale.edu/iiif/2/1006215/full/1800,/0/default.jpg"
+    },
+    {
+      "file": "f82v-1006223.jpg",
+      "sha256": "6b7a90dd1a987b36dadac5f1bd86d14bbff246a944a139713cb6219a3e742266",
+      "review_url": "https://collections.library.yale.edu/iiif/2/1006223/full/1800,/0/default.jpg"
+    },
+    {
+      "file": "f88r-1037112.jpg",
+      "sha256": "ce13f9d728b843daa5501c647f5da83f35b95345c0e540b70a8adcdec608fd34",
+      "review_url": "https://collections.library.yale.edu/iiif/2/1037112/full/1800,/0/default.jpg"
+    }
+  ],
+  "results": {
+    "columns": [
+      "first",
+      "middle",
+      "cross",
+      "first-cross",
+      "middle-cross"
+    ],
+    "selected": 50,
+    "scan_verified": 44,
+    "selected_ineligible_words": [
+      [
+        "f102v1.20",
+        "f102v1.21"
+      ],
+      [
+        "f107r.10",
+        "f107r.11"
+      ],
+      [
+        "f41r.1",
+        "f41r.2"
+      ],
+      [
+        "f41r.10",
+        "f41r.11"
+      ],
+      [
+        "f41r.2",
+        "f41r.3"
+      ],
+      [
+        "f41r.4",
+        "f41r.5"
+      ],
+      [
+        "f41r.6",
+        "f41r.7"
+      ],
+      [
+        "f52r.3",
+        "f52r.4"
+      ],
+      [
+        "f52r.7",
+        "f52r.8"
+      ],
+      [
+        "f58v.10",
+        "f58v.11"
+      ],
+      [
+        "f58v.11",
+        "f58v.12"
+      ],
+      [
+        "f58v.38",
+        "f58v.39"
+      ],
+      [
+        "f76r.1",
+        "f76r.2"
+      ],
+      [
+        "f76r.11",
+        "f76r.12"
+      ],
+      [
+        "f76r.19",
+        "f76r.20"
+      ],
+      [
+        "f76r.53",
+        "f76r.54"
+      ],
+      [
+        "f76r.8",
+        "f76r.9"
+      ],
+      [
+        "f78v.7",
+        "f78v.8"
+      ],
+      [
+        "f82v.12",
+        "f82v.13"
+      ],
+      [
+        "f82v.16",
+        "f82v.17"
+      ],
+      [
+        "f82v.24",
+        "f82v.25"
+      ],
+      [
+        "f82v.29",
+        "f82v.30"
+      ],
+      [
+        "f88r.29",
+        "f88r.30"
+      ]
+    ],
+    "raw_sha256": {
+      "ZL": "bf5b6d4ac1e3a51b1847a9c388318d609020441ccd56984c901c32b09beccafc",
+      "IT": "7f27a8b0feed8f6de0a99900df6bf912dd1d295c38e5f830bac8b41c3f536fb5",
+      "RF": "e7d3238e35743e06c63367a933909ec37b1e2de7ada3a1b449447eafa1918782"
+    },
+    "views": {
+      "ZL": {
+        "training_boundary_count": 2103,
+        "training_folio_count": 145,
+        "all_common_practice": {
+          "pairs": 307,
+          "folios": 31,
+          "pairs_per_folio": {
+            "f102v1": 10,
+            "f107r": 23,
+            "f111v": 33,
+            "f113r": 22,
+            "f11r": 5,
+            "f11v": 3,
+            "f13v": 7,
+            "f14r": 8,
+            "f1v": 7,
+            "f29v": 6,
+            "f2v": 5,
+            "f30v": 8,
+            "f35v": 10,
+            "f41r": 1,
+            "f42r": 16,
+            "f45r": 7,
+            "f50v": 3,
+            "f52r": 5,
+            "f53v": 5,
+            "f54v": 8,
+            "f58v": 17,
+            "f66v": 2,
+            "f67r2": 2,
+            "f6r": 9,
+            "f70r2": 7,
+            "f76r": 18,
+            "f78r": 10,
+            "f78v": 18,
+            "f7v": 7,
+            "f82v": 14,
+            "f88r": 11
+          },
+          "transfer": {
+            "gain": [
+              -0.0097884464972057,
+              -0.010823776719417129,
+              -0.05806443125047543,
+              0.04827598475326974,
+              0.0472406545310583
+            ],
+            "folio_bootstrap_95": [
+              [
+                -0.03344712286223272,
+                0.013227734301962751
+              ],
+              [
+                -0.05052029132935262,
+                0.02350938506204551
+              ],
+              [
+                -0.10209240216869797,
+                -0.019622810313288087
+              ],
+              [
+                0.00835854452925594,
+                0.092844368002193
+              ],
+              [
+                -0.00604727492017803,
+                0.09990188882311099
+              ]
+            ],
+            "within_folio_shuffled_mean": [
+              -0.012476560023878959,
+              -0.04398157025048107,
+              -0.07657248831227659,
+              0.06409592828839764,
+              0.032590918061795524
+            ],
+            "excess_over_shuffle": [
+              0.0026881135266732595,
+              0.03315779353106394,
+              0.018508057061801156,
+              -0.015819943535127896,
+              0.014649736469262778
+            ],
+            "upper_tail": [
+              0.4112,
+              0.0216,
+              0.1438,
+              0.774,
+              0.2694
+            ]
+          },
+          "separate_fit": {
+            "gain": [
+              0.0007477467192000139,
+              -0.014763671098395107,
+              -0.019338892293491443,
+              0.020086639012691455,
+              0.004575221195096333
+            ],
+            "folio_bootstrap_95": [
+              [
+                -0.06604245428439423,
+                0.07460612593772908
+              ],
+              [
+                -0.0674009682086126,
+                0.03611006916627065
+              ],
+              [
+                -0.07762912010191145,
+                0.029923805495046838
+              ],
+              [
+                -0.04320851978530858,
+                0.09036837808282655
+              ],
+              [
+                -0.05740050698958497,
+                0.07230036597198432
+              ]
+            ],
+            "within_folio_shuffled_mean": [
+              -0.011399209067875291,
+              -0.0419456152262609,
+              -0.017811882435359062,
+              0.006412673367483772,
+              -0.024133732790901835
+            ],
+            "excess_over_shuffle": [
+              0.012146955787075305,
+              0.02718194412786579,
+              -0.0015270098581323804,
+              0.013673965645207682,
+              0.028708953985998167
+            ],
+            "upper_tail": [
+              0.2358,
+              0.0544,
+              0.5288,
+              0.2932,
+              0.1332
+            ]
+          }
+        },
+        "preregistered": {
+          "pairs": 27,
+          "folios": 8,
+          "pairs_per_folio": {
+            "f102v1": 4,
+            "f107r": 4,
+            "f13v": 5,
+            "f52r": 3,
+            "f58v": 2,
+            "f78v": 4,
+            "f82v": 1,
+            "f88r": 4
+          },
+          "transfer": {
+            "gain": [
+              0.014537199643967894,
+              -0.02839094740223886,
+              -0.012722237848401418,
+              0.027259437492369313,
+              -0.01566870955383744
+            ],
+            "folio_bootstrap_95": [
+              [
+                -0.04154011828001957,
+                0.053882839412326286
+              ],
+              [
+                -0.13332287805228296,
+                0.060382680055844996
+              ],
+              [
+                -0.07172730695438789,
+                0.05872988700575752
+              ],
+              [
+                -0.06937771044521358,
+                0.0898683066310109
+              ],
+              [
+                -0.15179275277718,
+                0.09422622807183638
+              ]
+            ],
+            "within_folio_shuffled_mean": [
+              -0.013124103359007775,
+              -0.03873467870749705,
+              -0.04457394770383441,
+              0.03144984434482664,
+              0.00583926899633736
+            ],
+            "excess_over_shuffle": [
+              0.027661303002975667,
+              0.010343731305258189,
+              0.031851709855432994,
+              -0.004190406852457324,
+              -0.0215079785501748
+            ],
+            "upper_tail": [
+              0.096,
+              0.36,
+              0.2668,
+              0.5276,
+              0.6454
+            ]
+          },
+          "separate_fit": {
+            "gain": [
+              0.017934963092455198,
+              -0.03863806235616116,
+              -0.06751468851579459,
+              0.08544965160824979,
+              0.02887662615963343
+            ],
+            "folio_bootstrap_95": [
+              [
+                -0.12217121376149098,
+                0.13557417609865616
+              ],
+              [
+                -0.18201248356144903,
+                0.09003168418297457
+              ],
+              [
+                -0.13086494191201262,
+                -0.003224241947229563
+              ],
+              [
+                -0.05868748717198347,
+                0.21323836355372391
+              ],
+              [
+                -0.10220521351471051,
+                0.15900324194407314
+              ]
+            ],
+            "within_folio_shuffled_mean": [
+              -0.03481010974610163,
+              0.020398945522882038,
+              -0.0018283840020374726,
+              -0.03298172574406416,
+              0.02222732952491951
+            ],
+            "excess_over_shuffle": [
+              0.052745072838556825,
+              -0.059037007879043195,
+              -0.06568630451375712,
+              0.11843137735231395,
+              0.006649296634713919
+            ],
+            "upper_tail": [
+              0.1166,
+              0.894,
+              0.9204,
+              0.0366,
+              0.5112
+            ]
+          }
+        },
+        "scan_verified": {
+          "pairs": 26,
+          "folios": 8,
+          "pairs_per_folio": {
+            "f102v1": 4,
+            "f107r": 3,
+            "f13v": 5,
+            "f52r": 3,
+            "f58v": 2,
+            "f78v": 4,
+            "f82v": 1,
+            "f88r": 4
+          },
+          "transfer": {
+            "gain": [
+              0.010592552250277377,
+              -0.028990875051258577,
+              -0.0050118691637284895,
+              0.015604421414005865,
+              -0.023979005887530085
+            ],
+            "folio_bootstrap_95": [
+              [
+                -0.04548608093784658,
+                0.051044793779240906
+              ],
+              [
+                -0.14610815194447965,
+                0.060382680055844996
+              ],
+              [
+                -0.06992883895672937,
+                0.07298331335307091
+              ],
+              [
+                -0.08938696190047589,
+                0.08526373290702029
+              ],
+              [
+                -0.1877280488402767,
+                0.09403186907213136
+              ]
+            ],
+            "within_folio_shuffled_mean": [
+              -0.013413341383367031,
+              -0.04106870628121029,
+              -0.0384829943766432,
+              0.02506965299327617,
+              -0.0025857119045670876
+            ],
+            "excess_over_shuffle": [
+              0.024005893633644408,
+              0.012077831229951711,
+              0.03347112521291471,
+              -0.009465231579270306,
+              -0.021393293982962996
+            ],
+            "upper_tail": [
+              0.1208,
+              0.3346,
+              0.2668,
+              0.557,
+              0.639
+            ]
+          },
+          "separate_fit": {
+            "gain": [
+              0.01118881876578879,
+              -0.02584365441770139,
+              -0.06291071539564615,
+              0.07409953416143494,
+              0.03706706097794475
+            ],
+            "folio_bootstrap_95": [
+              [
+                -0.13087501423633377,
+                0.13342494208325711
+              ],
+              [
+                -0.1584019799321852,
+                0.09194947178179923
+              ],
+              [
+                -0.12584387475151218,
+                0.001455947866086053
+              ],
+              [
+                -0.06107054815236817,
+                0.19668381675075317
+              ],
+              [
+                -0.09391897686261841,
+                0.16086324789233059
+              ]
+            ],
+            "within_folio_shuffled_mean": [
+              -0.02966399992335167,
+              0.007069974562341256,
+              -0.00011564619388496744,
+              -0.029548353729466702,
+              0.007185620756226223
+            ],
+            "excess_over_shuffle": [
+              0.04085281868914046,
+              -0.032913628980042645,
+              -0.06279506920176119,
+              0.10364788789090165,
+              0.029881440221718528
+            ],
+            "upper_tail": [
+              0.1886,
+              0.8042,
+              0.888,
+              0.0628,
+              0.3872
+            ]
+          }
+        },
+        "scan_verified_ordinary_plus_P0": {
+          "pairs": 26,
+          "folios": 8,
+          "pairs_per_folio": {
+            "f102v1": 4,
+            "f107r": 3,
+            "f13v": 5,
+            "f52r": 3,
+            "f58v": 2,
+            "f78v": 4,
+            "f82v": 1,
+            "f88r": 4
+          },
+          "transfer": {
+            "gain": [
+              0.010592552250277377,
+              -0.028990875051258577,
+              -0.0050118691637284895,
+              0.015604421414005865,
+              -0.023979005887530085
+            ],
+            "folio_bootstrap_95": [
+              [
+                -0.04548608093784658,
+                0.051044793779240906
+              ],
+              [
+                -0.14610815194447965,
+                0.060382680055844996
+              ],
+              [
+                -0.06992883895672937,
+                0.07298331335307091
+              ],
+              [
+                -0.08938696190047589,
+                0.08526373290702029
+              ],
+              [
+                -0.1877280488402767,
+                0.09403186907213136
+              ]
+            ],
+            "within_folio_shuffled_mean": [
+              -0.013413341383367031,
+              -0.04106870628121029,
+              -0.0384829943766432,
+              0.02506965299327617,
+              -0.0025857119045670876
+            ],
+            "excess_over_shuffle": [
+              0.024005893633644408,
+              0.012077831229951711,
+              0.03347112521291471,
+              -0.009465231579270306,
+              -0.021393293982962996
+            ],
+            "upper_tail": [
+              0.1208,
+              0.3346,
+              0.2668,
+              0.557,
+              0.639
+            ]
+          },
+          "separate_fit": {
+            "gain": [
+              0.01118881876578879,
+              -0.02584365441770139,
+              -0.06291071539564615,
+              0.07409953416143494,
+              0.03706706097794475
+            ],
+            "folio_bootstrap_95": [
+              [
+                -0.13087501423633377,
+                0.13342494208325711
+              ],
+              [
+                -0.1584019799321852,
+                0.09194947178179923
+              ],
+              [
+                -0.12584387475151218,
+                0.001455947866086053
+              ],
+              [
+                -0.06107054815236817,
+                0.19668381675075317
+              ],
+              [
+                -0.09391897686261841,
+                0.16086324789233059
+              ]
+            ],
+            "within_folio_shuffled_mean": [
+              -0.02966399992335167,
+              0.007069974562341256,
+              -0.00011564619388496744,
+              -0.029548353729466702,
+              0.007185620756226223
+            ],
+            "excess_over_shuffle": [
+              0.04085281868914046,
+              -0.032913628980042645,
+              -0.06279506920176119,
+              0.10364788789090165,
+              0.029881440221718528
+            ],
+            "upper_tail": [
+              0.1886,
+              0.8042,
+              0.888,
+              0.0628,
+              0.3872
+            ]
+          }
+        }
+      },
+      "IT": {
+        "training_boundary_count": 2124,
+        "training_folio_count": 145,
+        "all_common_practice": {
+          "pairs": 307,
+          "folios": 31,
+          "pairs_per_folio": {
+            "f102v1": 10,
+            "f107r": 23,
+            "f111v": 33,
+            "f113r": 22,
+            "f11r": 5,
+            "f11v": 3,
+            "f13v": 7,
+            "f14r": 8,
+            "f1v": 7,
+            "f29v": 6,
+            "f2v": 5,
+            "f30v": 8,
+            "f35v": 10,
+            "f41r": 1,
+            "f42r": 16,
+            "f45r": 7,
+            "f50v": 3,
+            "f52r": 5,
+            "f53v": 5,
+            "f54v": 8,
+            "f58v": 17,
+            "f66v": 2,
+            "f67r2": 2,
+            "f6r": 9,
+            "f70r2": 7,
+            "f76r": 18,
+            "f78r": 10,
+            "f78v": 18,
+            "f7v": 7,
+            "f82v": 14,
+            "f88r": 11
+          },
+          "transfer": {
+            "gain": [
+              -0.0030965112841243297,
+              -0.02089903329313604,
+              -0.045771636560655554,
+              0.04267512527653123,
+              0.024872603267519514
+            ],
+            "folio_bootstrap_95": [
+              [
+                -0.02163160967345387,
+                0.017664630834286783
+              ],
+              [
+                -0.05843752540726919,
+                0.00966681812098023
+              ],
+              [
+                -0.09177289635464479,
+                -0.002416271112672083
+              ],
+              [
+                -0.008978309085290574,
+                0.09807889719896741
+              ],
+              [
+                -0.024839029190781497,
+                0.07494422973262738
+              ]
+            ],
+            "within_folio_shuffled_mean": [
+              -0.014705855108369364,
+              -0.03861557680077698,
+              -0.07132540743102744,
+              0.05661955232265808,
+              0.032709830630250465
+            ],
+            "excess_over_shuffle": [
+              0.011609343824245034,
+              0.017716543507640937,
+              0.02555377087037189,
+              -0.013944427046126848,
+              -0.007837227362730952
+            ],
+            "upper_tail": [
+              0.1474,
+              0.1336,
+              0.0636,
+              0.7524,
+              0.6276
+            ]
+          },
+          "separate_fit": {
+            "gain": [
+              -0.025549111146544626,
+              -0.013698687472441013,
+              -0.03015166500245829,
+              0.004602553855913667,
+              0.01645297753001728
+            ],
+            "folio_bootstrap_95": [
+              [
+                -0.08224899079296547,
+                0.04942875427922901
+              ],
+              [
+                -0.06062640590653821,
+                0.0318526634796558
+              ],
+              [
+                -0.09145538607235582,
+                0.021100316535753928
+              ],
+              [
+                -0.05512030415689565,
+                0.0728359631556805
+              ],
+              [
+                -0.04324382950248745,
+                0.08204896797826244
+              ]
+            ],
+            "within_folio_shuffled_mean": [
+              -0.016311325496927508,
+              -0.039209812036889474,
+              -0.03673227041536387,
+              0.02042094491843636,
+              -0.0024775416215256094
+            ],
+            "excess_over_shuffle": [
+              -0.009237785649617119,
+              0.025511124564448463,
+              0.006580605412905581,
+              -0.015818391062522696,
+              0.01893051915154289
+            ],
+            "upper_tail": [
+              0.7244,
+              0.0926,
+              0.3474,
+              0.749,
+              0.2252
+            ]
+          }
+        },
+        "preregistered": {
+          "pairs": 27,
+          "folios": 8,
+          "pairs_per_folio": {
+            "f102v1": 4,
+            "f107r": 4,
+            "f13v": 5,
+            "f52r": 3,
+            "f58v": 2,
+            "f78v": 4,
+            "f82v": 1,
+            "f88r": 4
+          },
+          "transfer": {
+            "gain": [
+              -0.004559295981202396,
+              0.0019557755500301676,
+              -0.027979768610246782,
+              0.023420472629044387,
+              0.02993554416027695
+            ],
+            "folio_bootstrap_95": [
+              [
+                -0.058872133210878703,
+                0.036319314189274726
+              ],
+              [
+                -0.10295291091755389,
+                0.12578841761417692
+              ],
+              [
+                -0.10827487839973494,
+                0.03630743191131575
+              ],
+              [
+                -0.042627785928496725,
+                0.07752287546934292
+              ],
+              [
+                -0.08259584005044202,
+                0.15154231268140733
+              ]
+            ],
+            "within_folio_shuffled_mean": [
+              -0.01323941620014852,
+              -0.001969771466866605,
+              -0.039906534705855284,
+              0.026667118505706765,
+              0.03793676323898868
+            ],
+            "excess_over_shuffle": [
+              0.008680120218946125,
+              0.003925547016896773,
+              0.011926766095608502,
+              -0.0032466458766623775,
+              -0.008001219078711732
+            ],
+            "upper_tail": [
+              0.3148,
+              0.4562,
+              0.4048,
+              0.506,
+              0.5426
+            ]
+          },
+          "separate_fit": {
+            "gain": [
+              -0.021711534643832717,
+              -0.06988169397913269,
+              -0.11212671827650877,
+              0.09041518363267605,
+              0.042245024297376074
+            ],
+            "folio_bootstrap_95": [
+              [
+                -0.17093821380763963,
+                0.10872000545795929
+              ],
+              [
+                -0.1545511524367481,
+                0.007992671390491738
+              ],
+              [
+                -0.18282129740894612,
+                -0.024708619129467157
+              ],
+              [
+                -0.08476655512649292,
+                0.25897416149123587
+              ],
+              [
+                -0.07641216629236243,
+                0.16387915088157312
+              ]
+            ],
+            "within_folio_shuffled_mean": [
+              -0.05433800794100584,
+              0.01728703619615329,
+              -0.042211693066918514,
+              -0.012126314874087331,
+              0.0594987292630718
+            ],
+            "excess_over_shuffle": [
+              0.03262647329717312,
+              -0.08716873017528598,
+              -0.06991502520959025,
+              0.10254149850676338,
+              -0.017253704965695726
+            ],
+            "upper_tail": [
+              0.1804,
+              0.8452,
+              0.9816,
+              0.0172,
+              0.5098
+            ]
+          }
+        },
+        "scan_verified": {
+          "pairs": 26,
+          "folios": 8,
+          "pairs_per_folio": {
+            "f102v1": 4,
+            "f107r": 3,
+            "f13v": 5,
+            "f52r": 3,
+            "f58v": 2,
+            "f78v": 4,
+            "f82v": 1,
+            "f88r": 4
+          },
+          "transfer": {
+            "gain": [
+              -0.0034691486786194666,
+              -0.009488850574345106,
+              -0.021122454469903698,
+              0.01765330579128423,
+              0.011633603895558592
+            ],
+            "folio_bootstrap_95": [
+              [
+                -0.060072047381397625,
+                0.03849854705737981
+              ],
+              [
+                -0.13685442444552826,
+                0.12281960695223773
+              ],
+              [
+                -0.10612651195998675,
+                0.048816162821455455
+              ],
+              [
+                -0.05606836164614885,
+                0.07682302774963506
+              ],
+              [
+                -0.13908572937316824,
+                0.14647356328119593
+              ]
+            ],
+            "within_folio_shuffled_mean": [
+              -0.005675731233984703,
+              -0.0036230374433676165,
+              -0.02985416484983164,
+              0.02417843361584694,
+              0.02623112740646403
+            ],
+            "excess_over_shuffle": [
+              0.0022065825553652363,
+              -0.00586581313097749,
+              0.008731710379927943,
+              -0.006525127824562708,
+              -0.014597523510905437
+            ],
+            "upper_tail": [
+              0.4452,
+              0.5636,
+              0.4418,
+              0.5384,
+              0.5996
+            ]
+          },
+          "separate_fit": {
+            "gain": [
+              -0.027144272437384227,
+              -0.07414597391078458,
+              -0.10956552695447502,
+              0.08242125451709081,
+              0.03541955304369046
+            ],
+            "folio_bootstrap_95": [
+              [
+                -0.18020895150834745,
+                0.10791855045569652
+              ],
+              [
+                -0.17899374452181868,
+                0.007992671390491738
+              ],
+              [
+                -0.18296280102134474,
+                -0.020584609067287468
+              ],
+              [
+                -0.0897398414481623,
+                0.25750172816420686
+              ],
+              [
+                -0.100003941531963,
+                0.16357610088291574
+              ]
+            ],
+            "within_folio_shuffled_mean": [
+              -0.04571709298951133,
+              0.012617356759353066,
+              -0.04019441934574475,
+              -0.005522673643766582,
+              0.05281177610509782
+            ],
+            "excess_over_shuffle": [
+              0.0185728205521271,
+              -0.08676333067013764,
+              -0.06937110760873028,
+              0.0879439281608574,
+              -0.017392223061407357
+            ],
+            "upper_tail": [
+              0.2976,
+              0.8186,
+              0.9768,
+              0.031,
+              0.5144
+            ]
+          }
+        },
+        "scan_verified_ordinary_plus_P0": {
+          "pairs": 26,
+          "folios": 8,
+          "pairs_per_folio": {
+            "f102v1": 4,
+            "f107r": 3,
+            "f13v": 5,
+            "f52r": 3,
+            "f58v": 2,
+            "f78v": 4,
+            "f82v": 1,
+            "f88r": 4
+          },
+          "transfer": {
+            "gain": [
+              -0.0034691486786194666,
+              -0.009488850574345106,
+              -0.021122454469903698,
+              0.01765330579128423,
+              0.011633603895558592
+            ],
+            "folio_bootstrap_95": [
+              [
+                -0.060072047381397625,
+                0.03849854705737981
+              ],
+              [
+                -0.13685442444552826,
+                0.12281960695223773
+              ],
+              [
+                -0.10612651195998675,
+                0.048816162821455455
+              ],
+              [
+                -0.05606836164614885,
+                0.07682302774963506
+              ],
+              [
+                -0.13908572937316824,
+                0.14647356328119593
+              ]
+            ],
+            "within_folio_shuffled_mean": [
+              -0.005675731233984703,
+              -0.0036230374433676165,
+              -0.02985416484983164,
+              0.02417843361584694,
+              0.02623112740646403
+            ],
+            "excess_over_shuffle": [
+              0.0022065825553652363,
+              -0.00586581313097749,
+              0.008731710379927943,
+              -0.006525127824562708,
+              -0.014597523510905437
+            ],
+            "upper_tail": [
+              0.4452,
+              0.5636,
+              0.4418,
+              0.5384,
+              0.5996
+            ]
+          },
+          "separate_fit": {
+            "gain": [
+              -0.027144272437384227,
+              -0.07414597391078458,
+              -0.10956552695447502,
+              0.08242125451709081,
+              0.03541955304369046
+            ],
+            "folio_bootstrap_95": [
+              [
+                -0.18020895150834745,
+                0.10791855045569652
+              ],
+              [
+                -0.17899374452181868,
+                0.007992671390491738
+              ],
+              [
+                -0.18296280102134474,
+                -0.020584609067287468
+              ],
+              [
+                -0.0897398414481623,
+                0.25750172816420686
+              ],
+              [
+                -0.100003941531963,
+                0.16357610088291574
+              ]
+            ],
+            "within_folio_shuffled_mean": [
+              -0.04571709298951133,
+              0.012617356759353066,
+              -0.04019441934574475,
+              -0.005522673643766582,
+              0.05281177610509782
+            ],
+            "excess_over_shuffle": [
+              0.0185728205521271,
+              -0.08676333067013764,
+              -0.06937110760873028,
+              0.0879439281608574,
+              -0.017392223061407357
+            ],
+            "upper_tail": [
+              0.2976,
+              0.8186,
+              0.9768,
+              0.031,
+              0.5144
+            ]
+          }
+        }
+      },
+      "RF": {
+        "training_boundary_count": 1587,
+        "training_folio_count": 145,
+        "all_common_practice": {
+          "pairs": 307,
+          "folios": 31,
+          "pairs_per_folio": {
+            "f102v1": 10,
+            "f107r": 23,
+            "f111v": 33,
+            "f113r": 22,
+            "f11r": 5,
+            "f11v": 3,
+            "f13v": 7,
+            "f14r": 8,
+            "f1v": 7,
+            "f29v": 6,
+            "f2v": 5,
+            "f30v": 8,
+            "f35v": 10,
+            "f41r": 1,
+            "f42r": 16,
+            "f45r": 7,
+            "f50v": 3,
+            "f52r": 5,
+            "f53v": 5,
+            "f54v": 8,
+            "f58v": 17,
+            "f66v": 2,
+            "f67r2": 2,
+            "f6r": 9,
+            "f70r2": 7,
+            "f76r": 18,
+            "f78r": 10,
+            "f78v": 18,
+            "f7v": 7,
+            "f82v": 14,
+            "f88r": 11
+          },
+          "transfer": {
+            "gain": [
+              0.005798109589344008,
+              -0.025594914198623184,
+              -0.0012544039940081601,
+              0.007052513583352166,
+              -0.024340510204615026
+            ],
+            "folio_bootstrap_95": [
+              [
+                -0.016618690515083606,
+                0.029515823109361638
+              ],
+              [
+                -0.06436519956792962,
+                0.014308205081835439
+              ],
+              [
+                -0.05619704181622939,
+                0.043338152051360046
+              ],
+              [
+                -0.04341307855581408,
+                0.06262968901457168
+              ],
+              [
+                -0.08234910755462291,
+                0.044272384152953946
+              ]
+            ],
+            "within_folio_shuffled_mean": [
+              -0.012835266840543301,
+              -0.04047099190170003,
+              -0.04004552843544587,
+              0.02721026159490257,
+              -0.00042546346625415774
+            ],
+            "excess_over_shuffle": [
+              0.01863337642988731,
+              0.014876077703076848,
+              0.03879112444143771,
+              -0.020157748011550406,
+              -0.023915046738360868
+            ],
+            "upper_tail": [
+              0.0428,
+              0.1776,
+              0.0162,
+              0.8324,
+              0.8364
+            ]
+          },
+          "separate_fit": {
+            "gain": [
+              0.005325779284971011,
+              -0.020598492741027742,
+              -0.025132757071162404,
+              0.030458536356133416,
+              0.0045342643301346675
+            ],
+            "folio_bootstrap_95": [
+              [
+                -0.06425777303974776,
+                0.09794677741705383
+              ],
+              [
+                -0.06215454811672985,
+                0.02443186636233871
+              ],
+              [
+                -0.08694373029345451,
+                0.02901935250441013
+              ],
+              [
+                -0.055196664744543655,
+                0.13520375010240335
+              ],
+              [
+                -0.05501056509579791,
+                0.07843889995881578
+              ]
+            ],
+            "within_folio_shuffled_mean": [
+              -0.009890020327875785,
+              -0.027352224259772184,
+              -0.04991116059868965,
+              0.04002114027081387,
+              0.022558936338917465
+            ],
+            "excess_over_shuffle": [
+              0.015215799612846796,
+              0.006753731518744442,
+              0.024778403527527245,
+              -0.009562603914680452,
+              -0.0180246720087828
+            ],
+            "upper_tail": [
+              0.1818,
+              0.3524,
+              0.073,
+              0.6584,
+              0.7646
+            ]
+          }
+        },
+        "preregistered": {
+          "pairs": 27,
+          "folios": 8,
+          "pairs_per_folio": {
+            "f102v1": 4,
+            "f107r": 4,
+            "f13v": 5,
+            "f52r": 3,
+            "f58v": 2,
+            "f78v": 4,
+            "f82v": 1,
+            "f88r": 4
+          },
+          "transfer": {
+            "gain": [
+              0.012881093826299424,
+              -0.09566562684998658,
+              -0.0026997761830504594,
+              0.015580870009349872,
+              -0.09296585066693613
+            ],
+            "folio_bootstrap_95": [
+              [
+                -0.04152186064815635,
+                0.05889863437181426
+              ],
+              [
+                -0.30373903933590035,
+                0.0735082231749308
+              ],
+              [
+                -0.11521441415966258,
+                0.14040531619759436
+              ],
+              [
+                -0.15830905734383394,
+                0.15539422144966578
+              ],
+              [
+                -0.36218020527752076,
+                0.14904790156739778
+              ]
+            ],
+            "within_folio_shuffled_mean": [
+              -0.01594628129556473,
+              -0.10207654275477802,
+              -0.015832481760201366,
+              -0.00011379953536336231,
+              -0.08624406099457667
+            ],
+            "excess_over_shuffle": [
+              0.028827375121864153,
+              0.006410915904791439,
+              0.013132705577150907,
+              0.015694669544713234,
+              -0.0067217896723594656
+            ],
+            "upper_tail": [
+              0.0766,
+              0.3798,
+              0.4032,
+              0.3942,
+              0.5164
+            ]
+          },
+          "separate_fit": {
+            "gain": [
+              0.030471129493701114,
+              -0.07935913172965324,
+              0.025967921208794275,
+              0.004503208284906835,
+              -0.10532705293844752
+            ],
+            "folio_bootstrap_95": [
+              [
+                -0.09875189665189393,
+                0.1481416345908779
+              ],
+              [
+                -0.2051598133899194,
+                0.035000037296617124
+              ],
+              [
+                -0.082246076516943,
+                0.1538781095772191
+              ],
+              [
+                -0.2289381218595863,
+                0.19180709338470497
+              ],
+              [
+                -0.2877238070605949,
+                0.07428299700499574
+              ]
+            ],
+            "within_folio_shuffled_mean": [
+              -0.03219018753390704,
+              -0.0908501085941927,
+              0.025862898153683356,
+              -0.058053085687590406,
+              -0.11671300674787606
+            ],
+            "excess_over_shuffle": [
+              0.06266131702760816,
+              0.011490976864539454,
+              0.00010502305511091853,
+              0.06255629397249723,
+              0.011385953809428542
+            ],
+            "upper_tail": [
+              0.0202,
+              0.3982,
+              0.5558,
+              0.191,
+              0.4224
+            ]
+          }
+        },
+        "scan_verified": {
+          "pairs": 26,
+          "folios": 8,
+          "pairs_per_folio": {
+            "f102v1": 4,
+            "f107r": 3,
+            "f13v": 5,
+            "f52r": 3,
+            "f58v": 2,
+            "f78v": 4,
+            "f82v": 1,
+            "f88r": 4
+          },
+          "transfer": {
+            "gain": [
+              0.01361262678335762,
+              -0.10359913438137938,
+              -0.00017796431375825637,
+              0.013790591097115864,
+              -0.10342117006762114
+            ],
+            "folio_bootstrap_95": [
+              [
+                -0.042664381208794816,
+                0.06180412015525381
+              ],
+              [
+                -0.32584664539415686,
+                0.07325289535758091
+              ],
+              [
+                -0.11553267078835293,
+                0.16335270198450008
+              ],
+              [
+                -0.17989784416538834,
+                0.15599344976742785
+              ],
+              [
+                -0.4094909505561255,
+                0.14827357500859265
+              ]
+            ],
+            "within_folio_shuffled_mean": [
+              -0.014145655640826276,
+              -0.10217910150089522,
+              -0.016848158714133817,
+              0.0027025030733075386,
+              -0.08533094278676141
+            ],
+            "excess_over_shuffle": [
+              0.027758282424183895,
+              -0.0014200328804841594,
+              0.016670194400375562,
+              0.011088088023808325,
+              -0.018090227280859725
+            ],
+            "upper_tail": [
+              0.0904,
+              0.4362,
+              0.3816,
+              0.4274,
+              0.5712
+            ]
+          },
+          "separate_fit": {
+            "gain": [
+              0.032434452301587514,
+              -0.09070239471707048,
+              0.030009389133406342,
+              0.002425063168181166,
+              -0.12071178385047682
+            ],
+            "folio_bootstrap_95": [
+              [
+                -0.09876428013555504,
+                0.16536855679424597
+              ],
+              [
+                -0.23097457921338113,
+                0.035000037296617124
+              ],
+              [
+                -0.08234407125712499,
+                0.16182915217768343
+              ],
+              [
+                -0.22960369143236914,
+                0.20184978601742615
+              ],
+              [
+                -0.32541390463552494,
+                0.07345439181578407
+              ]
+            ],
+            "within_folio_shuffled_mean": [
+              -0.022709842942267106,
+              -0.11978265469190821,
+              0.02076741899174661,
+              -0.04347726193401372,
+              -0.14055007368365482
+            ],
+            "excess_over_shuffle": [
+              0.05514429524385462,
+              0.029080259974837736,
+              0.009241970141659731,
+              0.045902325102194885,
+              0.019838289833178008
+            ],
+            "upper_tail": [
+              0.042,
+              0.2402,
+              0.4998,
+              0.2576,
+              0.3768
+            ]
+          }
+        },
+        "scan_verified_ordinary_plus_P0": {
+          "pairs": 26,
+          "folios": 8,
+          "pairs_per_folio": {
+            "f102v1": 4,
+            "f107r": 3,
+            "f13v": 5,
+            "f52r": 3,
+            "f58v": 2,
+            "f78v": 4,
+            "f82v": 1,
+            "f88r": 4
+          },
+          "transfer": {
+            "gain": [
+              0.01361262678335762,
+              -0.10359913438137938,
+              -0.00017796431375825637,
+              0.013790591097115864,
+              -0.10342117006762114
+            ],
+            "folio_bootstrap_95": [
+              [
+                -0.042664381208794816,
+                0.06180412015525381
+              ],
+              [
+                -0.32584664539415686,
+                0.07325289535758091
+              ],
+              [
+                -0.11553267078835293,
+                0.16335270198450008
+              ],
+              [
+                -0.17989784416538834,
+                0.15599344976742785
+              ],
+              [
+                -0.4094909505561255,
+                0.14827357500859265
+              ]
+            ],
+            "within_folio_shuffled_mean": [
+              -0.014145655640826276,
+              -0.10217910150089522,
+              -0.016848158714133817,
+              0.0027025030733075386,
+              -0.08533094278676141
+            ],
+            "excess_over_shuffle": [
+              0.027758282424183895,
+              -0.0014200328804841594,
+              0.016670194400375562,
+              0.011088088023808325,
+              -0.018090227280859725
+            ],
+            "upper_tail": [
+              0.0904,
+              0.4362,
+              0.3816,
+              0.4274,
+              0.5712
+            ]
+          },
+          "separate_fit": {
+            "gain": [
+              0.032434452301587514,
+              -0.09070239471707048,
+              0.030009389133406342,
+              0.002425063168181166,
+              -0.12071178385047682
+            ],
+            "folio_bootstrap_95": [
+              [
+                -0.09876428013555504,
+                0.16536855679424597
+              ],
+              [
+                -0.23097457921338113,
+                0.035000037296617124
+              ],
+              [
+                -0.08234407125712499,
+                0.16182915217768343
+              ],
+              [
+                -0.22960369143236914,
+                0.20184978601742615
+              ],
+              [
+                -0.32541390463552494,
+                0.07345439181578407
+              ]
+            ],
+            "within_folio_shuffled_mean": [
+              -0.022709842942267106,
+              -0.11978265469190821,
+              0.02076741899174661,
+              -0.04347726193401372,
+              -0.14055007368365482
+            ],
+            "excess_over_shuffle": [
+              0.05514429524385462,
+              0.029080259974837736,
+              0.009241970141659731,
+              0.045902325102194885,
+              0.019838289833178008
+            ],
+            "upper_tail": [
+              0.042,
+              0.2402,
+              0.4998,
+              0.2576,
+              0.3768
+            ]
+          }
+        }
+      }
+    }
+  },
+  "synthetic_controls": {
+    "constant": {
+      "theoretical": [
+        {
+          "conditional_log_odds_ratio": 1.6,
+          "mutual_information": 0.0740260995142576
+        },
+        {
+          "conditional_log_odds_ratio": 1.6,
+          "mutual_information": 0.0740260995142576
+        },
+        {
+          "conditional_log_odds_ratio": 1.6,
+          "mutual_information": 0.0740260995142576
+        }
+      ],
+      "transfer": {
+        "gains_median": [
+          0.07520373420054291,
+          0.07480557610321312,
+          0.07116020623732851
+        ],
+        "gain_cross_below_both": 11,
+        "excess_median": [
+          0.11945957145187905,
+          0.12298011604651041,
+          0.1218875927498328
+        ],
+        "excess_cross_below_both": 10
+      },
+      "separate_fit": {
+        "gains_median": [
+          0.07171655256255555,
+          0.07286546578700076,
+          0.07097266963023179
+        ],
+        "gain_cross_below_both": 12,
+        "excess_median": [
+          0.10417576602895691,
+          0.10251296173216802,
+          0.10552498889909136
+        ],
+        "excess_cross_below_both": 9
+      }
+    },
+    "shifted": {
+      "theoretical": [
+        {
+          "conditional_log_odds_ratio": 1.6,
+          "mutual_information": 0.0740260995142576
+        },
+        {
+          "conditional_log_odds_ratio": 1.6,
+          "mutual_information": 0.0740260995142576
+        },
+        {
+          "conditional_log_odds_ratio": 1.6,
+          "mutual_information": 0.020037035684245096
+        }
+      ],
+      "transfer": {
+        "gains_median": [
+          0.07520373420054291,
+          0.07480557610321312,
+          0.020331886340448198
+        ],
+        "gain_cross_below_both": 32,
+        "excess_median": [
+          0.11945957145187905,
+          0.12298011604651041,
+          0.030861314356418715
+        ],
+        "excess_cross_below_both": 32
+      },
+      "separate_fit": {
+        "gains_median": [
+          0.07171655256255555,
+          0.07286546578700076,
+          0.018640718729997053
+        ],
+        "gain_cross_below_both": 32,
+        "excess_median": [
+          0.10417576602895691,
+          0.10251296173216802,
+          0.027354907164164027
+        ],
+        "excess_cross_below_both": 32
+      }
+    },
+    "reset": {
+      "theoretical": [
+        {
+          "conditional_log_odds_ratio": 1.6,
+          "mutual_information": 0.0740260995142576
+        },
+        {
+          "conditional_log_odds_ratio": 1.6,
+          "mutual_information": 0.0740260995142576
+        },
+        {
+          "conditional_log_odds_ratio": 0.0,
+          "mutual_information": 0.0
+        }
+      ],
+      "transfer": {
+        "gains_median": [
+          0.07520373420054291,
+          0.07480557610321312,
+          -0.015117117177665
+        ],
+        "gain_cross_below_both": 32,
+        "excess_median": [
+          0.11945957145187905,
+          0.12298011604651041,
+          0.001509213415046876
+        ],
+        "excess_cross_below_both": 32
+      },
+      "separate_fit": {
+        "gains_median": [
+          0.07171655256255555,
+          0.07286546578700076,
+          -0.0009038351633202395
+        ],
+        "gain_cross_below_both": 32,
+        "excess_median": [
+          0.10417576602895691,
+          0.10251296173216802,
+          9.357494378545844e-05
+        ],
+        "excess_cross_below_both": 32
+      }
+    },
+    "no_link": {
+      "theoretical": [
+        {
+          "conditional_log_odds_ratio": 0.0,
+          "mutual_information": 0.0
+        },
+        {
+          "conditional_log_odds_ratio": 0.0,
+          "mutual_information": 0.0
+        },
+        {
+          "conditional_log_odds_ratio": 0.0,
+          "mutual_information": 0.0
+        }
+      ],
+      "transfer": {
+        "gains_median": [
+          -0.00013122878086644483,
+          1.694924339890436e-05,
+          0.00013120844669587734
+        ],
+        "gain_cross_below_both": 6,
+        "excess_median": [
+          -4.930730761658896e-06,
+          -1.4050246377755928e-05,
+          4.615464018013909e-05
+        ],
+        "excess_cross_below_both": 10
+      },
+      "separate_fit": {
+        "gains_median": [
+          -0.0010365696079804602,
+          -0.0016943672297416116,
+          -0.0004666645741819575
+        ],
+        "gain_cross_below_both": 7,
+        "excess_median": [
+          1.7518530843332593e-05,
+          -6.544495289194428e-05,
+          3.341142508298777e-05
+        ],
+        "excess_cross_below_both": 11
+      }
+    }
+  },
+  "reproduce": {
+    "setup": "From the project root with its verified data/raw directory, export the literal strings under files into a temporary directory, and export sample and physical_audit as sample.json and audit.json. Set PYTHONPATH to the project root.",
+    "public_analysis": "python3 /path/to/temp/estimate.py data/raw /path/to/temp/sample.json /path/to/temp/audit.json",
+    "synthetic_analysis": "python3 /path/to/temp/synthetic.py",
+    "regenerate_sample": "Download the pinned Yale manifest as manifest.json in the temporary directory and run python3 /path/to/temp/freeze.py /path/to/temp data/raw.",
+    "files": {
+      "freeze.py": "from collections import defaultdict\nfrom hashlib import sha256\nimport json\nfrom pathlib import Path\nimport re\nimport sys\nfrom vs import ivtff, split\n\ndest=Path(sys.argv[1])\nroot=Path(sys.argv[2])\ndata=list(ivtff.parse(root/'ZL3b-n.txt'))\npublic=set(split.select('practice',data))\nwitnesses={key:{p.id:p for p in ivtff.parse(root/name)} for key,name in\n           [('ZL','ZL3b-n.txt'),('IT','IT2a-n.txt'),('RF','RF1b-e.txt')]}\nquota={('H','A'):2,('H','B'):1,('P','A'):2,('B','B'):2,('S','A'):1,('S','B'):1,('T','B'):1}\nwindow=defaultdict(list)\nkey=lambda s: sha256(f'K-042-open-2-v1/{s}'.encode()).hexdigest()\nfor p in data:\n    stratum=(p.section,p.language)\n    if p.id in public and stratum in quota:\n        qs={}\n        for name,ps in witnesses.items():\n            if p.id not in ps:\n                break\n            qs[name]={(a.id,b.id) for a,b in zip(ps[p.id].lines,ps[p.id].lines[1:])\n                      if a.unit==b.unit=='P' and b.n==a.n+1 and len(a.words)>=4 and len(b.words)>=4\n                      and not (a.para_end or b.para_start)}\n        if len(qs)!=len(witnesses):\n            continue\n        candidates=sorted(set.intersection(*qs.values()),key=lambda t:key('/'.join(t)))\n        if len(candidates)>=5:\n            window[stratum].append((p.id,candidates))\nitems={}\nfor item in json.loads((dest/'manifest.json').read_text())['items']:\n    label=item['label']['none'][0]\n    m=re.match(r'^([0-9]+[rv])(?:\\s|$)',label)\n    if m:\n        items.setdefault('f'+m.group(1),[]).append(dict(canvas=item['id'],label=label,width=item['width'],height=item['height']))\nsample={}\nfor stratum,n in quota.items():\n    for f,candidates in sorted(window[stratum],key=lambda t:key(t[0]))[:n]:\n        sample[f]=dict(stratum=stratum,candidates=len(candidates),pairs=sorted(candidates[:5],key=lambda t:int(t[0].rsplit('.',1)[1])),images=items[re.match(r'^f\\d+[rv]',f)[0]])\nassert len(sample)==10\n(dest/'freeze.json').write_text(json.dumps(sample,indent=2)+'\\n')\n",
+      "estimate.py": "import argparse\nfrom collections import Counter, defaultdict\nfrom dataclasses import dataclass\nfrom hashlib import sha256\nimport json\nimport math\nfrom pathlib import Path\nimport random\nimport re\n\nfrom vs import ivtff, split\n\nGLYPHS = 'acdefgiklmnopqrsy'\nSIZE = len(GLYPHS) + 1\nMODES = ('first', 'middle', 'cross')\nFILES = {'ZL': 'ZL3b-n.txt', 'IT': 'IT2a-n.txt', 'RF': 'RF1b-e.txt'}\nMASS = 24\nRESAMPLES = 4999\n\n@dataclass(frozen=True)\nclass Example:\n    folio: str\n    ids: tuple\n    factors: tuple\n    tokens: tuple\n    strict: bool\n\ndef leaf(folio):\n    return re.match(r'f\\d+', folio)[0]\n\ndef initial(word):\n    return GLYPHS.index(word[0]) if word[0] in GLYPHS else SIZE - 1\n\ndef length_bin(n):\n    return sum(n > upper for upper in (7, 10, 13))\n\ndef examples(pages, locators):\n    out = {}\n    for page in pages:\n        for upper, lower in zip(page.lines, page.lines[1:]):\n            if upper.unit != lower.unit or upper.unit != 'P' or upper.n + 1 != lower.n:\n                continue\n            if upper.para_end or lower.para_start or min(len(upper.words), len(lower.words)) < 4:\n                continue\n            middle = len(lower.words) // 2\n            edges = (\n                (lower.words[0], lower.words[1]),\n                (lower.words[middle-1], lower.words[middle]),\n                (upper.words[-1], lower.words[0]),\n            )\n            if any(ivtff.uncertain(w) for pair in edges for w in pair):\n                continue\n            key = (upper.id, lower.id)\n            grouping = (page.section, page.language)\n            lengths = (length_bin(len(upper.words)), length_bin(len(lower.words)))\n            upper_tag, lower_tag = (locators[id_] for id_ in key)\n            out[key] = Example(page.id, key, (*grouping, lengths[1]),\n                               tuple(tuple(initial(w) for w in pair) for pair in edges),\n                               upper_tag.endswith('P0') and lower_tag == '+P0')\n    return out\n\ndef train(rows):\n    baseline, condition, within = (defaultdict(Counter) for _ in range(3))\n    for row in rows:\n        strata = ((), row.factors[:2], row.factors)\n        for k, (p, t) in enumerate(row.tokens):\n            for group in strata:\n                baseline[k, group][t] += 1\n                condition[k, group, p][t] += 1\n            if k != 2:\n                within[None][t] += 1\n                within[p][t] += 1\n    return baseline, condition, within\n\ndef shrink(counts, previous, mass):\n    denominator = counts.total() + mass\n    return tuple((counts[i] + mass * previous[i]) / denominator for i in range(SIZE))\n\ndef probabilities(tables, example, k, p):\n    baseline, condition, within = tables\n    flat = (1 / SIZE,) * SIZE\n    q = flat\n    stages = ((), example.factors[:2], example.factors)\n    for group in stages:\n        q = shrink(baseline[k, group], q, MASS)\n    level = q\n    # The conditional model uses the finest populated training stratum with\n    # adequate support for this predecessor, with a fixed backing-off rule.\n    for group in reversed(stages):\n        if condition[k, group, p].total() >= MASS or not group:\n            level = shrink(condition[k, group, p], q, MASS)\n            break\n    marginal = shrink(within[None], flat, MASS)\n    prepared = shrink(within[p], marginal, MASS)\n    transferred = [a*b/c for a,b,c in zip(q,prepared,marginal)]\n    norm = sum(transferred)\n    return q, tuple(a/norm for a in transferred), level\n\ndef means(rows):\n    return [sum(values) / len(rows) for values in zip(*rows)]\n\ndef interval(values):\n    s = sorted(values)\n    return [s[int(.025 * len(s))],s[int(.975 * len(s))]]\n\ndef summarize(tables, evaluated):\n    if not evaluated:\n        return {'pairs': 0}\n    observed = defaultdict(list)\n    profiles = defaultdict(list)\n    for row in evaluated:\n        columns = [[], []]\n        by_mode = []\n        for k, (p, t) in enumerate(row.tokens):\n            scores = []\n            for possible in range(SIZE):\n                q, transfer, local = probabilities(tables,row,k,possible)\n                scores.append((math.log(transfer[t]/q[t]),math.log(local[t]/q[t])))\n            for a, series in zip(scores[p], columns):\n                series.append(a)\n            by_mode.append((p, scores))\n        for estimator, series in enumerate(columns):\n            first, mid, cross = series\n            observed[row.folio].append((first,mid,cross,first-cross,mid-cross))\n        profiles[row.folio].append(by_mode)\n    groups = sorted(observed)\n    rng = random.Random(824110)\n    shuffled_rng = random.Random(824111)\n    prep = [([],[]) for _ in range(2)]\n    for i in range(2):\n        by_page = {f: observed[f][i::2] for f in groups}\n        prep[i][0].extend(means([v for f in groups for v in by_page[f]]))\n        for _ in range(RESAMPLES):\n            pages = rng.choices(groups,k=len(groups))\n            prep[i][1].append(means([v for f in pages for v in by_page[f]]))\n    draw_means = [[],[]]\n    n = len(evaluated)\n    for _ in range(RESAMPLES):\n        scores = [[0.]*3,[0.]*3]\n        for f in groups:\n            for k in range(3):\n                tab = [z[k] for z in profiles[f]]\n                ps = [p for p,_ in tab]\n                shuffled_rng.shuffle(ps)\n                for (_,catalogue), p in zip(tab,ps):\n                    for i in range(2):\n                        scores[i][k] += catalogue[p][i]\n        for i,(first,mid,cross) in enumerate(scores):\n            draw_means[i].append([x/n for x in (first,mid,cross,first-cross,mid-cross)])\n    results={}\n    for i,name in enumerate(('transfer','separate_fit')):\n        actual,boots=prep[i]\n        null=list(zip(*draw_means[i]))\n        q=[sum(s)/len(s) for s in null]\n        results[name]=dict(gain=actual,folio_bootstrap_95=[interval(s) for s in zip(*boots)],\n                           within_folio_shuffled_mean=q,excess_over_shuffle=[a-b for a,b in zip(actual,q)],\n                           upper_tail=[(1+sum(v>=a-1e-12 for v in s))/(1+len(s))\n                                       for a,s in zip(actual,null)])\n    return dict(pairs=n,folios=len(groups),pairs_per_folio={f:len(profiles[f]) for f in groups}, **results)\n\ndef main():\n    cli=argparse.ArgumentParser()\n    cli.add_argument('raw',type=Path)\n    cli.add_argument('sample',type=Path)\n    cli.add_argument('audit',type=Path,nargs='?')\n    args=cli.parse_args()\n    witness={}\n    sample=json.loads(args.sample.read_text())\n    chosen={tuple(ab) for q in sample.values() for ab in q['pairs']}\n    assert len(chosen)==50\n    verified=None if args.audit is None else {\n        tuple(row['pair']) for row in json.loads(args.audit.read_text()) if row['verdict']=='verified'}\n    assert verified is None or verified<=chosen\n    pages={n:list(ivtff.parse(args.raw/f)) for n,f in FILES.items()}\n    practice=set(split.select('practice',pages['ZL']))\n    eval_leaves={leaf(f) for f in practice}\n    train_set={p.id for p in pages['ZL'] if leaf(p.id) not in eval_leaves}\n    for name,raw in FILES.items():\n        pattern=r'^<(f\\d+[rv]\\d*\\.\\d+),([^>]+)>'\n        locators=dict(re.findall(pattern,(args.raw/raw).read_text(),flags=re.M))\n        witness[name]=dict(train=examples([p for p in pages[name] if p.id in train_set],locators),\n                           evaluation=examples([p for p in pages[name] if p.id in practice],locators))\n    common=set.intersection(*(set(r['evaluation']) for r in witness.values()))\n    views={'all_common_practice':common,'preregistered':common&chosen}\n    if verified is not None:\n        views['scan_verified']=verified&common\n        views['scan_verified_ordinary_plus_P0']={p for p in views['scan_verified']\n                                                if witness['ZL']['evaluation'][p].strict}\n    out={'columns':[*MODES,'first-cross','middle-cross'],\n         'selected':len(chosen),'scan_verified':None if verified is None else len(verified),\n         'selected_ineligible_words':[list(z) for z in sorted(chosen-common)],\n         'raw_sha256':{n:sha256((args.raw/f).read_bytes()).hexdigest() for n,f in FILES.items()},\n         'views':{}}\n    for name,v in witness.items():\n        tables=train(v['train'].values())\n        out['views'][name]={'training_boundary_count':len(v['train']),\n                            'training_folio_count':len({x.folio for x in v['train'].values()})}\n        for label,ids in views.items():\n            out['views'][name][label]=summarize(tables,[v['evaluation'][p] for p in sorted(ids)])\n    print(json.dumps(out,indent=2))\n\nif __name__=='__main__':\n    main()\n",
+      "synthetic.py": "\"\"\"Test whether event-level gain differences imply a change in association.\"\"\"\nfrom collections import Counter\nimport json\nimport math\nimport random\nfrom statistics import median\nfrom estimate import Example, MODES, probabilities, train\n\ndef expit(x):\n    return 1 / (1 + math.exp(-x))\n\ndef retain(a,b,prevalence):\n    return (1-prevalence) * expit(a) + prevalence * expit(a+b)\n\ndef sample(rng,count,period,regime):\n    for i in range(count):\n        factors = ('H' if i%3 else 'B', 'A' if i%2 else 'B', i%4)\n        events=[]\n        for k in range(3):\n            rate=.5 if k<2 or regime=='constant' else .25\n            base, beta = -.8, 1.6\n            if regime=='no_link':\n                beta=0.\n                base=0.\n            if k==2 and regime=='shifted':\n                base=-3.2\n            if k==2 and regime=='reset':\n                marginal=retain(-3.2,1.6,rate)\n                base=math.log(marginal/(1-marginal))\n                beta=0.\n            p=int(rng.random()<rate)\n            t=int(rng.random()<expit(base+beta*p))\n            events.append((p,t))\n        yield Example('page-%03d'%(i//period),(),factors,tuple(events),True)\n\ndef oracle(regime):\n    ks=[]\n    for k in range(3):\n        rate=.5 if k<2 or regime=='constant' else .25\n        base, beta = -.8,1.6\n        if regime=='no_link':\n            beta=0.\n            base=0.\n        if k==2 and regime=='shifted':\n            base=-3.2\n        if k==2 and regime=='reset':\n            m=retain(-3.2,1.6,rate)\n            base=math.log(m/(1-m))\n            beta=0.\n        marg=retain(base,beta,rate)\n        both=[marg,1-marg]\n        agg=0\n        for p,weight in enumerate([1-rate,rate]):\n            b=expit(base+beta*p)\n            agg+=weight*sum(x * math.log(x/y) for x,y in zip([b,1-b],both))\n        ks.append(dict(conditional_log_odds_ratio=beta,mutual_information=agg))\n    return ks\n\ndef verify(regime, seed):\n    rng=random.Random(seed)\n    tables=train(sample(rng,2110,13,regime))\n    eval_rows=list(sample(rng,310,5,regime))\n    pool=Counter((row.folio,k,p) for row in eval_rows for k,(p,_) in enumerate(row.tokens))\n    obs=[[0.]*3 for _ in range(2)]\n    shf=[[0.]*3 for _ in range(2)]\n    for row in eval_rows:\n        for k,(p,t) in enumerate(row.tokens):\n            for v in (0,1):\n                q,*d=probabilities(tables,row,k,v)\n                for i,probs in enumerate(d):\n                    score=math.log(probs[t]/q[t])\n                    obs[i][k]+=score*(v==p)/len(eval_rows)\n                    shf[i][k]+=score*(pool[row.folio,k,v]/5)/len(eval_rows)\n    return [{'gain':o,'above_within_page_shuffle':[a-b for a,b in zip(o,s)]} for o,s in zip(obs,shf)]\n\ndef main():\n    out={}\n    for regime in ('constant','shifted','reset','no_link'):\n        all_results=[verify(regime,276100+i) for i in range(32)]\n        status={'theoretical':oracle(regime)}\n        for i,name in enumerate(('transfer','separate_fit')):\n            results=[r[i] for r in all_results]\n            status[name]=dict(gains_median=[median(z['gain'][k] for z in results) for k in range(3)],\n                 gain_cross_below_both=sum(x['gain'][2]<min(x['gain'][:2]) for x in results),\n                 excess_median=[median(z['above_within_page_shuffle'][k] for z in results) for k in range(3)],\n                 excess_cross_below_both=sum(x['above_within_page_shuffle'][2]<\n                                             min(x['above_within_page_shuffle'][:2]) for x in results))\n        out[regime]=status\n    print(json.dumps(out,indent=2))\n\nif __name__=='__main__':\n    main()\n"
+    }
+  }
+}
