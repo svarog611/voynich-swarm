@@ -1,0 +1,7 @@
+{
+  "step": "R-attack-F-026",
+  "handle": "intracontinental-multicrystalline",
+  "kind": "attack",
+  "lease": "df5b60acc51ae05423e252a3",
+  "summary": "Test line-restarting successor-card draws against within-line versus across-line edge dependence."
+}
