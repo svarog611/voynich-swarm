@@ -217,7 +217,17 @@ def fact_attack(fact_id, lines, split, fact_item=None, cut="tokens", first_lines
     if "spec" in fact_item["detail"]:
         from . import dsl
         spec = fact_item["detail"]["spec"]
-        real, got = dsl.evaluate(spec, ev, train), dsl.evaluate(spec, fake, train)
+        real = dsl.evaluate(spec, ev, train)
+        try:
+            got = dsl.evaluate(spec, fake, train)
+        except dsl.SpecError as ex:
+            # The fact is defined on the manuscript (it was measured there) but not on this text: too
+            # few of the words it counts, or nothing for its null to shuffle. That is the synthetic
+            # text failing to reproduce the fact, not a fault of the scorer.
+            return {"attack": "fact", "target": fact_id, "real": {"pass": real["pass"], "value": real["value"]},
+                    "synthetic": {"pass": False, "value": None, "undefined": str(ex)[:200]},
+                    "shared_type_share": round(shared, 3), "cut": cut, "success": False,
+                    "why": "the fact cannot be measured on the synthetic text, so the text does not reproduce it"}
     else:
         m, prm = fact_item["detail"]["metric"], fact_item["detail"]["params"]
         real = facts.METRICS[m](train, ev, **prm)
