@@ -1,0 +1,483 @@
+{
+  "folio": "f89r2",
+  "canvas": "https://collections.library.yale.edu/manifests/oid/2002046/canvas/1006233",
+  "blind": true,
+  "statement": "Visual inventory of the f89r2 panel, drawn from the Beinecke colour scan with no readings of the labels. Objects are grouped by the four horizontal bands of drawings, and connected parts are described together. The lower field and some fine plant junctions are faded. Bounding boxes are estimates in the 2400 by 2263 pixel image from Yale IIIF region 5225,105,3785,3570. Short ink lines were located visually. ZL locus IDs and line kinds were used only to assign numbers. The two touching forms in the second band are recorded individually, with a single unassigned candidate caption. A third-band caption has an alternative pairing. Descriptions record visible shapes and colours without identifying species or contents.",
+  "objects": [
+    {
+      "id": "band-1-item-1",
+      "kind": "jar",
+      "features": {
+        "colour": "mixed",
+        "band": 1,
+        "bbox_crop_px": [
+          47,
+          130,
+          175,
+          532
+        ],
+        "description": "Tall lidded vessel on a stem and flared foot. Its body has alternating red and green horizontal bands.",
+        "caption_bbox_crop_px": [
+          205,
+          249,
+          83,
+          37
+        ],
+        "uncertainty": "The caption is also below the neighboring foliage. The vessel pairing is less secure than the others in this row."
+      },
+      "label": "f89r2.1"
+    },
+    {
+      "id": "band-1-item-2",
+      "kind": "plant_part",
+      "features": {
+        "colour": "mixed",
+        "band": 1,
+        "bbox_crop_px": [
+          145,
+          36,
+          290,
+          562
+        ],
+        "description": "Broad lobed green foliage and a slanting rusty root with long tapering strands, with closely meeting fine strokes at the dark crown.",
+        "caption_bbox_crop_px": [
+          374,
+          267,
+          77,
+          43
+        ],
+        "uncertainty": "The pale foliage stems overlap the crown, so whether all strokes belong to the same specimen is uncertain."
+      },
+      "label": "f89r2.2"
+    },
+    {
+      "id": "band-1-item-3",
+      "kind": "plant_part",
+      "features": {
+        "colour": "mixed",
+        "band": 1,
+        "bbox_crop_px": [
+          384,
+          62,
+          557,
+          506
+        ],
+        "description": "An orange divided root with upright fine strokes, beside two round toothed green shapes and a pale hooked stem.",
+        "caption_bbox_crop_px": [
+          596,
+          245,
+          166,
+          66
+        ],
+        "uncertainty": "The junction toward the toothed shapes is faint."
+      },
+      "label": "f89r2.3"
+    },
+    {
+      "id": "band-1-item-4",
+      "kind": "plant_part",
+      "features": {
+        "colour": "mixed",
+        "band": 1,
+        "bbox_crop_px": [
+          551,
+          40,
+          953,
+          565
+        ],
+        "description": "A broad green canopy above several pale stalks, a swollen ochre base and long sweeping lateral roots.",
+        "caption_bbox_crop_px": [
+          1155,
+          285,
+          234,
+          56
+        ]
+      },
+      "label": "f89r2.4"
+    },
+    {
+      "id": "band-1-item-5",
+      "kind": "plant_part",
+      "features": {
+        "colour": "mixed",
+        "band": 1,
+        "bbox_crop_px": [
+          1392,
+          80,
+          990,
+          1585
+        ],
+        "description": "Two long green blades on a pale branched stalk and a thick ochre root that curves down along the right edge across several bands.",
+        "caption_bbox_crop_px": [
+          1864,
+          296,
+          139,
+          69
+        ]
+      },
+      "label": "f89r2.5"
+    },
+    {
+      "id": "band-2-item-1",
+      "kind": "jar",
+      "features": {
+        "colour": "mixed",
+        "band": 2,
+        "bbox_crop_px": [
+          36,
+          660,
+          199,
+          428
+        ],
+        "description": "Vessel with green lid and foot, and narrow red and green ribs that bend toward its stem.",
+        "caption_bbox_crop_px": [
+          174,
+          695,
+          113,
+          51
+        ]
+      },
+      "label": "f89r2.9"
+    },
+    {
+      "id": "band-2-item-2",
+      "kind": "plant_part",
+      "features": {
+        "colour": "mixed",
+        "band": 2,
+        "bbox_crop_px": [
+          236,
+          701,
+          528,
+          307
+        ],
+        "description": "A lobed dark green part with two pale curved branches ending beside a small irregular tan knot with fine projections.",
+        "caption_bbox_crop_px": [
+          707,
+          716,
+          211,
+          61
+        ],
+        "uncertainty": "This knot touches the next figure. The short ink line f89r2.10 stands above the junction, and could apply to either part or to both together.",
+        "candidate_caption_loci": [
+          "f89r2.10"
+        ]
+      },
+      "label": null
+    },
+    {
+      "id": "band-2-item-3",
+      "kind": "plant_part",
+      "features": {
+        "colour": "mixed",
+        "band": 2,
+        "bbox_crop_px": [
+          703,
+          751,
+          638,
+          253
+        ],
+        "description": "An olive oblong core with broad, long, looping ochre strokes forming an open framework to the right.",
+        "caption_bbox_crop_px": [
+          707,
+          716,
+          211,
+          61
+        ],
+        "uncertainty": "The left edge meets the preceding knot. The crop does not establish whether these are two specimens or one compound drawing. Candidate label locus f89r2.10.",
+        "candidate_caption_loci": [
+          "f89r2.10"
+        ]
+      },
+      "label": null
+    },
+    {
+      "id": "band-2-item-4",
+      "kind": "plant_part",
+      "features": {
+        "colour": "green",
+        "band": 2,
+        "bbox_crop_px": [
+          1337,
+          750,
+          816,
+          284
+        ],
+        "description": "Paired green blades at left lead toward a pale flattened body with several long upward-curving strands.",
+        "caption_bbox_crop_px": [
+          1705,
+          777,
+          193,
+          50
+        ]
+      },
+      "label": "f89r2.11"
+    },
+    {
+      "id": "band-3-item-1",
+      "kind": "jar",
+      "features": {
+        "colour": "mixed",
+        "band": 3,
+        "bbox_crop_px": [
+          51,
+          1068,
+          188,
+          518
+        ],
+        "description": "Stacked double-bulb vessel with green stem, middle connector and foot, red arcs and small red dabs.",
+        "caption_bbox_crop_px": [
+          209,
+          1258,
+          126,
+          44
+        ]
+      },
+      "label": "f89r2.16"
+    },
+    {
+      "id": "band-3-item-2",
+      "kind": "plant_part",
+      "features": {
+        "colour": "mixed",
+        "band": 3,
+        "bbox_crop_px": [
+          218,
+          1150,
+          242,
+          381
+        ],
+        "description": "Fan of narrow dark green leaves above an ochre root divided into looping branches, with an almond-like opening in the broad part.",
+        "caption_bbox_crop_px": [
+          430,
+          1250,
+          105,
+          43
+        ]
+      },
+      "label": "f89r2.17"
+    },
+    {
+      "id": "band-3-item-3",
+      "kind": "plant_part",
+      "features": {
+        "colour": "mixed",
+        "band": 3,
+        "bbox_crop_px": [
+          498,
+          1160,
+          211,
+          281
+        ],
+        "description": "Upright stalk with three curved green bars and a small orange-red base with a hooked continuation.",
+        "caption_bbox_crop_px": [
+          677,
+          1269,
+          87,
+          36
+        ]
+      },
+      "label": "f89r2.18"
+    },
+    {
+      "id": "band-3-item-4",
+      "kind": "plant_part",
+      "features": {
+        "colour": "mixed",
+        "band": 3,
+        "bbox_crop_px": [
+          713,
+          1177,
+          184,
+          261
+        ],
+        "description": "One small rounded green blade on a pale bifurcating stalk with a tapering ochre root and parallel fine strands.",
+        "caption_bbox_crop_px": [
+          880,
+          1284,
+          116,
+          38
+        ]
+      },
+      "label": "f89r2.19"
+    },
+    {
+      "id": "band-3-item-5",
+      "kind": "plant_part",
+      "features": {
+        "colour": "mixed",
+        "band": 3,
+        "bbox_crop_px": [
+          863,
+          1180,
+          333,
+          268
+        ],
+        "description": "Red-orange head dividing into several downward loops, with thin stalks above and a spiky green shape to the left.",
+        "caption_bbox_crop_px": [
+          1144,
+          1275,
+          126,
+          43
+        ]
+      },
+      "label": "f89r2.20"
+    },
+    {
+      "id": "band-3-item-6",
+      "kind": "plant_part",
+      "features": {
+        "colour": "mixed",
+        "band": 3,
+        "bbox_crop_px": [
+          1145,
+          1176,
+          354,
+          282
+        ],
+        "description": "Pale ochre comb-like root with short curved strands and a stalk leading to one narrow toothed green blade.",
+        "caption_bbox_crop_px": [
+          1360,
+          1283,
+          180,
+          61
+        ],
+        "uncertainty": "The short line is below the blade and could alternatively be associated with the next root."
+      },
+      "label": "f89r2.21"
+    },
+    {
+      "id": "band-3-item-7",
+      "kind": "plant_part",
+      "features": {
+        "colour": "mixed",
+        "band": 3,
+        "bbox_crop_px": [
+          1558,
+          1155,
+          812,
+          640
+        ],
+        "description": "Large orange-red root to the far right with several thick spreading branches, a pale twig and two toothed green discs toward the left.",
+        "uncertainty": "The short line between the two right-hand plants is recorded once. It could also point to this fragment.",
+        "candidate_caption_loci": [
+          "f89r2.21"
+        ]
+      },
+      "label": null
+    },
+    {
+      "id": "band-4-item-1",
+      "kind": "jar",
+      "features": {
+        "colour": "mixed",
+        "band": 4,
+        "bbox_crop_px": [
+          37,
+          1582,
+          225,
+          520
+        ],
+        "description": "Oval ribbed vessel with alternating red and green strokes, a green neck or stem, and a light round pedestal.",
+        "caption_bbox_crop_px": [
+          217,
+          1862,
+          120,
+          98
+        ],
+        "uncertainty": "A second short line immediately below shares this container position. Its locus is f89r2.30.",
+        "additional_caption_locus": "f89r2.30"
+      },
+      "label": "f89r2.29"
+    },
+    {
+      "id": "band-4-item-2",
+      "kind": "plant_part",
+      "features": {
+        "colour": "mixed",
+        "band": 4,
+        "bbox_crop_px": [
+          278,
+          1740,
+          424,
+          410
+        ],
+        "description": "Nearly circular green blade with a pale diagonal vein connected to a broad orange root that bends at its narrow tip.",
+        "caption_bbox_crop_px": [
+          633,
+          1851,
+          130,
+          70
+        ]
+      },
+      "label": "f89r2.31"
+    },
+    {
+      "id": "band-4-item-3",
+      "kind": "plant_part",
+      "features": {
+        "colour": "mixed",
+        "band": 4,
+        "bbox_crop_px": [
+          494,
+          1739,
+          542,
+          473
+        ],
+        "description": "Oblong dark green blade with a toothed margin, a straight pale stalk and a darkened brown junction among faint roots.",
+        "caption_bbox_crop_px": [
+          1020,
+          1874,
+          155,
+          64
+        ],
+        "uncertainty": "The outlines of this and the next fragment fade into one another in the darkened parchment."
+      },
+      "label": "f89r2.32"
+    },
+    {
+      "id": "band-4-item-4",
+      "kind": "plant_part",
+      "features": {
+        "colour": "unclear",
+        "band": 4,
+        "bbox_crop_px": [
+          960,
+          1714,
+          451,
+          520
+        ],
+        "description": "Pale scalloped blade on an angled set of thin lines with an extended, faint branching bottom. Greenish traces are hard to separate from discoloration.",
+        "caption_bbox_crop_px": [
+          1308,
+          1862,
+          156,
+          67
+        ]
+      },
+      "label": "f89r2.33"
+    },
+    {
+      "id": "band-4-item-5",
+      "kind": "plant_part",
+      "features": {
+        "colour": "mixed",
+        "band": 4,
+        "bbox_crop_px": [
+          1394,
+          1709,
+          922,
+          552
+        ],
+        "description": "Large scalloped green disc on a curved pale stem, meeting a broad ochre root that splits into thick branches to the right and down.",
+        "caption_bbox_crop_px": [
+          1516,
+          1940,
+          172,
+          60
+        ]
+      },
+      "label": "f89r2.34"
+    }
+  ]
+}
