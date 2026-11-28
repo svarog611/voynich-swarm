@@ -1,0 +1,3375 @@
+{
+  "title": "Test whether unrestricted star-label joins transfer to the adjoining f68r2 panel",
+  "statement": "Two independent image-only readers agree on 28 of 29 f68r1 star-label pairings. Nearest first-glyph points and word quadrilaterals reproduce every agreed pair. Requiring the star to be left of the word misassigns f68r1.32 and repeats a star already selected for f68r1.31.",
+  "program": "L4",
+  "hard": true,
+  "on_path": false,
+  "check": "Freeze a second independent, image-only pair of readers and a registered word-box set on f68r2. Carry forward the unblinding code and the three per-word rules. Report occurrences where star placement is opposite the left-only prior, nearest-rule discrepancies and the fraction independently agreed. Retain uncertainty and shared or repeated assignments without a global one-to-one constraint. Compare nearest margins before considering a wider text-picture test.",
+  "evidence": {
+    "canvas": "https://collections.library.yale.edu/manifests/oid/2002046/canvas/1006196",
+    "source_scan": "https://collections.library.yale.edu/iiif/2/1006196/175,60,2320,3700/full/0/default.jpg",
+    "reference_map": "https://github.com/Ayan-Bandyopadhyay/voynich-swarm/pull/649",
+    "previous_four_checks": "https://github.com/Ayan-Bandyopadhyay/voynich-swarm/pull/695",
+    "observer_setup": "Two independent model readers received the same scan crop, rough overview and coordinate guides only. Each froze star centers and visual word choices before the registered boxes or each other’s selections were revealed. They are not independent scans or human readers.",
+    "main_findings": [
+      "The 29 centers all have reciprocal matches and the median disagreement is 3.61 native pixels, maximum 12.65. There are 28 unique certain and concordant pairs and one mutually ambiguous word boundary at candidate f68r1.34. Both readers locate the same star and adjacent ink. Their preferred point covers different amounts of a two-group inscription, preserved separately.",
+      "On all 28 certain concordant pairs, the first-glyph and quadrilateral rules are 28 correct, zero wrong and zero unassigned. The left-only rule is 27 correct, one wrong and zero unassigned. Its f68r1.32 prediction is A24 at canvas (379, 2199), already the correct selection for f68r1.31. The other two rules select independently agreed A28 at (718, 2390). Both readers saw the f68r1.32 ink to the left of A28.",
+      "All three methods agree on f68r1.12, f68r1.26 and f68r1.30. The two different first-glyph pixels for f68r1.30 both select A20 at (1868, 1904). Among the other 25 loci, the methods gave identical correct results on all 24 with certain pairings. The remaining locus is the unresolved .34.",
+      "First-glyph and unrestricted-box minimum runner-up margins on agreed matches are 62.64 and 20.56 native pixels respectively. The data concern one physical panel and cannot estimate a general advantage of quadrilaterals where both yielded the same assignments."
+    ],
+    "full_frozen_inputs_and_comparison": {
+      "plan": {
+        "study": "P-L4-059",
+        "scan_sha256": "960276a528fa4110416fa449c8c1b7e60ebc14ba88408b3f7baaea346f3b8586",
+        "reader_coordinates": "Crop-native x right, y down. Add 175 px in x and 60 in y to obtain Yale canvas-native coordinates.",
+        "star_alignment": "Match the scans by reciprocal nearest star centers between the two readers, with no exact ties and separation at most 60 native px. Report unmatched stars. This alignment does not alter either reader's label choices.",
+        "word_alignment": "Independently map each recorded ink-center point to the nearest published projected word quadrilateral. A point inside the box is at zero distance. A point more than 75 native px away, inside multiple boxes, or within 20 px of the next box when outside the nearest box is ambiguous. Keep all alternate choices and original uncertainty even if automatic mapping is unique.",
+        "agreement_rule": "A star and locus are an agreed pair when matched readers both call it certain and independently select the same unique locus. More than one agreed star for the same locus is a repeated association and is excluded from the unique agreed-pair denominator. Retain ambiguous, discordant and missing cases.",
+        "geometry_rules": [
+          "Nearest reader A center to the published first-glyph point using Euclidean distance.",
+          "Nearest reader A center to the four-sided word box, with zero distance if inside.",
+          "Nearest reader A center to the same box among centers strictly left of the midpoint of the box's x span."
+        ],
+        "unassignment_for_geometry": "Treat exact ties and absence of an eligible center as unassigned. No distance cutoff and no global one-to-one assignment. Count repeated star choices. Retain the closest runner-up margin when nonempty.",
+        "known_loci_to_report_separately": [
+          "f68r1.12",
+          "f68r1.26",
+          "f68r1.30",
+          "f68r1.32"
+        ],
+        "known_point_alternative": "For .30 use both published and second-reader first-stroke positions reported in PR 695. For .32 list the star selected by each rule even if there is no independently agreed star."
+      },
+      "plan_sha256": "6f850fd58b6384fec12e2df2089d976196e3397e21042b68c062badb01a0f37c",
+      "reader_file_sha256": {
+        "reader-a.json": "6c41a87ac3bbf1e3c8de8c2883f9e768ca049d529af9b6ffb934a099f73a2688",
+        "reader-b.json": "0ed3916bf40d24b5c9150f667322aa2dc3333e8165269463fc652a554ffc873d"
+      },
+      "star_pair_status": {
+        "agreed": 28,
+        "ambiguous": 1
+      },
+      "star_pairs_count": 29,
+      "median_center_difference_native_px": 3.605551275463989,
+      "unpaired_reader_a": [],
+      "unpaired_reader_b": [],
+      "mutually_agreed_unique_loci": 28,
+      "mutually_agreed_but_multiple_stars": {},
+      "rule_performance": {
+        "first_glyph": {
+          "all": {
+            "correct": 28
+          },
+          "previously_known": {
+            "correct": 4
+          },
+          "other": {
+            "correct": 24
+          }
+        },
+        "quadrilateral": {
+          "all": {
+            "correct": 28
+          },
+          "previously_known": {
+            "correct": 4
+          },
+          "other": {
+            "correct": 24
+          }
+        },
+        "left_quadrilateral": {
+          "all": {
+            "correct": 27,
+            "wrong": 1
+          },
+          "previously_known": {
+            "correct": 3,
+            "wrong": 1
+          },
+          "other": {
+            "correct": 24
+          }
+        }
+      },
+      "rules_repeated_star_choices": {
+        "first_glyph": {},
+        "quadrilateral": {},
+        "left_quadrilateral": {
+          "A24": 2
+        }
+      },
+      "stars_and_reader_choices": {
+        "A01": {
+          "original": {
+            "star": [
+              1399,
+              701
+            ],
+            "word": [
+              1573,
+              735
+            ],
+            "certainty": "certain",
+            "note": "Immediate right; a tiny intervening dot stands apart from the word."
+          },
+          "star_on_canvas": [
+            1574,
+            761
+          ],
+          "reader": "A",
+          "label_match": {
+            "locus": "f68r1.9",
+            "status": "unique",
+            "nearest_locus": "f68r1.9",
+            "distance_px": 0.0,
+            "next_locus": "f68r1.13",
+            "next_distance_px": 173.82111781685137
+          }
+        },
+        "A02": {
+          "original": {
+            "star": [
+              538,
+              746
+            ],
+            "word": [
+              710,
+              769
+            ],
+            "certainty": "certain",
+            "note": "Immediate right; prose is higher and farther to the left."
+          },
+          "star_on_canvas": [
+            713,
+            806
+          ],
+          "reader": "A",
+          "label_match": {
+            "locus": "f68r1.8",
+            "status": "unique",
+            "nearest_locus": "f68r1.8",
+            "distance_px": 0.0,
+            "next_locus": "f68r1.10",
+            "next_distance_px": 254.13110671462476
+          }
+        },
+        "A03": {
+          "original": {
+            "star": [
+              1427,
+              966
+            ],
+            "word": [
+              1583,
+              964
+            ],
+            "certainty": "certain",
+            "note": "Immediate right."
+          },
+          "star_on_canvas": [
+            1602,
+            1026
+          ],
+          "reader": "A",
+          "label_match": {
+            "locus": "f68r1.13",
+            "status": "unique",
+            "nearest_locus": "f68r1.13",
+            "distance_px": 0.0,
+            "next_locus": "f68r1.9",
+            "next_distance_px": 168.67132640876878
+          }
+        },
+        "A04": {
+          "original": {
+            "star": [
+              312,
+              991
+            ],
+            "word": [
+              450,
+              1033
+            ],
+            "certainty": "certain",
+            "note": "Adjacent lower right."
+          },
+          "star_on_canvas": [
+            487,
+            1051
+          ],
+          "reader": "A",
+          "label_match": {
+            "locus": "f68r1.10",
+            "status": "unique",
+            "nearest_locus": "f68r1.10",
+            "distance_px": 0.0,
+            "next_locus": "f68r1.14",
+            "next_distance_px": 252.14185610485222
+          }
+        },
+        "A05": {
+          "original": {
+            "star": [
+              1834,
+              1070
+            ],
+            "word": [
+              1981,
+              1053
+            ],
+            "certainty": "certain",
+            "note": "Immediate right."
+          },
+          "star_on_canvas": [
+            2009,
+            1130
+          ],
+          "reader": "A",
+          "label_match": {
+            "locus": "f68r1.18",
+            "status": "unique",
+            "nearest_locus": "f68r1.18",
+            "distance_px": 0.0,
+            "next_locus": "f68r1.24",
+            "next_distance_px": 177.52642430380521
+          }
+        },
+        "A06": {
+          "original": {
+            "star": [
+              745,
+              1087
+            ],
+            "word": [
+              871,
+              1129
+            ],
+            "certainty": "certain",
+            "note": "Adjacent lower right, between the star and the next star to the east."
+          },
+          "star_on_canvas": [
+            920,
+            1147
+          ],
+          "reader": "A",
+          "label_match": {
+            "locus": "f68r1.11",
+            "status": "unique",
+            "nearest_locus": "f68r1.11",
+            "distance_px": 0.0,
+            "next_locus": "f68r1.15",
+            "next_distance_px": 222.3048523986825
+          }
+        },
+        "A07": {
+          "original": {
+            "star": [
+              1043,
+              1146
+            ],
+            "word": [
+              1190,
+              1133
+            ],
+            "certainty": "certain",
+            "note": "Immediate right."
+          },
+          "star_on_canvas": [
+            1218,
+            1206
+          ],
+          "reader": "A",
+          "label_match": {
+            "locus": "f68r1.12",
+            "status": "unique",
+            "nearest_locus": "f68r1.12",
+            "distance_px": 0.0,
+            "next_locus": "f68r1.11",
+            "next_distance_px": 247.5273321035824
+          }
+        },
+        "A08": {
+          "original": {
+            "star": [
+              1384,
+              1272
+            ],
+            "word": [
+              1575,
+              1244
+            ],
+            "certainty": "certain",
+            "note": "Adjacent upper right of the star."
+          },
+          "star_on_canvas": [
+            1559,
+            1332
+          ],
+          "reader": "A",
+          "label_match": {
+            "locus": "f68r1.17",
+            "status": "unique",
+            "nearest_locus": "f68r1.17",
+            "distance_px": 0.0,
+            "next_locus": "f68r1.23",
+            "next_distance_px": 184.032771538115
+          }
+        },
+        "A09": {
+          "original": {
+            "star": [
+              177,
+              1295
+            ],
+            "word": [
+              297,
+              1340
+            ],
+            "certainty": "certain",
+            "note": "Immediate right."
+          },
+          "star_on_canvas": [
+            352,
+            1355
+          ],
+          "reader": "A",
+          "label_match": {
+            "locus": "f68r1.14",
+            "status": "unique",
+            "nearest_locus": "f68r1.14",
+            "distance_px": 0.0,
+            "next_locus": "f68r1.19",
+            "next_distance_px": 205.28459425280093
+          }
+        },
+        "A10": {
+          "original": {
+            "star": [
+              1837,
+              1309
+            ],
+            "word": [
+              2011,
+              1284
+            ],
+            "certainty": "certain",
+            "note": "Adjacent upper right; the pale and dark strokes occupy the same line."
+          },
+          "star_on_canvas": [
+            2012,
+            1369
+          ],
+          "reader": "A",
+          "label_match": {
+            "locus": "f68r1.24",
+            "status": "unique",
+            "nearest_locus": "f68r1.24",
+            "distance_px": 0.0,
+            "next_locus": "f68r1.25",
+            "next_distance_px": 151.28973858130638
+          }
+        },
+        "A11": {
+          "original": {
+            "star": [
+              609,
+              1336
+            ],
+            "word": [
+              717,
+              1375
+            ],
+            "certainty": "certain",
+            "note": "Immediate lower right, ending before the next star."
+          },
+          "star_on_canvas": [
+            784,
+            1396
+          ],
+          "reader": "A",
+          "label_match": {
+            "locus": "f68r1.15",
+            "status": "unique",
+            "nearest_locus": "f68r1.15",
+            "distance_px": 0.0,
+            "next_locus": "f68r1.11",
+            "next_distance_px": 212.065794035719
+          }
+        },
+        "A12": {
+          "original": {
+            "star": [
+              856,
+              1399
+            ],
+            "word": [
+              1008,
+              1412
+            ],
+            "certainty": "certain",
+            "note": "Immediate right."
+          },
+          "star_on_canvas": [
+            1031,
+            1459
+          ],
+          "reader": "A",
+          "label_match": {
+            "locus": "f68r1.16",
+            "status": "unique",
+            "nearest_locus": "f68r1.16",
+            "distance_px": 0.0,
+            "next_locus": "f68r1.22",
+            "next_distance_px": 227.07940835751714
+          }
+        },
+        "A13": {
+          "original": {
+            "star": [
+              1545,
+              1510
+            ],
+            "word": [
+              1729,
+              1482
+            ],
+            "certainty": "certain",
+            "note": "Immediate upper right."
+          },
+          "star_on_canvas": [
+            1720,
+            1570
+          ],
+          "reader": "A",
+          "label_match": {
+            "locus": "f68r1.23",
+            "status": "unique",
+            "nearest_locus": "f68r1.23",
+            "distance_px": 0.0,
+            "next_locus": "f68r1.17",
+            "next_distance_px": 191.88590881041785
+          }
+        },
+        "A14": {
+          "original": {
+            "star": [
+              2009,
+              1514
+            ],
+            "word": [
+              2139,
+              1475
+            ],
+            "certainty": "certain",
+            "note": "Short word immediately above and to the right."
+          },
+          "star_on_canvas": [
+            2184,
+            1574
+          ],
+          "reader": "A",
+          "label_match": {
+            "locus": "f68r1.25",
+            "status": "unique",
+            "nearest_locus": "f68r1.25",
+            "distance_px": 0.0,
+            "next_locus": "f68r1.24",
+            "next_distance_px": 152.35631427676375
+          }
+        },
+        "A15": {
+          "original": {
+            "star": [
+              251,
+              1618
+            ],
+            "word": [
+              321,
+              1601
+            ],
+            "certainty": "certain",
+            "note": "Immediate upper right, before the neighboring star."
+          },
+          "star_on_canvas": [
+            426,
+            1678
+          ],
+          "reader": "A",
+          "label_match": {
+            "locus": "f68r1.19",
+            "status": "unique",
+            "nearest_locus": "f68r1.19",
+            "distance_px": 0.0,
+            "next_locus": "f68r1.20",
+            "next_distance_px": 145.86630351112626
+          }
+        },
+        "A16": {
+          "original": {
+            "star": [
+              429,
+              1650
+            ],
+            "word": [
+              511,
+              1640
+            ],
+            "certainty": "certain",
+            "note": "Immediate upper right of the dark-centered star, before the next star."
+          },
+          "star_on_canvas": [
+            604,
+            1710
+          ],
+          "reader": "A",
+          "label_match": {
+            "locus": "f68r1.20",
+            "status": "unique",
+            "nearest_locus": "f68r1.20",
+            "distance_px": 0.0,
+            "next_locus": "f68r1.19",
+            "next_distance_px": 139.89844417819427
+          }
+        },
+        "A17": {
+          "original": {
+            "star": [
+              1055,
+              1664
+            ],
+            "word": [
+              1210,
+              1667
+            ],
+            "certainty": "certain",
+            "note": "Immediate right of the large central star."
+          },
+          "star_on_canvas": [
+            1230,
+            1724
+          ],
+          "reader": "A",
+          "label_match": {
+            "locus": "f68r1.22",
+            "status": "unique",
+            "nearest_locus": "f68r1.22",
+            "distance_px": 0.0,
+            "next_locus": "f68r1.29",
+            "next_distance_px": 197.00719504627236
+          }
+        },
+        "A18": {
+          "original": {
+            "star": [
+              627,
+              1667
+            ],
+            "word": [
+              756,
+              1670
+            ],
+            "certainty": "certain",
+            "note": "Immediate right."
+          },
+          "star_on_canvas": [
+            802,
+            1727
+          ],
+          "reader": "A",
+          "label_match": {
+            "locus": "f68r1.21",
+            "status": "unique",
+            "nearest_locus": "f68r1.21",
+            "distance_px": 0.0,
+            "next_locus": "f68r1.20",
+            "next_distance_px": 201.29723694079857
+          }
+        },
+        "A19": {
+          "original": {
+            "star": [
+              197,
+              1817
+            ],
+            "word": [
+              287,
+              1835
+            ],
+            "certainty": "certain",
+            "note": "Immediate right."
+          },
+          "star_on_canvas": [
+            372,
+            1877
+          ],
+          "reader": "A",
+          "label_match": {
+            "locus": "f68r1.26",
+            "status": "unique",
+            "nearest_locus": "f68r1.26",
+            "distance_px": 0.0,
+            "next_locus": "f68r1.19",
+            "next_distance_px": 175.8039601374212
+          }
+        },
+        "A20": {
+          "original": {
+            "star": [
+              1693,
+              1844
+            ],
+            "word": [
+              1882,
+              1867
+            ],
+            "certainty": "certain",
+            "note": "Immediate right; tall strokes and a horizontal flourish extend above the word body."
+          },
+          "star_on_canvas": [
+            1868,
+            1904
+          ],
+          "reader": "A",
+          "label_match": {
+            "locus": "f68r1.30",
+            "status": "unique",
+            "nearest_locus": "f68r1.30",
+            "distance_px": 0.0,
+            "next_locus": "f68r1.35",
+            "next_distance_px": 227.62540734568893
+          }
+        },
+        "A21": {
+          "original": {
+            "star": [
+              1278,
+              1868
+            ],
+            "word": [
+              1454,
+              1860
+            ],
+            "certainty": "certain",
+            "note": "Immediate right."
+          },
+          "star_on_canvas": [
+            1453,
+            1928
+          ],
+          "reader": "A",
+          "label_match": {
+            "locus": "f68r1.29",
+            "status": "unique",
+            "nearest_locus": "f68r1.29",
+            "distance_px": 0.0,
+            "next_locus": "f68r1.22",
+            "next_distance_px": 240.08095717903166
+          }
+        },
+        "A22": {
+          "original": {
+            "star": [
+              799,
+              1987
+            ],
+            "word": [
+              961,
+              1987
+            ],
+            "certainty": "certain",
+            "note": "Immediate right."
+          },
+          "star_on_canvas": [
+            974,
+            2047
+          ],
+          "reader": "A",
+          "label_match": {
+            "locus": "f68r1.28",
+            "status": "unique",
+            "nearest_locus": "f68r1.28",
+            "distance_px": 0.0,
+            "next_locus": "f68r1.33",
+            "next_distance_px": 207.88702105828943
+          }
+        },
+        "A23": {
+          "original": {
+            "star": [
+              392,
+              2024
+            ],
+            "word": [
+              520,
+              2023
+            ],
+            "certainty": "certain",
+            "note": "Immediate right of the narrow star."
+          },
+          "star_on_canvas": [
+            567,
+            2084
+          ],
+          "reader": "A",
+          "label_match": {
+            "locus": "f68r1.27",
+            "status": "unique",
+            "nearest_locus": "f68r1.27",
+            "distance_px": 0.0,
+            "next_locus": "f68r1.31",
+            "next_distance_px": 173.70299709561718
+          }
+        },
+        "A24": {
+          "original": {
+            "star": [
+              204,
+              2139
+            ],
+            "word": [
+              301,
+              2164
+            ],
+            "certainty": "certain",
+            "note": "Immediate lower right of the dark-centered star."
+          },
+          "star_on_canvas": [
+            379,
+            2199
+          ],
+          "reader": "A",
+          "label_match": {
+            "locus": "f68r1.31",
+            "status": "unique",
+            "nearest_locus": "f68r1.31",
+            "distance_px": 0.0,
+            "next_locus": "f68r1.32",
+            "next_distance_px": 150.4255649814883
+          }
+        },
+        "A25": {
+          "original": {
+            "star": [
+              1653,
+              2177
+            ],
+            "word": [
+              1844,
+              2170
+            ],
+            "certainty": "certain",
+            "note": "Immediate right, ending before an isolated dot farther to the right."
+          },
+          "star_on_canvas": [
+            1828,
+            2237
+          ],
+          "reader": "A",
+          "label_match": {
+            "locus": "f68r1.35",
+            "status": "unique",
+            "nearest_locus": "f68r1.35",
+            "distance_px": 0.0,
+            "next_locus": "f68r1.36",
+            "next_distance_px": 250.65119528939013
+          }
+        },
+        "A26": {
+          "original": {
+            "star": [
+              1247,
+              2180
+            ],
+            "word": [
+              1429,
+              2184
+            ],
+            "certainty": "uncertain",
+            "note": "The nearby inscription to the right pairs spatially with this star. A visible gap makes its division into one or two words uncertain. The selected point centers the whole group, and the alternates center the two parts.",
+            "alternates": [
+              [
+                1364,
+                2192
+              ],
+              [
+                1462,
+                2184
+              ]
+            ]
+          },
+          "star_on_canvas": [
+            1422,
+            2240
+          ],
+          "reader": "A",
+          "label_match": {
+            "locus": "f68r1.34",
+            "status": "unique",
+            "nearest_locus": "f68r1.34",
+            "distance_px": 0.0,
+            "next_locus": "f68r1.36",
+            "next_distance_px": 250.3136440548138
+          }
+        },
+        "A27": {
+          "original": {
+            "star": [
+              770,
+              2276
+            ],
+            "word": [
+              951,
+              2250
+            ],
+            "certainty": "certain",
+            "note": "Immediate upper right."
+          },
+          "star_on_canvas": [
+            945,
+            2336
+          ],
+          "reader": "A",
+          "label_match": {
+            "locus": "f68r1.33",
+            "status": "unique",
+            "nearest_locus": "f68r1.33",
+            "distance_px": 0.0,
+            "next_locus": "f68r1.28",
+            "next_distance_px": 222.6489607336812
+          }
+        },
+        "A28": {
+          "original": {
+            "star": [
+              543,
+              2330
+            ],
+            "word": [
+              399,
+              2351
+            ],
+            "certainty": "certain",
+            "note": "Immediate left; the word ends where the left ray begins."
+          },
+          "star_on_canvas": [
+            718,
+            2390
+          ],
+          "reader": "A",
+          "label_match": {
+            "locus": "f68r1.32",
+            "status": "unique",
+            "nearest_locus": "f68r1.32",
+            "distance_px": 0.0,
+            "next_locus": "f68r1.31",
+            "next_distance_px": 155.97034493774777
+          }
+        },
+        "A29": {
+          "original": {
+            "star": [
+              1470,
+              2444
+            ],
+            "word": [
+              1655,
+              2446
+            ],
+            "certainty": "certain",
+            "note": "Immediate right, above and to the right of the lower face medallion."
+          },
+          "star_on_canvas": [
+            1645,
+            2504
+          ],
+          "reader": "A",
+          "label_match": {
+            "locus": "f68r1.36",
+            "status": "unique",
+            "nearest_locus": "f68r1.36",
+            "distance_px": 0.0,
+            "next_locus": "f68r1.35",
+            "next_distance_px": 225.75659901761458
+          }
+        },
+        "B01": {
+          "original": {
+            "star": [
+              1400,
+              706
+            ],
+            "word": [
+              1572,
+              742
+            ],
+            "certainty": "certain",
+            "note": "An isolated ink speck lies between the star and the word."
+          },
+          "star_on_canvas": [
+            1575,
+            766
+          ],
+          "reader": "B",
+          "label_match": {
+            "locus": "f68r1.9",
+            "status": "unique",
+            "nearest_locus": "f68r1.9",
+            "distance_px": 0.0,
+            "next_locus": "f68r1.13",
+            "next_distance_px": 166.83031114092222
+          }
+        },
+        "B02": {
+          "original": {
+            "star": [
+              538,
+              745
+            ],
+            "word": [
+              715,
+              769
+            ],
+            "certainty": "certain",
+            "note": ""
+          },
+          "star_on_canvas": [
+            713,
+            805
+          ],
+          "reader": "B",
+          "label_match": {
+            "locus": "f68r1.8",
+            "status": "unique",
+            "nearest_locus": "f68r1.8",
+            "distance_px": 0.0,
+            "next_locus": "f68r1.10",
+            "next_distance_px": 257.5191631704328
+          }
+        },
+        "B03": {
+          "original": {
+            "star": [
+              1428,
+              968
+            ],
+            "word": [
+              1582,
+              973
+            ],
+            "certainty": "certain",
+            "note": ""
+          },
+          "star_on_canvas": [
+            1603,
+            1028
+          ],
+          "reader": "B",
+          "label_match": {
+            "locus": "f68r1.13",
+            "status": "unique",
+            "nearest_locus": "f68r1.13",
+            "distance_px": 0.0,
+            "next_locus": "f68r1.9",
+            "next_distance_px": 177.66168416160824
+          }
+        },
+        "B04": {
+          "original": {
+            "star": [
+              313,
+              994
+            ],
+            "word": [
+              453,
+              1033
+            ],
+            "certainty": "certain",
+            "note": ""
+          },
+          "star_on_canvas": [
+            488,
+            1054
+          ],
+          "reader": "B",
+          "label_match": {
+            "locus": "f68r1.10",
+            "status": "unique",
+            "nearest_locus": "f68r1.10",
+            "distance_px": 0.0,
+            "next_locus": "f68r1.14",
+            "next_distance_px": 253.11372068696713
+          }
+        },
+        "B05": {
+          "original": {
+            "star": [
+              1833,
+              1070
+            ],
+            "word": [
+              1984,
+              1056
+            ],
+            "certainty": "certain",
+            "note": ""
+          },
+          "star_on_canvas": [
+            2008,
+            1130
+          ],
+          "reader": "B",
+          "label_match": {
+            "locus": "f68r1.18",
+            "status": "unique",
+            "nearest_locus": "f68r1.18",
+            "distance_px": 0.0,
+            "next_locus": "f68r1.24",
+            "next_distance_px": 174.51812124033702
+          }
+        },
+        "B06": {
+          "original": {
+            "star": [
+              741,
+              1083
+            ],
+            "word": [
+              869,
+              1127
+            ],
+            "certainty": "certain",
+            "note": ""
+          },
+          "star_on_canvas": [
+            916,
+            1143
+          ],
+          "reader": "B",
+          "label_match": {
+            "locus": "f68r1.11",
+            "status": "unique",
+            "nearest_locus": "f68r1.11",
+            "distance_px": 0.0,
+            "next_locus": "f68r1.15",
+            "next_distance_px": 223.28673807461118
+          }
+        },
+        "B07": {
+          "original": {
+            "star": [
+              1043,
+              1146
+            ],
+            "word": [
+              1196,
+              1143
+            ],
+            "certainty": "certain",
+            "note": ""
+          },
+          "star_on_canvas": [
+            1218,
+            1206
+          ],
+          "reader": "B",
+          "label_match": {
+            "locus": "f68r1.12",
+            "status": "unique",
+            "nearest_locus": "f68r1.12",
+            "distance_px": 0.0,
+            "next_locus": "f68r1.16",
+            "next_distance_px": 251.9977384819158
+          }
+        },
+        "B08": {
+          "original": {
+            "star": [
+              1383,
+              1271
+            ],
+            "word": [
+              1576,
+              1238
+            ],
+            "certainty": "certain",
+            "note": ""
+          },
+          "star_on_canvas": [
+            1558,
+            1331
+          ],
+          "reader": "B",
+          "label_match": {
+            "locus": "f68r1.17",
+            "status": "unique",
+            "nearest_locus": "f68r1.17",
+            "distance_px": 0.0,
+            "next_locus": "f68r1.23",
+            "next_distance_px": 189.42154312537957
+          }
+        },
+        "B09": {
+          "original": {
+            "star": [
+              183,
+              1300
+            ],
+            "word": [
+              297,
+              1336
+            ],
+            "certainty": "certain",
+            "note": ""
+          },
+          "star_on_canvas": [
+            358,
+            1360
+          ],
+          "reader": "B",
+          "label_match": {
+            "locus": "f68r1.14",
+            "status": "unique",
+            "nearest_locus": "f68r1.14",
+            "distance_px": 0.0,
+            "next_locus": "f68r1.19",
+            "next_distance_px": 209.28379055074183
+          }
+        },
+        "B10": {
+          "original": {
+            "star": [
+              1838,
+              1308
+            ],
+            "word": [
+              2014,
+              1289
+            ],
+            "certainty": "certain",
+            "note": ""
+          },
+          "star_on_canvas": [
+            2013,
+            1368
+          ],
+          "reader": "B",
+          "label_match": {
+            "locus": "f68r1.24",
+            "status": "unique",
+            "nearest_locus": "f68r1.24",
+            "distance_px": 0.0,
+            "next_locus": "f68r1.25",
+            "next_distance_px": 145.46334589854595
+          }
+        },
+        "B11": {
+          "original": {
+            "star": [
+              609,
+              1339
+            ],
+            "word": [
+              712,
+              1377
+            ],
+            "certainty": "certain",
+            "note": ""
+          },
+          "star_on_canvas": [
+            784,
+            1399
+          ],
+          "reader": "B",
+          "label_match": {
+            "locus": "f68r1.15",
+            "status": "unique",
+            "nearest_locus": "f68r1.15",
+            "distance_px": 0.0,
+            "next_locus": "f68r1.11",
+            "next_distance_px": 215.62217186551106
+          }
+        },
+        "B12": {
+          "original": {
+            "star": [
+              850,
+              1400
+            ],
+            "word": [
+              1007,
+              1409
+            ],
+            "certainty": "certain",
+            "note": ""
+          },
+          "star_on_canvas": [
+            1025,
+            1460
+          ],
+          "reader": "B",
+          "label_match": {
+            "locus": "f68r1.16",
+            "status": "unique",
+            "nearest_locus": "f68r1.16",
+            "distance_px": 0.0,
+            "next_locus": "f68r1.15",
+            "next_distance_px": 229.5954857908721
+          }
+        },
+        "B13": {
+          "original": {
+            "star": [
+              1547,
+              1507
+            ],
+            "word": [
+              1731,
+              1483
+            ],
+            "certainty": "certain",
+            "note": ""
+          },
+          "star_on_canvas": [
+            1722,
+            1567
+          ],
+          "reader": "B",
+          "label_match": {
+            "locus": "f68r1.23",
+            "status": "unique",
+            "nearest_locus": "f68r1.23",
+            "distance_px": 0.0,
+            "next_locus": "f68r1.17",
+            "next_distance_px": 193.22370972528188
+          }
+        },
+        "B14": {
+          "original": {
+            "star": [
+              2008,
+              1514
+            ],
+            "word": [
+              2138,
+              1475
+            ],
+            "certainty": "certain",
+            "note": ""
+          },
+          "star_on_canvas": [
+            2183,
+            1574
+          ],
+          "reader": "B",
+          "label_match": {
+            "locus": "f68r1.25",
+            "status": "unique",
+            "nearest_locus": "f68r1.25",
+            "distance_px": 0.0,
+            "next_locus": "f68r1.24",
+            "next_distance_px": 152.26827148161894
+          }
+        },
+        "B15": {
+          "original": {
+            "star": [
+              245,
+              1617
+            ],
+            "word": [
+              328,
+              1604
+            ],
+            "certainty": "certain",
+            "note": ""
+          },
+          "star_on_canvas": [
+            420,
+            1677
+          ],
+          "reader": "B",
+          "label_match": {
+            "locus": "f68r1.19",
+            "status": "unique",
+            "nearest_locus": "f68r1.19",
+            "distance_px": 0.0,
+            "next_locus": "f68r1.20",
+            "next_distance_px": 138.8393762692212
+          }
+        },
+        "B16": {
+          "original": {
+            "star": [
+              429,
+              1654
+            ],
+            "word": [
+              507,
+              1636
+            ],
+            "certainty": "certain",
+            "note": ""
+          },
+          "star_on_canvas": [
+            604,
+            1714
+          ],
+          "reader": "B",
+          "label_match": {
+            "locus": "f68r1.20",
+            "status": "unique",
+            "nearest_locus": "f68r1.20",
+            "distance_px": 0.0,
+            "next_locus": "f68r1.19",
+            "next_distance_px": 135.89809291584726
+          }
+        },
+        "B17": {
+          "original": {
+            "star": [
+              628,
+              1674
+            ],
+            "word": [
+              750,
+              1672
+            ],
+            "certainty": "certain",
+            "note": ""
+          },
+          "star_on_canvas": [
+            803,
+            1734
+          ],
+          "reader": "B",
+          "label_match": {
+            "locus": "f68r1.21",
+            "status": "unique",
+            "nearest_locus": "f68r1.21",
+            "distance_px": 0.0,
+            "next_locus": "f68r1.20",
+            "next_distance_px": 195.3583824666861
+          }
+        },
+        "B18": {
+          "original": {
+            "star": [
+              1056,
+              1669
+            ],
+            "word": [
+              1214,
+              1655
+            ],
+            "certainty": "certain",
+            "note": "The handwritten word crosses the seam between the two tile images."
+          },
+          "star_on_canvas": [
+            1231,
+            1729
+          ],
+          "reader": "B",
+          "label_match": {
+            "locus": "f68r1.22",
+            "status": "unique",
+            "nearest_locus": "f68r1.22",
+            "distance_px": 0.0,
+            "next_locus": "f68r1.29",
+            "next_distance_px": 201.43186168032105
+          }
+        },
+        "B19": {
+          "original": {
+            "star": [
+              199,
+              1820
+            ],
+            "word": [
+              287,
+              1834
+            ],
+            "certainty": "certain",
+            "note": ""
+          },
+          "star_on_canvas": [
+            374,
+            1880
+          ],
+          "reader": "B",
+          "label_match": {
+            "locus": "f68r1.26",
+            "status": "unique",
+            "nearest_locus": "f68r1.26",
+            "distance_px": 0.0,
+            "next_locus": "f68r1.19",
+            "next_distance_px": 174.8039827921549
+          }
+        },
+        "B20": {
+          "original": {
+            "star": [
+              1693,
+              1844
+            ],
+            "word": [
+              1887,
+              1858
+            ],
+            "certainty": "certain",
+            "note": "Tall joined strokes extend above the main body of the handwritten word."
+          },
+          "star_on_canvas": [
+            1868,
+            1904
+          ],
+          "reader": "B",
+          "label_match": {
+            "locus": "f68r1.30",
+            "status": "unique",
+            "nearest_locus": "f68r1.30",
+            "distance_px": 0.0,
+            "next_locus": "f68r1.35",
+            "next_distance_px": 236.59286358933286
+          }
+        },
+        "B21": {
+          "original": {
+            "star": [
+              1278,
+              1871
+            ],
+            "word": [
+              1456,
+              1860
+            ],
+            "certainty": "certain",
+            "note": ""
+          },
+          "star_on_canvas": [
+            1453,
+            1931
+          ],
+          "reader": "B",
+          "label_match": {
+            "locus": "f68r1.29",
+            "status": "unique",
+            "nearest_locus": "f68r1.29",
+            "distance_px": 0.0,
+            "next_locus": "f68r1.22",
+            "next_distance_px": 241.43070641490496
+          }
+        },
+        "B22": {
+          "original": {
+            "star": [
+              797,
+              1996
+            ],
+            "word": [
+              965,
+              1991
+            ],
+            "certainty": "certain",
+            "note": ""
+          },
+          "star_on_canvas": [
+            972,
+            2056
+          ],
+          "reader": "B",
+          "label_match": {
+            "locus": "f68r1.28",
+            "status": "unique",
+            "nearest_locus": "f68r1.28",
+            "distance_px": 0.0,
+            "next_locus": "f68r1.33",
+            "next_distance_px": 203.84203289265778
+          }
+        },
+        "B23": {
+          "original": {
+            "star": [
+              390,
+              2021
+            ],
+            "word": [
+              521,
+              2025
+            ],
+            "certainty": "certain",
+            "note": ""
+          },
+          "star_on_canvas": [
+            565,
+            2081
+          ],
+          "reader": "B",
+          "label_match": {
+            "locus": "f68r1.27",
+            "status": "unique",
+            "nearest_locus": "f68r1.27",
+            "distance_px": 0.0,
+            "next_locus": "f68r1.31",
+            "next_distance_px": 173.66879742774748
+          }
+        },
+        "B24": {
+          "original": {
+            "star": [
+              205,
+              2140
+            ],
+            "word": [
+              302,
+              2158
+            ],
+            "certainty": "certain",
+            "note": ""
+          },
+          "star_on_canvas": [
+            380,
+            2200
+          ],
+          "reader": "B",
+          "label_match": {
+            "locus": "f68r1.31",
+            "status": "unique",
+            "nearest_locus": "f68r1.31",
+            "distance_px": 0.0,
+            "next_locus": "f68r1.32",
+            "next_distance_px": 156.27818337823086
+          }
+        },
+        "B25": {
+          "original": {
+            "star": [
+              1651,
+              2182
+            ],
+            "word": [
+              1847,
+              2170
+            ],
+            "certainty": "certain",
+            "note": ""
+          },
+          "star_on_canvas": [
+            1826,
+            2242
+          ],
+          "reader": "B",
+          "label_match": {
+            "locus": "f68r1.35",
+            "status": "unique",
+            "nearest_locus": "f68r1.35",
+            "distance_px": 0.0,
+            "next_locus": "f68r1.36",
+            "next_distance_px": 251.58792041749538
+          }
+        },
+        "B26": {
+          "original": {
+            "star": [
+              1253,
+              2185
+            ],
+            "word": [
+              1363,
+              2191
+            ],
+            "certainty": "uncertain",
+            "alternates": [
+              [
+                1468,
+                2186
+              ]
+            ],
+            "note": "Two visibly separated ink groups follow the star on the same line. The closest group is selected and the second group is listed as an alternate. Together they are centered around [1428, 2189]."
+          },
+          "star_on_canvas": [
+            1428,
+            2245
+          ],
+          "reader": "B",
+          "label_match": {
+            "locus": "f68r1.34",
+            "status": "unique",
+            "nearest_locus": "f68r1.34",
+            "distance_px": 0.0,
+            "next_locus": "f68r1.36",
+            "next_distance_px": 279.73844998498157
+          }
+        },
+        "B27": {
+          "original": {
+            "star": [
+              769,
+              2274
+            ],
+            "word": [
+              955,
+              2254
+            ],
+            "certainty": "certain",
+            "note": ""
+          },
+          "star_on_canvas": [
+            944,
+            2334
+          ],
+          "reader": "B",
+          "label_match": {
+            "locus": "f68r1.33",
+            "status": "unique",
+            "nearest_locus": "f68r1.33",
+            "distance_px": 0.0,
+            "next_locus": "f68r1.28",
+            "next_distance_px": 226.68707564610983
+          }
+        },
+        "B28": {
+          "original": {
+            "star": [
+              539,
+              2342
+            ],
+            "word": [
+              402,
+              2358
+            ],
+            "certainty": "certain",
+            "note": "The handwritten word is immediately to the left of the star."
+          },
+          "star_on_canvas": [
+            714,
+            2402
+          ],
+          "reader": "B",
+          "label_match": {
+            "locus": "f68r1.32",
+            "status": "unique",
+            "nearest_locus": "f68r1.32",
+            "distance_px": 0.0,
+            "next_locus": "f68r1.31",
+            "next_distance_px": 163.44212584275823
+          }
+        },
+        "B29": {
+          "original": {
+            "star": [
+              1467,
+              2447
+            ],
+            "word": [
+              1656,
+              2443
+            ],
+            "certainty": "certain",
+            "note": ""
+          },
+          "star_on_canvas": [
+            1642,
+            2507
+          ],
+          "reader": "B",
+          "label_match": {
+            "locus": "f68r1.36",
+            "status": "unique",
+            "nearest_locus": "f68r1.36",
+            "distance_px": 0.0,
+            "next_locus": "f68r1.35",
+            "next_distance_px": 222.5945237421622
+          }
+        }
+      },
+      "pair_consensus": {
+        "A01": {
+          "second_reader_star": "B01",
+          "distance_px": 5.0990195135927845,
+          "reader_a_locus": "f68r1.9",
+          "reader_b_locus": "f68r1.9",
+          "status": "agreed",
+          "agreed_locus": "f68r1.9"
+        },
+        "A02": {
+          "second_reader_star": "B02",
+          "distance_px": 1.0,
+          "reader_a_locus": "f68r1.8",
+          "reader_b_locus": "f68r1.8",
+          "status": "agreed",
+          "agreed_locus": "f68r1.8"
+        },
+        "A03": {
+          "second_reader_star": "B03",
+          "distance_px": 2.23606797749979,
+          "reader_a_locus": "f68r1.13",
+          "reader_b_locus": "f68r1.13",
+          "status": "agreed",
+          "agreed_locus": "f68r1.13"
+        },
+        "A04": {
+          "second_reader_star": "B04",
+          "distance_px": 3.1622776601683795,
+          "reader_a_locus": "f68r1.10",
+          "reader_b_locus": "f68r1.10",
+          "status": "agreed",
+          "agreed_locus": "f68r1.10"
+        },
+        "A05": {
+          "second_reader_star": "B05",
+          "distance_px": 1.0,
+          "reader_a_locus": "f68r1.18",
+          "reader_b_locus": "f68r1.18",
+          "status": "agreed",
+          "agreed_locus": "f68r1.18"
+        },
+        "A06": {
+          "second_reader_star": "B06",
+          "distance_px": 5.656854249492381,
+          "reader_a_locus": "f68r1.11",
+          "reader_b_locus": "f68r1.11",
+          "status": "agreed",
+          "agreed_locus": "f68r1.11"
+        },
+        "A07": {
+          "second_reader_star": "B07",
+          "distance_px": 0.0,
+          "reader_a_locus": "f68r1.12",
+          "reader_b_locus": "f68r1.12",
+          "status": "agreed",
+          "agreed_locus": "f68r1.12"
+        },
+        "A08": {
+          "second_reader_star": "B08",
+          "distance_px": 1.4142135623730951,
+          "reader_a_locus": "f68r1.17",
+          "reader_b_locus": "f68r1.17",
+          "status": "agreed",
+          "agreed_locus": "f68r1.17"
+        },
+        "A09": {
+          "second_reader_star": "B09",
+          "distance_px": 7.810249675906654,
+          "reader_a_locus": "f68r1.14",
+          "reader_b_locus": "f68r1.14",
+          "status": "agreed",
+          "agreed_locus": "f68r1.14"
+        },
+        "A10": {
+          "second_reader_star": "B10",
+          "distance_px": 1.4142135623730951,
+          "reader_a_locus": "f68r1.24",
+          "reader_b_locus": "f68r1.24",
+          "status": "agreed",
+          "agreed_locus": "f68r1.24"
+        },
+        "A11": {
+          "second_reader_star": "B11",
+          "distance_px": 3.0,
+          "reader_a_locus": "f68r1.15",
+          "reader_b_locus": "f68r1.15",
+          "status": "agreed",
+          "agreed_locus": "f68r1.15"
+        },
+        "A12": {
+          "second_reader_star": "B12",
+          "distance_px": 6.082762530298219,
+          "reader_a_locus": "f68r1.16",
+          "reader_b_locus": "f68r1.16",
+          "status": "agreed",
+          "agreed_locus": "f68r1.16"
+        },
+        "A13": {
+          "second_reader_star": "B13",
+          "distance_px": 3.605551275463989,
+          "reader_a_locus": "f68r1.23",
+          "reader_b_locus": "f68r1.23",
+          "status": "agreed",
+          "agreed_locus": "f68r1.23"
+        },
+        "A14": {
+          "second_reader_star": "B14",
+          "distance_px": 1.0,
+          "reader_a_locus": "f68r1.25",
+          "reader_b_locus": "f68r1.25",
+          "status": "agreed",
+          "agreed_locus": "f68r1.25"
+        },
+        "A15": {
+          "second_reader_star": "B15",
+          "distance_px": 6.082762530298219,
+          "reader_a_locus": "f68r1.19",
+          "reader_b_locus": "f68r1.19",
+          "status": "agreed",
+          "agreed_locus": "f68r1.19"
+        },
+        "A16": {
+          "second_reader_star": "B16",
+          "distance_px": 4.0,
+          "reader_a_locus": "f68r1.20",
+          "reader_b_locus": "f68r1.20",
+          "status": "agreed",
+          "agreed_locus": "f68r1.20"
+        },
+        "A17": {
+          "second_reader_star": "B18",
+          "distance_px": 5.0990195135927845,
+          "reader_a_locus": "f68r1.22",
+          "reader_b_locus": "f68r1.22",
+          "status": "agreed",
+          "agreed_locus": "f68r1.22"
+        },
+        "A18": {
+          "second_reader_star": "B17",
+          "distance_px": 7.0710678118654755,
+          "reader_a_locus": "f68r1.21",
+          "reader_b_locus": "f68r1.21",
+          "status": "agreed",
+          "agreed_locus": "f68r1.21"
+        },
+        "A19": {
+          "second_reader_star": "B19",
+          "distance_px": 3.605551275463989,
+          "reader_a_locus": "f68r1.26",
+          "reader_b_locus": "f68r1.26",
+          "status": "agreed",
+          "agreed_locus": "f68r1.26"
+        },
+        "A20": {
+          "second_reader_star": "B20",
+          "distance_px": 0.0,
+          "reader_a_locus": "f68r1.30",
+          "reader_b_locus": "f68r1.30",
+          "status": "agreed",
+          "agreed_locus": "f68r1.30"
+        },
+        "A21": {
+          "second_reader_star": "B21",
+          "distance_px": 3.0,
+          "reader_a_locus": "f68r1.29",
+          "reader_b_locus": "f68r1.29",
+          "status": "agreed",
+          "agreed_locus": "f68r1.29"
+        },
+        "A22": {
+          "second_reader_star": "B22",
+          "distance_px": 9.219544457292887,
+          "reader_a_locus": "f68r1.28",
+          "reader_b_locus": "f68r1.28",
+          "status": "agreed",
+          "agreed_locus": "f68r1.28"
+        },
+        "A23": {
+          "second_reader_star": "B23",
+          "distance_px": 3.605551275463989,
+          "reader_a_locus": "f68r1.27",
+          "reader_b_locus": "f68r1.27",
+          "status": "agreed",
+          "agreed_locus": "f68r1.27"
+        },
+        "A24": {
+          "second_reader_star": "B24",
+          "distance_px": 1.4142135623730951,
+          "reader_a_locus": "f68r1.31",
+          "reader_b_locus": "f68r1.31",
+          "status": "agreed",
+          "agreed_locus": "f68r1.31"
+        },
+        "A25": {
+          "second_reader_star": "B25",
+          "distance_px": 5.385164807134504,
+          "reader_a_locus": "f68r1.35",
+          "reader_b_locus": "f68r1.35",
+          "status": "agreed",
+          "agreed_locus": "f68r1.35"
+        },
+        "A26": {
+          "second_reader_star": "B26",
+          "distance_px": 7.810249675906654,
+          "reader_a_locus": "f68r1.34",
+          "reader_b_locus": "f68r1.34",
+          "status": "ambiguous",
+          "agreed_locus": null
+        },
+        "A27": {
+          "second_reader_star": "B27",
+          "distance_px": 2.23606797749979,
+          "reader_a_locus": "f68r1.33",
+          "reader_b_locus": "f68r1.33",
+          "status": "agreed",
+          "agreed_locus": "f68r1.33"
+        },
+        "A28": {
+          "second_reader_star": "B28",
+          "distance_px": 12.649110640673518,
+          "reader_a_locus": "f68r1.32",
+          "reader_b_locus": "f68r1.32",
+          "status": "agreed",
+          "agreed_locus": "f68r1.32"
+        },
+        "A29": {
+          "second_reader_star": "B29",
+          "distance_px": 4.242640687119285,
+          "reader_a_locus": "f68r1.36",
+          "reader_b_locus": "f68r1.36",
+          "status": "agreed",
+          "agreed_locus": "f68r1.36"
+        }
+      },
+      "locus_results": {
+        "f68r1.8": {
+          "previously_known": false,
+          "word_quad_native": [
+            [
+              793.26,
+              777.58
+            ],
+            [
+              978.13,
+              775.93
+            ],
+            [
+              979.33,
+              890.39
+            ],
+            [
+              794.18,
+              892.1
+            ]
+          ],
+          "first_glyph_native": [
+            811,
+            836
+          ],
+          "reader_marks": [
+            "A02",
+            "B02"
+          ],
+          "mutually_agreed_stars": [
+            "A02"
+          ],
+          "rules": {
+            "first_glyph": {
+              "star": "A02",
+              "distance_px": 102.48902380255166,
+              "runner_up_margin_px": 227.05915173480432
+            },
+            "quadrilateral": {
+              "star": "A02",
+              "distance_px": 80.48571582188434,
+              "runner_up_margin_px": 175.5654066054139
+            },
+            "left_quadrilateral": {
+              "star": "A02",
+              "distance_px": 80.48571582188434,
+              "runner_up_margin_px": 265.35928182879724
+            }
+          },
+          "alternate_first_glyph_30": null
+        },
+        "f68r1.9": {
+          "previously_known": false,
+          "word_quad_native": [
+            [
+              1647.21,
+              741.85
+            ],
+            [
+              1856.64,
+              739.82
+            ],
+            [
+              1857.54,
+              854.4
+            ],
+            [
+              1647.97,
+              856.34
+            ]
+          ],
+          "first_glyph_native": [
+            1659,
+            797
+          ],
+          "reader_marks": [
+            "A01",
+            "B01"
+          ],
+          "mutually_agreed_stars": [
+            "A01"
+          ],
+          "rules": {
+            "first_glyph": {
+              "star": "A01",
+              "distance_px": 92.30926280715278,
+              "runner_up_margin_px": 143.67802498606713
+            },
+            "quadrilateral": {
+              "star": "A01",
+              "distance_px": 73.33550453213552,
+              "runner_up_margin_px": 102.44207225170796
+            },
+            "left_quadrilateral": {
+              "star": "A01",
+              "distance_px": 73.33550453213552,
+              "runner_up_margin_px": 102.44207225170796
+            }
+          },
+          "alternate_first_glyph_30": null
+        },
+        "f68r1.10": {
+          "previously_known": false,
+          "word_quad_native": [
+            [
+              532.08,
+              1020.03
+            ],
+            [
+              714.15,
+              1017.13
+            ],
+            [
+              714.79,
+              1141.69
+            ],
+            [
+              532.06,
+              1144.62
+            ]
+          ],
+          "first_glyph_native": [
+            550,
+            1088
+          ],
+          "reader_marks": [
+            "A04",
+            "B04"
+          ],
+          "mutually_agreed_stars": [
+            "A04"
+          ],
+          "rules": {
+            "first_glyph": {
+              "star": "A04",
+              "distance_px": 73.06161783043132,
+              "runner_up_margin_px": 252.65758639308388
+            },
+            "quadrilateral": {
+              "star": "A04",
+              "distance_px": 45.075027912694665,
+              "runner_up_margin_px": 160.20366119068012
+            },
+            "left_quadrilateral": {
+              "star": "A04",
+              "distance_px": 45.075027912694665,
+              "runner_up_margin_px": 231.83894428805945
+            }
+          },
+          "alternate_first_glyph_30": null
+        },
+        "f68r1.11": {
+          "previously_known": false,
+          "word_quad_native": [
+            [
+              959.93,
+              1140.68
+            ],
+            [
+              1117.13,
+              1140.03
+            ],
+            [
+              1117.73,
+              1234.16
+            ],
+            [
+              960.99,
+              1234.47
+            ]
+          ],
+          "first_glyph_native": [
+            981,
+            1196
+          ],
+          "reader_marks": [
+            "A06",
+            "B06"
+          ],
+          "mutually_agreed_stars": [
+            "A06"
+          ],
+          "rules": {
+            "first_glyph": {
+              "star": "A06",
+              "distance_px": 78.24321056807422,
+              "runner_up_margin_px": 158.96766607968829
+            },
+            "quadrilateral": {
+              "star": "A06",
+              "distance_px": 39.9988731772647,
+              "runner_up_margin_px": 60.44858269655056
+            },
+            "left_quadrilateral": {
+              "star": "A06",
+              "distance_px": 39.9988731772647,
+              "runner_up_margin_px": 184.66915301990616
+            }
+          },
+          "alternate_first_glyph_30": null
+        },
+        "f68r1.12": {
+          "previously_known": true,
+          "word_quad_native": [
+            [
+              1284.95,
+              1139.26
+            ],
+            [
+              1462.46,
+              1138.18
+            ],
+            [
+              1463.53,
+              1242.19
+            ],
+            [
+              1285.76,
+              1243.88
+            ]
+          ],
+          "first_glyph_native": [
+            1303,
+            1209
+          ],
+          "reader_marks": [
+            "A07",
+            "B07"
+          ],
+          "mutually_agreed_stars": [
+            "A07"
+          ],
+          "rules": {
+            "first_glyph": {
+              "star": "A07",
+              "distance_px": 85.05292469985967,
+              "runner_up_margin_px": 198.96291992856948
+            },
+            "quadrilateral": {
+              "star": "A07",
+              "distance_px": 67.46469947030558,
+              "runner_up_margin_px": 63.60916138684625
+            },
+            "left_quadrilateral": {
+              "star": "A07",
+              "distance_px": 67.46469947030558,
+              "runner_up_margin_px": 265.97085952123325
+            }
+          },
+          "alternate_first_glyph_30": null
+        },
+        "f68r1.13": {
+          "previously_known": false,
+          "word_quad_native": [
+            [
+              1680.48,
+              969.43
+            ],
+            [
+              1837.51,
+              968.03
+            ],
+            [
+              1838.4,
+              1071.41
+            ],
+            [
+              1681.57,
+              1072.69
+            ]
+          ],
+          "first_glyph_native": [
+            1696,
+            1045
+          ],
+          "reader_marks": [
+            "A03",
+            "B03"
+          ],
+          "mutually_agreed_stars": [
+            "A03"
+          ],
+          "rules": {
+            "first_glyph": {
+              "star": "A03",
+              "distance_px": 95.90099061010788,
+              "runner_up_margin_px": 213.19446390192468
+            },
+            "quadrilateral": {
+              "star": "A03",
+              "distance_px": 79.07274075977233,
+              "runner_up_margin_px": 101.3078238806566
+            },
+            "left_quadrilateral": {
+              "star": "A03",
+              "distance_px": 79.07274075977233,
+              "runner_up_margin_px": 154.9807900830671
+            }
+          },
+          "alternate_first_glyph_30": null
+        },
+        "f68r1.14": {
+          "previously_known": false,
+          "word_quad_native": [
+            [
+              403.71,
+              1334.8
+            ],
+            [
+              544.66,
+              1332.0
+            ],
+            [
+              545.95,
+              1447.02
+            ],
+            [
+              404.39,
+              1449.66
+            ]
+          ],
+          "first_glyph_native": [
+            417,
+            1396
+          ],
+          "reader_marks": [
+            "A09",
+            "B09"
+          ],
+          "mutually_agreed_stars": [
+            "A09"
+          ],
+          "rules": {
+            "first_glyph": {
+              "star": "A09",
+              "distance_px": 76.8505042273634,
+              "runner_up_margin_px": 205.29307624187214
+            },
+            "quadrilateral": {
+              "star": "A09",
+              "distance_px": 51.82868079163277,
+              "runner_up_margin_px": 176.87456358131362
+            },
+            "left_quadrilateral": {
+              "star": "A09",
+              "distance_px": 51.82868079163277,
+              "runner_up_margin_px": 176.87456358131362
+            }
+          },
+          "alternate_first_glyph_30": null
+        },
+        "f68r1.15": {
+          "previously_known": false,
+          "word_quad_native": [
+            [
+              818.78,
+              1390.58
+            ],
+            [
+              951.95,
+              1390.43
+            ],
+            [
+              952.49,
+              1484.56
+            ],
+            [
+              819.52,
+              1484.62
+            ]
+          ],
+          "first_glyph_native": [
+            834,
+            1439
+          ],
+          "reader_marks": [
+            "A11",
+            "B11"
+          ],
+          "mutually_agreed_stars": [
+            "A11"
+          ],
+          "rules": {
+            "first_glyph": {
+              "star": "A11",
+              "distance_px": 65.94694837519019,
+              "runner_up_margin_px": 132.06567748487964
+            },
+            "quadrilateral": {
+              "star": "A11",
+              "distance_px": 34.82157185902173,
+              "runner_up_margin_px": 43.83376512221449
+            },
+            "left_quadrilateral": {
+              "star": "A11",
+              "distance_px": 34.82157185902173,
+              "runner_up_margin_px": 208.19080395751988
+            }
+          },
+          "alternate_first_glyph_30": null
+        },
+        "f68r1.16": {
+          "previously_known": false,
+          "word_quad_native": [
+            [
+              1109.15,
+              1422.21
+            ],
+            [
+              1245.79,
+              1421.69
+            ],
+            [
+              1246.25,
+              1494.68
+            ],
+            [
+              1109.7,
+              1495.35
+            ]
+          ],
+          "first_glyph_native": [
+            1132,
+            1474
+          ],
+          "reader_marks": [
+            "A12",
+            "B12"
+          ],
+          "mutually_agreed_stars": [
+            "A12"
+          ],
+          "rules": {
+            "first_glyph": {
+              "star": "A12",
+              "distance_px": 102.1077861869505,
+              "runner_up_margin_px": 166.4140937409243
+            },
+            "quadrilateral": {
+              "star": "A12",
+              "distance_px": 78.42443702941192,
+              "runner_up_margin_px": 137.36975852646657
+            },
+            "left_quadrilateral": {
+              "star": "A12",
+              "distance_px": 78.42443702941192,
+              "runner_up_margin_px": 247.7802327716197
+            }
+          },
+          "alternate_first_glyph_30": null
+        },
+        "f68r1.17": {
+          "previously_known": false,
+          "word_quad_native": [
+            [
+              1641.02,
+              1229.45
+            ],
+            [
+              1870.6,
+              1227.8
+            ],
+            [
+              1870.96,
+              1352.98
+            ],
+            [
+              1641.69,
+              1354.65
+            ]
+          ],
+          "first_glyph_native": [
+            1647,
+            1314
+          ],
+          "reader_marks": [
+            "A08",
+            "B08"
+          ],
+          "mutually_agreed_stars": [
+            "A08"
+          ],
+          "rules": {
+            "first_glyph": {
+              "star": "A08",
+              "distance_px": 89.82204629154248,
+              "runner_up_margin_px": 176.38276207975647
+            },
+            "quadrilateral": {
+              "star": "A08",
+              "distance_px": 82.5676076637215,
+              "runner_up_margin_px": 59.379290858225744
+            },
+            "left_quadrilateral": {
+              "star": "A08",
+              "distance_px": 82.5676076637215,
+              "runner_up_margin_px": 124.59045493583076
+            }
+          },
+          "alternate_first_glyph_30": null
+        },
+        "f68r1.18": {
+          "previously_known": false,
+          "word_quad_native": [
+            [
+              2066.89,
+              1051.6
+            ],
+            [
+              2244.2,
+              1051.57
+            ],
+            [
+              2245.46,
+              1165.96
+            ],
+            [
+              2067.91,
+              1165.99
+            ]
+          ],
+          "first_glyph_native": [
+            2086,
+            1137
+          ],
+          "reader_marks": [
+            "A05",
+            "B05"
+          ],
+          "mutually_agreed_stars": [
+            "A05"
+          ],
+          "rules": {
+            "first_glyph": {
+              "star": "A05",
+              "distance_px": 77.31752712031083,
+              "runner_up_margin_px": 166.1983861174076
+            },
+            "quadrilateral": {
+              "star": "A05",
+              "distance_px": 58.58675300427773,
+              "runner_up_margin_px": 151.9814976889357
+            },
+            "left_quadrilateral": {
+              "star": "A05",
+              "distance_px": 58.58675300427773,
+              "runner_up_margin_px": 151.9814976889357
+            }
+          },
+          "alternate_first_glyph_30": null
+        },
+        "f68r1.19": {
+          "previously_known": false,
+          "word_quad_native": [
+            [
+              460.82,
+              1605.55
+            ],
+            [
+              546.11,
+              1603.84
+            ],
+            [
+              546.1,
+              1717.71
+            ],
+            [
+              460.82,
+              1719.2
+            ]
+          ],
+          "first_glyph_native": [
+            459,
+            1676
+          ],
+          "reader_marks": [
+            "A15",
+            "B15"
+          ],
+          "mutually_agreed_stars": [
+            "A15"
+          ],
+          "rules": {
+            "first_glyph": {
+              "star": "A15",
+              "distance_px": 33.06055050963308,
+              "runner_up_margin_px": 115.87232027448897
+            },
+            "quadrilateral": {
+              "star": "A15",
+              "distance_px": 34.81999999999999,
+              "runner_up_margin_px": 23.07932268882555
+            },
+            "left_quadrilateral": {
+              "star": "A15",
+              "distance_px": 34.81999999999999,
+              "runner_up_margin_px": 146.259629997413
+            }
+          },
+          "alternate_first_glyph_30": null
+        },
+        "f68r1.20": {
+          "previously_known": false,
+          "word_quad_native": [
+            [
+              641.84,
+              1663.77
+            ],
+            [
+              729.82,
+              1662.71
+            ],
+            [
+              729.76,
+              1725.2
+            ],
+            [
+              641.73,
+              1725.98
+            ]
+          ],
+          "first_glyph_native": [
+            655,
+            1699
+          ],
+          "reader_marks": [
+            "A16",
+            "B16"
+          ],
+          "mutually_agreed_stars": [
+            "A16"
+          ],
+          "rules": {
+            "first_glyph": {
+              "star": "A16",
+              "distance_px": 52.172789842982326,
+              "runner_up_margin_px": 97.47011844204133
+            },
+            "quadrilateral": {
+              "star": "A16",
+              "distance_px": 37.758196881067136,
+              "runner_up_margin_px": 34.504224888480564
+            },
+            "left_quadrilateral": {
+              "star": "A16",
+              "distance_px": 37.758196881067136,
+              "runner_up_margin_px": 178.05630419251145
+            }
+          },
+          "alternate_first_glyph_30": null
+        },
+        "f68r1.21": {
+          "previously_known": false,
+          "word_quad_native": [
+            [
+              860.9,
+              1684.08
+            ],
+            [
+              995.5,
+              1684.14
+            ],
+            [
+              996.2,
+              1767.46
+            ],
+            [
+              861.26,
+              1767.54
+            ]
+          ],
+          "first_glyph_native": [
+            880,
+            1741
+          ],
+          "reader_marks": [
+            "A18",
+            "B17"
+          ],
+          "mutually_agreed_stars": [
+            "A18"
+          ],
+          "rules": {
+            "first_glyph": {
+              "star": "A18",
+              "distance_px": 79.2464510246358,
+              "runner_up_margin_px": 198.48903464473273
+            },
+            "quadrilateral": {
+              "star": "A18",
+              "distance_px": 59.084583342565594,
+              "runner_up_margin_px": 168.83704704823353
+            },
+            "left_quadrilateral": {
+              "star": "A18",
+              "distance_px": 59.084583342565594,
+              "runner_up_margin_px": 197.92483019349922
+            }
+          },
+          "alternate_first_glyph_30": null
+        },
+        "f68r1.22": {
+          "previously_known": false,
+          "word_quad_native": [
+            [
+              1309.71,
+              1660.44
+            ],
+            [
+              1466.64,
+              1659.04
+            ],
+            [
+              1467.52,
+              1742.34
+            ],
+            [
+              1310.53,
+              1743.57
+            ]
+          ],
+          "first_glyph_native": [
+            1325,
+            1726
+          ],
+          "reader_marks": [
+            "A17",
+            "B18"
+          ],
+          "mutually_agreed_stars": [
+            "A17"
+          ],
+          "rules": {
+            "first_glyph": {
+              "star": "A17",
+              "distance_px": 95.02105029939419,
+              "runner_up_margin_px": 144.11907598643012
+            },
+            "quadrilateral": {
+              "star": "A17",
+              "distance_px": 80.3330520811924,
+              "runner_up_margin_px": 105.20749059081318
+            },
+            "left_quadrilateral": {
+              "star": "A17",
+              "distance_px": 80.3330520811924,
+              "runner_up_margin_px": 263.55259417348924
+            }
+          },
+          "alternate_first_glyph_30": null
+        },
+        "f68r1.23": {
+          "previously_known": false,
+          "word_quad_native": [
+            [
+              1808.73,
+              1478.41
+            ],
+            [
+              1996.46,
+              1477.64
+            ],
+            [
+              1996.81,
+              1581.96
+            ],
+            [
+              1809.25,
+              1582.95
+            ]
+          ],
+          "first_glyph_native": [
+            1830,
+            1559
+          ],
+          "reader_marks": [
+            "A13",
+            "B13"
+          ],
+          "mutually_agreed_stars": [
+            "A13"
+          ],
+          "rules": {
+            "first_glyph": {
+              "star": "A13",
+              "distance_px": 110.54863183232979,
+              "runner_up_margin_px": 152.55591012770557
+            },
+            "quadrilateral": {
+              "star": "A13",
+              "distance_px": 89.18448115337273,
+              "runner_up_margin_px": 20.561321499849598
+            },
+            "left_quadrilateral": {
+              "star": "A13",
+              "distance_px": 89.18448115337273,
+              "runner_up_margin_px": 200.29947522417856
+            }
+          },
+          "alternate_first_glyph_30": null
+        },
+        "f68r1.24": {
+          "previously_known": false,
+          "word_quad_native": [
+            [
+              2090.01,
+              1290.71
+            ],
+            [
+              2299.28,
+              1290.13
+            ],
+            [
+              2300.09,
+              1383.28
+            ],
+            [
+              2090.63,
+              1384.09
+            ]
+          ],
+          "first_glyph_native": [
+            2091,
+            1359
+          ],
+          "reader_marks": [
+            "A10",
+            "B10"
+          ],
+          "mutually_agreed_stars": [
+            "A10"
+          ],
+          "rules": {
+            "first_glyph": {
+              "star": "A10",
+              "distance_px": 79.63039620647382,
+              "runner_up_margin_px": 154.6216048522151
+            },
+            "quadrilateral": {
+              "star": "A10",
+              "distance_px": 78.52807850553125,
+              "runner_up_margin_px": 101.44504226532177
+            },
+            "left_quadrilateral": {
+              "star": "A10",
+              "distance_px": 78.52807850553125,
+              "runner_up_margin_px": 101.44504226532177
+            }
+          },
+          "alternate_first_glyph_30": null
+        },
+        "f68r1.25": {
+          "previously_known": false,
+          "word_quad_native": [
+            [
+              2258.75,
+              1476.65
+            ],
+            [
+              2373.81,
+              1475.9
+            ],
+            [
+              2374.24,
+              1569.35
+            ],
+            [
+              2258.99,
+              1570.09
+            ]
+          ],
+          "first_glyph_native": [
+            2272,
+            1542
+          ],
+          "reader_marks": [
+            "A14",
+            "B14"
+          ],
+          "mutually_agreed_stars": [
+            "A14"
+          ],
+          "rules": {
+            "first_glyph": {
+              "star": "A14",
+              "distance_px": 93.637599285757,
+              "runner_up_margin_px": 218.6587343462599
+            },
+            "quadrilateral": {
+              "star": "A14",
+              "distance_px": 75.09186507205669,
+              "runner_up_margin_px": 194.11824803664513
+            },
+            "left_quadrilateral": {
+              "star": "A14",
+              "distance_px": 75.09186507205669,
+              "runner_up_margin_px": 194.11824803664513
+            }
+          },
+          "alternate_first_glyph_30": null
+        },
+        "f68r1.26": {
+          "previously_known": true,
+          "word_quad_native": [
+            [
+              413.81,
+              1842.66
+            ],
+            [
+              499.17,
+              1841.63
+            ],
+            [
+              499.87,
+              1924.23
+            ],
+            [
+              414.67,
+              1925.17
+            ]
+          ],
+          "first_glyph_native": [
+            429,
+            1912
+          ],
+          "reader_marks": [
+            "A19",
+            "B19"
+          ],
+          "mutually_agreed_stars": [
+            "A19"
+          ],
+          "rules": {
+            "first_glyph": {
+              "star": "A19",
+              "distance_px": 66.88796603276258,
+              "runner_up_margin_px": 153.6296069631327
+            },
+            "quadrilateral": {
+              "star": "A19",
+              "distance_px": 42.16563475670567,
+              "runner_up_margin_px": 122.33529875031927
+            },
+            "left_quadrilateral": {
+              "star": "A19",
+              "distance_px": 42.16563475670567,
+              "runner_up_margin_px": 122.33529875031927
+            }
+          },
+          "alternate_first_glyph_30": null
+        },
+        "f68r1.27": {
+          "previously_known": false,
+          "word_quad_native": [
+            [
+              623.79,
+              2048.41
+            ],
+            [
+              770.76,
+              2047.97
+            ],
+            [
+              771.65,
+              2110.71
+            ],
+            [
+              624.83,
+              2111.18
+            ]
+          ],
+          "first_glyph_native": [
+            638,
+            2093
+          ],
+          "reader_marks": [
+            "A23",
+            "B23"
+          ],
+          "mutually_agreed_stars": [
+            "A23"
+          ],
+          "rules": {
+            "first_glyph": {
+              "star": "A23",
+              "distance_px": 71.56814934033156,
+              "runner_up_margin_px": 208.28359712554277
+            },
+            "quadrilateral": {
+              "star": "A23",
+              "distance_px": 57.37179612201303,
+              "runner_up_margin_px": 145.86151663061315
+            },
+            "left_quadrilateral": {
+              "star": "A23",
+              "distance_px": 57.37179612201303,
+              "runner_up_margin_px": 203.67368133354464
+            }
+          },
+          "alternate_first_glyph_30": null
+        },
+        "f68r1.28": {
+          "previously_known": false,
+          "word_quad_native": [
+            [
+              1051.77,
+              1994.42
+            ],
+            [
+              1230.56,
+              1992.75
+            ],
+            [
+              1231.57,
+              2086.33
+            ],
+            [
+              1052.98,
+              2088.04
+            ]
+          ],
+          "first_glyph_native": [
+            1069,
+            2067
+          ],
+          "reader_marks": [
+            "A22",
+            "B22"
+          ],
+          "mutually_agreed_stars": [
+            "A22"
+          ],
+          "rules": {
+            "first_glyph": {
+              "star": "A22",
+              "distance_px": 97.082439194738,
+              "runner_up_margin_px": 199.1218821781954
+            },
+            "quadrilateral": {
+              "star": "A22",
+              "distance_px": 78.44302339353642,
+              "runner_up_margin_px": 153.229409364442
+            },
+            "left_quadrilateral": {
+              "star": "A22",
+              "distance_px": 78.44302339353642,
+              "runner_up_margin_px": 192.00815889265738
+            }
+          },
+          "alternate_first_glyph_30": null
+        },
+        "f68r1.29": {
+          "previously_known": false,
+          "word_quad_native": [
+            [
+              1541.93,
+              1846.1
+            ],
+            [
+              1718.67,
+              1845.22
+            ],
+            [
+              1719.77,
+              1970.04
+            ],
+            [
+              1543.01,
+              1970.72
+            ]
+          ],
+          "first_glyph_native": [
+            1556,
+            1934
+          ],
+          "reader_marks": [
+            "A21",
+            "B21"
+          ],
+          "mutually_agreed_stars": [
+            "A21"
+          ],
+          "rules": {
+            "first_glyph": {
+              "star": "A21",
+              "distance_px": 103.1746092796091,
+              "runner_up_margin_px": 210.26437999900634
+            },
+            "quadrilateral": {
+              "star": "A21",
+              "distance_px": 89.63640767954203,
+              "runner_up_margin_px": 59.169804091992944
+            },
+            "left_quadrilateral": {
+              "star": "A21",
+              "distance_px": 89.63640767954203,
+              "runner_up_margin_px": 205.58408364854986
+            }
+          },
+          "alternate_first_glyph_30": null
+        },
+        "f68r1.30": {
+          "previously_known": true,
+          "word_quad_native": [
+            [
+              1935.77,
+              1812.69
+            ],
+            [
+              2175.77,
+              1811.0
+            ],
+            [
+              2177.14,
+              1967.2
+            ],
+            [
+              1937.38,
+              1968.88
+            ]
+          ],
+          "first_glyph_native": [
+            1964,
+            1880
+          ],
+          "reader_marks": [
+            "A20",
+            "B20"
+          ],
+          "mutually_agreed_stars": [
+            "A20"
+          ],
+          "rules": {
+            "first_glyph": {
+              "star": "A20",
+              "distance_px": 98.95453501482385,
+              "runner_up_margin_px": 277.92210262672586
+            },
+            "quadrilateral": {
+              "star": "A20",
+              "distance_px": 68.70756953814642,
+              "runner_up_margin_px": 168.43528382243875
+            },
+            "left_quadrilateral": {
+              "star": "A20",
+              "distance_px": 68.70756953814642,
+              "runner_up_margin_px": 220.86507903212163
+            }
+          },
+          "alternate_first_glyph_30": {
+            "star": "A20",
+            "distance_px": 91.54780172128658,
+            "runner_up_margin_px": 257.00635475945313
+          }
+        },
+        "f68r1.31": {
+          "previously_known": false,
+          "word_quad_native": [
+            [
+              427.64,
+              2164.8
+            ],
+            [
+              541.36,
+              2164.04
+            ],
+            [
+              542.18,
+              2258.31
+            ],
+            [
+              427.71,
+              2258.86
+            ]
+          ],
+          "first_glyph_native": [
+            439,
+            2237
+          ],
+          "reader_marks": [
+            "A24",
+            "B24"
+          ],
+          "mutually_agreed_stars": [
+            "A24"
+          ],
+          "rules": {
+            "first_glyph": {
+              "star": "A24",
+              "distance_px": 71.02112361825881,
+              "runner_up_margin_px": 128.460705128121
+            },
+            "quadrilateral": {
+              "star": "A24",
+              "distance_px": 48.66543836276394,
+              "runner_up_margin_px": 35.38104401454911
+            },
+            "left_quadrilateral": {
+              "star": "A24",
+              "distance_px": 48.66543836276394,
+              "runner_up_margin_px": 244.46362809090607
+            }
+          },
+          "alternate_first_glyph_30": null
+        },
+        "f68r1.32": {
+          "previously_known": true,
+          "word_quad_native": [
+            [
+              493.45,
+              2373.41
+            ],
+            [
+              657.59,
+              2372.91
+            ],
+            [
+              658.04,
+              2456.11
+            ],
+            [
+              492.59,
+              2456.61
+            ]
+          ],
+          "first_glyph_native": [
+            512,
+            2439
+          ],
+          "reader_marks": [
+            "A28",
+            "B28"
+          ],
+          "mutually_agreed_stars": [
+            "A28"
+          ],
+          "rules": {
+            "first_glyph": {
+              "star": "A28",
+              "distance_px": 211.74749113035554,
+              "runner_up_margin_px": 62.64091970362992
+            },
+            "quadrilateral": {
+              "star": "A28",
+              "distance_px": 60.31668387406687,
+              "runner_up_margin_px": 148.29216205534226
+            },
+            "left_quadrilateral": {
+              "star": "A24",
+              "distance_px": 208.6088459294091,
+              "runner_up_margin_px": 80.57576582524646
+            }
+          },
+          "alternate_first_glyph_30": null
+        },
+        "f68r1.33": {
+          "previously_known": false,
+          "word_quad_native": [
+            [
+              1033.48,
+              2256.06
+            ],
+            [
+              1221.78,
+              2253.93
+            ],
+            [
+              1221.76,
+              2338.05
+            ],
+            [
+              1034.09,
+              2340.48
+            ]
+          ],
+          "first_glyph_native": [
+            1056,
+            2317
+          ],
+          "reader_marks": [
+            "A27",
+            "B27"
+          ],
+          "mutually_agreed_stars": [
+            "A27"
+          ],
+          "rules": {
+            "first_glyph": {
+              "star": "A27",
+              "distance_px": 112.61438629233834,
+              "runner_up_margin_px": 169.56286296776767
+            },
+            "quadrilateral": {
+              "star": "A27",
+              "distance_px": 89.0553036838873,
+              "runner_up_margin_px": 111.64869054642193
+            },
+            "left_quadrilateral": {
+              "star": "A27",
+              "distance_px": 89.0553036838873,
+              "runner_up_margin_px": 128.30143994280576
+            }
+          },
+          "alternate_first_glyph_30": null
+        },
+        "f68r1.34": {
+          "previously_known": false,
+          "word_quad_native": [
+            [
+              1512.5,
+              2209.38
+            ],
+            [
+              1699.92,
+              2208.58
+            ],
+            [
+              1700.3,
+              2271.05
+            ],
+            [
+              1512.98,
+              2271.77
+            ]
+          ],
+          "first_glyph_native": [
+            1528,
+            2256
+          ],
+          "reader_marks": [
+            "A26",
+            "B26"
+          ],
+          "mutually_agreed_stars": [],
+          "rules": {
+            "first_glyph": {
+              "star": "A26",
+              "distance_px": 107.20074626605917,
+              "runner_up_margin_px": 167.01267426619705
+            },
+            "quadrilateral": {
+              "star": "A26",
+              "distance_px": 90.73289098821935,
+              "runner_up_margin_px": 37.17186609254469
+            },
+            "left_quadrilateral": {
+              "star": "A26",
+              "distance_px": 90.73289098821935,
+              "runner_up_margin_px": 196.8691854994167
+            }
+          },
+          "alternate_first_glyph_30": null
+        },
+        "f68r1.35": {
+          "previously_known": false,
+          "word_quad_native": [
+            [
+              1897.86,
+              2155.66
+            ],
+            [
+              2148.2,
+              2154.04
+            ],
+            [
+              2149.65,
+              2289.27
+            ],
+            [
+              1898.98,
+              2291.04
+            ]
+          ],
+          "first_glyph_native": [
+            1922,
+            2233
+          ],
+          "reader_marks": [
+            "A25",
+            "B25"
+          ],
+          "mutually_agreed_stars": [
+            "A25"
+          ],
+          "rules": {
+            "first_glyph": {
+              "star": "A25",
+              "distance_px": 94.08506789071261,
+              "runner_up_margin_px": 239.31709167037963
+            },
+            "quadrilateral": {
+              "star": "A25",
+              "distance_px": 70.5305129695698,
+              "runner_up_margin_px": 182.89477227245163
+            },
+            "left_quadrilateral": {
+              "star": "A25",
+              "distance_px": 70.5305129695698,
+              "runner_up_margin_px": 182.89477227245163
+            }
+          },
+          "alternate_first_glyph_30": null
+        },
+        "f68r1.36": {
+          "previously_known": false,
+          "word_quad_native": [
+            [
+              1712.7,
+              2469.48
+            ],
+            [
+              1942.09,
+              2468.56
+            ],
+            [
+              1942.82,
+              2552.0
+            ],
+            [
+              1713.68,
+              2552.86
+            ]
+          ],
+          "first_glyph_native": [
+            1736,
+            2504
+          ],
+          "reader_marks": [
+            "A29",
+            "B29"
+          ],
+          "mutually_agreed_stars": [
+            "A29"
+          ],
+          "rules": {
+            "first_glyph": {
+              "star": "A29",
+              "distance_px": 91.0,
+              "runner_up_margin_px": 191.40573648564578
+            },
+            "quadrilateral": {
+              "star": "A29",
+              "distance_px": 68.1010243204224,
+              "runner_up_margin_px": 163.91468324124895
+            },
+            "left_quadrilateral": {
+              "star": "A29",
+              "distance_px": 68.1010243204224,
+              "runner_up_margin_px": 302.2603672959285
+            }
+          },
+          "alternate_first_glyph_30": null
+        }
+      }
+    }
+  }
+}
