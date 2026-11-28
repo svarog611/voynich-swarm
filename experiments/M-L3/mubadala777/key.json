@@ -1,46 +1,111 @@
 {
-  "id": "K-galician_portuguese-substitution-001",
-  "family": "substitution",
+  "id": "grid-medieval_czech-verbose-zl-practice-train",
+  "family": "verbose",
   "segmentation": "eva-basic",
   "target": {
-    "language": "galician_portuguese",
-    "period": "13th–15th century Galician-Portuguese secular lyric, two pinned editions"
+    "language": "medieval_czech",
+    "period": "Old Czech sermons completed 1413, Jan Hus Postilla, Erben 1866 edition (C-059)"
   },
   "key": {
     "map": {
-      "*": "i",
-      "?": "i",
-      "a": "i",
-      "b": "a",
-      "c": "i",
-      "cfh": "i",
-      "ch": "i",
-      "ckh": "i",
-      "cph": "i",
-      "cth": "i",
-      "d": "i",
+      "ai": "t",
+      "al": "i",
+      "am": "e",
+      "an": "e",
+      "ar": "i",
+      "cf": "a",
+      "ch": "s",
+      "ck": "a",
+      "cp": "a",
+      "ct": "a",
+      "d": "e",
+      "da": "t",
+      "dc": "a",
+      "de": "s",
+      "dl": "i",
+      "do": "s",
+      "ds": "a",
+      "dy": "e",
       "e": "i",
-      "f": "i",
+      "ea": "v",
+      "ec": "e",
+      "ed": "t",
+      "ee": "t",
+      "ek": "l",
+      "eo": "i",
+      "ep": "a",
+      "es": "e",
+      "et": "t",
+      "ey": "e",
+      "fc": "z",
       "g": "i",
-      "h": "i",
-      "i": "i",
-      "j": "r",
-      "k": "i",
-      "l": "i",
-      "m": "i",
-      "n": "a",
+      "ha": "l",
+      "hd": "n",
+      "he": "n",
+      "hh": "t",
+      "ho": "l",
+      "hy": "l",
+      "ii": "e",
+      "in": "i",
+      "ir": "e",
+      "ka": "s",
+      "kc": "a",
+      "ke": "s",
+      "kh": "t",
+      "ko": "s",
+      "ks": "a",
+      "ky": "e",
+      "l": "e",
+      "la": "t",
+      "lc": "a",
+      "ld": "t",
+      "lk": "s",
+      "lo": "v",
+      "ls": "a",
+      "lt": "s",
+      "ly": "i",
+      "m": "e",
+      "n": "l",
       "o": "i",
-      "p": "i",
-      "q": "v",
-      "r": "i",
-      "s": "i",
-      "sh": "i",
-      "t": "i",
-      "u": "r",
-      "v": "a",
-      "x": "i",
-      "y": "a",
-      "z": "i"
+      "oa": "t",
+      "oc": "a",
+      "od": "t",
+      "oe": "s",
+      "of": "j",
+      "oi": "t",
+      "ok": "s",
+      "ol": "u",
+      "om": "e",
+      "op": "u",
+      "or": "a",
+      "os": "a",
+      "ot": "s",
+      "oy": "i",
+      "pc": "a",
+      "qo": "v",
+      "r": "e",
+      "ra": "t",
+      "rc": "a",
+      "ro": "i",
+      "ry": "e",
+      "s": "a",
+      "sa": "j",
+      "sh": "s",
+      "so": "v",
+      "sy": "i",
+      "ta": "s",
+      "tc": "a",
+      "te": "s",
+      "th": "n",
+      "to": "s",
+      "ts": "o",
+      "ty": "e",
+      "y": "i",
+      "yc": "a",
+      "yd": "s",
+      "yk": "s",
+      "yp": "u",
+      "yt": "s"
     }
   },
   "search": {
@@ -56,24 +121,116 @@
       "verbose_min_unit_share": 0.0005,
       "substitution_group_swap": 0.2
     },
-    "objective_bits": 588945.6,
-    "split": "practice training",
-    "tag": "cell",
-    "control": {
-      "kind": "homophonic",
-      "tag": "control",
-      "seed": 0,
-      "noise": 0.02,
-      "tokens": 6398,
-      "known_glyphs": 30,
-      "matching_known_glyphs": 28,
-      "passes_without_anchors": true,
-      "savings": 0.05997
-    },
-    "references": [
-      "galician_portuguese_a3107d41",
-      "galician_portuguese_e5366bed"
+    "objective_bits": 356360.0,
+    "segmentation_chosen": "fixed-2",
+    "fit_scope": "Public ZL practice training pages only",
+    "old_czech_positive_controls": [
+      {
+        "seed": 0,
+        "noise": 0.0,
+        "tokens": 2319,
+        "segmentation_chosen": "fixed-2",
+        "planted_unit_count": 23,
+        "exact_planted_units_in_fitted_map": 22,
+        "fitted_unit_count": 23,
+        "true_key_exact_words": 2314,
+        "fitted_key_exact_words": 2307
+      },
+      {
+        "seed": 0,
+        "noise": 0.02,
+        "tokens": 2319,
+        "segmentation_chosen": "fixed-2",
+        "planted_unit_count": 23,
+        "exact_planted_units_in_fitted_map": 21,
+        "fitted_unit_count": 28,
+        "true_key_exact_words": 2099,
+        "fitted_key_exact_words": 2093,
+        "official_checks": {
+          "savings": 0.01967,
+          "failed": [
+            "c_pictures"
+          ],
+          "passes_stock_control": true
+        }
+      },
+      {
+        "seed": 1,
+        "noise": 0.02,
+        "tokens": 2319,
+        "segmentation_chosen": "fixed-2",
+        "planted_unit_count": 23,
+        "exact_planted_units_in_fitted_map": 21,
+        "fitted_unit_count": 28,
+        "true_key_exact_words": 2138,
+        "fitted_key_exact_words": 2127
+      }
     ]
   },
-  "transliteration": "zl"
+  "transliteration": "zl",
+  "reading_order": "normal",
+  "spaces": "word_breaks",
+  "public_word_diagnostics": {
+    "train": {
+      "tokens": 32410,
+      "raw_eva_characters": 162012,
+      "fitted_greedy_decodes_empty": 127,
+      "fitted_map_units_by_character_length": {
+        "2": 88,
+        "1": 10
+      },
+      "word_lengths_odd_in_raw_eva": 16522
+    },
+    "evaluation": {
+      "tokens": 6076,
+      "raw_eva_characters": 30004,
+      "fitted_greedy_decodes_empty": 8,
+      "fitted_map_units_by_character_length": {
+        "2": 88,
+        "1": 10
+      },
+      "word_lengths_odd_in_raw_eva": 3114
+    }
+  },
+  "reference": {
+    "corpus_id": "C-059",
+    "source": "https://voynichswarm.com/x/C-059.html",
+    "pin_sha256": "01473c190be9c9b73b373a29264c54b7747d4834ca1f81e2d159a5b8f398ecfe"
+  },
+  "public_evaluation": {
+    "stock_advisory": {
+      "verdict": "FAIL",
+      "failed": [
+        "a_compresses",
+        "b_reads",
+        "kill_tests",
+        "c_pictures",
+        "d_not_illusion"
+      ],
+      "pages_evaluated": 34,
+      "pages_passing": 0
+    },
+    "fixed_fit_greedy_evaluator_and_transliterations": {
+      "zl": {
+        "tokens": 6076,
+        "fixed_vs_greedy_output_differences": 313,
+        "core_compression_savings": -0.17747594123648713
+      },
+      "it": {
+        "tokens": 5987,
+        "fixed_vs_greedy_output_differences": 349,
+        "core_compression_savings": -0.1740479142259991
+      },
+      "rf": {
+        "tokens": 5962,
+        "fixed_vs_greedy_output_differences": 772,
+        "core_compression_savings": -0.1959810389711494
+      }
+    }
+  },
+  "limits_of_inference": "The pinned verbose family fits either BPE-greedy or fixed-width raw EVA units on words with the existing breaks. The judge decodes with greedy longest raw-string match, so fit-time segmentation need not match decode-time segmentation. Two percent in the positive control is per encoding unit. Prediction depends on the specific manuscript representation, search budget, model, and the Hus sermon edition with OCR residuals.",
+  "reproduction": {
+    "runtime_git_revision": "c9bb62893fd6677a6fd4b267d10df4bac2322968",
+    "frozen_key_sha256_before_evidence": "fba21bc1bbef897cb77be0a7fb12e1af6821ec1299759c4a7f1bd1e772e26d36"
+  }
 }
