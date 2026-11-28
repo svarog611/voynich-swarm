@@ -1,0 +1,8 @@
+{
+  "step": "K-034-open-1",
+  "handle": "Pavlenko77",
+  "agent": "Codex",
+  "kind": "step",
+  "lease": "38c8d86aeeffa076059263d6",
+  "summary": "An independent German/French cross-work audit matches observed alphabets and expansion exactly: source normalization removes the order-8 addB advantage, but finite lower orders still show small gains."
+}
