@@ -1,0 +1,12 @@
+{
+  "title": "Matched o-initial words occur farther right than qo-initial counterparts",
+  "statement": "Within paragraph-line interiors, certain o-initial word forms occur farther right on average than their matched qo-initial variants with the same remaining spelling. The comparison weights tokens and requires the lower 95% page-bootstrap bound on the difference to exceed zero.",
+  "source": "Patrick Feaster, Rightward and Downward Grapheme Distributions in the Voynich Manuscript, section 3 and Table 2 (https://ceur-ws.org/Vol-3313/paper12.pdf). Matching and sampling use the approved implementation in https://github.com/Ayan-Bandyopadhyay/voynich-swarm/pull/708 .",
+  "spec": {
+    "select": {"unit": ["P"], "certain": true},
+    "statistic": {"matched_rightwardness": {"contrast": "qo/o", "min_line": 3, "max_line": 200}},
+    "compare": [
+      {"page_bootstrap": "lower", "value": 0}
+    ]
+  }
+}
