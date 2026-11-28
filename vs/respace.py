@@ -183,13 +183,15 @@ def page_streams(dec, pages):
 def description_length(dec, base, train_pages, eval_pages, lang, params):
     """Criterion (a) for a respaced reading. Same return shape as judge.description_length."""
     from . import families
-    from .judge import program_bits, compressed_bits, canonical
+    from .judge import program_bits, compressed_bits, canonical, _literal_word_bits
+    from .letter_word_preimage import FactorizedChoices
     prog_bits = program_bits(families.source_file(dec.sub["family"]))
     key_bits = compressed_bits(canonical(dec.key))
     group = lambda w: dec.raw(w).replace(" ", "")
     tr_streams = [s for s in page_streams(dec, train_pages).values() if s]
+    alphabet = refcorpus.alphabet(lang)
     cm = lm.KN([list(b.replace(" ", "")) for b in refcorpus.train_text(lang)] + [list(s) for s in tr_streams],
-               params["char_order"], vocab=refcorpus.alphabet(lang))
+               params["char_order"], vocab=alphabet)
     # how many letters a word carries: adaptive counts, primed on the training pages
     sizes = Counter(min(len(group(w)), GROUP_CAP) for p in train_pages for ln in p.lines for w in ln.words)
     size_n = sum(sizes.values())
@@ -198,14 +200,19 @@ def description_length(dec, base, train_pages, eval_pages, lang, params):
     for u, c in base.train_counts.items():
         pre.setdefault(group(u), {})[u] = c
     state = {g: [dict(d), sum(d.values()), len(d)] for g, d in pre.items()}
+    factor = FactorizedChoices(dec.key, base.train_counts, alphabet=alphabet,
+                               normalize=lambda s: refcorpus.normalize(s, lang).replace(" ", ""))
     page_bits, plain_by_page = {}, {}
-    letter_bits = size_bits = choice_bits = 0.0
+    factor_page_bits = {}
+    letter_bits = size_bits = choice_bits = factor_choice_bits = 0.0
     for pg in eval_pages:
-        stream, b_size, b_choice = [], 0.0, 0.0
+        stream, b_size, b_choice, b_factor = [], 0.0, 0.0, 0.0
         for ln in pg.lines:
             for w in ln.words:
                 g = group(w)
                 stream.append(g)
+                if factor.supported:
+                    b_factor += factor.bits(w, g, _literal_word_bits)
                 k = min(len(g), GROUP_CAP)
                 b_size -= math.log2((sizes[k] + 0.5) / (size_n + 0.5 * (GROUP_CAP + 1)))
                 if k == GROUP_CAP:   # 4+: the exact length, Elias-gamma on the excess
@@ -227,11 +234,19 @@ def description_length(dec, base, train_pages, eval_pages, lang, params):
         letters = "".join(stream)
         b_letters = cm.bits(list(letters)) if letters else 0.0
         page_bits[pg.id] = b_letters + b_size + b_choice
+        factor_page_bits[pg.id] = b_letters + b_size + b_factor
         plain_by_page[pg.id] = [[letters]] if letters else []
         letter_bits += b_letters
         size_bits += b_size
         choice_bits += b_choice
+        factor_choice_bits += b_factor
+    # A single flag selects the representation of lexical choices for the whole evaluation stream.
+    choice_code = "adaptive_choice"
+    if factor.supported and factor_choice_bits < choice_bits:
+        choice_code = "factorized_preimage"
+        choice_bits = factor_choice_bits
+        page_bits = factor_page_bits
     info = {"plaintext_model": "spaceless_char_kn5", "plaintext_bits": round(letter_bits, 1),
-            "letters_per_word_bits": round(size_bits, 1), "choice_code": "adaptive_choice",
+            "letters_per_word_bits": round(size_bits, 1), "choice_code": choice_code,
             "choice_bits": round(choice_bits, 1)}
-    return prog_bits + 2, key_bits, page_bits, plain_by_page, info
+    return prog_bits + 2 + int(factor.supported), key_bits, page_bits, plain_by_page, info
