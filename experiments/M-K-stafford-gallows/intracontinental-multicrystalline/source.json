@@ -1,0 +1,24 @@
+{
+  "title": "Seven Habits of Highly Eccentric Paragraphs",
+  "authors": "Tavi Stafford",
+  "year": 2022,
+  "url": "https://ceur-ws.org/Vol-3313/paper13.pdf",
+  "summary": "Stafford describes seven positional patterns of EVA gallows glyphs within paragraphs and compares observations across three scribal hands. The paper calls for explanations involving multiple mechanisms and does not distinguish language, encryption and meaningless generation.",
+  "established": [
+    "The sample uses Zandbergen–Landini transcription for scribes 1–3, excluding paragraphs interrupted by images or line breaks; hands 4–5 and bench gallows are excluded. Some subgroups contain fewer than 100 observations and paragraph boundaries are assumptions.",
+    "In selected paragraph initials p occurs 37/106, 62/115 and 138/265 for scribes 1, 2 and 3 respectively; the paper compares these with lower mid-line initial rates. These are descriptive observations on the selected sample.",
+    "For the aggregated p and f samples, 58.4% of 1,089 p glyphs and 68.4% of 275 f glyphs fall in the top paragraph row, excluding paragraph starts and page starts as separately reported categories."
+  ],
+  "open": [
+    {
+      "question": "Do the paragraph-initial gallows and top-row enrichments replicate on held-out folios and independent transliterations when interrupted paragraphs are included or excluded consistently?",
+      "front": "L2",
+      "check": "Freeze paragraph and interruption rules using practice data and report glyph-specific effect sizes and uncertainty on independent transliterations and held-out pages."
+    },
+    {
+      "question": "Do apparent hand differences in paragraph-initial gallows persist after matching paragraph position, section, and uncertainty?",
+      "front": "L1",
+      "check": "Use matched sections and clustered folio-level intervals on held-out folios, documenting sparse cells."
+    }
+  ]
+}
