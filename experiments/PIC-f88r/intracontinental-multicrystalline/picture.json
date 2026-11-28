@@ -1,0 +1,144 @@
+{
+  "folio": "f88r",
+  "canvas": "https://collections.library.yale.edu/manifests/oid/2002046/canvas/1037112",
+  "blind": true,
+  "statement": "Three elaborate coloured containers stand at left, beside several rows of separate root and foliage drawings. Top-row nearby inscriptions were matched to transcription lines; overlapping middle and lower drawings have uncertain label attachment. Descriptions do not identify species.",
+  "objects": [
+    {
+      "id": "container-1",
+      "kind": "container",
+      "features": {
+        "description": "Upper left tall red cylindrical container with green neck and a flared foot."
+      },
+      "label": null
+    },
+    {
+      "id": "container-2",
+      "kind": "container",
+      "features": {
+        "description": "Middle left red tiered container with a pointed lid, green lower section and feet."
+      },
+      "label": null
+    },
+    {
+      "id": "container-3",
+      "kind": "container",
+      "features": {
+        "description": "Lower left red tiered container with green narrow neck and round base."
+      },
+      "label": null
+    },
+    {
+      "id": "top-1",
+      "kind": "plant",
+      "features": {
+        "description": "Upper row: pale elongated root with divided narrow stalks and green wash above."
+      },
+      "label": "f88r.1"
+    },
+    {
+      "id": "top-2",
+      "kind": "plant",
+      "features": {
+        "description": "Upper row: dark brown tapering root below a pale stalk."
+      },
+      "label": "f88r.2"
+    },
+    {
+      "id": "top-3",
+      "kind": "plant",
+      "features": {
+        "description": "Upper row: brown collar with multiple long thin roots and upright stems."
+      },
+      "label": "f88r.3"
+    },
+    {
+      "id": "top-4",
+      "kind": "plant",
+      "features": {
+        "description": "Upper row: two brown oval lobes with thin pale branching roots."
+      },
+      "label": "f88r.4"
+    },
+    {
+      "id": "top-5",
+      "kind": "plant",
+      "features": {
+        "description": "Upper row: pale tangled roots and stems with green wash above."
+      },
+      "label": "f88r.5"
+    },
+    {
+      "id": "top-6",
+      "kind": "plant",
+      "features": {
+        "description": "Upper right: a single elongated pointed green leaf on a curving stalk."
+      },
+      "label": "f88r.6"
+    },
+    {
+      "id": "middle-1",
+      "kind": "plant",
+      "features": {
+        "description": "Middle left: large twisted branching brown and pale roots, with green lobed foliage above."
+      },
+      "label": null
+    },
+    {
+      "id": "middle-2",
+      "kind": "plant",
+      "features": {
+        "description": "Middle left centre: small dark root with long pale branches beside a narrow green serrated form."
+      },
+      "label": null
+    },
+    {
+      "id": "middle-3",
+      "kind": "plant",
+      "features": {
+        "description": "Middle centre: pale collar with reddish branching roots and green foliage."
+      },
+      "label": null
+    },
+    {
+      "id": "middle-4",
+      "kind": "plant",
+      "features": {
+        "description": "Middle right centre: pale spotted bulbous form with brown and pale roots."
+      },
+      "label": null
+    },
+    {
+      "id": "middle-5",
+      "kind": "plant",
+      "features": {
+        "description": "Middle right: curved branching stem with multiple separate elongated green leaves."
+      },
+      "label": null
+    },
+    {
+      "id": "lower-1",
+      "kind": "plant",
+      "features": {
+        "description": "Lower centre: a crown with several narrow green edged leaves and long reddish branching roots."
+      },
+      "label": null
+    },
+    {
+      "id": "lower-2",
+      "kind": "plant",
+      "features": {
+        "description": "Lower right: several round scalloped green leaves attached to a very long pale branching root."
+      },
+      "label": null
+    },
+    {
+      "id": "lower-3",
+      "kind": "plant",
+      "features": {
+        "description": "Bottom edge: elongated green leaves attached to a pale base and long reddish tapered root, partly cut off by page edge."
+      },
+      "label": null
+    }
+  ]
+}
