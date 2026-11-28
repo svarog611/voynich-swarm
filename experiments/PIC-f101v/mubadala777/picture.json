@@ -1,0 +1,2437 @@
+{
+  "folio": "f101v",
+  "canvas": "https://collections.library.yale.edu/manifests/oid/2002046/canvas/1006250",
+  "additional_canvases": [
+    "https://collections.library.yale.edu/manifests/oid/2002046/canvas/1006251"
+  ],
+  "blind": true,
+  "statement": "Blind scan readers agree on three striped vessels and 28 botanical drawings across both panels of the f101v foldout, with the faded left-panel right-edge blade spray recorded provisionally. The left panel has 13 plant forms in groups of 4, 4 and 5. The right panel has 15 in three rows of 5. Six isolated label-like groups on the left and ten on the right are clear in both readings. The dark gutter leaves additional left marks uncertain. The first three upper-left and five middle-right positional label IDs are common to two plausible geometric reading orders. Ambiguous IDs and proximity to neighboring drawings are documented with the visible caption boxes. The prose lines continue across the fold. The independent readers received only scan crops. Their observed shapes are stored alongside the separate alignment of ZL locus IDs.",
+  "canvas_scope": "Former f101v2 is the 1006250 panel; former f101v1 is the leftmost panel of 1006251. The center and right sections of 1006251 are f102r panels. The seam at the left of 1006250 separates fragments of the adjacent folio, excluded here.",
+  "canvas_scope_source": "https://www.voynich.nu/q19/index.html",
+  "label_method": "Associate isolated glyph groups to nearby forms from their position and record ambiguous boundaries. Compare two plausible sequences assuming four label slots in each of the two left rows and five in each right row: (left upper, left middle, right upper, right middle), or (left upper, right upper, left middle, right middle). Index through the released 18 @Lf IDs with no words. Use a primary locus only when the two schemes agree and the mark is clear; these are positional proposals. If further left traces are marginal marks or the transcriber uses a different sequence, the mapping needs an independent check.",
+  "objects": [
+    {
+      "id": "left-01",
+      "kind": "jar",
+      "features": {
+        "colour": "mixed",
+        "panel": "left",
+        "row": 1,
+        "appearance": "Upright cylinder with an oval buff top, dark navy upper band, tall brick-red body, and pale narrow rims.",
+        "form": "tall cylinder with a pale oval mouth and horizontal colored bands"
+      },
+      "label": null,
+      "scan_geometry": {
+        "canvas_id": 1006250,
+        "local_crop_bbox": [
+          46,
+          66,
+          194,
+          467
+        ],
+        "reader_box_iou": 0.962
+      }
+    },
+    {
+      "id": "left-02",
+      "kind": "jar",
+      "features": {
+        "colour": "mixed",
+        "panel": "left",
+        "row": 2,
+        "appearance": "Wide upright cylinder with an oval buff top and turquoise-green, dark navy, and brick-red bands separated by pale rims. The lower rim is dotted or scalloped.",
+        "form": "tall cylinder with a pale oval mouth and horizontal colored bands"
+      },
+      "label": null,
+      "scan_geometry": {
+        "canvas_id": 1006250,
+        "local_crop_bbox": [
+          70,
+          489,
+          246,
+          918
+        ],
+        "reader_box_iou": 0.962
+      }
+    },
+    {
+      "id": "left-03",
+      "kind": "jar",
+      "features": {
+        "colour": "mixed",
+        "panel": "left",
+        "row": 3,
+        "appearance": "Narrow upright cylinder with an oval buff top, dark blue upper band, tall brick-red body, and pale rims.",
+        "form": "tall cylinder with a pale oval mouth and horizontal colored bands"
+      },
+      "label": null,
+      "scan_geometry": {
+        "canvas_id": 1006250,
+        "local_crop_bbox": [
+          97,
+          946,
+          240,
+          1420
+        ],
+        "reader_box_iou": 0.897
+      }
+    },
+    {
+      "id": "left-04",
+      "kind": "plant",
+      "features": {
+        "colour": "green",
+        "panel": "left",
+        "row": 1,
+        "appearance": "Thin pale-green branching stem with five irregular toothed green tufts. A buff segmented horizontal base has a fine downward-curving tail."
+      },
+      "label": "f101v.1",
+      "scan_geometry": {
+        "canvas_id": 1006250,
+        "local_crop_bbox": [
+          216,
+          66,
+          528,
+          592
+        ],
+        "reader_box_iou": 0.959
+      },
+      "visual_caption": {
+        "visual_group": "A1-L01",
+        "bbox": [
+          439,
+          45,
+          588,
+          117
+        ],
+        "visible": "clear",
+        "candidate_loci": [
+          "f101v.1"
+        ]
+      }
+    },
+    {
+      "id": "left-05",
+      "kind": "plant",
+      "features": {
+        "colour": "green",
+        "panel": "left",
+        "row": 1,
+        "appearance": "Tiered green drooping lobes around a thin central line. A buff outlined stalk rises to a small rosette or ring at the top. A russet tapered pendant extends below the green tiers."
+      },
+      "label": "f101v.2",
+      "scan_geometry": {
+        "canvas_id": 1006250,
+        "local_crop_bbox": [
+          530,
+          22,
+          744,
+          567
+        ],
+        "reader_box_iou": 0.926
+      },
+      "visual_caption": {
+        "visual_group": "A1-L02",
+        "bbox": [
+          747,
+          73,
+          839,
+          143
+        ],
+        "visible": "clear",
+        "candidate_loci": [
+          "f101v.2"
+        ]
+      }
+    },
+    {
+      "id": "left-06",
+      "kind": "plant",
+      "features": {
+        "colour": "green",
+        "panel": "left",
+        "row": 1,
+        "appearance": "Thin pale branching stalk with seven green tapered structures, each formed around a curled or ring-shaped interior. A pair of tapered orange pendants hangs below."
+      },
+      "label": "f101v.3",
+      "scan_geometry": {
+        "canvas_id": 1006250,
+        "local_crop_bbox": [
+          764,
+          2,
+          1145,
+          530
+        ],
+        "reader_box_iou": 0.962
+      },
+      "visual_caption": {
+        "visual_group": "A1-L03",
+        "bbox": [
+          1092,
+          64,
+          1206,
+          143
+        ],
+        "visible": "clear",
+        "candidate_loci": [
+          "f101v.3"
+        ]
+      }
+    },
+    {
+      "id": "left-07",
+      "kind": "plant",
+      "features": {
+        "colour": "green",
+        "panel": "left",
+        "row": 1,
+        "appearance": "Tall slender green stem with six angular green lobes on curved branches. The stem tapers into a small ochre base with thin brown curls."
+      },
+      "label": null,
+      "scan_geometry": {
+        "canvas_id": 1006250,
+        "local_crop_bbox": [
+          1114,
+          0,
+          1477,
+          550
+        ],
+        "reader_box_iou": 0.976
+      },
+      "visual_caption": {
+        "visual_group": "A1-L08",
+        "bbox": [
+          1443,
+          253,
+          1487,
+          295
+        ],
+        "visible": "uncertain fragment",
+        "candidate_loci": [
+          "f101v.4"
+        ]
+      }
+    },
+    {
+      "id": "left-08",
+      "kind": "plant_part",
+      "features": {
+        "colour": "green",
+        "panel": "left",
+        "row": 2,
+        "appearance": "Single round, green, almost coiled blade with a pale crescent-shaped opening near the center and a short reddish curved stalk below its left edge."
+      },
+      "label": null,
+      "scan_geometry": {
+        "canvas_id": 1006250,
+        "local_crop_bbox": [
+          266,
+          602,
+          508,
+          924
+        ],
+        "reader_box_iou": 0.975
+      },
+      "visual_caption": {
+        "visual_group": "A1-L04",
+        "bbox": [
+          451,
+          538,
+          540,
+          603
+        ],
+        "visible": "clear",
+        "candidate_loci": [
+          "f101v.5",
+          "f101v.10"
+        ]
+      }
+    },
+    {
+      "id": "left-09",
+      "kind": "plant",
+      "features": {
+        "colour": "green",
+        "panel": "left",
+        "row": 2,
+        "appearance": "Three dark green, fan-shaped toothed blades on a pale-green curved branching stem. The buff horizontal base has several thin curled descending rootlets."
+      },
+      "label": null,
+      "scan_geometry": {
+        "canvas_id": 1006250,
+        "local_crop_bbox": [
+          526,
+          544,
+          806,
+          956
+        ],
+        "reader_box_iou": 0.789
+      },
+      "visual_caption": {
+        "visual_group": "A1-L05",
+        "bbox": [
+          735,
+          481,
+          837,
+          536
+        ],
+        "visible": "clear",
+        "candidate_loci": [
+          "f101v.6",
+          "f101v.11"
+        ]
+      }
+    },
+    {
+      "id": "left-10",
+      "kind": "plant",
+      "features": {
+        "colour": "green",
+        "panel": "left",
+        "row": 2,
+        "appearance": "Large deeply cleft, toothed green blade on a fine stem. The base is reddish orange, arched, and divided into several thin hooked downward points."
+      },
+      "label": null,
+      "scan_geometry": {
+        "canvas_id": 1006250,
+        "local_crop_bbox": [
+          748,
+          517,
+          1130,
+          901
+        ],
+        "reader_box_iou": 0.967
+      },
+      "visual_caption": {
+        "visual_group": "A1-L06",
+        "bbox": [
+          1015,
+          447,
+          1158,
+          523
+        ],
+        "visible": "clear",
+        "candidate_loci": [
+          "f101v.7",
+          "f101v.12"
+        ]
+      }
+    },
+    {
+      "id": "left-11",
+      "kind": "plant",
+      "features": {
+        "colour": "none",
+        "panel": "left",
+        "row": 2,
+        "appearance": "Largely uncolored brown-outlined branching plant with pointed star-shaped heads. A buff horizontal root has two upright bumps and a thin curl below."
+      },
+      "label": null,
+      "scan_geometry": {
+        "canvas_id": 1006250,
+        "local_crop_bbox": [
+          1056,
+          394,
+          1514,
+          936
+        ],
+        "reader_box_iou": 0.956
+      },
+      "visual_caption": {
+        "visual_group": "A1-L09",
+        "bbox": [
+          1448,
+          683,
+          1489,
+          727
+        ],
+        "visible": "uncertain fragment",
+        "candidate_loci": [
+          "f101v.8",
+          "f101v.13"
+        ]
+      }
+    },
+    {
+      "id": "left-12",
+      "kind": "plant",
+      "features": {
+        "colour": "green",
+        "panel": "left",
+        "row": 3,
+        "appearance": "Dense upright blue-green frond of long narrow points on a thick green stem, ending in a small orange-buff irregular tapered root."
+      },
+      "label": null,
+      "scan_geometry": {
+        "canvas_id": 1006250,
+        "local_crop_bbox": [
+          245,
+          924,
+          467,
+          1504
+        ],
+        "reader_box_iou": 0.907
+      }
+    },
+    {
+      "id": "left-13",
+      "kind": "plant",
+      "features": {
+        "colour": "green",
+        "panel": "left",
+        "row": 3,
+        "appearance": "Pale tan branching stalk with tapered olive-green leaves in rows. Lower roots include long thin buff strands and a short orange lobe. Washed blue-green foliage near the top is provisionally included."
+      },
+      "label": null,
+      "scan_geometry": {
+        "canvas_id": 1006250,
+        "local_crop_bbox": [
+          358,
+          864,
+          750,
+          1544
+        ],
+        "reader_box_iou": 0.788
+      }
+    },
+    {
+      "id": "left-14",
+      "kind": "plant",
+      "features": {
+        "colour": "mixed",
+        "panel": "left",
+        "row": 3,
+        "appearance": "Dark teal palmately lobed fan on thin converging stems with two flanking heads on upright stalks. Each head has a green shoulder, dark blue band, and scalloped cream top. The stem ends in a small red base with thin slanting rootlets."
+      },
+      "label": null,
+      "scan_geometry": {
+        "canvas_id": 1006250,
+        "local_crop_bbox": [
+          705,
+          926,
+          1057,
+          1499
+        ],
+        "reader_box_iou": 0.966
+      }
+    },
+    {
+      "id": "left-15",
+      "kind": "plant",
+      "features": {
+        "colour": "green",
+        "panel": "left",
+        "row": 3,
+        "appearance": "Slender tan branching stem with rounded pale olive lobed blades. Its long pale tan root includes a peach patch and an outlined rounded portion with face-like marks."
+      },
+      "label": null,
+      "scan_geometry": {
+        "canvas_id": 1006250,
+        "local_crop_bbox": [
+          944,
+          910,
+          1387,
+          1430
+        ],
+        "reader_box_iou": 0.981
+      }
+    },
+    {
+      "id": "left-16",
+      "kind": "plant_part",
+      "features": {
+        "colour": "green",
+        "panel": "left",
+        "row": 3,
+        "appearance": "Compact spray of overlapping narrow, rounded blue-green blades along the right edge. The base is faded and partly obscured by edge discoloration.",
+        "boundary_confidence": "probable because the basal connection is worn"
+      },
+      "label": null,
+      "scan_geometry": {
+        "canvas_id": 1006250,
+        "local_crop_bbox": [
+          1318,
+          854,
+          1510,
+          1170
+        ],
+        "reader_box_iou": 0.845
+      }
+    },
+    {
+      "id": "right-01",
+      "kind": "plant_part",
+      "features": {
+        "colour": "green",
+        "panel": "right",
+        "row": 1,
+        "appearance": "Pale green upright narrow leaf form with a long fine stalk and a dark brown, blurred basal mass. Several darker thin strands curl beneath that mass."
+      },
+      "label": null,
+      "scan_geometry": {
+        "canvas_id": 1006251,
+        "local_crop_bbox": [
+          92,
+          38,
+          182,
+          364
+        ],
+        "reader_box_iou": 0.887
+      },
+      "visual_caption": {
+        "visual_group": "BL01",
+        "bbox": [
+          145,
+          188,
+          203,
+          223
+        ],
+        "visible": "clear",
+        "candidate_loci": [
+          "f101v.5",
+          "f101v.9"
+        ]
+      }
+    },
+    {
+      "id": "right-02",
+      "kind": "plant",
+      "features": {
+        "colour": "mixed",
+        "panel": "right",
+        "row": 1,
+        "appearance": "Four paired tiers of red pendent bell- or lobe-shaped forms, borne by short pale curved stems on a greenish axis. An ochre angular root with fine looping lines sits below."
+      },
+      "label": null,
+      "scan_geometry": {
+        "canvas_id": 1006251,
+        "local_crop_bbox": [
+          176,
+          34,
+          336,
+          355
+        ],
+        "reader_box_iou": 0.96
+      },
+      "visual_caption": {
+        "visual_group": "BL02",
+        "bbox": [
+          321,
+          43,
+          368,
+          77
+        ],
+        "visible": "clear",
+        "candidate_loci": [
+          "f101v.6",
+          "f101v.10"
+        ]
+      }
+    },
+    {
+      "id": "right-03",
+      "kind": "plant",
+      "features": {
+        "colour": "green",
+        "panel": "right",
+        "row": 1,
+        "appearance": "Tall pale straight axis with repeated arched side branchlets reaching into large overlapping green pointed panels on both sides. Fine reddish-brown strands emerge from the narrow basal bundle."
+      },
+      "label": null,
+      "scan_geometry": {
+        "canvas_id": 1006251,
+        "local_crop_bbox": [
+          325,
+          40,
+          577,
+          436
+        ],
+        "reader_box_iou": 0.967
+      },
+      "visual_caption": {
+        "visual_group": "BL03",
+        "bbox": [
+          567,
+          91,
+          655,
+          131
+        ],
+        "visible": "clear",
+        "candidate_loci": [
+          "f101v.7",
+          "f101v.11"
+        ]
+      }
+    },
+    {
+      "id": "right-04",
+      "kind": "plant",
+      "features": {
+        "colour": "green",
+        "panel": "right",
+        "row": 1,
+        "appearance": "Two broad green leaves arch down from opposite sides of a fine upright stem. The top has a diffuse dark brown-green mass. Two ochre root branches sweep outward from the base."
+      },
+      "label": null,
+      "scan_geometry": {
+        "canvas_id": 1006251,
+        "local_crop_bbox": [
+          577,
+          38,
+          806,
+          366
+        ],
+        "reader_box_iou": 0.943
+      },
+      "visual_caption": {
+        "visual_group": "BL04",
+        "bbox": [
+          751,
+          88,
+          815,
+          113
+        ],
+        "visible": "clear",
+        "candidate_loci": [
+          "f101v.8",
+          "f101v.12"
+        ]
+      }
+    },
+    {
+      "id": "right-05",
+      "kind": "plant",
+      "features": {
+        "colour": "green",
+        "panel": "right",
+        "row": 1,
+        "appearance": "Seven pointed green leaf blades radiating symmetrically around a fine stem, with a vertical tip blade and three paired levels. Stem reaches a broad horizontal ochre, pale and dark striped root structure."
+      },
+      "label": null,
+      "scan_geometry": {
+        "canvas_id": 1006251,
+        "local_crop_bbox": [
+          770,
+          28,
+          1112,
+          374
+        ],
+        "reader_box_iou": 0.941
+      },
+      "visual_caption": {
+        "visual_group": "BL05",
+        "bbox": [
+          1044,
+          76,
+          1110,
+          107
+        ],
+        "visible": "clear",
+        "candidate_loci": [
+          "f101v.9",
+          "f101v.13"
+        ]
+      }
+    },
+    {
+      "id": "right-06",
+      "kind": "plant",
+      "features": {
+        "colour": "green",
+        "panel": "right",
+        "row": 2,
+        "appearance": "Two overlapping broad rounded green blades with scalloped outlines. A pale scalloped band across the rear blade is unpainted. Fine stems join at an ochre bent foot."
+      },
+      "label": "f101v.14",
+      "scan_geometry": {
+        "canvas_id": 1006251,
+        "local_crop_bbox": [
+          100,
+          374,
+          301,
+          642
+        ],
+        "reader_box_iou": 0.963
+      },
+      "visual_caption": {
+        "visual_group": "BL06",
+        "bbox": [
+          290,
+          367,
+          362,
+          412
+        ],
+        "visible": "clear",
+        "candidate_loci": [
+          "f101v.14"
+        ]
+      }
+    },
+    {
+      "id": "right-07",
+      "kind": "plant",
+      "features": {
+        "colour": "green",
+        "panel": "right",
+        "row": 2,
+        "appearance": "Four round green heads with brown scalloped outlines on pale spreading stems. Stem branches meet at a small ochre, rightward-curving root."
+      },
+      "label": "f101v.15",
+      "scan_geometry": {
+        "canvas_id": 1006251,
+        "local_crop_bbox": [
+          300,
+          402,
+          514,
+          590
+        ],
+        "reader_box_iou": 0.936
+      },
+      "visual_caption": {
+        "visual_group": "BL07",
+        "bbox": [
+          487,
+          478,
+          552,
+          515
+        ],
+        "visible": "clear",
+        "candidate_loci": [
+          "f101v.15"
+        ]
+      }
+    },
+    {
+      "id": "right-08",
+      "kind": "plant",
+      "features": {
+        "colour": "green",
+        "panel": "right",
+        "row": 2,
+        "appearance": "Pair of upright dark green paddle-shaped blades tapering to a short joint stem. Small ochre and dark transverse strokes meet the base."
+      },
+      "label": "f101v.16",
+      "scan_geometry": {
+        "canvas_id": 1006251,
+        "local_crop_bbox": [
+          526,
+          407,
+          712,
+          646
+        ],
+        "reader_box_iou": 0.811
+      },
+      "visual_caption": {
+        "visual_group": "BL08",
+        "bbox": [
+          629,
+          370,
+          705,
+          409
+        ],
+        "visible": "clear",
+        "candidate_loci": [
+          "f101v.16"
+        ]
+      }
+    },
+    {
+      "id": "right-09",
+      "kind": "plant_part",
+      "features": {
+        "colour": "green",
+        "panel": "right",
+        "row": 2,
+        "appearance": "One oval olive-green form with a looped brown perimeter and short interior marks. Fine double-line stalk curves down into a long left-pointing reddish ochre root."
+      },
+      "label": "f101v.17",
+      "scan_geometry": {
+        "canvas_id": 1006251,
+        "local_crop_bbox": [
+          666,
+          335,
+          863,
+          635
+        ],
+        "reader_box_iou": 0.921
+      },
+      "visual_caption": {
+        "visual_group": "BL09",
+        "bbox": [
+          860,
+          368,
+          908,
+          400
+        ],
+        "visible": "clear",
+        "candidate_loci": [
+          "f101v.17"
+        ]
+      }
+    },
+    {
+      "id": "right-10",
+      "kind": "plant",
+      "features": {
+        "colour": "green",
+        "panel": "right",
+        "row": 2,
+        "appearance": "A fan of four long green blades bending upward or right. Pale channels separate the blades above a single pointed, ochre base with a scalloped side."
+      },
+      "label": "f101v.18",
+      "scan_geometry": {
+        "canvas_id": 1006251,
+        "local_crop_bbox": [
+          828,
+          364,
+          1151,
+          602
+        ],
+        "reader_box_iou": 0.949
+      },
+      "visual_caption": {
+        "visual_group": "BL10",
+        "bbox": [
+          1066,
+          369,
+          1134,
+          411
+        ],
+        "visible": "clear",
+        "candidate_loci": [
+          "f101v.18"
+        ]
+      }
+    },
+    {
+      "id": "right-11",
+      "kind": "plant",
+      "features": {
+        "colour": "green",
+        "panel": "right",
+        "row": 3,
+        "appearance": "Five broad, outlined, green-gray leaves on a fine upright stem, with veins visible and an ochre oblique hairy root at the foot."
+      },
+      "label": null,
+      "scan_geometry": {
+        "canvas_id": 1006251,
+        "local_crop_bbox": [
+          144,
+          616,
+          395,
+          950
+        ],
+        "reader_box_iou": 0.971
+      }
+    },
+    {
+      "id": "right-12",
+      "kind": "plant",
+      "features": {
+        "colour": "green",
+        "panel": "right",
+        "row": 3,
+        "appearance": "Many long pointed green blades. Larger upright spray and shorter leftward spray join by a visible angled branch. Ochre base and several very fine dark roots."
+      },
+      "label": null,
+      "scan_geometry": {
+        "canvas_id": 1006251,
+        "local_crop_bbox": [
+          328,
+          604,
+          565,
+          964
+        ],
+        "reader_box_iou": 0.922
+      }
+    },
+    {
+      "id": "right-13",
+      "kind": "plant",
+      "features": {
+        "colour": "mixed",
+        "panel": "right",
+        "row": 3,
+        "appearance": "Two long green leaves flank a thin stem topped by a single upright serrated orange-red spike. Green lower stalk meets a lobed ochre root with outlined rays and dark thin root ends."
+      },
+      "label": null,
+      "scan_geometry": {
+        "canvas_id": 1006251,
+        "local_crop_bbox": [
+          582,
+          634,
+          720,
+          1024
+        ],
+        "reader_box_iou": 0.954
+      }
+    },
+    {
+      "id": "right-14",
+      "kind": "plant",
+      "features": {
+        "colour": "green",
+        "panel": "right",
+        "row": 3,
+        "appearance": "Seven pointed green leaves, including an upright terminal leaf, on a thin branching axis. Fine uncolored and brown lines form the broad descending root cluster amid the writing."
+      },
+      "label": null,
+      "scan_geometry": {
+        "canvas_id": 1006251,
+        "local_crop_bbox": [
+          747,
+          600,
+          958,
+          1019
+        ],
+        "reader_box_iou": 0.977
+      }
+    },
+    {
+      "id": "right-15",
+      "kind": "plant",
+      "features": {
+        "colour": "mixed",
+        "panel": "right",
+        "row": 3,
+        "appearance": "Three small dark blue rounded heads with pale loops above them, joined by fine stalks to an upright plant. Three tiers of opposed pointed green blades surround pale central gaps. A curved ochre root extends right toward the page edge."
+      },
+      "label": null,
+      "scan_geometry": {
+        "canvas_id": 1006251,
+        "local_crop_bbox": [
+          956,
+          548,
+          1163,
+          948
+        ],
+        "reader_box_iou": 0.939
+      }
+    }
+  ],
+  "readings": {
+    "A": [
+      {
+        "panel": "A",
+        "read": "A1",
+        "source_images": [
+          "grid-A.jpg",
+          "panel-A.jpg"
+        ],
+        "coordinate_system": {
+          "format": [
+            "x_min",
+            "y_min",
+            "x_max",
+            "y_max"
+          ],
+          "origin": "upper-left of panel-A.jpg, matching the labeled grid origin",
+          "units": "approximate source image pixels"
+        },
+        "counts": {
+          "vessels": 3,
+          "botanical_forms": 13,
+          "other_bounded_objects": 0,
+          "clear_nonprose_label_groups": 6,
+          "additional_uncertain_label_fragments_or_marks": 4
+        },
+        "objects": [
+          {
+            "id": "A1-01",
+            "type": "vessel",
+            "bbox": [
+              47,
+              66,
+              196,
+              466
+            ],
+            "appearance": "Upright cylinder with an oval buff top, dark navy upper band, tall brick-red body, and pale narrow rims.",
+            "nearby_label_candidates": []
+          },
+          {
+            "id": "A1-02",
+            "type": "vessel",
+            "bbox": [
+              70,
+              486,
+              248,
+              919
+            ],
+            "appearance": "Wide upright cylinder with an oval buff top and turquoise-green, dark navy, and brick-red bands separated by pale rims. The lower rim is dotted or scalloped.",
+            "nearby_label_candidates": []
+          },
+          {
+            "id": "A1-03",
+            "type": "vessel",
+            "bbox": [
+              104,
+              947,
+              240,
+              1420
+            ],
+            "appearance": "Narrow upright cylinder with an oval buff top, dark blue upper band, tall brick-red body, and pale rims.",
+            "nearby_label_candidates": []
+          },
+          {
+            "id": "A1-04",
+            "type": "botanical",
+            "bbox": [
+              220,
+              65,
+              526,
+              592
+            ],
+            "appearance": "Thin pale-green branching stem with five irregular toothed green tufts. A buff segmented horizontal base has a fine downward-curving tail.",
+            "nearby_label_candidates": [
+              "A1-L01",
+              "A1-L04"
+            ]
+          },
+          {
+            "id": "A1-05",
+            "type": "botanical",
+            "bbox": [
+              528,
+              22,
+              749,
+              565
+            ],
+            "appearance": "Tiered green drooping lobes around a thin central line. A buff outlined stalk rises to a small rosette or ring at the top. A russet tapered pendant extends below the green tiers.",
+            "nearby_label_candidates": [
+              "A1-L01",
+              "A1-L02",
+              "A1-L05"
+            ]
+          },
+          {
+            "id": "A1-06",
+            "type": "botanical",
+            "bbox": [
+              767,
+              1,
+              1143,
+              527
+            ],
+            "appearance": "Thin pale branching stalk with seven green tapered structures, each formed around a curled or ring-shaped interior. A pair of tapered orange pendants hangs below.",
+            "nearby_label_candidates": [
+              "A1-L02",
+              "A1-L03",
+              "A1-L05",
+              "A1-L06"
+            ]
+          },
+          {
+            "id": "A1-07",
+            "type": "botanical",
+            "bbox": [
+              1112,
+              0,
+              1478,
+              551
+            ],
+            "appearance": "Tall slender green stem with six angular green lobes on curved branches. The stem tapers into a small ochre base with thin brown curls.",
+            "nearby_label_candidates": [
+              "A1-L03",
+              "A1-L06",
+              "A1-L07",
+              "A1-L08"
+            ]
+          },
+          {
+            "id": "A1-08",
+            "type": "botanical",
+            "bbox": [
+              265,
+              602,
+              507,
+              925
+            ],
+            "appearance": "Single round, green, almost coiled blade with a pale crescent-shaped opening near the center and a short reddish curved stalk below its left edge.",
+            "nearby_label_candidates": [
+              "A1-L04"
+            ]
+          },
+          {
+            "id": "A1-09",
+            "type": "botanical",
+            "bbox": [
+              544,
+              542,
+              806,
+              979
+            ],
+            "appearance": "Three dark green, fan-shaped toothed blades on a pale-green curved branching stem. The buff horizontal base has several thin curled descending rootlets.",
+            "nearby_label_candidates": [
+              "A1-L04",
+              "A1-L05"
+            ]
+          },
+          {
+            "id": "A1-10",
+            "type": "botanical",
+            "bbox": [
+              747,
+              516,
+              1125,
+              901
+            ],
+            "appearance": "Large deeply cleft, toothed green blade on a fine stem. The base is reddish orange, arched, and divided into several thin hooked downward points.",
+            "nearby_label_candidates": [
+              "A1-L06"
+            ]
+          },
+          {
+            "id": "A1-11",
+            "type": "botanical",
+            "bbox": [
+              1055,
+              394,
+              1511,
+              943
+            ],
+            "appearance": "Largely uncolored brown-outlined branching plant with pointed star-shaped heads. A buff horizontal root has two upright bumps and a thin curl below.",
+            "nearby_label_candidates": [
+              "A1-L09"
+            ]
+          },
+          {
+            "id": "A1-12",
+            "type": "botanical",
+            "bbox": [
+              244,
+              929,
+              460,
+              1507
+            ],
+            "appearance": "Dense upright blue-green frond of long narrow points on a thick green stem, ending in a small orange-buff irregular tapered root.",
+            "nearby_label_candidates": []
+          },
+          {
+            "id": "A1-13",
+            "type": "botanical",
+            "bbox": [
+              355,
+              800,
+              755,
+              1549
+            ],
+            "appearance": "Pale tan branching stalk with tapered olive-green leaves in rows. Lower roots include long thin buff strands and a short orange lobe. Washed blue-green foliage near the top is provisionally included.",
+            "nearby_label_candidates": []
+          },
+          {
+            "id": "A1-14",
+            "type": "botanical",
+            "bbox": [
+              704,
+              928,
+              1060,
+              1501
+            ],
+            "appearance": "Dark teal palmately lobed fan on thin converging stems with two flanking heads on upright stalks. Each head has a green shoulder, dark blue band, and scalloped cream top. The stem ends in a small red base with thin slanting rootlets.",
+            "nearby_label_candidates": []
+          },
+          {
+            "id": "A1-15",
+            "type": "botanical",
+            "bbox": [
+              947,
+              911,
+              1387,
+              1429
+            ],
+            "appearance": "Slender tan branching stem with rounded pale olive lobed blades. Its long pale tan root includes a peach patch and an outlined rounded portion with face-like marks.",
+            "nearby_label_candidates": []
+          },
+          {
+            "id": "A1-16",
+            "type": "botanical",
+            "bbox": [
+              1325,
+              856,
+              1517,
+              1171
+            ],
+            "appearance": "Compact spray of overlapping narrow, rounded blue-green blades along the right edge. The base is faded and partly obscured by edge discoloration.",
+            "nearby_label_candidates": [
+              "A1-L10"
+            ]
+          }
+        ],
+        "labels": [
+          {
+            "id": "A1-L01",
+            "bbox": [
+              439,
+              45,
+              588,
+              117
+            ],
+            "visibility": "clear",
+            "position": "Above the gap between the five-tufted stem and the tiered green form."
+          },
+          {
+            "id": "A1-L02",
+            "bbox": [
+              747,
+              73,
+              839,
+              143
+            ],
+            "visibility": "clear",
+            "position": "Between the tiered form’s top and the upper left curled point of the radial form."
+          },
+          {
+            "id": "A1-L03",
+            "bbox": [
+              1092,
+              64,
+              1206,
+              143
+            ],
+            "visibility": "clear",
+            "position": "Between the radial form’s top right point and the tall angular-lobed plant."
+          },
+          {
+            "id": "A1-L04",
+            "bbox": [
+              451,
+              538,
+              540,
+              603
+            ],
+            "visibility": "clear",
+            "position": "Below the five-tufted plant’s base, above the round coiled blade and left of the three-leaf form."
+          },
+          {
+            "id": "A1-L05",
+            "bbox": [
+              735,
+              481,
+              837,
+              536
+            ],
+            "visibility": "clear",
+            "position": "Right of the tiered form’s orange pendant and above the three-leaf form."
+          },
+          {
+            "id": "A1-L06",
+            "bbox": [
+              1015,
+              447,
+              1158,
+              523
+            ],
+            "visibility": "clear",
+            "position": "To the right of the radial form’s paired pendants, immediately above the large cleft blade. Right end overlaps lines from the tall angular-lobed form."
+          },
+          {
+            "id": "A1-L07",
+            "bbox": [
+              1450,
+              212,
+              1491,
+              238
+            ],
+            "visibility": "uncertain fragment",
+            "position": "Faint marks between the top two right-pointing lobes of the tall angular-lobed form, near the darkened edge."
+          },
+          {
+            "id": "A1-L08",
+            "bbox": [
+              1443,
+              253,
+              1487,
+              295
+            ],
+            "visibility": "uncertain fragment",
+            "position": "Small dark glyph-like group immediately right of the mid-height lobe of the tall angular-lobed form."
+          },
+          {
+            "id": "A1-L09",
+            "bbox": [
+              1448,
+              683,
+              1489,
+              727
+            ],
+            "visibility": "uncertain fragment",
+            "position": "Small dark glyph-like group beside the lower-right portion of the outlined star-shaped plant."
+          },
+          {
+            "id": "A1-L10",
+            "bbox": [
+              1403,
+              1314,
+              1455,
+              1364
+            ],
+            "visibility": "uncertain isolated mark",
+            "position": "Dark curved mark below the narrow-leaf spray near the lower right margin, with no clear association."
+          }
+        ],
+        "ambiguities": [
+          {
+            "bbox": [
+              365,
+              789,
+              681,
+              1009
+            ],
+            "note": "The washed blue-green shapes beneath the round blade and across the three-leaf form’s rootlets overlap the upper end of the lower pale fern. A pointed lobe appears to meet the fern’s stem. The stronger curved outlines on the left could belong to a distinct overlapping drawing, but a separate stem or base is unclear. The cluster is provisionally counted with A1-13."
+          },
+          {
+            "bbox": [
+              595,
+              394,
+              675,
+              565
+            ],
+            "note": "A fine line above the orange tapered pendant appears to meet the lower center of the tiered form. Its thin tip nearly touches the neighboring three-leaf plant. It is counted with A1-05."
+          },
+          {
+            "bbox": [
+              906,
+              374,
+              998,
+              529
+            ],
+            "note": "The two orange tapered pendants are contained at the forked base of the radial plant and are counted with A1-06."
+          },
+          {
+            "bbox": [
+              1418,
+              364,
+              1513,
+              632
+            ],
+            "note": "Parts of the star-shaped heads at the extreme right fade near a brown edge stain. Their branch lines appear to belong to A1-11."
+          },
+          {
+            "bbox": [
+              1300,
+              852,
+              1520,
+              1172
+            ],
+            "note": "The narrow blue-green spray overlaps the rightmost pale olive lobes. Its visible leaves converge along their own diagonal, with no clear joining stem to A1-15, so it is provisionally counted as A1-16."
+          },
+          {
+            "bbox": [
+              1412,
+              11,
+              1438,
+              61
+            ],
+            "note": "An isolated brown vertical stroke near the top edge could be a marginal mark or blemish. It is excluded from the provisional label count."
+          }
+        ],
+        "scope": "Visual inventory only. Prose, marks clearly beyond the left seam, and diffuse pigment or ink transfer are excluded. Label proximity is descriptive."
+      },
+      {
+        "panel": "A",
+        "read": "A2",
+        "source": "panel-A.jpg and grid-A.jpg",
+        "coordinates": {
+          "format": "[left, top, right, bottom]",
+          "units": "Approximate pixels in panel-A.jpg, with the top-left of the scan at x=0, y=0, as marked in grid-A.jpg. Excludes the grid image margins.",
+          "scope": "Drawings on the primary panel and isolated nearby marks above the running prose. The adjacent page beyond the left seam is excluded."
+        },
+        "objects": [
+          {
+            "id": "V1",
+            "bbox": [
+              45,
+              66,
+              193,
+              468
+            ],
+            "kind": "vessel",
+            "description": "Tall, slightly irregular cylinder with a buff oval mouth, dark blue upper band, pale trim, and a long red body.",
+            "nearby_mark_ids": []
+          },
+          {
+            "id": "V2",
+            "bbox": [
+              71,
+              492,
+              245,
+              918
+            ],
+            "kind": "vessel",
+            "description": "Tall vessel with a buff oval mouth, green upper section, dark blue middle, red lower section, and pale bands.",
+            "nearby_mark_ids": []
+          },
+          {
+            "id": "V3",
+            "bbox": [
+              90,
+              945,
+              241,
+              1420
+            ],
+            "kind": "vessel",
+            "description": "Narrow tall vessel with a buff oval mouth, dark blue top, pale collar, and long red body with slightly indented sides.",
+            "nearby_mark_ids": []
+          },
+          {
+            "id": "P1",
+            "bbox": [
+              212,
+              66,
+              530,
+              593
+            ],
+            "kind": "botanical form",
+            "description": "Slender pale green stalk branching into five irregularly lobed or jagged green blades. Below is a buff segmented horizontal base with short brown tapered offshoots.",
+            "nearby_mark_ids": [
+              "M1",
+              "M6"
+            ]
+          },
+          {
+            "id": "P2",
+            "bbox": [
+              533,
+              22,
+              739,
+              569
+            ],
+            "kind": "botanical form",
+            "description": "Tiered green leaves whose paired tips droop on either side of a central stem. A small outlined round head tops a curved stalk. A tapered red-orange form and thread descend from the lowest pair.",
+            "nearby_mark_ids": [
+              "M1",
+              "M2",
+              "M3",
+              "M7"
+            ]
+          },
+          {
+            "id": "P3",
+            "bbox": [
+              762,
+              4,
+              1147,
+              532
+            ],
+            "kind": "botanical form",
+            "description": "Pale branching stem with seven pointed green lobes on circular or curled bases. Two red-orange tapered structures hang from its base.",
+            "nearby_mark_ids": [
+              "M3",
+              "M4",
+              "M7",
+              "M8"
+            ]
+          },
+          {
+            "id": "P4",
+            "bbox": [
+              1117,
+              0,
+              1476,
+              548
+            ],
+            "kind": "botanical form",
+            "description": "Tall light-green stem with six green, angular, lobed blades on curved branches. A short buff fork projects below the stem.",
+            "nearby_mark_ids": [
+              "M4",
+              "M5",
+              "M8",
+              "M9",
+              "M10"
+            ]
+          },
+          {
+            "id": "P5",
+            "bbox": [
+              267,
+              603,
+              508,
+              922
+            ],
+            "kind": "botanical form",
+            "description": "Broad dark green nearly round blade curling around a pale interior hook. A slender russet line hangs down at left.",
+            "nearby_mark_ids": [
+              "M6"
+            ]
+          },
+          {
+            "id": "P6",
+            "bbox": [
+              508,
+              545,
+              807,
+              933
+            ],
+            "kind": "botanical form",
+            "description": "Three broad green bluntly jagged leaves on branching light-green stalks, above an ochre bent base with multiple tapering dark roots.",
+            "nearby_mark_ids": [
+              "M6",
+              "M7"
+            ]
+          },
+          {
+            "id": "P7",
+            "bbox": [
+              748,
+              518,
+              1135,
+              901
+            ],
+            "kind": "botanical form",
+            "description": "Large dark green finely toothed blade with a deep lower split. A pale narrow stem runs down into a rust-colored horizontal root with several curved rootlets.",
+            "nearby_mark_ids": [
+              "M7",
+              "M8"
+            ]
+          },
+          {
+            "id": "P8",
+            "bbox": [
+              1057,
+              393,
+              1517,
+              929
+            ],
+            "kind": "botanical form",
+            "description": "Large branched buff-brown outline with several pointed star-shaped heads, a horizontal ochre root, and a downward curved branch. Some rightmost lines are faint against the margin.",
+            "nearby_mark_ids": [
+              "M11"
+            ]
+          },
+          {
+            "id": "P9",
+            "bbox": [
+              246,
+              919,
+              474,
+              1502
+            ],
+            "kind": "botanical form",
+            "description": "Upright dark green spray with narrow ascending projections and dense ragged foliage, tapering into a green trunk with a stubby orange-brown base.",
+            "nearby_mark_ids": []
+          },
+          {
+            "id": "P10",
+            "bbox": [
+              360,
+              927,
+              746,
+              1539
+            ],
+            "kind": "botanical form",
+            "description": "Pale olive-green fern-like stalk with many long pointed blades arranged in tiers on either side. Several fine roots emerge from the foot, including a long left-running strand and a small rust-orange segment.",
+            "nearby_mark_ids": []
+          },
+          {
+            "id": "P11",
+            "bbox": [
+              706,
+              925,
+              1054,
+              1497
+            ],
+            "kind": "botanical form",
+            "description": "Joined stalks rise from a red-orange base to two dark-green cup-shaped heads with dark blue bands and buff lobed tops. A frontal green fan with many blunt finger-like divisions sits between the two stalks.",
+            "nearby_mark_ids": []
+          },
+          {
+            "id": "P12",
+            "bbox": [
+              942,
+              908,
+              1387,
+              1430
+            ],
+            "kind": "botanical form",
+            "description": "Broadly branching pale stem with olive-green rounded, scalloped blades, including a hanging blade at left. A long curled pale root has an orange streak and small interior marks.",
+            "nearby_mark_ids": []
+          },
+          {
+            "id": "P13",
+            "bbox": [
+              1310,
+              853,
+              1503,
+              1168
+            ],
+            "kind": "botanical form",
+            "description": "Right-edge spray of overlapping, long, bluntly pointed blue-green blades. Several narrow tan outlines extend behind the colored blades, and the cluster tapers toward the edge.",
+            "nearby_mark_ids": [
+              "M12"
+            ],
+            "confidence": "probable distinct drawing"
+          }
+        ],
+        "isolated_marks": [
+          {
+            "id": "M1",
+            "bbox": [
+              438,
+              45,
+              586,
+              109
+            ],
+            "appearance": "Short dark brown character group between the upper-left jagged plant and the small round head on the neighboring plant.",
+            "classification": "visible label-like group"
+          },
+          {
+            "id": "M2",
+            "bbox": [
+              682,
+              94,
+              750,
+              127
+            ],
+            "appearance": "Faint gray-brown trace to the right of the small round head and before M3.",
+            "classification": "uncertain trace"
+          },
+          {
+            "id": "M3",
+            "bbox": [
+              748,
+              72,
+              839,
+              141
+            ],
+            "appearance": "Short dark brown character group above the gap between the drooping green leaves and the radial curled figure.",
+            "classification": "visible label-like group"
+          },
+          {
+            "id": "M4",
+            "bbox": [
+              1093,
+              62,
+              1206,
+              138
+            ],
+            "appearance": "Short brown character group between the upper-right spoke of the radial figure and the right-hand plant's upper stem.",
+            "classification": "visible label-like group"
+          },
+          {
+            "id": "M5",
+            "bbox": [
+              1417,
+              11,
+              1440,
+              61
+            ],
+            "appearance": "Small upright brown mark high in the top-right margin.",
+            "classification": "isolated mark, uncertain function"
+          },
+          {
+            "id": "M6",
+            "bbox": [
+              444,
+              536,
+              537,
+              607
+            ],
+            "appearance": "Short group with several brown strokes below the segmented root and just above the large coiled green blade.",
+            "classification": "visible label-like group"
+          },
+          {
+            "id": "M7",
+            "bbox": [
+              737,
+              462,
+              831,
+              540
+            ],
+            "appearance": "Short brown group to the right of the orange tapered root of the tiered plant and upper left of the large toothed blade.",
+            "classification": "visible label-like group"
+          },
+          {
+            "id": "M8",
+            "bbox": [
+              1015,
+              449,
+              1157,
+              535
+            ],
+            "appearance": "Brown group beside the two orange tapered structures and above the large toothed blade. The right end approaches or overlaps a pointed green blade above.",
+            "classification": "visible label-like group with uncertain right edge"
+          },
+          {
+            "id": "M9",
+            "bbox": [
+              1448,
+              206,
+              1491,
+              249
+            ],
+            "appearance": "Very faint brown trace near the right margin just to the right of a pointed green blade.",
+            "classification": "uncertain trace"
+          },
+          {
+            "id": "M10",
+            "bbox": [
+              1440,
+              253,
+              1481,
+              302
+            ],
+            "appearance": "Small dark isolated group right of the middle blade on the tall upper-right plant.",
+            "classification": "possible label fragment"
+          },
+          {
+            "id": "M11",
+            "bbox": [
+              1450,
+              683,
+              1491,
+              724
+            ],
+            "appearance": "Small dark group to the right of the low right star-shaped head.",
+            "classification": "possible label fragment"
+          },
+          {
+            "id": "M12",
+            "bbox": [
+              1399,
+              1310,
+              1451,
+              1367
+            ],
+            "appearance": "Small dark curl near the lower-right margin, underneath the blade spray and to the right of the curved-root plant.",
+            "classification": "isolated mark, uncertain function"
+          }
+        ],
+        "ambiguities": [
+          "The mottled blue-green area and curling strokes around [370,780,668,1010] fall across the coiled blade, the fine roots of P6, and the top of P10. An additional bounded figure cannot be established there from this scan.",
+          "P13 has different blade shape, line direction, and color from the overlapping P12. Its tip approaches the worn edge, where its full outline and the separation between the two figures are hard to verify.",
+          "The orange tip of P2 approaches the top of P6, and the orange tips under P3 reach P7's outline. I read these as contacts or near contacts between separately bounded figures.",
+          "The two cup-like heads of P11 sit on stalks joining its common base. No separate vessel or detached root is counted there.",
+          "Nearby mark IDs record proximity. A writing group's position can be consistent with more than one drawing, and the scan does not resolve the function of the small marks near the right edge."
+        ],
+        "count": {
+          "vessels": 3,
+          "botanical_forms_including_one_probable": 13,
+          "total_drawings_including_one_probable": 16
+        }
+      }
+    ],
+    "B": [
+      {
+        "panel": "B",
+        "review": "independent scan-only visual inventory",
+        "source": "grid-B.jpg",
+        "coordinate_system": "Approximate coordinates on the blue grid, [left, top, right, bottom], measured from the grid origin at the upper left. Boxes describe visible drawing or ink, including roots where visible.",
+        "drawn_object_count": 15,
+        "standalone_label_count": 10,
+        "objects": [
+          {
+            "id": "B01",
+            "row": 1,
+            "type": "botanical",
+            "bbox": [
+              91,
+              33,
+              185,
+              363
+            ],
+            "appearance": "Pale green upright narrow leaf form with a long fine stalk and a dark brown, blurred basal mass. Several darker thin strands curl beneath that mass.",
+            "nearby_label": "BL01"
+          },
+          {
+            "id": "B02",
+            "row": 1,
+            "type": "botanical",
+            "bbox": [
+              175,
+              32,
+              337,
+              355
+            ],
+            "appearance": "Four paired tiers of red pendent bell- or lobe-shaped forms, borne by short pale curved stems on a greenish axis. An ochre angular root with fine looping lines sits below.",
+            "nearby_label": "BL02"
+          },
+          {
+            "id": "B03",
+            "row": 1,
+            "type": "botanical",
+            "bbox": [
+              324,
+              41,
+              576,
+              433
+            ],
+            "appearance": "Tall pale straight axis with repeated arched side branchlets reaching into large overlapping green pointed panels on both sides. Fine reddish-brown strands emerge from the narrow basal bundle.",
+            "nearby_label": "BL03"
+          },
+          {
+            "id": "B04",
+            "row": 1,
+            "type": "botanical",
+            "bbox": [
+              579,
+              34,
+              808,
+              366
+            ],
+            "appearance": "Two broad green leaves arch down from opposite sides of a fine upright stem. The top has a diffuse dark brown-green mass. Two ochre root branches sweep outward from the base.",
+            "nearby_label": "BL04"
+          },
+          {
+            "id": "B05",
+            "row": 1,
+            "type": "botanical",
+            "bbox": [
+              774,
+              27,
+              1110,
+              370
+            ],
+            "appearance": "Seven pointed green leaf blades radiating symmetrically around a fine stem, with a vertical tip blade and three paired levels. Stem reaches a broad horizontal ochre, pale and dark striped root structure.",
+            "nearby_label": "BL05"
+          },
+          {
+            "id": "B06",
+            "row": 2,
+            "type": "botanical",
+            "bbox": [
+              103,
+              375,
+              301,
+              642
+            ],
+            "appearance": "Two overlapping broad rounded green blades with scalloped outlines. A pale scalloped band across the rear blade is unpainted. Fine stems join at an ochre bent foot.",
+            "nearby_label": "BL06"
+          },
+          {
+            "id": "B07",
+            "row": 2,
+            "type": "botanical",
+            "bbox": [
+              300,
+              399,
+              516,
+              588
+            ],
+            "appearance": "Four round green heads with brown scalloped outlines on pale spreading stems. Stem branches meet at a small ochre, rightward-curving root.",
+            "nearby_label": "BL07"
+          },
+          {
+            "id": "B08",
+            "row": 2,
+            "type": "botanical",
+            "bbox": [
+              526,
+              405,
+              727,
+              649
+            ],
+            "appearance": "Pair of upright dark green paddle-shaped blades tapering to a short joint stem. Small ochre and dark transverse strokes meet the base.",
+            "nearby_label": "BL08"
+          },
+          {
+            "id": "B09",
+            "row": 2,
+            "type": "botanical",
+            "bbox": [
+              662,
+              332,
+              862,
+              634
+            ],
+            "appearance": "One oval olive-green form with a looped brown perimeter and short interior marks. Fine double-line stalk curves down into a long left-pointing reddish ochre root.",
+            "nearby_label": "BL09"
+          },
+          {
+            "id": "B10",
+            "row": 2,
+            "type": "botanical",
+            "bbox": [
+              826,
+              365,
+              1148,
+              600
+            ],
+            "appearance": "A fan of four long green blades bending upward or right. Pale channels separate the blades above a single pointed, ochre base with a scalloped side.",
+            "nearby_label": "BL10"
+          },
+          {
+            "id": "B11",
+            "row": 3,
+            "type": "botanical",
+            "bbox": [
+              143,
+              617,
+              394,
+              951
+            ],
+            "appearance": "Five broad, outlined, green-gray leaves on a fine upright stem, with veins visible and an ochre oblique hairy root at the foot.",
+            "nearby_label": null
+          },
+          {
+            "id": "B12",
+            "row": 3,
+            "type": "botanical",
+            "bbox": [
+              330,
+              600,
+              564,
+              959
+            ],
+            "appearance": "Many long pointed green blades. Larger upright spray and shorter leftward spray join by a visible angled branch. Ochre base and several very fine dark roots.",
+            "nearby_label": null
+          },
+          {
+            "id": "B13",
+            "row": 3,
+            "type": "botanical",
+            "bbox": [
+              581,
+              633,
+              721,
+              1020
+            ],
+            "appearance": "Two long green leaves flank a thin stem topped by a single upright serrated orange-red spike. Green lower stalk meets a lobed ochre root with outlined rays and dark thin root ends.",
+            "nearby_label": null
+          },
+          {
+            "id": "B14",
+            "row": 3,
+            "type": "botanical",
+            "bbox": [
+              747,
+              598,
+              957,
+              1020
+            ],
+            "appearance": "Seven pointed green leaves, including an upright terminal leaf, on a thin branching axis. Fine uncolored and brown lines form the broad descending root cluster amid the writing.",
+            "nearby_label": null
+          },
+          {
+            "id": "B15",
+            "row": 3,
+            "type": "botanical",
+            "bbox": [
+              956,
+              546,
+              1158,
+              947
+            ],
+            "appearance": "Three small dark blue rounded heads with pale loops above them, joined by fine stalks to an upright plant. Three tiers of opposed pointed green blades surround pale central gaps. A curved ochre root extends right toward the page edge.",
+            "nearby_label": null
+          }
+        ],
+        "visible_labels": [
+          {
+            "id": "BL01",
+            "bbox": [
+              145,
+              188,
+              203,
+              223
+            ],
+            "position": "Right of B01's thin stem and left of the red leaves of B02."
+          },
+          {
+            "id": "BL02",
+            "bbox": [
+              321,
+              43,
+              368,
+              77
+            ],
+            "position": "At the upper right of B02 between its upper red form and B03."
+          },
+          {
+            "id": "BL03",
+            "bbox": [
+              567,
+              91,
+              655,
+              131
+            ],
+            "position": "Right of the upper green blade of B03 and left of B04's dark crown."
+          },
+          {
+            "id": "BL04",
+            "bbox": [
+              751,
+              88,
+              815,
+              113
+            ],
+            "position": "Right of B04's dark crown in the gap before the first upper leaf of B05."
+          },
+          {
+            "id": "BL05",
+            "bbox": [
+              1044,
+              76,
+              1110,
+              107
+            ],
+            "position": "To the upper right of B05 by the outer edge of its upper right leaf."
+          },
+          {
+            "id": "BL06",
+            "bbox": [
+              290,
+              367,
+              362,
+              412
+            ],
+            "position": "Above and slightly right of the right blade of B06, between it and B07."
+          },
+          {
+            "id": "BL07",
+            "bbox": [
+              487,
+              478,
+              552,
+              515
+            ],
+            "position": "Below and right of B07's right round head, to the left of B08."
+          },
+          {
+            "id": "BL08",
+            "bbox": [
+              629,
+              370,
+              705,
+              409
+            ],
+            "position": "Just above the right blade of B08."
+          },
+          {
+            "id": "BL09",
+            "bbox": [
+              860,
+              368,
+              908,
+              400
+            ],
+            "position": "Right of the upper perimeter of the oval B09, beneath B05's root."
+          },
+          {
+            "id": "BL10",
+            "bbox": [
+              1066,
+              369,
+              1134,
+              411
+            ],
+            "position": "Above and to the right of B10's long green blades."
+          }
+        ],
+        "ambiguity_notes": [
+          {
+            "bbox": [
+              103,
+              627,
+              157,
+              718
+            ],
+            "observation": "Several faint pointed green strokes stop at the left gutter between B06 and B11. No closure, distinct stem, or root is visible. This could be a clipped botanical fragment or show-through and is outside the clear-object count."
+          },
+          {
+            "bbox": [
+              169,
+              948,
+              1136,
+              1069
+            ],
+            "observation": "Lines of writing begin among the basal forms of row 3. No confidently isolated labels were identified for these five plants. Short text groups within the upper lines of writing were excluded."
+          },
+          {
+            "observation": "The ochre basal structures of B05, B10, B13, and B15 meet their stems. No clear detached roots, jars, or other stand-alone bounded objects are visible. Pale diffuse background pigment was excluded."
+          }
+        ]
+      },
+      {
+        "panel": "B",
+        "coordinate_system": "Approximate [left, top, right, bottom] in grid-B axes, also approximately the panel-B.jpg pixel coordinates.",
+        "definite_count": 15,
+        "definite_vessel_count": 0,
+        "definite_detached_root_count": 0,
+        "objects": [
+          {
+            "id": "B2-01",
+            "bbox": [
+              93,
+              42,
+              179,
+              364
+            ],
+            "type": "botanical",
+            "description": "Tall, narrow pale olive green leaf with a darker green right portion. A fine double stem descends to a dark maroon-brown tuft or root with several long thin hooked strands. Partly obscured by the left gutter.",
+            "nearby_labels": [
+              "B2-L01"
+            ]
+          },
+          {
+            "id": "B2-02",
+            "bbox": [
+              178,
+              35,
+              335,
+              355
+            ],
+            "type": "botanical",
+            "description": "Several red to rust drooping pointed lobes alternate along a pale green branching stem. The stem ends in an irregular golden ochre root with a light outlined recess and fine extensions.",
+            "nearby_labels": [
+              "B2-L02"
+            ]
+          },
+          {
+            "id": "B2-03",
+            "bbox": [
+              326,
+              39,
+              578,
+              438
+            ],
+            "type": "botanical",
+            "description": "Tall mirrored ranks of blue-green leaves flank a lightly outlined central stem, each rank ending in a much larger drooping pointed leaf. Curved pale stalks cross the interior. A vertically hanging ochre-brown fibrous form continues the central stem.",
+            "nearby_labels": [
+              "B2-L03"
+            ]
+          },
+          {
+            "id": "B2-04",
+            "bbox": [
+              575,
+              41,
+              804,
+              367
+            ],
+            "type": "botanical",
+            "description": "Two long blue-green leaves arch down from an upright shared stem. A faded mottled olive-brown and blue-green crown sits between them at the top. The ochre root divides into a long left point and hooked right branch.",
+            "nearby_labels": [
+              "B2-L04"
+            ]
+          },
+          {
+            "id": "B2-05",
+            "bbox": [
+              767,
+              29,
+              1115,
+              377
+            ],
+            "type": "botanical",
+            "description": "Seven pointed deep green leaves form a terminal blade and three side pairs on an upright stalk. The horizontal orange-brown root has several long open loops or pale cavities.",
+            "nearby_labels": [
+              "B2-L05"
+            ]
+          },
+          {
+            "id": "B2-06",
+            "bbox": [
+              97,
+              374,
+              301,
+              643
+            ],
+            "type": "botanical",
+            "description": "Three overlapping round scalloped heads converge on an ochre hooked root. The front left and outer right heads are green. The middle head is largely unpainted.",
+            "nearby_labels": [
+              "B2-L06"
+            ]
+          },
+          {
+            "id": "B2-07",
+            "bbox": [
+              299,
+              405,
+              513,
+              591
+            ],
+            "type": "botanical",
+            "description": "Four small rounded blue-green scalloped heads on a pale branching stem. A short golden-brown root curves to the right.",
+            "nearby_labels": [
+              "B2-L07"
+            ]
+          },
+          {
+            "id": "B2-08",
+            "bbox": [
+              526,
+              409,
+              696,
+              643
+            ],
+            "type": "botanical",
+            "description": "Two dark blue-green rounded paddle-shaped leaves taper into a common short stem. Tiny dark and ochre marks form the base.",
+            "nearby_labels": [
+              "B2-L08"
+            ]
+          },
+          {
+            "id": "B2-09",
+            "bbox": [
+              671,
+              338,
+              864,
+              636
+            ],
+            "type": "botanical",
+            "description": "One pale olive elongated oval leaf with a line of outlined scallops around the edge and small internal marks beside a midrib. The slim pale stem bends left into a long, narrow, rusty brown root.",
+            "nearby_labels": [
+              "B2-L09"
+            ]
+          },
+          {
+            "id": "B2-10",
+            "bbox": [
+              829,
+              362,
+              1154,
+              603
+            ],
+            "type": "botanical",
+            "description": "Four long green pointed leaves sweep upward and rightward on individual curved stems from an ochre-orange bristly root.",
+            "nearby_labels": [
+              "B2-L10"
+            ]
+          },
+          {
+            "id": "B2-11",
+            "bbox": [
+              144,
+              614,
+              396,
+              948
+            ],
+            "type": "botanical",
+            "description": "Five broad, pale olive pointed leaves on an upright delicately outlined stem. The oblique orange-brown root has numerous tapering dark rootlets.",
+            "nearby_labels": []
+          },
+          {
+            "id": "B2-12",
+            "bbox": [
+              325,
+              609,
+              566,
+              969
+            ],
+            "type": "botanical",
+            "description": "Two uneven fans of long narrow green blades, one upright and one lower to the left, branch from a shared green stem. The base is ochre and has a slender forked tip.",
+            "nearby_labels": []
+          },
+          {
+            "id": "B2-13",
+            "bbox": [
+              582,
+              636,
+              719,
+              1027
+            ],
+            "type": "botanical",
+            "description": "Two long green leaves frame an upright red-orange fringed spike. The stout green stem meets an irregular two-sided ochre root with outlined points and several dark dangling filaments. The root intrudes into the writing below.",
+            "nearby_labels": []
+          },
+          {
+            "id": "B2-14",
+            "bbox": [
+              747,
+              602,
+              959,
+              1018
+            ],
+            "type": "botanical",
+            "description": "An upright stem bears seven pointed green leaves, with a terminal leaf and three side pairs. Its lower portion is lightly outlined and divides into a broad unpainted bundle of long rootlets.",
+            "nearby_labels": []
+          },
+          {
+            "id": "B2-15",
+            "bbox": [
+              957,
+              549,
+              1168,
+              948
+            ],
+            "type": "botanical",
+            "description": "Three small blue-green round heads with pale tops sit on thin branching stalks that lead into the axis of a narrow plant. Three tiers of green triangular or elongate portions flank a pale center and leave open oval to diamond-shaped spaces. Its long ochre root curves up to the right from a rounded base.",
+            "nearby_labels": []
+          }
+        ],
+        "isolated_visible_labels": [
+          {
+            "id": "B2-L01",
+            "bbox": [
+              140,
+              190,
+              202,
+              226
+            ],
+            "position": "Between the two upper-left plants, to the right of the narrow olive blade's stalk."
+          },
+          {
+            "id": "B2-L02",
+            "bbox": [
+              321,
+              47,
+              365,
+              75
+            ],
+            "position": "Just right of the top red lobe, above a blue-green leaf of the taller next plant."
+          },
+          {
+            "id": "B2-L03",
+            "bbox": [
+              565,
+              91,
+              654,
+              132
+            ],
+            "position": "Immediately right of the tall rank-leaved plant, left of the faded crown of the next plant."
+          },
+          {
+            "id": "B2-L04",
+            "bbox": [
+              751,
+              89,
+              818,
+              116
+            ],
+            "position": "Just right of the faded crown, between it and the upper-left pointed blade of the next plant."
+          },
+          {
+            "id": "B2-L05",
+            "bbox": [
+              1040,
+              76,
+              1119,
+              111
+            ],
+            "position": "Right of the upper-right plant's high pointed blade, toward the seam."
+          },
+          {
+            "id": "B2-L06",
+            "bbox": [
+              290,
+              369,
+              363,
+              424
+            ],
+            "position": "Just right of the large scalloped heads, under the tip of a blue-green leaf from above."
+          },
+          {
+            "id": "B2-L07",
+            "bbox": [
+              486,
+              496,
+              554,
+              542
+            ],
+            "position": "Under and right of the rightmost small scalloped head, between that sprig and the paddle leaves."
+          },
+          {
+            "id": "B2-L08",
+            "bbox": [
+              629,
+              376,
+              704,
+              412
+            ],
+            "position": "Immediately over the right dark paddle leaf."
+          },
+          {
+            "id": "B2-L09",
+            "bbox": [
+              860,
+              367,
+              909,
+              398
+            ],
+            "position": "In the gap above-right of the rimmed oval leaf, next to the upper left edge of the swept leaves."
+          },
+          {
+            "id": "B2-L10",
+            "bbox": [
+              1064,
+              369,
+              1137,
+              411
+            ],
+            "position": "Near the right side of the swept leaves, above the third blade from the top."
+          }
+        ],
+        "uncertain_marks": [
+          {
+            "bbox": [
+              99,
+              631,
+              154,
+              711
+            ],
+            "position": "At the inner left edge, immediately below the large scalloped plant and left of the five-leaf plant.",
+            "interpretation": "A faint group of diagonal, pointed outlines or strokes with green tint. It has no visible attachment or independently bounded root, and could be a clipped fragment or background mark."
+          },
+          {
+            "bbox": [
+              140,
+              945,
+              1133,
+              1047
+            ],
+            "position": "First irregular writing lines along and below the lower roots.",
+            "interpretation": "Some short groups appear isolated by the roots. They align with longer writing lines, so no individual label has been assigned there."
+          }
+        ],
+        "counting_notes": [
+          "The narrow hanging ochre form below the tall two-ranked plant appears joined by the central stem.",
+          "The upper-right plant's horizontally looped ochre form joins the stem and counts with the leaves.",
+          "A fine junction links the three blue heads at lower right to the rest of the upright drawing.",
+          "The definite object total excludes the faint marginal marks, diffuse green background patches, and marks beyond the right seam. Associations between isolated writing groups and drawings are based on proximity."
+        ]
+      }
+    ]
+  },
+  "layout": {
+    "coords": {
+      "A": {
+        "canvas": 1006250,
+        "render_size": [
+          1900,
+          2661
+        ],
+        "crop_xyxy": [
+          155,
+          55,
+          1780,
+          2140
+        ],
+        "crop_size": [
+          1625,
+          2085
+        ]
+      },
+      "B": {
+        "canvas": 1006251,
+        "render_size": [
+          3600,
+          1701
+        ],
+        "crop_xyxy": [
+          100,
+          69,
+          1272,
+          1570
+        ],
+        "crop_size": [
+          1172,
+          1501
+        ]
+      }
+    },
+    "counts": {
+      "A": {
+        "objects": 16,
+        "vessels": 3
+      },
+      "B": {
+        "objects": 15,
+        "vessels": 0
+      }
+    },
+    "source_raster_sha256": {
+      "scan-1006250.jpg": "034554765020ee0f61e6d905fd33ee1cb576bc39bb48664b8c738431b7517766",
+      "scan-1006251.jpg": "c028d34ed53a49f4fdac01c83127a515d0437e7c66a1ca6cd8723068203b37c5"
+    }
+  }
+}
