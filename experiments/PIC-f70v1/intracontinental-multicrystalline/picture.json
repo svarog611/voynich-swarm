@@ -1,0 +1,474 @@
+{
+  "folio": "f70v1",
+  "canvas": "https://collections.library.yale.edu/manifests/oid/2002046/canvas/1006201",
+  "blind": true,
+  "statement": "A central horned four-legged animal stands by a green leafy form, surrounded by two rings of human figures, vessels and stars. Nearby text is present, but I cannot confidently assign individual lines to objects from the scan, so labels are null. Angles are approximate locations of the figures.",
+  "objects": [
+    {
+      "id": "centre-animal",
+      "kind": "animal",
+      "features": {
+        "description": "Four-legged horned animal, painted dark green and brown, facing left with its head at a green leafy form."
+      },
+      "label": null
+    },
+    {
+      "id": "centre-plant",
+      "kind": "plant",
+      "features": {
+        "description": "Compact green leafy mass on a pale stem beside the animal’s mouth."
+      },
+      "label": null
+    },
+    {
+      "id": "outer-figure-1",
+      "kind": "human_figure",
+      "features": {
+        "ring": "outer",
+        "angle_deg_clockwise_from_top": 0,
+        "description": "A person emerging from a patterned or plain vessel, with a star nearby."
+      },
+      "label": null
+    },
+    {
+      "id": "outer-star-1",
+      "kind": "star",
+      "features": {
+        "ring": "outer",
+        "angle_deg_clockwise_from_top": 0,
+        "description": "A many-pointed star adjacent to a ring figure."
+      },
+      "label": null
+    },
+    {
+      "id": "outer-figure-2",
+      "kind": "human_figure",
+      "features": {
+        "ring": "outer",
+        "angle_deg_clockwise_from_top": 36,
+        "description": "A person emerging from a patterned or plain vessel, with a star nearby."
+      },
+      "label": null
+    },
+    {
+      "id": "outer-star-2",
+      "kind": "star",
+      "features": {
+        "ring": "outer",
+        "angle_deg_clockwise_from_top": 36,
+        "description": "A many-pointed star adjacent to a ring figure."
+      },
+      "label": null
+    },
+    {
+      "id": "outer-figure-3",
+      "kind": "human_figure",
+      "features": {
+        "ring": "outer",
+        "angle_deg_clockwise_from_top": 72,
+        "description": "A person emerging from a patterned or plain vessel, with a star nearby."
+      },
+      "label": null
+    },
+    {
+      "id": "outer-star-3",
+      "kind": "star",
+      "features": {
+        "ring": "outer",
+        "angle_deg_clockwise_from_top": 72,
+        "description": "A many-pointed star adjacent to a ring figure."
+      },
+      "label": null
+    },
+    {
+      "id": "outer-figure-4",
+      "kind": "human_figure",
+      "features": {
+        "ring": "outer",
+        "angle_deg_clockwise_from_top": 108,
+        "description": "A person emerging from a patterned or plain vessel, with a star nearby."
+      },
+      "label": null
+    },
+    {
+      "id": "outer-star-4",
+      "kind": "star",
+      "features": {
+        "ring": "outer",
+        "angle_deg_clockwise_from_top": 108,
+        "description": "A many-pointed star adjacent to a ring figure."
+      },
+      "label": null
+    },
+    {
+      "id": "outer-figure-5",
+      "kind": "human_figure",
+      "features": {
+        "ring": "outer",
+        "angle_deg_clockwise_from_top": 144,
+        "description": "A person emerging from a patterned or plain vessel, with a star nearby."
+      },
+      "label": null
+    },
+    {
+      "id": "outer-star-5",
+      "kind": "star",
+      "features": {
+        "ring": "outer",
+        "angle_deg_clockwise_from_top": 144,
+        "description": "A many-pointed star adjacent to a ring figure."
+      },
+      "label": null
+    },
+    {
+      "id": "outer-figure-6",
+      "kind": "human_figure",
+      "features": {
+        "ring": "outer",
+        "angle_deg_clockwise_from_top": 180,
+        "description": "A person emerging from a patterned or plain vessel, with a star nearby."
+      },
+      "label": null
+    },
+    {
+      "id": "outer-star-6",
+      "kind": "star",
+      "features": {
+        "ring": "outer",
+        "angle_deg_clockwise_from_top": 180,
+        "description": "A many-pointed star adjacent to a ring figure."
+      },
+      "label": null
+    },
+    {
+      "id": "outer-figure-7",
+      "kind": "human_figure",
+      "features": {
+        "ring": "outer",
+        "angle_deg_clockwise_from_top": 216,
+        "description": "A person emerging from a patterned or plain vessel, with a star nearby."
+      },
+      "label": null
+    },
+    {
+      "id": "outer-star-7",
+      "kind": "star",
+      "features": {
+        "ring": "outer",
+        "angle_deg_clockwise_from_top": 216,
+        "description": "A many-pointed star adjacent to a ring figure."
+      },
+      "label": null
+    },
+    {
+      "id": "outer-figure-8",
+      "kind": "human_figure",
+      "features": {
+        "ring": "outer",
+        "angle_deg_clockwise_from_top": 252,
+        "description": "A person emerging from a patterned or plain vessel, with a star nearby."
+      },
+      "label": null
+    },
+    {
+      "id": "outer-star-8",
+      "kind": "star",
+      "features": {
+        "ring": "outer",
+        "angle_deg_clockwise_from_top": 252,
+        "description": "A many-pointed star adjacent to a ring figure."
+      },
+      "label": null
+    },
+    {
+      "id": "outer-figure-9",
+      "kind": "human_figure",
+      "features": {
+        "ring": "outer",
+        "angle_deg_clockwise_from_top": 288,
+        "description": "A person emerging from a patterned or plain vessel, with a star nearby."
+      },
+      "label": null
+    },
+    {
+      "id": "outer-star-9",
+      "kind": "star",
+      "features": {
+        "ring": "outer",
+        "angle_deg_clockwise_from_top": 288,
+        "description": "A many-pointed star adjacent to a ring figure."
+      },
+      "label": null
+    },
+    {
+      "id": "outer-figure-10",
+      "kind": "human_figure",
+      "features": {
+        "ring": "outer",
+        "angle_deg_clockwise_from_top": 324,
+        "description": "A person emerging from a patterned or plain vessel, with a star nearby."
+      },
+      "label": null
+    },
+    {
+      "id": "outer-star-10",
+      "kind": "star",
+      "features": {
+        "ring": "outer",
+        "angle_deg_clockwise_from_top": 324,
+        "description": "A many-pointed star adjacent to a ring figure."
+      },
+      "label": null
+    },
+    {
+      "id": "inner-figure-1",
+      "kind": "human_figure",
+      "features": {
+        "ring": "inner",
+        "angle_deg_clockwise_from_top": 0,
+        "description": "A person emerging from a patterned or plain vessel, with a star nearby."
+      },
+      "label": null
+    },
+    {
+      "id": "inner-star-1",
+      "kind": "star",
+      "features": {
+        "ring": "inner",
+        "angle_deg_clockwise_from_top": 0,
+        "description": "A many-pointed star adjacent to a ring figure."
+      },
+      "label": null
+    },
+    {
+      "id": "inner-figure-2",
+      "kind": "human_figure",
+      "features": {
+        "ring": "inner",
+        "angle_deg_clockwise_from_top": 72,
+        "description": "A person emerging from a patterned or plain vessel, with a star nearby."
+      },
+      "label": null
+    },
+    {
+      "id": "inner-star-2",
+      "kind": "star",
+      "features": {
+        "ring": "inner",
+        "angle_deg_clockwise_from_top": 72,
+        "description": "A many-pointed star adjacent to a ring figure."
+      },
+      "label": null
+    },
+    {
+      "id": "inner-figure-3",
+      "kind": "human_figure",
+      "features": {
+        "ring": "inner",
+        "angle_deg_clockwise_from_top": 144,
+        "description": "A person emerging from a patterned or plain vessel, with a star nearby."
+      },
+      "label": null
+    },
+    {
+      "id": "inner-star-3",
+      "kind": "star",
+      "features": {
+        "ring": "inner",
+        "angle_deg_clockwise_from_top": 144,
+        "description": "A many-pointed star adjacent to a ring figure."
+      },
+      "label": null
+    },
+    {
+      "id": "inner-figure-4",
+      "kind": "human_figure",
+      "features": {
+        "ring": "inner",
+        "angle_deg_clockwise_from_top": 216,
+        "description": "A person emerging from a patterned or plain vessel, with a star nearby."
+      },
+      "label": null
+    },
+    {
+      "id": "inner-star-4",
+      "kind": "star",
+      "features": {
+        "ring": "inner",
+        "angle_deg_clockwise_from_top": 216,
+        "description": "A many-pointed star adjacent to a ring figure."
+      },
+      "label": null
+    },
+    {
+      "id": "inner-figure-5",
+      "kind": "human_figure",
+      "features": {
+        "ring": "inner",
+        "angle_deg_clockwise_from_top": 288,
+        "description": "A person emerging from a patterned or plain vessel, with a star nearby."
+      },
+      "label": null
+    },
+    {
+      "id": "inner-star-5",
+      "kind": "star",
+      "features": {
+        "ring": "inner",
+        "angle_deg_clockwise_from_top": 288,
+        "description": "A many-pointed star adjacent to a ring figure."
+      },
+      "label": null
+    },
+    {
+      "id": "outer-vessel-1",
+      "kind": "container",
+      "features": {
+        "ring": "outer",
+        "angle_deg_clockwise_from_top": 0,
+        "description": "A tub-like vessel around a figure, some bearing geometric decoration."
+      },
+      "label": null
+    },
+    {
+      "id": "outer-vessel-2",
+      "kind": "container",
+      "features": {
+        "ring": "outer",
+        "angle_deg_clockwise_from_top": 36,
+        "description": "A tub-like vessel around a figure, some bearing geometric decoration."
+      },
+      "label": null
+    },
+    {
+      "id": "outer-vessel-3",
+      "kind": "container",
+      "features": {
+        "ring": "outer",
+        "angle_deg_clockwise_from_top": 72,
+        "description": "A tub-like vessel around a figure, some bearing geometric decoration."
+      },
+      "label": null
+    },
+    {
+      "id": "outer-vessel-4",
+      "kind": "container",
+      "features": {
+        "ring": "outer",
+        "angle_deg_clockwise_from_top": 108,
+        "description": "A tub-like vessel around a figure, some bearing geometric decoration."
+      },
+      "label": null
+    },
+    {
+      "id": "outer-vessel-5",
+      "kind": "container",
+      "features": {
+        "ring": "outer",
+        "angle_deg_clockwise_from_top": 144,
+        "description": "A tub-like vessel around a figure, some bearing geometric decoration."
+      },
+      "label": null
+    },
+    {
+      "id": "outer-vessel-6",
+      "kind": "container",
+      "features": {
+        "ring": "outer",
+        "angle_deg_clockwise_from_top": 180,
+        "description": "A tub-like vessel around a figure, some bearing geometric decoration."
+      },
+      "label": null
+    },
+    {
+      "id": "outer-vessel-7",
+      "kind": "container",
+      "features": {
+        "ring": "outer",
+        "angle_deg_clockwise_from_top": 216,
+        "description": "A tub-like vessel around a figure, some bearing geometric decoration."
+      },
+      "label": null
+    },
+    {
+      "id": "outer-vessel-8",
+      "kind": "container",
+      "features": {
+        "ring": "outer",
+        "angle_deg_clockwise_from_top": 252,
+        "description": "A tub-like vessel around a figure, some bearing geometric decoration."
+      },
+      "label": null
+    },
+    {
+      "id": "outer-vessel-9",
+      "kind": "container",
+      "features": {
+        "ring": "outer",
+        "angle_deg_clockwise_from_top": 288,
+        "description": "A tub-like vessel around a figure, some bearing geometric decoration."
+      },
+      "label": null
+    },
+    {
+      "id": "outer-vessel-10",
+      "kind": "container",
+      "features": {
+        "ring": "outer",
+        "angle_deg_clockwise_from_top": 324,
+        "description": "A tub-like vessel around a figure, some bearing geometric decoration."
+      },
+      "label": null
+    },
+    {
+      "id": "inner-vessel-1",
+      "kind": "container",
+      "features": {
+        "ring": "inner",
+        "angle_deg_clockwise_from_top": 0,
+        "description": "A tub-like vessel around a figure, some bearing geometric decoration."
+      },
+      "label": null
+    },
+    {
+      "id": "inner-vessel-2",
+      "kind": "container",
+      "features": {
+        "ring": "inner",
+        "angle_deg_clockwise_from_top": 72,
+        "description": "A tub-like vessel around a figure, some bearing geometric decoration."
+      },
+      "label": null
+    },
+    {
+      "id": "inner-vessel-3",
+      "kind": "container",
+      "features": {
+        "ring": "inner",
+        "angle_deg_clockwise_from_top": 144,
+        "description": "A tub-like vessel around a figure, some bearing geometric decoration."
+      },
+      "label": null
+    },
+    {
+      "id": "inner-vessel-4",
+      "kind": "container",
+      "features": {
+        "ring": "inner",
+        "angle_deg_clockwise_from_top": 216,
+        "description": "A tub-like vessel around a figure, some bearing geometric decoration."
+      },
+      "label": null
+    },
+    {
+      "id": "inner-vessel-5",
+      "kind": "container",
+      "features": {
+        "ring": "inner",
+        "angle_deg_clockwise_from_top": 288,
+        "description": "A tub-like vessel around a figure, some bearing geometric decoration."
+      },
+      "label": null
+    }
+  ]
+}
