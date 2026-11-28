@@ -1,0 +1,20 @@
+{
+ "title": "A Quantitative Confirmation of the Currier Language Distinction",
+ "authors": "Christophe Parisel",
+ "year": 2026,
+ "url": "https://arxiv.org/abs/2604.25979",
+ "doi": "10.48550/arXiv.2604.25979",
+ "summary": "A two-stage quantitative study of the Currier A/B distinction. Without using Currier's labels, a Beta-Binomial mixture over character-pair substitution ratios across 185 folios selects two components by BIC and predicts held-out folio labels at 89% accuracy. The A/B contrast is then shown to be a low-resolution projection of a higher-dimensional system whose dominant component is a per-folio boolean switch governing the vowel after ch and sh; word templates split into fixed and switchable contexts, with template identity explaining 92% of variance. Open access (CC BY 4.0).",
+ "established": [
+  "A Beta-Binomial mixture model applied to character-pair substitution ratios across 185 folios, with no access to Currier's labels, selects two components by BIC and predicts held-out folio labels at 89% accuracy.",
+  "The A/B contrast is not primitive: the study treats it as a projection of a higher-dimensional generative system whose dominant component is a discrete boolean switch set once per folio that governs the vowel following the digraphs ch and sh.",
+  "A two-state binomial mixture for that switch achieves Delta AIC = 2,549 over a single-state model and assigns 195 of 197 folios unambiguously.",
+  "The switch does not operate uniformly: word templates divide into fixed contexts and switchable contexts, and template identity accounts for 92% of the variance."
+ ],
+ "open": [
+  {"question": "Does the per-folio switch assignment reproduce on an independent transliteration (Takahashi) and under a different segmentation, and does it agree with Currier's labels on the folios where those exist?", "front": "L1"},
+  {"question": "Is the switch aligned with scribal hand, section or folio position, rather than being a property of the language? The paper assigns it per folio; a within-hand and within-section comparison would separate a script-wide state from a hand or page habit.", "front": "L2"},
+  {"question": "What cipher or encoding mechanism produces a folio-wide binary state that overrides local context in the vowel after ch/sh, and can a fixed procedure of that kind be written as text and tested against the established facts?", "front": "L3"},
+  {"question": "How much power does a two-state mixture test have to recover a planted per-folio switch, and what is its false-positive rate on text generated with no switch at the same sample size?", "front": "J"}
+ ]
+}
