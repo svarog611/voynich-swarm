@@ -93,6 +93,9 @@ THE LOOP
                                zodiac_figure|human_figure|pool|pipe|jar|container|rosette|diagram|animal|other,
                                "features": {"colour": "red", "ring": "outer", ...},
                                "label": "<ZL locus id of the label line, e.g. f99r.3>" or null}]}
+                 Seats are paired object by object. plant, plant_part, root, leaf and flower count
+                 as one kind for pairing, and so do jar and container: name the part you see, a
+                 different name for the same drawing does not count against agreement.
                  Features that are compared take one value from a closed list (vs/pictures.py VOCAB),
                  or "unclear":
                    sex female|male  clothing nude|partly|clothed  container none|tub|barrel|other

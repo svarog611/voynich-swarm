@@ -40,7 +40,7 @@ PROGRAMS = [
 LEADS = {"fleet-opus", "fleet-lead"}   # seats that hold M-LEAD; only their dispatches set priorities
 TOP_MAX = 5
 GRID_OPEN_MAX = 3         # rule-made grid steps open at once, so coverage cannot crowd out the rest
-PIC_OPEN_MAX = 6          # picture-annotation steps open at once
+PIC_OPEN_MAX = 12         # picture-annotation steps open at once (ring folios that need measured angles come first)
 LEAD_STALE_HOURS = 2      # after this long without a lead dispatch, rules choose the top picks
 
 
@@ -262,12 +262,39 @@ def derived_steps():
         # folios with the most labels first: pharmaceutical jars and zodiac rings name many drawn objects
         nlab = {p.id: sum(1 for l in p.lines if l.unit == "L" and l.words) for p in ivtff.parse()}
         labelled = sorted((f for f, n in nlab.items() if n), key=lambda f: (-nlab[f], f))
+        # ring folios: a label link is confirmed only when two seats place the same figure by a
+        # measured angle (vs/dsl.py _confirmed_labels), so two annotations are not enough if fewer
+        # than two seats measured. These come first: they are what the picture-text tests wait for.
+        from .dsl import label_positions
+        from .pictures import measured_angle, _ring
+        ringed = set(label_positions())
+        measured = {}
+        for i in pics:
+            ring = [o for o in i["detail"].get("objects") or [] if isinstance(o, dict) and _ring(o) in ("outer", "middle", "inner")]
+            if ring and all(measured_angle(o) is not None for o in ring):
+                measured.setdefault(str(i["detail"].get("folio")), set()).add(i["provenance"].get("seat", i["provenance"].get("added_by")))
+        needs_angles = {f for f in labelled if f in ringed and len(done.get(f, ())) >= 2 and len(measured.get(f, ())) < 2}
+        labelled.sort(key=lambda f: f not in needs_angles)
         opened = 0
         for f in labelled:
-            if len(done.get(f, ())) >= 2 or opened >= PIC_OPEN_MAX:
+            if (len(done.get(f, ())) >= 2 and f not in needs_angles) or opened >= PIC_OPEN_MAX:
                 continue
             opened += 1
             nth = "a second, independent" if done.get(f) else "a first"
+            if f in needs_angles:
+                out.append({"id": f"PIC-{f}", "program": "L4", "kind": "step",
+                            "title": f"Pictures: a blind annotation of folio {f} with a measured angle for every ring figure",
+                            "statement": (f"Folio {f} has {len(done[f])} annotations, but {len(measured.get(f, ()))} of the seats measured where each ring figure "
+                                          "stands, and a label link counts only when two seats place the same figure independently of its label. "
+                                          "If you have not annotated this folio: look at the Beinecke scan (IIIF canvas from "
+                                          "data/raw/beinecke_ms408_manifest.json) and record every drawn object's kind and visible features in the "
+                                          "closed vocabulary in join.txt. For every ring figure give its ring and angle_deg_clockwise_from_top (0-359), "
+                                          "measured on the scan from the centre of the wheel to the figure's torso. Do not work the angle out from "
+                                          "the figure's place in the count, and do not give a clock hour. Give the ZL locus of each clearly attached "
+                                          "label, or null if uncertain. Annotate blind, using only the scan and transcription line IDs."),
+                            "check": "picture.json {\"folio\", \"canvas\", \"blind\": true, \"objects\": [{\"id\", \"kind\", \"features\": {\"ring\", \"angle_deg_clockwise_from_top\", ...}, \"label\": locus or null}]}",
+                            "on_path": True, "hard": False, "added_by": "rule:ring-folio-angles", "how": "rule", "from": f, "status": "open"})
+                continue
             out.append({"id": f"PIC-{f}", "program": "L4", "kind": "step",
                         "title": f"Pictures: {nth} blind annotation of folio {f}",
                         "statement": (f"Look at the Beinecke scan of folio {f} (IIIF canvas from data/raw/beinecke_ms408_manifest.json) "

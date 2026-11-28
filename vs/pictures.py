@@ -11,7 +11,7 @@ are read through `normalize`, which maps the common wordings onto the list and l
 of the comparison (a value it cannot place is not compared, never counted as a disagreement).
 
 For visual agreement, objects are paired by label locus where both annotations give one; otherwise within the same kind
-and ring, by nearest clock angle when both give one, else in list order.
+(plant, plant_part, root, leaf and flower count as one kind, and so do jar and container) and ring, by nearest clock angle when both give one, else in list order.
 Label comparisons have a separate, label-blind pairing rule (compare_labels).
 """
 import re
@@ -260,6 +260,7 @@ def _locations(detail):
         # Older non-circular catalogues identify the row in IDs such as row1-jar and r1-jar.
         row = re.match(r"^(?:row|r)([1-9]\d*)[-_]", str(o.get("id", "")), re.I) if rows_described else None
         features = normalize(o.get("features"))
+        # the literal kind: for a label link, a root and a plant are not shown to be the same drawing
         out[i] = _Location(o["kind"], features.pop("ring", None), row[1] if row else None,
                            clock_angle(o), features)
     return out
@@ -349,6 +350,30 @@ def conflicting_unpaired_loci(a, b, pairs):
             if location.distinct_from(other)}
 
 
+# Seats name one drawing by whichever part they take it for: the same pharmaceutical-page drawing is
+# a plant to one seat, a root or a plant_part to the next, and a jar is a container. Pairing and
+# agreement treat these as one kind of thing, so a difference of name alone does not leave two
+# drawings of the same object unpaired (each unpaired object counts as a disagreement). What the
+# seats see is still compared, feature by feature.
+KIND_CLASS = {**dict.fromkeys(("plant", "plant_part", "root", "leaf", "flower"), "plant"),
+              **dict.fromkeys(("jar", "container"), "jar")}
+
+
+def kind_class(kind):
+    return KIND_CLASS.get(kind, kind)
+
+
+def measured_angle(obj):
+    """An angle in degrees that the seat measured on the scan. A clock hour, or an angle worked out
+    from the figure's place in the count, is not a measurement and returns None."""
+    fs = obj.get("features") or {}
+    for key in ("angle_deg_clockwise_from_top", "bearing_clockwise_deg"):
+        value = fs.get(key)
+        if isinstance(value, (int, float)) and not isinstance(value, bool) and isfinite(value):
+            return float(value) % 360
+    return None
+
+
 def pair_objects(A, B):
     """Pairs of objects that describe the same drawing, in A's order."""
     pairs, used = [], set()
@@ -356,7 +381,7 @@ def pair_objects(A, B):
         lab = o.get("label")
         m = next((k for k, q in enumerate(B) if k not in used and lab and q.get("label") == lab), None)
         if m is None:
-            cands = [k for k, q in enumerate(B) if k not in used and q.get("kind") == o.get("kind")
+            cands = [k for k, q in enumerate(B) if k not in used and kind_class(q.get("kind")) == kind_class(o.get("kind"))
                      and not (lab and q.get("label"))
                      and (_ring(o) is None or _ring(q) is None or _ring(o) == _ring(q))]
             ao = _angle(o)
@@ -390,7 +415,7 @@ def agreement(a, b):
         by_label = bool(o.get("label")) and o.get("label") == q.get("label")
         if by_label:
             tot += 1
-            same += o.get("kind") == q.get("kind")
+            same += kind_class(o.get("kind")) == kind_class(q.get("kind"))
         else:
             fo.pop("ring", None)
             fq.pop("ring", None)
