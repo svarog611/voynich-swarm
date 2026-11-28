@@ -1,0 +1,5134 @@
+{
+  "title": "Independently calibrate recovery outside the finite Polygraphia row-schedule family",
+  "statement": "In a frozen finite family of periodic row schedules, a ciphertext-only row assignment search identifies all 24 clean/noisy schedule instances over 12 independently remapped keys and three new Latin works. Mean exact recovery on the final 3,000 letters is 98.88% clean and 92.32% after 2% codeword character substitution. The joint 90% recovery and correct schedule gate is met in 12/12 clean and 10/12 noisy instances. A supplemental test preserving authentic column maps, with sampled row blocks and planted schedules, gives 98.51% and 91.72%, and meets the joint gate in 6/6 and 5/6. All three IID controls recover the schedule but average 26.09% exact characters. All three Markov controls generated from the fitting prior meet the joint gate and average 99.60%, so the criterion measures recovery and cannot identify meaningful plaintext. With geometric stays outside the finite family, three Latin cases average 2.39% exact characters. All 45 planted-key counterfactual packets round-trip the exact normalized plaintext and received ciphertext.",
+  "program": "L3",
+  "on_path": true,
+  "hard": true,
+  "check": "Implement and review a declarative evaluator before applying this family to manuscript data. Freeze additional disjoint word inventories and independent development controls for schedules with correctly modeled repeats, jumps or gaps. Compare unknown and fixed row schedules with fixed budgets and real decoding coverage as well as true letter accuracy, including unseen codewords and higher-order language controls. Charge explicit cipher table, row sequence and escaped items for candidate readings. Verify that arbitrary tables and adequate first-order controls cannot pass any separate reading criterion.",
+  "method": "Use three mutually word-disjoint 16-row pools from the same 131-row historical transcription, one for synthetic controls and two for evaluated Latin cases. Plant distinct row-wise random bijections for each key; pair the clean and noisy views. Draw 8 or 16 actual rows and fix the family library to widths 8/12/16 and cyclic or periodic step of two after each 17 or 41 positions. In the primary test the planted periodic nonzero interval is 17. Fit on 7,000 ciphertext words, select on the next 2,000, and evaluate on the final 3,000. Schedule selection charges the fitted literal row catalogs and five-bit known IDs or escaped literals in the validation window. For each fitted row retain up to 24 frequent spellings and use the frozen external Latin bigram prior to optimize a bijection by exact assignment between each row’s spellings and letters with other rows fixed. Use three starts and five sweeps; choose the best validation loss. For unseen spellings the only correction is a unique same-length distance-one match, otherwise the output is unknown. Same-phase shuffles keep unknown positions fixed. IID and Markov control plaintexts come from the external prior; out-of-family geometric stays are unannounced to the schedule selector.",
+  "packet_method": "For cost disclosure only, the planted-key oracle sends the explicit 24-letter alphabet, full literal lexicon in ordered rows, per-row factoradic permutation rank, periodic family index or exact stay flags, normalized plaintext as fixed five-bit IDs, position-indexed literal exceptions, header and byte alignment. An independent field reader with lengths read from the packet verifies the row positions, full assigned table, normalized letters and every received codeword. The separate ideal bigram bits are an estimate, outside the actual packet. The actual packet costs range from 70,304 to 185,264 bits.",
+  "limits": "All historical lexical pools are subsets of one edition rather than new manuscript witnesses. The supplemental test preserves the table’s column labels and uses newly sampled row orders and known planted schedule conditions. Runs share source works, so view multiplicities are not independent author counts. Noise is synthetic, preserves codeword length, and assumes token boundaries are known. The stay baseline with true row indices uses frequency ranking only. The known-key packet is an accounting control; its construction receives the planted values and it is not the size of a recovered reading. The schedule library was fixed locally before running the tests. No private or public Voynich hypotheses were evaluated.",
+  "sources": {
+    "table": {
+      "url": "https://raw.githubusercontent.com/hermesj/R_Voynich_Stats/0ef1439fa9d90aeab42951a51d0d5a0e27db1f8f/R%20code/Historical_ciphers/keys/ciphers_poly_III_in_order.csv",
+      "sha256": "fe3f24a46dbc6b655eab8dbbd75addf84ee4a7dbd387ad802af75d02edfe5b4d"
+    },
+    "prior": "https://github.com/Ayan-Bandyopadhyay/voynich-swarm/pull/766",
+    "corpus": {
+      "normalization": "Lowercase, expand ae and oe ligatures, apply NFKD, remove every character outside a–z. Preserve j and v. Write UTF-8 with no trailing newline.",
+      "reproduction": "Acquire the exact raw witnesses at the recorded URLs under raw/, verify their SHA-256 digests, and run python3 extract-sources.py.",
+      "algorithm_sha256": "0aaf306b3f3a9247d52eeebcc3c80b56654d51e9e232fe2f37e255b7de3edf86",
+      "raw_files": {
+        "aquinas-1001.html": {
+          "url": "https://www.corpusthomisticum.org/scg1001.html",
+          "sha256": "fed1a3735c86ec66dfdd04819e7121bcee7fb0407787264954508984d210f105"
+        },
+        "aquinas-1010.html": {
+          "url": "https://www.corpusthomisticum.org/scg1010.html",
+          "sha256": "32bb3954538e3ca689efc79c9db6566f0dfa7b158caea96f466b79a2d082971c"
+        },
+        "virgil-227.txt": {
+          "url": "https://gutenberg.pglaf.org/2/2/227/227.txt",
+          "sha256": "c844c7d1c6fa4cf798e8bd8b13a855054820811add902e63db7edea5a4f3aa37"
+        },
+        "cicero-off1.html": {
+          "url": "https://www.thelatinlibrary.com/cicero/off1.shtml",
+          "sha256": "93b40022790bfe09c2b38778290a601e53ce4cffcaf947a3d036669fed241a04"
+        }
+      },
+      "streams": {
+        "aquinas.txt": {
+          "author": "Thomas Aquinas",
+          "work": "Summa contra Gentiles",
+          "excerpt": "Book I, chapters 1–13, from chapter 1 paragraph 2",
+          "edition": "Corpus Thomisticum, electronic Leonine text based on the Turin 1961 edition",
+          "sources": [
+            "aquinas-1001.html",
+            "aquinas-1010.html"
+          ],
+          "exclusions": "Navigation, title and numbering markup, chapter headings and opening Biblical epigraph. Inline authorial quotations are retained.",
+          "letters": 43818,
+          "normalized_sha256": "5c302ae697f0c719221f5d77abb8c24169ccf26d38ecdcbd07d28ecf8a4ec19e"
+        },
+        "virgil.txt": {
+          "author": "Virgil",
+          "work": "Aeneid",
+          "excerpt": "Complete Book I from Arma virumque cano",
+          "edition": "Project Gutenberg Latin eBook #227, release dated 2008-04-03",
+          "sources": [
+            "virgil-227.txt"
+          ],
+          "exclusions": "Book titles, other books, Gutenberg front/back matter, line numbers and nonletters.",
+          "letters": 27917,
+          "normalized_sha256": "0715b33949ddd2186829f090afedaaa5f392856d989e2ddc9c64a75a51b732ab"
+        },
+        "cicero.txt": {
+          "author": "Marcus Tullius Cicero",
+          "work": "De Officiis",
+          "excerpt": "Complete Book I from Quamquam te, Marce fili to Sed iam ad reliqua pergamus",
+          "edition": "The Latin Library Latin electronic text",
+          "sources": [
+            "cicero-off1.html"
+          ],
+          "exclusions": "Navigation, front/back matter, numerical section markers and nonletters. Letters within editorial square brackets are retained.",
+          "letters": 82630,
+          "normalized_sha256": "004013fca40c03a97b082ce693a515d9922848d4685590397e7b9617a13738bb"
+        }
+      }
+    }
+  },
+  "frozen_plan": {
+    "step": "P-L3-015",
+    "plaintext": "New author-disjoint Latin works, first 12000 normalized model-alphabet letters after an explicitly delimited textual incipit. Test truth stays in evaluation.",
+    "partition": {
+      "fit": 7000,
+      "selection": 2000,
+      "test": 3000
+    },
+    "row_pools_zero_based": {
+      "development": [
+        12,
+        28
+      ],
+      "challenge_a": [
+        47,
+        63
+      ],
+      "challenge_b": [
+        107,
+        123
+      ]
+    },
+    "planted_challenges": "For each independent work and challenge pool use 8 (A) or 16 (B) rows and two schedule types, ordinary cyclic and advance two every 17 tokens. Independently permute all row maps for each key. Keys are reused only between paired clean/noisy views.",
+    "row_family": {
+      "periods": [
+        8,
+        12,
+        16
+      ],
+      "periodic_extra_advance_every": [
+        0,
+        17,
+        41
+      ]
+    },
+    "unseen_spelling": "Reserve a uniform literal/unknown event for schedule selection; at decoding use no imputation unless unique Hamming-distance-one match in the selected row. All-way unresolved tokens are unknown.",
+    "noise": "Independent raw character replacement at 2%, preserving codeword length, using clean historical row-pool glyph inventory.",
+    "unknown_key": "Determine row family by portable lexicon plus validation symbol cost, fit one-to-one letter maps by row coordinate assignments with a frozen external Latin bigram prior. Use frequency ranks and two perturbations as starts, five sweeps per start, select by validation likelihood without plaintext.",
+    "negative_controls": "Use IID and first-order Markov plaintext from the same external fit prior, also same-phase evaluation shuffles. Use out-of-family geometric stays at 1/8 as a schedule stress control.",
+    "primary": "Held-apart exact plaintext character accuracy, lexicon coverage, and stable row-family identification. A high-confidence joint calibration case requires at least .90 held-apart accuracy and an identified family.",
+    "oracle": "Separate known-schedule vs full table and schedule baselines; no truth supplied to the learner.",
+    "storage": "Bill raw full ordered codeword dictionary and independently indexed row permutations plus finite schedule header and row origin. Include exact literal escapes for noisy words and identify uncharged quantities. Report without applying to Voynich pages."
+  },
+  "frozen_plan_sha256": "95f422f8bbe4e0fc70a259a0e9542377c4acd6d1c28b44ffa1721a8179b17784",
+  "summary": [
+    {
+      "kind": "latin",
+      "schedule": "periodic",
+      "remapped": true,
+      "noisy": false,
+      "runs": 12,
+      "correct_family": 12,
+      "joint_recovery": 12,
+      "accuracy_mean": 0.9887777777777778,
+      "accuracy_range": [
+        0.9266666666666666,
+        1.0
+      ],
+      "nominal_phase_shuffle": 12,
+      "packet_bits_range": [
+        70912,
+        83384
+      ]
+    },
+    {
+      "kind": "latin",
+      "schedule": "periodic",
+      "remapped": true,
+      "noisy": true,
+      "runs": 12,
+      "correct_family": 12,
+      "joint_recovery": 10,
+      "accuracy_mean": 0.9231944444444444,
+      "accuracy_range": [
+        0.8183333333333334,
+        0.9583333333333334
+      ],
+      "nominal_phase_shuffle": 12,
+      "packet_bits_range": [
+        153424,
+        185264
+      ]
+    },
+    {
+      "kind": "latin",
+      "schedule": "periodic",
+      "remapped": false,
+      "noisy": false,
+      "runs": 6,
+      "correct_family": 6,
+      "joint_recovery": 6,
+      "accuracy_mean": 0.985111111111111,
+      "accuracy_range": [
+        0.9266666666666666,
+        0.999
+      ],
+      "nominal_phase_shuffle": 6,
+      "packet_bits_range": [
+        70568,
+        83384
+      ]
+    },
+    {
+      "kind": "latin",
+      "schedule": "periodic",
+      "remapped": false,
+      "noisy": true,
+      "runs": 6,
+      "correct_family": 6,
+      "joint_recovery": 5,
+      "accuracy_mean": 0.9172222222222222,
+      "accuracy_range": [
+        0.815,
+        0.9563333333333334
+      ],
+      "nominal_phase_shuffle": 6,
+      "packet_bits_range": [
+        141800,
+        181888
+      ]
+    },
+    {
+      "kind": "iid",
+      "schedule": "periodic",
+      "remapped": true,
+      "noisy": false,
+      "runs": 3,
+      "correct_family": 3,
+      "joint_recovery": 0,
+      "accuracy_mean": 0.2608888888888889,
+      "accuracy_range": [
+        0.198,
+        0.33666666666666667
+      ],
+      "nominal_phase_shuffle": 0,
+      "packet_bits_range": [
+        70496,
+        70912
+      ]
+    },
+    {
+      "kind": "markov",
+      "schedule": "periodic",
+      "remapped": true,
+      "noisy": false,
+      "runs": 3,
+      "correct_family": 3,
+      "joint_recovery": 3,
+      "accuracy_mean": 0.996,
+      "accuracy_range": [
+        0.9923333333333333,
+        0.999
+      ],
+      "nominal_phase_shuffle": 3,
+      "packet_bits_range": [
+        70304,
+        71104
+      ]
+    },
+    {
+      "kind": "latin",
+      "schedule": "stays",
+      "remapped": true,
+      "noisy": false,
+      "runs": 3,
+      "correct_family": 0,
+      "joint_recovery": 0,
+      "accuracy_mean": 0.023888888888888887,
+      "accuracy_range": [
+        0.023,
+        0.024333333333333332
+      ],
+      "nominal_phase_shuffle": 3,
+      "packet_bits_range": [
+        82528,
+        83672
+      ]
+    }
+  ],
+  "results": {
+    "alphabet": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e",
+      "f",
+      "g",
+      "h",
+      "i",
+      "k",
+      "l",
+      "m",
+      "n",
+      "o",
+      "p",
+      "q",
+      "r",
+      "s",
+      "t",
+      "u",
+      "x",
+      "y",
+      "z",
+      "w"
+    ],
+    "source_hashes": {
+      "aquinas.txt": "5c302ae697f0c719221f5d77abb8c24169ccf26d38ecdcbd07d28ecf8a4ec19e",
+      "cicero.txt": "004013fca40c03a97b082ce693a515d9922848d4685590397e7b9617a13738bb",
+      "virgil.txt": "0715b33949ddd2186829f090afedaaa5f392856d989e2ddc9c64a75a51b732ab"
+    },
+    "case_count": 45,
+    "references": {
+      "pg33849.txt": "b9d4d33de51f661deb0137d3f9f191080d81959f21ae242d12b3ab0e278e8271",
+      "pg38708.txt": "676fcd0bb707ed7c20acb8f0e018d53e5da56709fab02eea980cad17faf4c511",
+      "pg16561.txt": "dd5eca711a98d4eac5fa1d239821893ee29b4cadca01238019a90fcffee83c9c",
+      "pg826.txt": "46bf1d7212ad92510399a7a01a4d7225ad81d44be97d87d25c81b6808d73f707"
+    },
+    "cases": [
+      {
+        "work": "aquinas",
+        "kind": "latin",
+        "pool": "challenge_a",
+        "rows": 8,
+        "skip": 0,
+        "schedule": "periodic",
+        "seed": 760587,
+        "remapped": true,
+        "historical_source_rows": [
+          56,
+          62,
+          58,
+          61,
+          60,
+          49,
+          48,
+          53
+        ],
+        "noisy": false,
+        "selected_rows": 8,
+        "selected_skip": 0,
+        "selected_family_correct": true,
+        "candidate_validation_costs": [
+          [
+            18760,
+            8,
+            0,
+            1999
+          ],
+          [
+            27304,
+            16,
+            0,
+            1995
+          ],
+          [
+            39216,
+            12,
+            0,
+            1748
+          ],
+          [
+            91280,
+            8,
+            17,
+            669
+          ],
+          [
+            93136,
+            12,
+            17,
+            736
+          ],
+          [
+            93856,
+            8,
+            41,
+            622
+          ],
+          [
+            100776,
+            12,
+            41,
+            593
+          ],
+          [
+            102912,
+            16,
+            17,
+            642
+          ],
+          [
+            103376,
+            16,
+            41,
+            635
+          ]
+        ],
+        "selected_validation_exact_coverage": 0.9995,
+        "held_apart_exact_catalog_coverage": 0.9993333333333333,
+        "held_apart_decode_coverage": 0.9993333333333333,
+        "selected_start": 0,
+        "validation_fit_bits": 6955.510262790248,
+        "accuracy": 0.9993333333333333,
+        "frequency_accuracy": 0.30966666666666665,
+        "known_schedule_accuracy": 0.9993333333333333,
+        "known_schedule_optimizer": "assignment",
+        "full_table_exact_accuracy": 1.0,
+        "same_phase_p": 0.025,
+        "packet": {
+          "alphabet_bits": 200,
+          "schedule_bits": 21,
+          "dictionary_bits": 10456,
+          "row_permutation_bits": 640,
+          "fixed_plain_payload_bits": 60000,
+          "exact_noise_literal_bits": 14,
+          "padding_bits": 5,
+          "packet_bits": 71336,
+          "model_plain_ideal_bits": 41392.54074281413,
+          "literals": 0,
+          "verified_roundtrip": true
+        }
+      },
+      {
+        "work": "aquinas",
+        "kind": "latin",
+        "pool": "challenge_a",
+        "rows": 8,
+        "skip": 0,
+        "schedule": "periodic",
+        "seed": 760587,
+        "remapped": true,
+        "historical_source_rows": [
+          56,
+          62,
+          58,
+          61,
+          60,
+          49,
+          48,
+          53
+        ],
+        "noisy": true,
+        "selected_rows": 8,
+        "selected_skip": 0,
+        "selected_family_correct": true,
+        "candidate_validation_costs": [
+          [
+            31552,
+            8,
+            0,
+            1798
+          ],
+          [
+            43064,
+            16,
+            0,
+            1777
+          ],
+          [
+            48920,
+            12,
+            0,
+            1572
+          ],
+          [
+            95856,
+            8,
+            17,
+            588
+          ],
+          [
+            97680,
+            8,
+            41,
+            557
+          ],
+          [
+            97720,
+            12,
+            17,
+            651
+          ],
+          [
+            102968,
+            12,
+            41,
+            554
+          ],
+          [
+            106688,
+            16,
+            41,
+            575
+          ],
+          [
+            107368,
+            16,
+            17,
+            562
+          ]
+        ],
+        "selected_validation_exact_coverage": 0.899,
+        "held_apart_exact_catalog_coverage": 0.8913333333333333,
+        "held_apart_decode_coverage": 0.9596666666666667,
+        "selected_start": 2,
+        "validation_fit_bits": 7248.173270462352,
+        "accuracy": 0.9533333333333334,
+        "frequency_accuracy": 0.2763333333333333,
+        "known_schedule_accuracy": 0.9533333333333334,
+        "known_schedule_optimizer": "assignment",
+        "full_table_exact_accuracy": 0.892,
+        "same_phase_p": 0.025,
+        "packet": {
+          "alphabet_bits": 200,
+          "schedule_bits": 21,
+          "dictionary_bits": 10456,
+          "row_permutation_bits": 640,
+          "fixed_plain_payload_bits": 60000,
+          "exact_noise_literal_bits": 88722,
+          "padding_bits": 1,
+          "packet_bits": 160040,
+          "model_plain_ideal_bits": 41392.54074281413,
+          "literals": 1290,
+          "verified_roundtrip": true
+        }
+      },
+      {
+        "work": "aquinas",
+        "kind": "latin",
+        "pool": "challenge_a",
+        "rows": 8,
+        "skip": 17,
+        "schedule": "periodic",
+        "seed": 760610,
+        "remapped": true,
+        "historical_source_rows": [
+          60,
+          62,
+          50,
+          49,
+          52,
+          53,
+          59,
+          58
+        ],
+        "noisy": false,
+        "selected_rows": 8,
+        "selected_skip": 17,
+        "selected_family_correct": true,
+        "candidate_validation_costs": [
+          [
+            18440,
+            8,
+            17,
+            1998
+          ],
+          [
+            26672,
+            16,
+            17,
+            1997
+          ],
+          [
+            38488,
+            12,
+            17,
+            1742
+          ],
+          [
+            89072,
+            8,
+            0,
+            659
+          ],
+          [
+            90824,
+            8,
+            41,
+            621
+          ],
+          [
+            94792,
+            12,
+            0,
+            642
+          ],
+          [
+            97896,
+            12,
+            41,
+            582
+          ],
+          [
+            100120,
+            16,
+            0,
+            629
+          ],
+          [
+            101728,
+            16,
+            41,
+            599
+          ]
+        ],
+        "selected_validation_exact_coverage": 0.999,
+        "held_apart_exact_catalog_coverage": 0.9983333333333333,
+        "held_apart_decode_coverage": 0.9983333333333333,
+        "selected_start": 0,
+        "validation_fit_bits": 6953.726232380807,
+        "accuracy": 0.9983333333333333,
+        "frequency_accuracy": 0.275,
+        "known_schedule_accuracy": 0.9983333333333333,
+        "known_schedule_optimizer": "assignment",
+        "full_table_exact_accuracy": 1.0,
+        "same_phase_p": 0.025,
+        "packet": {
+          "alphabet_bits": 200,
+          "schedule_bits": 21,
+          "dictionary_bits": 10032,
+          "row_permutation_bits": 640,
+          "fixed_plain_payload_bits": 60000,
+          "exact_noise_literal_bits": 14,
+          "padding_bits": 5,
+          "packet_bits": 70912,
+          "model_plain_ideal_bits": 41392.54074281413,
+          "literals": 0,
+          "verified_roundtrip": true
+        }
+      },
+      {
+        "work": "aquinas",
+        "kind": "latin",
+        "pool": "challenge_a",
+        "rows": 8,
+        "skip": 17,
+        "schedule": "periodic",
+        "seed": 760610,
+        "remapped": true,
+        "historical_source_rows": [
+          60,
+          62,
+          50,
+          49,
+          52,
+          53,
+          59,
+          58
+        ],
+        "noisy": true,
+        "selected_rows": 8,
+        "selected_skip": 17,
+        "selected_family_correct": true,
+        "candidate_validation_costs": [
+          [
+            30608,
+            8,
+            17,
+            1800
+          ],
+          [
+            41760,
+            16,
+            17,
+            1777
+          ],
+          [
+            48032,
+            12,
+            17,
+            1563
+          ],
+          [
+            92784,
+            8,
+            0,
+            590
+          ],
+          [
+            94672,
+            8,
+            41,
+            549
+          ],
+          [
+            98632,
+            12,
+            0,
+            571
+          ],
+          [
+            101840,
+            12,
+            41,
+            508
+          ],
+          [
+            103312,
+            16,
+            0,
+            568
+          ],
+          [
+            104776,
+            16,
+            41,
+            539
+          ]
+        ],
+        "selected_validation_exact_coverage": 0.9,
+        "held_apart_exact_catalog_coverage": 0.899,
+        "held_apart_decode_coverage": 0.9603333333333334,
+        "selected_start": 0,
+        "validation_fit_bits": 7218.9433952623085,
+        "accuracy": 0.9536666666666667,
+        "frequency_accuracy": 0.339,
+        "known_schedule_accuracy": 0.9536666666666667,
+        "known_schedule_optimizer": "assignment",
+        "full_table_exact_accuracy": 0.8976666666666666,
+        "same_phase_p": 0.025,
+        "packet": {
+          "alphabet_bits": 200,
+          "schedule_bits": 21,
+          "dictionary_bits": 10032,
+          "row_permutation_bits": 640,
+          "fixed_plain_payload_bits": 60000,
+          "exact_noise_literal_bits": 86586,
+          "padding_bits": 1,
+          "packet_bits": 157480,
+          "model_plain_ideal_bits": 41392.54074281413,
+          "literals": 1302,
+          "verified_roundtrip": true
+        }
+      },
+      {
+        "work": "aquinas",
+        "kind": "latin",
+        "pool": "challenge_a",
+        "rows": 8,
+        "skip": 17,
+        "schedule": "periodic",
+        "seed": 800587,
+        "remapped": false,
+        "historical_source_rows": [
+          58,
+          63,
+          54,
+          61,
+          49,
+          62,
+          52,
+          50
+        ],
+        "noisy": false,
+        "selected_rows": 8,
+        "selected_skip": 17,
+        "selected_family_correct": true,
+        "candidate_validation_costs": [
+          [
+            18256,
+            8,
+            17,
+            1998
+          ],
+          [
+            26272,
+            16,
+            17,
+            1997
+          ],
+          [
+            37464,
+            12,
+            17,
+            1746
+          ],
+          [
+            86960,
+            8,
+            0,
+            669
+          ],
+          [
+            88712,
+            8,
+            41,
+            630
+          ],
+          [
+            92584,
+            12,
+            0,
+            646
+          ],
+          [
+            95560,
+            12,
+            41,
+            588
+          ],
+          [
+            98576,
+            16,
+            0,
+            626
+          ],
+          [
+            99672,
+            16,
+            41,
+            605
+          ]
+        ],
+        "selected_validation_exact_coverage": 0.999,
+        "held_apart_exact_catalog_coverage": 0.9983333333333333,
+        "held_apart_decode_coverage": 0.9983333333333333,
+        "selected_start": 0,
+        "validation_fit_bits": 6953.726232380807,
+        "accuracy": 0.9983333333333333,
+        "frequency_accuracy": 0.29533333333333334,
+        "known_schedule_accuracy": 0.9983333333333333,
+        "known_schedule_optimizer": "assignment",
+        "full_table_exact_accuracy": 1.0,
+        "same_phase_p": 0.025,
+        "packet": {
+          "alphabet_bits": 200,
+          "schedule_bits": 21,
+          "dictionary_bits": 9848,
+          "row_permutation_bits": 640,
+          "fixed_plain_payload_bits": 60000,
+          "exact_noise_literal_bits": 14,
+          "padding_bits": 5,
+          "packet_bits": 70728,
+          "model_plain_ideal_bits": 41392.54074281413,
+          "literals": 0,
+          "verified_roundtrip": true
+        }
+      },
+      {
+        "work": "aquinas",
+        "kind": "latin",
+        "pool": "challenge_a",
+        "rows": 8,
+        "skip": 17,
+        "schedule": "periodic",
+        "seed": 800587,
+        "remapped": false,
+        "historical_source_rows": [
+          58,
+          63,
+          54,
+          61,
+          49,
+          62,
+          52,
+          50
+        ],
+        "noisy": true,
+        "selected_rows": 8,
+        "selected_skip": 17,
+        "selected_family_correct": true,
+        "candidate_validation_costs": [
+          [
+            29776,
+            8,
+            17,
+            1805
+          ],
+          [
+            40792,
+            16,
+            17,
+            1780
+          ],
+          [
+            46160,
+            12,
+            17,
+            1575
+          ],
+          [
+            90984,
+            8,
+            0,
+            589
+          ],
+          [
+            92512,
+            8,
+            41,
+            556
+          ],
+          [
+            95984,
+            12,
+            0,
+            584
+          ],
+          [
+            98944,
+            12,
+            41,
+            522
+          ],
+          [
+            102144,
+            16,
+            0,
+            554
+          ],
+          [
+            102424,
+            16,
+            41,
+            548
+          ]
+        ],
+        "selected_validation_exact_coverage": 0.9025,
+        "held_apart_exact_catalog_coverage": 0.8976666666666666,
+        "held_apart_decode_coverage": 0.9566666666666667,
+        "selected_start": 2,
+        "validation_fit_bits": 7208.142164052822,
+        "accuracy": 0.9476666666666667,
+        "frequency_accuracy": 0.28733333333333333,
+        "known_schedule_accuracy": 0.9476666666666667,
+        "known_schedule_optimizer": "assignment",
+        "full_table_exact_accuracy": 0.8913333333333333,
+        "same_phase_p": 0.025,
+        "packet": {
+          "alphabet_bits": 200,
+          "schedule_bits": 21,
+          "dictionary_bits": 9848,
+          "row_permutation_bits": 640,
+          "fixed_plain_payload_bits": 60000,
+          "exact_noise_literal_bits": 82972,
+          "padding_bits": 7,
+          "packet_bits": 153688,
+          "model_plain_ideal_bits": 41392.54074281413,
+          "literals": 1277,
+          "verified_roundtrip": true
+        }
+      },
+      {
+        "work": "aquinas",
+        "kind": "latin",
+        "pool": "challenge_b",
+        "rows": 16,
+        "skip": 0,
+        "schedule": "periodic",
+        "seed": 761687,
+        "remapped": true,
+        "historical_source_rows": [
+          113,
+          117,
+          111,
+          120,
+          115,
+          119,
+          109,
+          122,
+          114,
+          123,
+          108,
+          110,
+          112,
+          118,
+          121,
+          116
+        ],
+        "noisy": false,
+        "selected_rows": 16,
+        "selected_skip": 0,
+        "selected_family_correct": true,
+        "candidate_validation_costs": [
+          [
+            28136,
+            16,
+            0,
+            1995
+          ],
+          [
+            35760,
+            8,
+            0,
+            1733
+          ],
+          [
+            75536,
+            12,
+            0,
+            1121
+          ],
+          [
+            112856,
+            8,
+            17,
+            354
+          ],
+          [
+            114576,
+            8,
+            41,
+            327
+          ],
+          [
+            115936,
+            12,
+            17,
+            399
+          ],
+          [
+            121000,
+            12,
+            41,
+            309
+          ],
+          [
+            123792,
+            16,
+            17,
+            352
+          ],
+          [
+            125352,
+            16,
+            41,
+            327
+          ]
+        ],
+        "selected_validation_exact_coverage": 0.9975,
+        "held_apart_exact_catalog_coverage": 0.9956666666666667,
+        "held_apart_decode_coverage": 0.9956666666666667,
+        "selected_start": 0,
+        "validation_fit_bits": 6984.3622096261515,
+        "accuracy": 0.986,
+        "frequency_accuracy": 0.23133333333333334,
+        "known_schedule_accuracy": 0.986,
+        "known_schedule_optimizer": "assignment",
+        "full_table_exact_accuracy": 1.0,
+        "same_phase_p": 0.025,
+        "packet": {
+          "alphabet_bits": 200,
+          "schedule_bits": 21,
+          "dictionary_bits": 21864,
+          "row_permutation_bits": 1280,
+          "fixed_plain_payload_bits": 60000,
+          "exact_noise_literal_bits": 14,
+          "padding_bits": 5,
+          "packet_bits": 83384,
+          "model_plain_ideal_bits": 41392.54074281413,
+          "literals": 0,
+          "verified_roundtrip": true
+        }
+      },
+      {
+        "work": "aquinas",
+        "kind": "latin",
+        "pool": "challenge_b",
+        "rows": 16,
+        "skip": 0,
+        "schedule": "periodic",
+        "seed": 761687,
+        "remapped": true,
+        "historical_source_rows": [
+          113,
+          117,
+          111,
+          120,
+          115,
+          119,
+          109,
+          122,
+          114,
+          123,
+          108,
+          110,
+          112,
+          118,
+          121,
+          116
+        ],
+        "noisy": true,
+        "selected_rows": 16,
+        "selected_skip": 0,
+        "selected_family_correct": true,
+        "candidate_validation_costs": [
+          [
+            46272,
+            16,
+            0,
+            1746
+          ],
+          [
+            46992,
+            8,
+            0,
+            1536
+          ],
+          [
+            83968,
+            12,
+            0,
+            972
+          ],
+          [
+            116328,
+            8,
+            41,
+            295
+          ],
+          [
+            116344,
+            8,
+            17,
+            294
+          ],
+          [
+            118216,
+            12,
+            17,
+            359
+          ],
+          [
+            123712,
+            12,
+            41,
+            257
+          ],
+          [
+            125928,
+            16,
+            17,
+            315
+          ],
+          [
+            127880,
+            16,
+            41,
+            281
+          ]
+        ],
+        "selected_validation_exact_coverage": 0.873,
+        "held_apart_exact_catalog_coverage": 0.8906666666666667,
+        "held_apart_decode_coverage": 0.9536666666666667,
+        "selected_start": 1,
+        "validation_fit_bits": 7319.80982301866,
+        "accuracy": 0.9343333333333333,
+        "frequency_accuracy": 0.239,
+        "known_schedule_accuracy": 0.9343333333333333,
+        "known_schedule_optimizer": "assignment",
+        "full_table_exact_accuracy": 0.895,
+        "same_phase_p": 0.025,
+        "packet": {
+          "alphabet_bits": 200,
+          "schedule_bits": 21,
+          "dictionary_bits": 21864,
+          "row_permutation_bits": 1280,
+          "fixed_plain_payload_bits": 60000,
+          "exact_noise_literal_bits": 99798,
+          "padding_bits": 5,
+          "packet_bits": 183168,
+          "model_plain_ideal_bits": 41392.54074281413,
+          "literals": 1404,
+          "verified_roundtrip": true
+        }
+      },
+      {
+        "work": "aquinas",
+        "kind": "latin",
+        "pool": "challenge_b",
+        "rows": 16,
+        "skip": 17,
+        "schedule": "periodic",
+        "seed": 761710,
+        "remapped": true,
+        "historical_source_rows": [
+          123,
+          111,
+          119,
+          118,
+          122,
+          115,
+          112,
+          121,
+          113,
+          108,
+          109,
+          120,
+          116,
+          110,
+          117,
+          114
+        ],
+        "noisy": false,
+        "selected_rows": 16,
+        "selected_skip": 17,
+        "selected_family_correct": true,
+        "candidate_validation_costs": [
+          [
+            28144,
+            16,
+            17,
+            1997
+          ],
+          [
+            35896,
+            8,
+            17,
+            1734
+          ],
+          [
+            75848,
+            12,
+            17,
+            1127
+          ],
+          [
+            112808,
+            8,
+            0,
+            363
+          ],
+          [
+            114704,
+            8,
+            41,
+            328
+          ],
+          [
+            118896,
+            12,
+            0,
+            352
+          ],
+          [
+            121976,
+            12,
+            41,
+            296
+          ],
+          [
+            124080,
+            16,
+            0,
+            356
+          ],
+          [
+            125976,
+            16,
+            41,
+            320
+          ]
+        ],
+        "selected_validation_exact_coverage": 0.9985,
+        "held_apart_exact_catalog_coverage": 0.9966666666666667,
+        "held_apart_decode_coverage": 0.9966666666666667,
+        "selected_start": 0,
+        "validation_fit_bits": 6979.752088108442,
+        "accuracy": 0.9926666666666667,
+        "frequency_accuracy": 0.225,
+        "known_schedule_accuracy": 0.9926666666666667,
+        "known_schedule_optimizer": "assignment",
+        "full_table_exact_accuracy": 1.0,
+        "same_phase_p": 0.025,
+        "packet": {
+          "alphabet_bits": 200,
+          "schedule_bits": 21,
+          "dictionary_bits": 21864,
+          "row_permutation_bits": 1280,
+          "fixed_plain_payload_bits": 60000,
+          "exact_noise_literal_bits": 14,
+          "padding_bits": 5,
+          "packet_bits": 83384,
+          "model_plain_ideal_bits": 41392.54074281413,
+          "literals": 0,
+          "verified_roundtrip": true
+        }
+      },
+      {
+        "work": "aquinas",
+        "kind": "latin",
+        "pool": "challenge_b",
+        "rows": 16,
+        "skip": 17,
+        "schedule": "periodic",
+        "seed": 761710,
+        "remapped": true,
+        "historical_source_rows": [
+          123,
+          111,
+          119,
+          118,
+          122,
+          115,
+          112,
+          121,
+          113,
+          108,
+          109,
+          120,
+          116,
+          110,
+          117,
+          114
+        ],
+        "noisy": true,
+        "selected_rows": 16,
+        "selected_skip": 17,
+        "selected_family_correct": true,
+        "candidate_validation_costs": [
+          [
+            44560,
+            16,
+            17,
+            1779
+          ],
+          [
+            45736,
+            8,
+            17,
+            1563
+          ],
+          [
+            81896,
+            12,
+            17,
+            1018
+          ],
+          [
+            115184,
+            8,
+            0,
+            319
+          ],
+          [
+            116600,
+            8,
+            41,
+            294
+          ],
+          [
+            121368,
+            12,
+            0,
+            307
+          ],
+          [
+            123472,
+            12,
+            41,
+            268
+          ],
+          [
+            126400,
+            16,
+            0,
+            314
+          ],
+          [
+            127768,
+            16,
+            41,
+            290
+          ]
+        ],
+        "selected_validation_exact_coverage": 0.8895,
+        "held_apart_exact_catalog_coverage": 0.88,
+        "held_apart_decode_coverage": 0.9503333333333334,
+        "selected_start": 0,
+        "validation_fit_bits": 7251.792030327173,
+        "accuracy": 0.9213333333333333,
+        "frequency_accuracy": 0.176,
+        "known_schedule_accuracy": 0.9213333333333333,
+        "known_schedule_optimizer": "assignment",
+        "full_table_exact_accuracy": 0.8803333333333333,
+        "same_phase_p": 0.025,
+        "packet": {
+          "alphabet_bits": 200,
+          "schedule_bits": 21,
+          "dictionary_bits": 21864,
+          "row_permutation_bits": 1280,
+          "fixed_plain_payload_bits": 60000,
+          "exact_noise_literal_bits": 99218,
+          "padding_bits": 1,
+          "packet_bits": 182584,
+          "model_plain_ideal_bits": 41392.54074281413,
+          "literals": 1394,
+          "verified_roundtrip": true
+        }
+      },
+      {
+        "work": "aquinas",
+        "kind": "latin",
+        "pool": "challenge_b",
+        "rows": 16,
+        "skip": 17,
+        "schedule": "periodic",
+        "seed": 801687,
+        "remapped": false,
+        "historical_source_rows": [
+          118,
+          109,
+          112,
+          111,
+          121,
+          117,
+          114,
+          116,
+          123,
+          108,
+          110,
+          120,
+          122,
+          119,
+          113,
+          115
+        ],
+        "noisy": false,
+        "selected_rows": 16,
+        "selected_skip": 17,
+        "selected_family_correct": true,
+        "candidate_validation_costs": [
+          [
+            28104,
+            16,
+            17,
+            1997
+          ],
+          [
+            35952,
+            8,
+            17,
+            1734
+          ],
+          [
+            75768,
+            12,
+            17,
+            1126
+          ],
+          [
+            112800,
+            8,
+            0,
+            362
+          ],
+          [
+            114280,
+            8,
+            41,
+            338
+          ],
+          [
+            119520,
+            12,
+            0,
+            342
+          ],
+          [
+            122336,
+            12,
+            41,
+            292
+          ],
+          [
+            124088,
+            16,
+            0,
+            356
+          ],
+          [
+            125816,
+            16,
+            41,
+            323
+          ]
+        ],
+        "selected_validation_exact_coverage": 0.9985,
+        "held_apart_exact_catalog_coverage": 0.9966666666666667,
+        "held_apart_decode_coverage": 0.9966666666666667,
+        "selected_start": 0,
+        "validation_fit_bits": 6979.752088108442,
+        "accuracy": 0.9926666666666667,
+        "frequency_accuracy": 0.22566666666666665,
+        "known_schedule_accuracy": 0.9926666666666667,
+        "known_schedule_optimizer": "assignment",
+        "full_table_exact_accuracy": 1.0,
+        "same_phase_p": 0.025,
+        "packet": {
+          "alphabet_bits": 200,
+          "schedule_bits": 21,
+          "dictionary_bits": 21864,
+          "row_permutation_bits": 1280,
+          "fixed_plain_payload_bits": 60000,
+          "exact_noise_literal_bits": 14,
+          "padding_bits": 5,
+          "packet_bits": 83384,
+          "model_plain_ideal_bits": 41392.54074281413,
+          "literals": 0,
+          "verified_roundtrip": true
+        }
+      },
+      {
+        "work": "aquinas",
+        "kind": "latin",
+        "pool": "challenge_b",
+        "rows": 16,
+        "skip": 17,
+        "schedule": "periodic",
+        "seed": 801687,
+        "remapped": false,
+        "historical_source_rows": [
+          118,
+          109,
+          112,
+          111,
+          121,
+          117,
+          114,
+          116,
+          123,
+          108,
+          110,
+          120,
+          122,
+          119,
+          113,
+          115
+        ],
+        "noisy": true,
+        "selected_rows": 16,
+        "selected_skip": 17,
+        "selected_family_correct": true,
+        "candidate_validation_costs": [
+          [
+            45432,
+            16,
+            17,
+            1756
+          ],
+          [
+            47160,
+            8,
+            17,
+            1532
+          ],
+          [
+            84440,
+            12,
+            17,
+            969
+          ],
+          [
+            115496,
+            8,
+            0,
+            315
+          ],
+          [
+            117880,
+            8,
+            41,
+            276
+          ],
+          [
+            121800,
+            12,
+            0,
+            304
+          ],
+          [
+            124328,
+            12,
+            41,
+            257
+          ],
+          [
+            126432,
+            16,
+            0,
+            314
+          ],
+          [
+            128744,
+            16,
+            41,
+            273
+          ]
+        ],
+        "selected_validation_exact_coverage": 0.878,
+        "held_apart_exact_catalog_coverage": 0.8936666666666667,
+        "held_apart_decode_coverage": 0.956,
+        "selected_start": 1,
+        "validation_fit_bits": 7392.448664336464,
+        "accuracy": 0.9013333333333333,
+        "frequency_accuracy": 0.20633333333333334,
+        "known_schedule_accuracy": 0.9013333333333333,
+        "known_schedule_optimizer": "assignment",
+        "full_table_exact_accuracy": 0.8943333333333333,
+        "same_phase_p": 0.025,
+        "packet": {
+          "alphabet_bits": 200,
+          "schedule_bits": 21,
+          "dictionary_bits": 21864,
+          "row_permutation_bits": 1280,
+          "fixed_plain_payload_bits": 60000,
+          "exact_noise_literal_bits": 94316,
+          "padding_bits": 7,
+          "packet_bits": 177688,
+          "model_plain_ideal_bits": 41392.54074281413,
+          "literals": 1325,
+          "verified_roundtrip": true
+        }
+      },
+      {
+        "work": "aquinas",
+        "kind": "iid",
+        "pool": "development",
+        "rows": 8,
+        "skip": 17,
+        "schedule": "periodic",
+        "seed": 763787,
+        "remapped": true,
+        "historical_source_rows": [
+          15,
+          16,
+          22,
+          26,
+          17,
+          19,
+          20,
+          14
+        ],
+        "noisy": false,
+        "selected_rows": 8,
+        "selected_skip": 17,
+        "selected_family_correct": true,
+        "candidate_validation_costs": [
+          [
+            18504,
+            8,
+            17,
+            1998
+          ],
+          [
+            26864,
+            16,
+            17,
+            1997
+          ],
+          [
+            38064,
+            12,
+            17,
+            1749
+          ],
+          [
+            89888,
+            8,
+            0,
+            640
+          ],
+          [
+            91160,
+            8,
+            41,
+            622
+          ],
+          [
+            97136,
+            12,
+            0,
+            603
+          ],
+          [
+            98416,
+            12,
+            41,
+            572
+          ],
+          [
+            101960,
+            16,
+            0,
+            602
+          ],
+          [
+            105160,
+            16,
+            41,
+            545
+          ]
+        ],
+        "selected_validation_exact_coverage": 0.999,
+        "held_apart_exact_catalog_coverage": 1,
+        "held_apart_decode_coverage": 1,
+        "selected_start": 2,
+        "validation_fit_bits": 9200.545721471091,
+        "accuracy": 0.33666666666666667,
+        "frequency_accuracy": 0.338,
+        "known_schedule_accuracy": 0.33666666666666667,
+        "known_schedule_optimizer": "assignment",
+        "full_table_exact_accuracy": 1.0,
+        "same_phase_p": 0.975,
+        "packet": {
+          "alphabet_bits": 200,
+          "schedule_bits": 21,
+          "dictionary_bits": 10032,
+          "row_permutation_bits": 640,
+          "fixed_plain_payload_bits": 60000,
+          "exact_noise_literal_bits": 14,
+          "padding_bits": 5,
+          "packet_bits": 70912,
+          "model_plain_ideal_bits": 55117.57624135153,
+          "literals": 0,
+          "verified_roundtrip": true
+        }
+      },
+      {
+        "work": "aquinas",
+        "kind": "markov",
+        "pool": "development",
+        "rows": 8,
+        "skip": 17,
+        "schedule": "periodic",
+        "seed": 763816,
+        "remapped": true,
+        "historical_source_rows": [
+          23,
+          17,
+          20,
+          21,
+          18,
+          27,
+          19,
+          15
+        ],
+        "noisy": false,
+        "selected_rows": 8,
+        "selected_skip": 17,
+        "selected_family_correct": true,
+        "candidate_validation_costs": [
+          [
+            19016,
+            8,
+            17,
+            1999
+          ],
+          [
+            27464,
+            16,
+            17,
+            1999
+          ],
+          [
+            38704,
+            12,
+            17,
+            1742
+          ],
+          [
+            92712,
+            8,
+            0,
+            627
+          ],
+          [
+            93920,
+            8,
+            41,
+            602
+          ],
+          [
+            99456,
+            12,
+            0,
+            594
+          ],
+          [
+            101376,
+            12,
+            41,
+            560
+          ],
+          [
+            103496,
+            16,
+            0,
+            617
+          ],
+          [
+            105176,
+            16,
+            41,
+            584
+          ]
+        ],
+        "selected_validation_exact_coverage": 0.9995,
+        "held_apart_exact_catalog_coverage": 0.999,
+        "held_apart_decode_coverage": 0.999,
+        "selected_start": 0,
+        "validation_fit_bits": 6967.990912816959,
+        "accuracy": 0.9966666666666667,
+        "frequency_accuracy": 0.4623333333333333,
+        "known_schedule_accuracy": 0.9966666666666667,
+        "known_schedule_optimizer": "assignment",
+        "full_table_exact_accuracy": 1.0,
+        "same_phase_p": 0.025,
+        "packet": {
+          "alphabet_bits": 200,
+          "schedule_bits": 21,
+          "dictionary_bits": 10224,
+          "row_permutation_bits": 640,
+          "fixed_plain_payload_bits": 60000,
+          "exact_noise_literal_bits": 14,
+          "padding_bits": 5,
+          "packet_bits": 71104,
+          "model_plain_ideal_bits": 41807.56010907816,
+          "literals": 0,
+          "verified_roundtrip": true
+        }
+      },
+      {
+        "work": "aquinas",
+        "kind": "latin",
+        "pool": "challenge_a",
+        "rows": 8,
+        "skip": 0,
+        "schedule": "stays",
+        "seed": 765686,
+        "remapped": true,
+        "historical_source_rows": [
+          48,
+          63,
+          58,
+          52,
+          60,
+          51,
+          59,
+          61
+        ],
+        "noisy": false,
+        "selected_rows": 8,
+        "selected_skip": 0,
+        "selected_family_correct": false,
+        "candidate_validation_costs": [
+          [
+            86384,
+            8,
+            0,
+            661
+          ],
+          [
+            87256,
+            8,
+            17,
+            643
+          ],
+          [
+            87400,
+            8,
+            41,
+            645
+          ],
+          [
+            94408,
+            12,
+            17,
+            596
+          ],
+          [
+            94640,
+            12,
+            0,
+            593
+          ],
+          [
+            95040,
+            12,
+            41,
+            588
+          ],
+          [
+            97160,
+            16,
+            41,
+            639
+          ],
+          [
+            98376,
+            16,
+            0,
+            614
+          ],
+          [
+            98952,
+            16,
+            17,
+            603
+          ]
+        ],
+        "selected_validation_exact_coverage": 0.3305,
+        "held_apart_exact_catalog_coverage": 0.31466666666666665,
+        "held_apart_decode_coverage": 0.6046666666666667,
+        "selected_start": 1,
+        "validation_fit_bits": 10073.707487120835,
+        "accuracy": 0.024333333333333332,
+        "frequency_accuracy": 0.025333333333333333,
+        "known_schedule_accuracy": 0.32666666666666666,
+        "known_schedule_optimizer": "frequency",
+        "full_table_exact_accuracy": 1.0,
+        "same_phase_p": 0.025,
+        "packet": {
+          "alphabet_bits": 200,
+          "schedule_bits": 12016,
+          "dictionary_bits": 9656,
+          "row_permutation_bits": 640,
+          "fixed_plain_payload_bits": 60000,
+          "exact_noise_literal_bits": 14,
+          "padding_bits": 2,
+          "packet_bits": 82528,
+          "model_plain_ideal_bits": 41392.54074281413,
+          "literals": 0,
+          "verified_roundtrip": true
+        }
+      },
+      {
+        "work": "cicero",
+        "kind": "latin",
+        "pool": "challenge_a",
+        "rows": 8,
+        "skip": 0,
+        "schedule": "periodic",
+        "seed": 771578,
+        "remapped": true,
+        "historical_source_rows": [
+          62,
+          58,
+          60,
+          49,
+          48,
+          55,
+          59,
+          56
+        ],
+        "noisy": false,
+        "selected_rows": 8,
+        "selected_skip": 0,
+        "selected_family_correct": true,
+        "candidate_validation_costs": [
+          [
+            18768,
+            8,
+            0,
+            2000
+          ],
+          [
+            27312,
+            16,
+            0,
+            1997
+          ],
+          [
+            38384,
+            12,
+            0,
+            1752
+          ],
+          [
+            90800,
+            8,
+            41,
+            651
+          ],
+          [
+            91424,
+            8,
+            17,
+            642
+          ],
+          [
+            93192,
+            12,
+            17,
+            706
+          ],
+          [
+            99168,
+            12,
+            41,
+            587
+          ],
+          [
+            101520,
+            16,
+            41,
+            643
+          ],
+          [
+            101592,
+            16,
+            17,
+            641
+          ]
+        ],
+        "selected_validation_exact_coverage": 1.0,
+        "held_apart_exact_catalog_coverage": 1,
+        "held_apart_decode_coverage": 1,
+        "selected_start": 0,
+        "validation_fit_bits": 6855.961066315161,
+        "accuracy": 1.0,
+        "frequency_accuracy": 0.2683333333333333,
+        "known_schedule_accuracy": 1.0,
+        "known_schedule_optimizer": "assignment",
+        "full_table_exact_accuracy": 1.0,
+        "same_phase_p": 0.025,
+        "packet": {
+          "alphabet_bits": 200,
+          "schedule_bits": 21,
+          "dictionary_bits": 10232,
+          "row_permutation_bits": 640,
+          "fixed_plain_payload_bits": 60000,
+          "exact_noise_literal_bits": 14,
+          "padding_bits": 5,
+          "packet_bits": 71112,
+          "model_plain_ideal_bits": 41345.186638290405,
+          "literals": 0,
+          "verified_roundtrip": true
+        }
+      },
+      {
+        "work": "cicero",
+        "kind": "latin",
+        "pool": "challenge_a",
+        "rows": 8,
+        "skip": 0,
+        "schedule": "periodic",
+        "seed": 771578,
+        "remapped": true,
+        "historical_source_rows": [
+          62,
+          58,
+          60,
+          49,
+          48,
+          55,
+          59,
+          56
+        ],
+        "noisy": true,
+        "selected_rows": 8,
+        "selected_skip": 0,
+        "selected_family_correct": true,
+        "candidate_validation_costs": [
+          [
+            30936,
+            8,
+            0,
+            1802
+          ],
+          [
+            41688,
+            16,
+            0,
+            1793
+          ],
+          [
+            48216,
+            12,
+            0,
+            1567
+          ],
+          [
+            94440,
+            8,
+            17,
+            593
+          ],
+          [
+            95192,
+            8,
+            41,
+            579
+          ],
+          [
+            97536,
+            12,
+            17,
+            628
+          ],
+          [
+            100808,
+            12,
+            41,
+            563
+          ],
+          [
+            105488,
+            16,
+            41,
+            568
+          ],
+          [
+            107128,
+            16,
+            17,
+            540
+          ]
+        ],
+        "selected_validation_exact_coverage": 0.901,
+        "held_apart_exact_catalog_coverage": 0.9056666666666666,
+        "held_apart_decode_coverage": 0.9726666666666667,
+        "selected_start": 1,
+        "validation_fit_bits": 7087.075242122269,
+        "accuracy": 0.9583333333333334,
+        "frequency_accuracy": 0.31,
+        "known_schedule_accuracy": 0.9583333333333334,
+        "known_schedule_optimizer": "assignment",
+        "full_table_exact_accuracy": 0.899,
+        "same_phase_p": 0.025,
+        "packet": {
+          "alphabet_bits": 200,
+          "schedule_bits": 21,
+          "dictionary_bits": 10232,
+          "row_permutation_bits": 640,
+          "fixed_plain_payload_bits": 60000,
+          "exact_noise_literal_bits": 83288,
+          "padding_bits": 3,
+          "packet_bits": 154384,
+          "model_plain_ideal_bits": 41345.186638290405,
+          "literals": 1223,
+          "verified_roundtrip": true
+        }
+      },
+      {
+        "work": "cicero",
+        "kind": "latin",
+        "pool": "challenge_a",
+        "rows": 8,
+        "skip": 17,
+        "schedule": "periodic",
+        "seed": 771601,
+        "remapped": true,
+        "historical_source_rows": [
+          54,
+          52,
+          62,
+          57,
+          51,
+          63,
+          48,
+          61
+        ],
+        "noisy": false,
+        "selected_rows": 8,
+        "selected_skip": 17,
+        "selected_family_correct": true,
+        "candidate_validation_costs": [
+          [
+            18824,
+            8,
+            17,
+            1996
+          ],
+          [
+            27072,
+            16,
+            17,
+            1995
+          ],
+          [
+            37792,
+            12,
+            17,
+            1759
+          ],
+          [
+            91712,
+            8,
+            0,
+            638
+          ],
+          [
+            92960,
+            8,
+            41,
+            609
+          ],
+          [
+            97152,
+            12,
+            0,
+            635
+          ],
+          [
+            99376,
+            12,
+            41,
+            588
+          ],
+          [
+            102408,
+            16,
+            41,
+            627
+          ],
+          [
+            103944,
+            16,
+            0,
+            600
+          ]
+        ],
+        "selected_validation_exact_coverage": 0.998,
+        "held_apart_exact_catalog_coverage": 0.999,
+        "held_apart_decode_coverage": 0.999,
+        "selected_start": 0,
+        "validation_fit_bits": 6853.79063544027,
+        "accuracy": 0.999,
+        "frequency_accuracy": 0.44133333333333336,
+        "known_schedule_accuracy": 0.999,
+        "known_schedule_optimizer": "assignment",
+        "full_table_exact_accuracy": 1.0,
+        "same_phase_p": 0.025,
+        "packet": {
+          "alphabet_bits": 200,
+          "schedule_bits": 21,
+          "dictionary_bits": 10232,
+          "row_permutation_bits": 640,
+          "fixed_plain_payload_bits": 60000,
+          "exact_noise_literal_bits": 14,
+          "padding_bits": 5,
+          "packet_bits": 71112,
+          "model_plain_ideal_bits": 41345.186638290405,
+          "literals": 0,
+          "verified_roundtrip": true
+        }
+      },
+      {
+        "work": "cicero",
+        "kind": "latin",
+        "pool": "challenge_a",
+        "rows": 8,
+        "skip": 17,
+        "schedule": "periodic",
+        "seed": 771601,
+        "remapped": true,
+        "historical_source_rows": [
+          54,
+          52,
+          62,
+          57,
+          51,
+          63,
+          48,
+          61
+        ],
+        "noisy": true,
+        "selected_rows": 8,
+        "selected_skip": 17,
+        "selected_family_correct": true,
+        "candidate_validation_costs": [
+          [
+            29648,
+            8,
+            17,
+            1823
+          ],
+          [
+            40136,
+            16,
+            17,
+            1816
+          ],
+          [
+            46488,
+            12,
+            17,
+            1596
+          ],
+          [
+            93656,
+            8,
+            0,
+            603
+          ],
+          [
+            96200,
+            8,
+            41,
+            554
+          ],
+          [
+            101280,
+            12,
+            0,
+            555
+          ],
+          [
+            102248,
+            12,
+            41,
+            534
+          ],
+          [
+            107184,
+            16,
+            41,
+            542
+          ],
+          [
+            107248,
+            16,
+            0,
+            538
+          ]
+        ],
+        "selected_validation_exact_coverage": 0.9115,
+        "held_apart_exact_catalog_coverage": 0.8896666666666667,
+        "held_apart_decode_coverage": 0.9623333333333334,
+        "selected_start": 0,
+        "validation_fit_bits": 7065.254365933952,
+        "accuracy": 0.9576666666666667,
+        "frequency_accuracy": 0.35133333333333333,
+        "known_schedule_accuracy": 0.9576666666666667,
+        "known_schedule_optimizer": "assignment",
+        "full_table_exact_accuracy": 0.8863333333333333,
+        "same_phase_p": 0.025,
+        "packet": {
+          "alphabet_bits": 200,
+          "schedule_bits": 21,
+          "dictionary_bits": 10232,
+          "row_permutation_bits": 640,
+          "fixed_plain_payload_bits": 60000,
+          "exact_noise_literal_bits": 85212,
+          "padding_bits": 7,
+          "packet_bits": 156312,
+          "model_plain_ideal_bits": 41345.186638290405,
+          "literals": 1257,
+          "verified_roundtrip": true
+        }
+      },
+      {
+        "work": "cicero",
+        "kind": "latin",
+        "pool": "challenge_a",
+        "rows": 8,
+        "skip": 17,
+        "schedule": "periodic",
+        "seed": 811578,
+        "remapped": false,
+        "historical_source_rows": [
+          51,
+          53,
+          52,
+          56,
+          49,
+          50,
+          58,
+          61
+        ],
+        "noisy": false,
+        "selected_rows": 8,
+        "selected_skip": 17,
+        "selected_family_correct": true,
+        "candidate_validation_costs": [
+          [
+            18344,
+            8,
+            17,
+            1996
+          ],
+          [
+            26104,
+            16,
+            17,
+            1995
+          ],
+          [
+            35936,
+            12,
+            17,
+            1763
+          ],
+          [
+            86568,
+            8,
+            0,
+            639
+          ],
+          [
+            87920,
+            8,
+            41,
+            611
+          ],
+          [
+            92080,
+            12,
+            0,
+            616
+          ],
+          [
+            94288,
+            12,
+            41,
+            579
+          ],
+          [
+            96648,
+            16,
+            41,
+            624
+          ],
+          [
+            97592,
+            16,
+            0,
+            603
+          ]
+        ],
+        "selected_validation_exact_coverage": 0.998,
+        "held_apart_exact_catalog_coverage": 0.999,
+        "held_apart_decode_coverage": 0.999,
+        "selected_start": 0,
+        "validation_fit_bits": 6853.79063544027,
+        "accuracy": 0.999,
+        "frequency_accuracy": 0.424,
+        "known_schedule_accuracy": 0.999,
+        "known_schedule_optimizer": "assignment",
+        "full_table_exact_accuracy": 1.0,
+        "same_phase_p": 0.025,
+        "packet": {
+          "alphabet_bits": 200,
+          "schedule_bits": 21,
+          "dictionary_bits": 9688,
+          "row_permutation_bits": 640,
+          "fixed_plain_payload_bits": 60000,
+          "exact_noise_literal_bits": 14,
+          "padding_bits": 5,
+          "packet_bits": 70568,
+          "model_plain_ideal_bits": 41345.186638290405,
+          "literals": 0,
+          "verified_roundtrip": true
+        }
+      },
+      {
+        "work": "cicero",
+        "kind": "latin",
+        "pool": "challenge_a",
+        "rows": 8,
+        "skip": 17,
+        "schedule": "periodic",
+        "seed": 811578,
+        "remapped": false,
+        "historical_source_rows": [
+          51,
+          53,
+          52,
+          56,
+          49,
+          50,
+          58,
+          61
+        ],
+        "noisy": true,
+        "selected_rows": 8,
+        "selected_skip": 17,
+        "selected_family_correct": true,
+        "candidate_validation_costs": [
+          [
+            28376,
+            8,
+            17,
+            1825
+          ],
+          [
+            37984,
+            16,
+            17,
+            1823
+          ],
+          [
+            44464,
+            12,
+            17,
+            1591
+          ],
+          [
+            88792,
+            8,
+            0,
+            592
+          ],
+          [
+            90224,
+            8,
+            41,
+            565
+          ],
+          [
+            95152,
+            12,
+            0,
+            556
+          ],
+          [
+            97744,
+            12,
+            41,
+            506
+          ],
+          [
+            100160,
+            16,
+            0,
+            551
+          ],
+          [
+            100656,
+            16,
+            41,
+            541
+          ]
+        ],
+        "selected_validation_exact_coverage": 0.9125,
+        "held_apart_exact_catalog_coverage": 0.9183333333333333,
+        "held_apart_decode_coverage": 0.968,
+        "selected_start": 0,
+        "validation_fit_bits": 7093.0464566784585,
+        "accuracy": 0.9563333333333334,
+        "frequency_accuracy": 0.347,
+        "known_schedule_accuracy": 0.9563333333333334,
+        "known_schedule_optimizer": "assignment",
+        "full_table_exact_accuracy": 0.9156666666666666,
+        "same_phase_p": 0.025,
+        "packet": {
+          "alphabet_bits": 200,
+          "schedule_bits": 21,
+          "dictionary_bits": 9688,
+          "row_permutation_bits": 640,
+          "fixed_plain_payload_bits": 60000,
+          "exact_noise_literal_bits": 71248,
+          "padding_bits": 3,
+          "packet_bits": 141800,
+          "model_plain_ideal_bits": 41345.186638290405,
+          "literals": 1119,
+          "verified_roundtrip": true
+        }
+      },
+      {
+        "work": "cicero",
+        "kind": "latin",
+        "pool": "challenge_b",
+        "rows": 16,
+        "skip": 0,
+        "schedule": "periodic",
+        "seed": 772678,
+        "remapped": true,
+        "historical_source_rows": [
+          115,
+          118,
+          121,
+          110,
+          111,
+          116,
+          123,
+          108,
+          119,
+          114,
+          120,
+          109,
+          113,
+          122,
+          112,
+          117
+        ],
+        "noisy": false,
+        "selected_rows": 16,
+        "selected_skip": 0,
+        "selected_family_correct": true,
+        "candidate_validation_costs": [
+          [
+            28464,
+            16,
+            0,
+            1997
+          ],
+          [
+            34512,
+            8,
+            0,
+            1756
+          ],
+          [
+            76464,
+            12,
+            0,
+            1113
+          ],
+          [
+            114352,
+            8,
+            41,
+            342
+          ],
+          [
+            115016,
+            8,
+            17,
+            327
+          ],
+          [
+            117944,
+            12,
+            17,
+            374
+          ],
+          [
+            121552,
+            12,
+            41,
+            312
+          ],
+          [
+            126168,
+            16,
+            17,
+            325
+          ],
+          [
+            127136,
+            16,
+            41,
+            303
+          ]
+        ],
+        "selected_validation_exact_coverage": 0.9985,
+        "held_apart_exact_catalog_coverage": 0.9993333333333333,
+        "held_apart_decode_coverage": 0.9993333333333333,
+        "selected_start": 2,
+        "validation_fit_bits": 6869.525058657229,
+        "accuracy": 0.9956666666666667,
+        "frequency_accuracy": 0.30866666666666664,
+        "known_schedule_accuracy": 0.9956666666666667,
+        "known_schedule_optimizer": "assignment",
+        "full_table_exact_accuracy": 1.0,
+        "same_phase_p": 0.025,
+        "packet": {
+          "alphabet_bits": 200,
+          "schedule_bits": 21,
+          "dictionary_bits": 21864,
+          "row_permutation_bits": 1280,
+          "fixed_plain_payload_bits": 60000,
+          "exact_noise_literal_bits": 14,
+          "padding_bits": 5,
+          "packet_bits": 83384,
+          "model_plain_ideal_bits": 41345.186638290405,
+          "literals": 0,
+          "verified_roundtrip": true
+        }
+      },
+      {
+        "work": "cicero",
+        "kind": "latin",
+        "pool": "challenge_b",
+        "rows": 16,
+        "skip": 0,
+        "schedule": "periodic",
+        "seed": 772678,
+        "remapped": true,
+        "historical_source_rows": [
+          115,
+          118,
+          121,
+          110,
+          111,
+          116,
+          123,
+          108,
+          119,
+          114,
+          120,
+          109,
+          113,
+          122,
+          112,
+          117
+        ],
+        "noisy": true,
+        "selected_rows": 16,
+        "selected_skip": 0,
+        "selected_family_correct": true,
+        "candidate_validation_costs": [
+          [
+            44744,
+            16,
+            0,
+            1772
+          ],
+          [
+            45328,
+            8,
+            0,
+            1566
+          ],
+          [
+            81984,
+            12,
+            0,
+            1016
+          ],
+          [
+            116112,
+            8,
+            41,
+            309
+          ],
+          [
+            116920,
+            8,
+            17,
+            294
+          ],
+          [
+            120896,
+            12,
+            17,
+            322
+          ],
+          [
+            123936,
+            12,
+            41,
+            267
+          ],
+          [
+            128392,
+            16,
+            41,
+            283
+          ],
+          [
+            128656,
+            16,
+            17,
+            282
+          ]
+        ],
+        "selected_validation_exact_coverage": 0.886,
+        "held_apart_exact_catalog_coverage": 0.8846666666666667,
+        "held_apart_decode_coverage": 0.949,
+        "selected_start": 2,
+        "validation_fit_bits": 7187.047625694904,
+        "accuracy": 0.909,
+        "frequency_accuracy": 0.2776666666666667,
+        "known_schedule_accuracy": 0.909,
+        "known_schedule_optimizer": "assignment",
+        "full_table_exact_accuracy": 0.8863333333333333,
+        "same_phase_p": 0.025,
+        "packet": {
+          "alphabet_bits": 200,
+          "schedule_bits": 21,
+          "dictionary_bits": 21864,
+          "row_permutation_bits": 1280,
+          "fixed_plain_payload_bits": 60000,
+          "exact_noise_literal_bits": 96142,
+          "padding_bits": 5,
+          "packet_bits": 179512,
+          "model_plain_ideal_bits": 41345.186638290405,
+          "literals": 1348,
+          "verified_roundtrip": true
+        }
+      },
+      {
+        "work": "cicero",
+        "kind": "latin",
+        "pool": "challenge_b",
+        "rows": 16,
+        "skip": 17,
+        "schedule": "periodic",
+        "seed": 772701,
+        "remapped": true,
+        "historical_source_rows": [
+          111,
+          123,
+          110,
+          115,
+          113,
+          122,
+          118,
+          114,
+          120,
+          119,
+          116,
+          108,
+          117,
+          121,
+          112,
+          109
+        ],
+        "noisy": false,
+        "selected_rows": 16,
+        "selected_skip": 17,
+        "selected_family_correct": true,
+        "candidate_validation_costs": [
+          [
+            28328,
+            16,
+            17,
+            1995
+          ],
+          [
+            34408,
+            8,
+            17,
+            1760
+          ],
+          [
+            76808,
+            12,
+            17,
+            1107
+          ],
+          [
+            115176,
+            8,
+            0,
+            328
+          ],
+          [
+            116960,
+            8,
+            41,
+            295
+          ],
+          [
+            120848,
+            12,
+            0,
+            322
+          ],
+          [
+            123192,
+            12,
+            41,
+            281
+          ],
+          [
+            126256,
+            16,
+            0,
+            321
+          ],
+          [
+            127936,
+            16,
+            41,
+            291
+          ]
+        ],
+        "selected_validation_exact_coverage": 0.9975,
+        "held_apart_exact_catalog_coverage": 0.9983333333333333,
+        "held_apart_decode_coverage": 0.9986666666666667,
+        "selected_start": 1,
+        "validation_fit_bits": 6886.1498899992785,
+        "accuracy": 0.995,
+        "frequency_accuracy": 0.233,
+        "known_schedule_accuracy": 0.995,
+        "known_schedule_optimizer": "assignment",
+        "full_table_exact_accuracy": 1.0,
+        "same_phase_p": 0.025,
+        "packet": {
+          "alphabet_bits": 200,
+          "schedule_bits": 21,
+          "dictionary_bits": 21864,
+          "row_permutation_bits": 1280,
+          "fixed_plain_payload_bits": 60000,
+          "exact_noise_literal_bits": 14,
+          "padding_bits": 5,
+          "packet_bits": 83384,
+          "model_plain_ideal_bits": 41345.186638290405,
+          "literals": 0,
+          "verified_roundtrip": true
+        }
+      },
+      {
+        "work": "cicero",
+        "kind": "latin",
+        "pool": "challenge_b",
+        "rows": 16,
+        "skip": 17,
+        "schedule": "periodic",
+        "seed": 772701,
+        "remapped": true,
+        "historical_source_rows": [
+          111,
+          123,
+          110,
+          115,
+          113,
+          122,
+          118,
+          114,
+          120,
+          119,
+          116,
+          108,
+          117,
+          121,
+          112,
+          109
+        ],
+        "noisy": true,
+        "selected_rows": 16,
+        "selected_skip": 17,
+        "selected_family_correct": true,
+        "candidate_validation_costs": [
+          [
+            44528,
+            16,
+            17,
+            1782
+          ],
+          [
+            45168,
+            8,
+            17,
+            1575
+          ],
+          [
+            83832,
+            12,
+            17,
+            989
+          ],
+          [
+            117344,
+            8,
+            0,
+            287
+          ],
+          [
+            118616,
+            8,
+            41,
+            267
+          ],
+          [
+            124080,
+            12,
+            0,
+            266
+          ],
+          [
+            124712,
+            12,
+            41,
+            255
+          ],
+          [
+            129048,
+            16,
+            41,
+            272
+          ],
+          [
+            129072,
+            16,
+            0,
+            270
+          ]
+        ],
+        "selected_validation_exact_coverage": 0.891,
+        "held_apart_exact_catalog_coverage": 0.888,
+        "held_apart_decode_coverage": 0.9583333333333334,
+        "selected_start": 1,
+        "validation_fit_bits": 7211.354649179039,
+        "accuracy": 0.9183333333333333,
+        "frequency_accuracy": 0.18566666666666667,
+        "known_schedule_accuracy": 0.9183333333333333,
+        "known_schedule_optimizer": "assignment",
+        "full_table_exact_accuracy": 0.8886666666666667,
+        "same_phase_p": 0.025,
+        "packet": {
+          "alphabet_bits": 200,
+          "schedule_bits": 21,
+          "dictionary_bits": 21864,
+          "row_permutation_bits": 1280,
+          "fixed_plain_payload_bits": 60000,
+          "exact_noise_literal_bits": 101204,
+          "padding_bits": 7,
+          "packet_bits": 184576,
+          "model_plain_ideal_bits": 41345.186638290405,
+          "literals": 1417,
+          "verified_roundtrip": true
+        }
+      },
+      {
+        "work": "cicero",
+        "kind": "latin",
+        "pool": "challenge_b",
+        "rows": 16,
+        "skip": 17,
+        "schedule": "periodic",
+        "seed": 812678,
+        "remapped": false,
+        "historical_source_rows": [
+          119,
+          120,
+          111,
+          117,
+          116,
+          115,
+          110,
+          122,
+          112,
+          113,
+          123,
+          121,
+          109,
+          108,
+          118,
+          114
+        ],
+        "noisy": false,
+        "selected_rows": 16,
+        "selected_skip": 17,
+        "selected_family_correct": true,
+        "candidate_validation_costs": [
+          [
+            28280,
+            16,
+            17,
+            1995
+          ],
+          [
+            34496,
+            8,
+            17,
+            1760
+          ],
+          [
+            77664,
+            12,
+            17,
+            1093
+          ],
+          [
+            115112,
+            8,
+            0,
+            328
+          ],
+          [
+            116672,
+            8,
+            41,
+            296
+          ],
+          [
+            121608,
+            12,
+            0,
+            305
+          ],
+          [
+            123176,
+            12,
+            41,
+            277
+          ],
+          [
+            126232,
+            16,
+            0,
+            324
+          ],
+          [
+            127968,
+            16,
+            41,
+            285
+          ]
+        ],
+        "selected_validation_exact_coverage": 0.9975,
+        "held_apart_exact_catalog_coverage": 0.9983333333333333,
+        "held_apart_decode_coverage": 0.9983333333333333,
+        "selected_start": 1,
+        "validation_fit_bits": 6886.1498899992785,
+        "accuracy": 0.995,
+        "frequency_accuracy": 0.25166666666666665,
+        "known_schedule_accuracy": 0.995,
+        "known_schedule_optimizer": "assignment",
+        "full_table_exact_accuracy": 1.0,
+        "same_phase_p": 0.025,
+        "packet": {
+          "alphabet_bits": 200,
+          "schedule_bits": 21,
+          "dictionary_bits": 21864,
+          "row_permutation_bits": 1280,
+          "fixed_plain_payload_bits": 60000,
+          "exact_noise_literal_bits": 14,
+          "padding_bits": 5,
+          "packet_bits": 83384,
+          "model_plain_ideal_bits": 41345.186638290405,
+          "literals": 0,
+          "verified_roundtrip": true
+        }
+      },
+      {
+        "work": "cicero",
+        "kind": "latin",
+        "pool": "challenge_b",
+        "rows": 16,
+        "skip": 17,
+        "schedule": "periodic",
+        "seed": 812678,
+        "remapped": false,
+        "historical_source_rows": [
+          119,
+          120,
+          111,
+          117,
+          116,
+          115,
+          110,
+          122,
+          112,
+          113,
+          123,
+          121,
+          109,
+          108,
+          118,
+          114
+        ],
+        "noisy": true,
+        "selected_rows": 16,
+        "selected_skip": 17,
+        "selected_family_correct": true,
+        "candidate_validation_costs": [
+          [
+            43784,
+            16,
+            17,
+            1791
+          ],
+          [
+            45080,
+            8,
+            17,
+            1577
+          ],
+          [
+            84896,
+            12,
+            17,
+            969
+          ],
+          [
+            117536,
+            8,
+            0,
+            285
+          ],
+          [
+            118632,
+            8,
+            41,
+            262
+          ],
+          [
+            123536,
+            12,
+            0,
+            270
+          ],
+          [
+            124528,
+            12,
+            41,
+            253
+          ],
+          [
+            128360,
+            16,
+            0,
+            284
+          ],
+          [
+            129024,
+            16,
+            41,
+            266
+          ]
+        ],
+        "selected_validation_exact_coverage": 0.8955,
+        "held_apart_exact_catalog_coverage": 0.898,
+        "held_apart_decode_coverage": 0.959,
+        "selected_start": 0,
+        "validation_fit_bits": 7105.930276871455,
+        "accuracy": 0.9396666666666667,
+        "frequency_accuracy": 0.21166666666666667,
+        "known_schedule_accuracy": 0.9396666666666667,
+        "known_schedule_optimizer": "assignment",
+        "full_table_exact_accuracy": 0.8946666666666667,
+        "same_phase_p": 0.025,
+        "packet": {
+          "alphabet_bits": 200,
+          "schedule_bits": 21,
+          "dictionary_bits": 21864,
+          "row_permutation_bits": 1280,
+          "fixed_plain_payload_bits": 60000,
+          "exact_noise_literal_bits": 94296,
+          "padding_bits": 3,
+          "packet_bits": 177664,
+          "model_plain_ideal_bits": 41345.186638290405,
+          "literals": 1327,
+          "verified_roundtrip": true
+        }
+      },
+      {
+        "work": "cicero",
+        "kind": "iid",
+        "pool": "development",
+        "rows": 8,
+        "skip": 17,
+        "schedule": "periodic",
+        "seed": 774778,
+        "remapped": true,
+        "historical_source_rows": [
+          20,
+          14,
+          13,
+          23,
+          24,
+          19,
+          22,
+          25
+        ],
+        "noisy": false,
+        "selected_rows": 8,
+        "selected_skip": 17,
+        "selected_family_correct": true,
+        "candidate_validation_costs": [
+          [
+            18376,
+            8,
+            17,
+            1998
+          ],
+          [
+            26512,
+            16,
+            17,
+            1991
+          ],
+          [
+            37160,
+            12,
+            17,
+            1737
+          ],
+          [
+            87960,
+            8,
+            0,
+            609
+          ],
+          [
+            90840,
+            8,
+            41,
+            555
+          ],
+          [
+            93400,
+            12,
+            0,
+            599
+          ],
+          [
+            94528,
+            12,
+            41,
+            574
+          ],
+          [
+            97792,
+            16,
+            0,
+            610
+          ],
+          [
+            101624,
+            16,
+            41,
+            536
+          ]
+        ],
+        "selected_validation_exact_coverage": 0.999,
+        "held_apart_exact_catalog_coverage": 0.9996666666666667,
+        "held_apart_decode_coverage": 0.9996666666666667,
+        "selected_start": 2,
+        "validation_fit_bits": 9106.209108915842,
+        "accuracy": 0.198,
+        "frequency_accuracy": 0.43466666666666665,
+        "known_schedule_accuracy": 0.198,
+        "known_schedule_optimizer": "assignment",
+        "full_table_exact_accuracy": 1.0,
+        "same_phase_p": 0.75,
+        "packet": {
+          "alphabet_bits": 200,
+          "schedule_bits": 21,
+          "dictionary_bits": 9616,
+          "row_permutation_bits": 640,
+          "fixed_plain_payload_bits": 60000,
+          "exact_noise_literal_bits": 14,
+          "padding_bits": 5,
+          "packet_bits": 70496,
+          "model_plain_ideal_bits": 55623.803345870685,
+          "literals": 0,
+          "verified_roundtrip": true
+        }
+      },
+      {
+        "work": "cicero",
+        "kind": "markov",
+        "pool": "development",
+        "rows": 8,
+        "skip": 17,
+        "schedule": "periodic",
+        "seed": 774807,
+        "remapped": true,
+        "historical_source_rows": [
+          19,
+          18,
+          28,
+          25,
+          21,
+          22,
+          26,
+          27
+        ],
+        "noisy": false,
+        "selected_rows": 8,
+        "selected_skip": 17,
+        "selected_family_correct": true,
+        "candidate_validation_costs": [
+          [
+            18864,
+            8,
+            17,
+            1999
+          ],
+          [
+            27216,
+            16,
+            17,
+            1996
+          ],
+          [
+            37152,
+            12,
+            17,
+            1764
+          ],
+          [
+            92696,
+            8,
+            0,
+            595
+          ],
+          [
+            95384,
+            8,
+            41,
+            545
+          ],
+          [
+            98136,
+            12,
+            0,
+            587
+          ],
+          [
+            99768,
+            12,
+            41,
+            555
+          ],
+          [
+            104656,
+            16,
+            0,
+            561
+          ],
+          [
+            105544,
+            16,
+            41,
+            545
+          ]
+        ],
+        "selected_validation_exact_coverage": 0.9995,
+        "held_apart_exact_catalog_coverage": 0.999,
+        "held_apart_decode_coverage": 0.999,
+        "selected_start": 0,
+        "validation_fit_bits": 6988.51371619857,
+        "accuracy": 0.999,
+        "frequency_accuracy": 0.358,
+        "known_schedule_accuracy": 0.999,
+        "known_schedule_optimizer": "assignment",
+        "full_table_exact_accuracy": 1.0,
+        "same_phase_p": 0.025,
+        "packet": {
+          "alphabet_bits": 200,
+          "schedule_bits": 21,
+          "dictionary_bits": 10000,
+          "row_permutation_bits": 640,
+          "fixed_plain_payload_bits": 60000,
+          "exact_noise_literal_bits": 14,
+          "padding_bits": 5,
+          "packet_bits": 70880,
+          "model_plain_ideal_bits": 42095.62464453266,
+          "literals": 0,
+          "verified_roundtrip": true
+        }
+      },
+      {
+        "work": "cicero",
+        "kind": "latin",
+        "pool": "challenge_a",
+        "rows": 8,
+        "skip": 0,
+        "schedule": "stays",
+        "seed": 776677,
+        "remapped": true,
+        "historical_source_rows": [
+          49,
+          60,
+          48,
+          61,
+          59,
+          62,
+          57,
+          56
+        ],
+        "noisy": false,
+        "selected_rows": 8,
+        "selected_skip": 17,
+        "selected_family_correct": false,
+        "candidate_validation_costs": [
+          [
+            93552,
+            8,
+            17,
+            657
+          ],
+          [
+            94392,
+            8,
+            41,
+            639
+          ],
+          [
+            94760,
+            8,
+            0,
+            635
+          ],
+          [
+            100088,
+            12,
+            17,
+            634
+          ],
+          [
+            100136,
+            12,
+            0,
+            635
+          ],
+          [
+            101384,
+            12,
+            41,
+            616
+          ],
+          [
+            106960,
+            16,
+            0,
+            604
+          ],
+          [
+            107896,
+            16,
+            41,
+            590
+          ],
+          [
+            108328,
+            16,
+            17,
+            580
+          ]
+        ],
+        "selected_validation_exact_coverage": 0.3285,
+        "held_apart_exact_catalog_coverage": 0.3,
+        "held_apart_decode_coverage": 0.5623333333333334,
+        "selected_start": 1,
+        "validation_fit_bits": 10157.005539427648,
+        "accuracy": 0.023,
+        "frequency_accuracy": 0.035,
+        "known_schedule_accuracy": 0.33766666666666667,
+        "known_schedule_optimizer": "frequency",
+        "full_table_exact_accuracy": 1.0,
+        "same_phase_p": 0.025,
+        "packet": {
+          "alphabet_bits": 200,
+          "schedule_bits": 12016,
+          "dictionary_bits": 10616,
+          "row_permutation_bits": 640,
+          "fixed_plain_payload_bits": 60000,
+          "exact_noise_literal_bits": 14,
+          "padding_bits": 2,
+          "packet_bits": 83488,
+          "model_plain_ideal_bits": 41345.186638290405,
+          "literals": 0,
+          "verified_roundtrip": true
+        }
+      },
+      {
+        "work": "virgil",
+        "kind": "latin",
+        "pool": "challenge_a",
+        "rows": 8,
+        "skip": 0,
+        "schedule": "periodic",
+        "seed": 782569,
+        "remapped": true,
+        "historical_source_rows": [
+          51,
+          57,
+          61,
+          63,
+          55,
+          60,
+          52,
+          59
+        ],
+        "noisy": false,
+        "selected_rows": 8,
+        "selected_skip": 0,
+        "selected_family_correct": true,
+        "candidate_validation_costs": [
+          [
+            18936,
+            8,
+            0,
+            1999
+          ],
+          [
+            27640,
+            16,
+            0,
+            1996
+          ],
+          [
+            38200,
+            12,
+            0,
+            1749
+          ],
+          [
+            92376,
+            8,
+            17,
+            605
+          ],
+          [
+            92536,
+            8,
+            41,
+            596
+          ],
+          [
+            92928,
+            12,
+            17,
+            685
+          ],
+          [
+            98928,
+            12,
+            41,
+            568
+          ],
+          [
+            102136,
+            16,
+            17,
+            609
+          ],
+          [
+            102240,
+            16,
+            41,
+            603
+          ]
+        ],
+        "selected_validation_exact_coverage": 0.9995,
+        "held_apart_exact_catalog_coverage": 0.9996666666666667,
+        "held_apart_decode_coverage": 0.9996666666666667,
+        "selected_start": 0,
+        "validation_fit_bits": 7084.25569783529,
+        "accuracy": 0.994,
+        "frequency_accuracy": 0.299,
+        "known_schedule_accuracy": 0.994,
+        "known_schedule_optimizer": "assignment",
+        "full_table_exact_accuracy": 1.0,
+        "same_phase_p": 0.025,
+        "packet": {
+          "alphabet_bits": 200,
+          "schedule_bits": 21,
+          "dictionary_bits": 10080,
+          "row_permutation_bits": 640,
+          "fixed_plain_payload_bits": 60000,
+          "exact_noise_literal_bits": 14,
+          "padding_bits": 5,
+          "packet_bits": 70960,
+          "model_plain_ideal_bits": 42664.416686426084,
+          "literals": 0,
+          "verified_roundtrip": true
+        }
+      },
+      {
+        "work": "virgil",
+        "kind": "latin",
+        "pool": "challenge_a",
+        "rows": 8,
+        "skip": 0,
+        "schedule": "periodic",
+        "seed": 782569,
+        "remapped": true,
+        "historical_source_rows": [
+          51,
+          57,
+          61,
+          63,
+          55,
+          60,
+          52,
+          59
+        ],
+        "noisy": true,
+        "selected_rows": 8,
+        "selected_skip": 0,
+        "selected_family_correct": true,
+        "candidate_validation_costs": [
+          [
+            30152,
+            8,
+            0,
+            1811
+          ],
+          [
+            40568,
+            16,
+            0,
+            1804
+          ],
+          [
+            47576,
+            12,
+            0,
+            1574
+          ],
+          [
+            95088,
+            8,
+            17,
+            557
+          ],
+          [
+            96624,
+            8,
+            41,
+            515
+          ],
+          [
+            97136,
+            12,
+            17,
+            608
+          ],
+          [
+            101280,
+            12,
+            41,
+            524
+          ],
+          [
+            104648,
+            16,
+            17,
+            563
+          ],
+          [
+            105928,
+            16,
+            41,
+            532
+          ]
+        ],
+        "selected_validation_exact_coverage": 0.9055,
+        "held_apart_exact_catalog_coverage": 0.904,
+        "held_apart_decode_coverage": 0.967,
+        "selected_start": 0,
+        "validation_fit_bits": 7245.514573253652,
+        "accuracy": 0.9583333333333334,
+        "frequency_accuracy": 0.2826666666666667,
+        "known_schedule_accuracy": 0.9583333333333334,
+        "known_schedule_optimizer": "assignment",
+        "full_table_exact_accuracy": 0.898,
+        "same_phase_p": 0.025,
+        "packet": {
+          "alphabet_bits": 200,
+          "schedule_bits": 21,
+          "dictionary_bits": 10080,
+          "row_permutation_bits": 640,
+          "fixed_plain_payload_bits": 60000,
+          "exact_noise_literal_bits": 83424,
+          "padding_bits": 3,
+          "packet_bits": 154368,
+          "model_plain_ideal_bits": 42664.416686426084,
+          "literals": 1247,
+          "verified_roundtrip": true
+        }
+      },
+      {
+        "work": "virgil",
+        "kind": "latin",
+        "pool": "challenge_a",
+        "rows": 8,
+        "skip": 17,
+        "schedule": "periodic",
+        "seed": 782592,
+        "remapped": true,
+        "historical_source_rows": [
+          57,
+          51,
+          53,
+          56,
+          59,
+          49,
+          48,
+          58
+        ],
+        "noisy": false,
+        "selected_rows": 8,
+        "selected_skip": 17,
+        "selected_family_correct": true,
+        "candidate_validation_costs": [
+          [
+            18864,
+            8,
+            17,
+            1999
+          ],
+          [
+            27368,
+            16,
+            17,
+            1998
+          ],
+          [
+            37400,
+            12,
+            17,
+            1762
+          ],
+          [
+            91336,
+            8,
+            0,
+            613
+          ],
+          [
+            92344,
+            8,
+            41,
+            593
+          ],
+          [
+            98256,
+            12,
+            0,
+            581
+          ],
+          [
+            99512,
+            12,
+            41,
+            552
+          ],
+          [
+            100736,
+            16,
+            0,
+            628
+          ],
+          [
+            104704,
+            16,
+            41,
+            553
+          ]
+        ],
+        "selected_validation_exact_coverage": 0.9995,
+        "held_apart_exact_catalog_coverage": 0.9993333333333333,
+        "held_apart_decode_coverage": 0.9993333333333333,
+        "selected_start": 0,
+        "validation_fit_bits": 7044.913026702123,
+        "accuracy": 0.999,
+        "frequency_accuracy": 0.2976666666666667,
+        "known_schedule_accuracy": 0.999,
+        "known_schedule_optimizer": "assignment",
+        "full_table_exact_accuracy": 1.0,
+        "same_phase_p": 0.025,
+        "packet": {
+          "alphabet_bits": 200,
+          "schedule_bits": 21,
+          "dictionary_bits": 10032,
+          "row_permutation_bits": 640,
+          "fixed_plain_payload_bits": 60000,
+          "exact_noise_literal_bits": 14,
+          "padding_bits": 5,
+          "packet_bits": 70912,
+          "model_plain_ideal_bits": 42664.416686426084,
+          "literals": 0,
+          "verified_roundtrip": true
+        }
+      },
+      {
+        "work": "virgil",
+        "kind": "latin",
+        "pool": "challenge_a",
+        "rows": 8,
+        "skip": 17,
+        "schedule": "periodic",
+        "seed": 782592,
+        "remapped": true,
+        "historical_source_rows": [
+          57,
+          51,
+          53,
+          56,
+          59,
+          49,
+          48,
+          58
+        ],
+        "noisy": true,
+        "selected_rows": 8,
+        "selected_skip": 17,
+        "selected_family_correct": true,
+        "candidate_validation_costs": [
+          [
+            30552,
+            8,
+            17,
+            1803
+          ],
+          [
+            41008,
+            16,
+            17,
+            1795
+          ],
+          [
+            46624,
+            12,
+            17,
+            1591
+          ],
+          [
+            93584,
+            8,
+            0,
+            575
+          ],
+          [
+            95776,
+            8,
+            41,
+            534
+          ],
+          [
+            101168,
+            12,
+            0,
+            533
+          ],
+          [
+            102128,
+            12,
+            41,
+            507
+          ],
+          [
+            104384,
+            16,
+            0,
+            562
+          ],
+          [
+            106432,
+            16,
+            41,
+            521
+          ]
+        ],
+        "selected_validation_exact_coverage": 0.9015,
+        "held_apart_exact_catalog_coverage": 0.9,
+        "held_apart_decode_coverage": 0.961,
+        "selected_start": 0,
+        "validation_fit_bits": 7216.9050323202855,
+        "accuracy": 0.9513333333333334,
+        "frequency_accuracy": 0.28633333333333333,
+        "known_schedule_accuracy": 0.9513333333333334,
+        "known_schedule_optimizer": "assignment",
+        "full_table_exact_accuracy": 0.8953333333333333,
+        "same_phase_p": 0.025,
+        "packet": {
+          "alphabet_bits": 200,
+          "schedule_bits": 21,
+          "dictionary_bits": 10032,
+          "row_permutation_bits": 640,
+          "fixed_plain_payload_bits": 60000,
+          "exact_noise_literal_bits": 82524,
+          "padding_bits": 7,
+          "packet_bits": 153424,
+          "model_plain_ideal_bits": 42664.416686426084,
+          "literals": 1229,
+          "verified_roundtrip": true
+        }
+      },
+      {
+        "work": "virgil",
+        "kind": "latin",
+        "pool": "challenge_a",
+        "rows": 8,
+        "skip": 17,
+        "schedule": "periodic",
+        "seed": 822569,
+        "remapped": false,
+        "historical_source_rows": [
+          53,
+          55,
+          50,
+          62,
+          57,
+          51,
+          58,
+          48
+        ],
+        "noisy": false,
+        "selected_rows": 8,
+        "selected_skip": 17,
+        "selected_family_correct": true,
+        "candidate_validation_costs": [
+          [
+            18840,
+            8,
+            17,
+            1999
+          ],
+          [
+            27344,
+            16,
+            17,
+            1998
+          ],
+          [
+            37296,
+            12,
+            17,
+            1761
+          ],
+          [
+            91048,
+            8,
+            0,
+            615
+          ],
+          [
+            92184,
+            8,
+            41,
+            600
+          ],
+          [
+            98456,
+            12,
+            0,
+            575
+          ],
+          [
+            99824,
+            12,
+            41,
+            550
+          ],
+          [
+            101272,
+            16,
+            0,
+            612
+          ],
+          [
+            104112,
+            16,
+            41,
+            559
+          ]
+        ],
+        "selected_validation_exact_coverage": 0.9995,
+        "held_apart_exact_catalog_coverage": 0.9993333333333333,
+        "held_apart_decode_coverage": 0.9993333333333333,
+        "selected_start": 0,
+        "validation_fit_bits": 7044.913026702123,
+        "accuracy": 0.999,
+        "frequency_accuracy": 0.2946666666666667,
+        "known_schedule_accuracy": 0.999,
+        "known_schedule_optimizer": "assignment",
+        "full_table_exact_accuracy": 1.0,
+        "same_phase_p": 0.025,
+        "packet": {
+          "alphabet_bits": 200,
+          "schedule_bits": 21,
+          "dictionary_bits": 10072,
+          "row_permutation_bits": 640,
+          "fixed_plain_payload_bits": 60000,
+          "exact_noise_literal_bits": 14,
+          "padding_bits": 5,
+          "packet_bits": 70952,
+          "model_plain_ideal_bits": 42664.416686426084,
+          "literals": 0,
+          "verified_roundtrip": true
+        }
+      },
+      {
+        "work": "virgil",
+        "kind": "latin",
+        "pool": "challenge_a",
+        "rows": 8,
+        "skip": 17,
+        "schedule": "periodic",
+        "seed": 822569,
+        "remapped": false,
+        "historical_source_rows": [
+          53,
+          55,
+          50,
+          62,
+          57,
+          51,
+          58,
+          48
+        ],
+        "noisy": true,
+        "selected_rows": 8,
+        "selected_skip": 17,
+        "selected_family_correct": true,
+        "candidate_validation_costs": [
+          [
+            30344,
+            8,
+            17,
+            1804
+          ],
+          [
+            40688,
+            16,
+            17,
+            1795
+          ],
+          [
+            46608,
+            12,
+            17,
+            1584
+          ],
+          [
+            93360,
+            8,
+            0,
+            576
+          ],
+          [
+            95456,
+            8,
+            41,
+            541
+          ],
+          [
+            100072,
+            12,
+            0,
+            545
+          ],
+          [
+            101368,
+            12,
+            41,
+            521
+          ],
+          [
+            104928,
+            16,
+            0,
+            541
+          ],
+          [
+            108176,
+            16,
+            41,
+            482
+          ]
+        ],
+        "selected_validation_exact_coverage": 0.902,
+        "held_apart_exact_catalog_coverage": 0.8953333333333333,
+        "held_apart_decode_coverage": 0.9646666666666667,
+        "selected_start": 0,
+        "validation_fit_bits": 7280.885753000028,
+        "accuracy": 0.9433333333333334,
+        "frequency_accuracy": 0.32066666666666666,
+        "known_schedule_accuracy": 0.9433333333333334,
+        "known_schedule_optimizer": "assignment",
+        "full_table_exact_accuracy": 0.89,
+        "same_phase_p": 0.025,
+        "packet": {
+          "alphabet_bits": 200,
+          "schedule_bits": 21,
+          "dictionary_bits": 10072,
+          "row_permutation_bits": 640,
+          "fixed_plain_payload_bits": 60000,
+          "exact_noise_literal_bits": 84728,
+          "padding_bits": 3,
+          "packet_bits": 155664,
+          "model_plain_ideal_bits": 42664.416686426084,
+          "literals": 1275,
+          "verified_roundtrip": true
+        }
+      },
+      {
+        "work": "virgil",
+        "kind": "latin",
+        "pool": "challenge_b",
+        "rows": 16,
+        "skip": 0,
+        "schedule": "periodic",
+        "seed": 783669,
+        "remapped": true,
+        "historical_source_rows": [
+          110,
+          123,
+          122,
+          121,
+          119,
+          113,
+          108,
+          109,
+          116,
+          115,
+          120,
+          118,
+          111,
+          112,
+          114,
+          117
+        ],
+        "noisy": false,
+        "selected_rows": 16,
+        "selected_skip": 0,
+        "selected_family_correct": true,
+        "candidate_validation_costs": [
+          [
+            29200,
+            16,
+            0,
+            1996
+          ],
+          [
+            34584,
+            8,
+            0,
+            1755
+          ],
+          [
+            76800,
+            12,
+            0,
+            1103
+          ],
+          [
+            114960,
+            8,
+            17,
+            326
+          ],
+          [
+            115840,
+            8,
+            41,
+            306
+          ],
+          [
+            119336,
+            12,
+            17,
+            343
+          ],
+          [
+            121648,
+            12,
+            41,
+            298
+          ],
+          [
+            125752,
+            16,
+            17,
+            326
+          ],
+          [
+            125752,
+            16,
+            41,
+            323
+          ]
+        ],
+        "selected_validation_exact_coverage": 0.998,
+        "held_apart_exact_catalog_coverage": 0.9993333333333333,
+        "held_apart_decode_coverage": 0.9993333333333333,
+        "selected_start": 0,
+        "validation_fit_bits": 7048.683700101975,
+        "accuracy": 0.9796666666666667,
+        "frequency_accuracy": 0.33466666666666667,
+        "known_schedule_accuracy": 0.9796666666666667,
+        "known_schedule_optimizer": "assignment",
+        "full_table_exact_accuracy": 1.0,
+        "same_phase_p": 0.025,
+        "packet": {
+          "alphabet_bits": 200,
+          "schedule_bits": 21,
+          "dictionary_bits": 21864,
+          "row_permutation_bits": 1280,
+          "fixed_plain_payload_bits": 60000,
+          "exact_noise_literal_bits": 14,
+          "padding_bits": 5,
+          "packet_bits": 83384,
+          "model_plain_ideal_bits": 42664.416686426084,
+          "literals": 0,
+          "verified_roundtrip": true
+        }
+      },
+      {
+        "work": "virgil",
+        "kind": "latin",
+        "pool": "challenge_b",
+        "rows": 16,
+        "skip": 0,
+        "schedule": "periodic",
+        "seed": 783669,
+        "remapped": true,
+        "historical_source_rows": [
+          110,
+          123,
+          122,
+          121,
+          119,
+          113,
+          108,
+          109,
+          116,
+          115,
+          120,
+          118,
+          111,
+          112,
+          114,
+          117
+        ],
+        "noisy": true,
+        "selected_rows": 16,
+        "selected_skip": 0,
+        "selected_family_correct": true,
+        "candidate_validation_costs": [
+          [
+            44184,
+            16,
+            0,
+            1784
+          ],
+          [
+            44792,
+            8,
+            0,
+            1578
+          ],
+          [
+            83928,
+            12,
+            0,
+            979
+          ],
+          [
+            117216,
+            8,
+            17,
+            285
+          ],
+          [
+            117528,
+            8,
+            41,
+            276
+          ],
+          [
+            122040,
+            12,
+            17,
+            295
+          ],
+          [
+            123368,
+            12,
+            41,
+            267
+          ],
+          [
+            127808,
+            16,
+            41,
+            286
+          ],
+          [
+            127976,
+            16,
+            17,
+            286
+          ]
+        ],
+        "selected_validation_exact_coverage": 0.892,
+        "held_apart_exact_catalog_coverage": 0.8826666666666667,
+        "held_apart_decode_coverage": 0.9533333333333334,
+        "selected_start": 0,
+        "validation_fit_bits": 7411.7383538943695,
+        "accuracy": 0.8443333333333334,
+        "frequency_accuracy": 0.23966666666666667,
+        "known_schedule_accuracy": 0.8443333333333334,
+        "known_schedule_optimizer": "assignment",
+        "full_table_exact_accuracy": 0.8786666666666667,
+        "same_phase_p": 0.025,
+        "packet": {
+          "alphabet_bits": 200,
+          "schedule_bits": 21,
+          "dictionary_bits": 21864,
+          "row_permutation_bits": 1280,
+          "fixed_plain_payload_bits": 60000,
+          "exact_noise_literal_bits": 99348,
+          "padding_bits": 7,
+          "packet_bits": 182720,
+          "model_plain_ideal_bits": 42664.416686426084,
+          "literals": 1393,
+          "verified_roundtrip": true
+        }
+      },
+      {
+        "work": "virgil",
+        "kind": "latin",
+        "pool": "challenge_b",
+        "rows": 16,
+        "skip": 17,
+        "schedule": "periodic",
+        "seed": 783692,
+        "remapped": true,
+        "historical_source_rows": [
+          114,
+          111,
+          118,
+          120,
+          108,
+          115,
+          112,
+          121,
+          117,
+          109,
+          122,
+          110,
+          116,
+          123,
+          113,
+          119
+        ],
+        "noisy": false,
+        "selected_rows": 16,
+        "selected_skip": 17,
+        "selected_family_correct": true,
+        "candidate_validation_costs": [
+          [
+            28944,
+            16,
+            17,
+            1998
+          ],
+          [
+            34232,
+            8,
+            17,
+            1764
+          ],
+          [
+            77872,
+            12,
+            17,
+            1079
+          ],
+          [
+            113520,
+            8,
+            0,
+            351
+          ],
+          [
+            117656,
+            8,
+            41,
+            281
+          ],
+          [
+            122648,
+            12,
+            0,
+            288
+          ],
+          [
+            124088,
+            12,
+            41,
+            266
+          ],
+          [
+            125696,
+            16,
+            0,
+            327
+          ],
+          [
+            129584,
+            16,
+            41,
+            265
+          ]
+        ],
+        "selected_validation_exact_coverage": 0.999,
+        "held_apart_exact_catalog_coverage": 0.9986666666666667,
+        "held_apart_decode_coverage": 0.9986666666666667,
+        "selected_start": 1,
+        "validation_fit_bits": 7161.612995374708,
+        "accuracy": 0.9266666666666666,
+        "frequency_accuracy": 0.24166666666666667,
+        "known_schedule_accuracy": 0.9266666666666666,
+        "known_schedule_optimizer": "assignment",
+        "full_table_exact_accuracy": 1.0,
+        "same_phase_p": 0.025,
+        "packet": {
+          "alphabet_bits": 200,
+          "schedule_bits": 21,
+          "dictionary_bits": 21864,
+          "row_permutation_bits": 1280,
+          "fixed_plain_payload_bits": 60000,
+          "exact_noise_literal_bits": 14,
+          "padding_bits": 5,
+          "packet_bits": 83384,
+          "model_plain_ideal_bits": 42664.416686426084,
+          "literals": 0,
+          "verified_roundtrip": true
+        }
+      },
+      {
+        "work": "virgil",
+        "kind": "latin",
+        "pool": "challenge_b",
+        "rows": 16,
+        "skip": 17,
+        "schedule": "periodic",
+        "seed": 783692,
+        "remapped": true,
+        "historical_source_rows": [
+          114,
+          111,
+          118,
+          120,
+          108,
+          115,
+          112,
+          121,
+          117,
+          109,
+          122,
+          110,
+          116,
+          123,
+          113,
+          119
+        ],
+        "noisy": true,
+        "selected_rows": 16,
+        "selected_skip": 17,
+        "selected_family_correct": true,
+        "candidate_validation_costs": [
+          [
+            46536,
+            16,
+            17,
+            1744
+          ],
+          [
+            47008,
+            8,
+            17,
+            1541
+          ],
+          [
+            86880,
+            12,
+            17,
+            925
+          ],
+          [
+            116384,
+            8,
+            0,
+            302
+          ],
+          [
+            120552,
+            8,
+            41,
+            234
+          ],
+          [
+            125048,
+            12,
+            0,
+            246
+          ],
+          [
+            126384,
+            12,
+            41,
+            226
+          ],
+          [
+            128816,
+            16,
+            0,
+            275
+          ],
+          [
+            131312,
+            16,
+            41,
+            234
+          ]
+        ],
+        "selected_validation_exact_coverage": 0.872,
+        "held_apart_exact_catalog_coverage": 0.8766666666666667,
+        "held_apart_decode_coverage": 0.952,
+        "selected_start": 0,
+        "validation_fit_bits": 7427.166151624459,
+        "accuracy": 0.8183333333333334,
+        "frequency_accuracy": 0.221,
+        "known_schedule_accuracy": 0.8183333333333334,
+        "known_schedule_optimizer": "assignment",
+        "full_table_exact_accuracy": 0.878,
+        "same_phase_p": 0.025,
+        "packet": {
+          "alphabet_bits": 200,
+          "schedule_bits": 21,
+          "dictionary_bits": 21864,
+          "row_permutation_bits": 1280,
+          "fixed_plain_payload_bits": 60000,
+          "exact_noise_literal_bits": 101896,
+          "padding_bits": 3,
+          "packet_bits": 185264,
+          "model_plain_ideal_bits": 42664.416686426084,
+          "literals": 1423,
+          "verified_roundtrip": true
+        }
+      },
+      {
+        "work": "virgil",
+        "kind": "latin",
+        "pool": "challenge_b",
+        "rows": 16,
+        "skip": 17,
+        "schedule": "periodic",
+        "seed": 823669,
+        "remapped": false,
+        "historical_source_rows": [
+          109,
+          120,
+          108,
+          114,
+          112,
+          117,
+          123,
+          119,
+          121,
+          111,
+          122,
+          113,
+          118,
+          116,
+          110,
+          115
+        ],
+        "noisy": false,
+        "selected_rows": 16,
+        "selected_skip": 17,
+        "selected_family_correct": true,
+        "candidate_validation_costs": [
+          [
+            28912,
+            16,
+            17,
+            1998
+          ],
+          [
+            34128,
+            8,
+            17,
+            1764
+          ],
+          [
+            78072,
+            12,
+            17,
+            1081
+          ],
+          [
+            113656,
+            8,
+            0,
+            350
+          ],
+          [
+            117368,
+            8,
+            41,
+            282
+          ],
+          [
+            121800,
+            12,
+            0,
+            303
+          ],
+          [
+            123200,
+            12,
+            41,
+            277
+          ],
+          [
+            125240,
+            16,
+            0,
+            334
+          ],
+          [
+            129456,
+            16,
+            41,
+            261
+          ]
+        ],
+        "selected_validation_exact_coverage": 0.999,
+        "held_apart_exact_catalog_coverage": 0.9986666666666667,
+        "held_apart_decode_coverage": 0.9986666666666667,
+        "selected_start": 1,
+        "validation_fit_bits": 7161.612995374708,
+        "accuracy": 0.9266666666666666,
+        "frequency_accuracy": 0.222,
+        "known_schedule_accuracy": 0.9266666666666666,
+        "known_schedule_optimizer": "assignment",
+        "full_table_exact_accuracy": 1.0,
+        "same_phase_p": 0.025,
+        "packet": {
+          "alphabet_bits": 200,
+          "schedule_bits": 21,
+          "dictionary_bits": 21864,
+          "row_permutation_bits": 1280,
+          "fixed_plain_payload_bits": 60000,
+          "exact_noise_literal_bits": 14,
+          "padding_bits": 5,
+          "packet_bits": 83384,
+          "model_plain_ideal_bits": 42664.416686426084,
+          "literals": 0,
+          "verified_roundtrip": true
+        }
+      },
+      {
+        "work": "virgil",
+        "kind": "latin",
+        "pool": "challenge_b",
+        "rows": 16,
+        "skip": 17,
+        "schedule": "periodic",
+        "seed": 823669,
+        "remapped": false,
+        "historical_source_rows": [
+          109,
+          120,
+          108,
+          114,
+          112,
+          117,
+          123,
+          119,
+          121,
+          111,
+          122,
+          113,
+          118,
+          116,
+          110,
+          115
+        ],
+        "noisy": true,
+        "selected_rows": 16,
+        "selected_skip": 17,
+        "selected_family_correct": true,
+        "candidate_validation_costs": [
+          [
+            46376,
+            16,
+            17,
+            1743
+          ],
+          [
+            47248,
+            8,
+            17,
+            1532
+          ],
+          [
+            85768,
+            12,
+            17,
+            949
+          ],
+          [
+            116696,
+            8,
+            0,
+            297
+          ],
+          [
+            119968,
+            8,
+            41,
+            237
+          ],
+          [
+            124168,
+            12,
+            0,
+            260
+          ],
+          [
+            125224,
+            12,
+            41,
+            240
+          ],
+          [
+            128640,
+            16,
+            0,
+            275
+          ],
+          [
+            131224,
+            16,
+            41,
+            229
+          ]
+        ],
+        "selected_validation_exact_coverage": 0.8715,
+        "held_apart_exact_catalog_coverage": 0.8883333333333333,
+        "held_apart_decode_coverage": 0.957,
+        "selected_start": 1,
+        "validation_fit_bits": 7505.812908307677,
+        "accuracy": 0.815,
+        "frequency_accuracy": 0.243,
+        "known_schedule_accuracy": 0.815,
+        "known_schedule_optimizer": "assignment",
+        "full_table_exact_accuracy": 0.8896666666666667,
+        "same_phase_p": 0.025,
+        "packet": {
+          "alphabet_bits": 200,
+          "schedule_bits": 21,
+          "dictionary_bits": 21864,
+          "row_permutation_bits": 1280,
+          "fixed_plain_payload_bits": 60000,
+          "exact_noise_literal_bits": 98516,
+          "padding_bits": 7,
+          "packet_bits": 181888,
+          "model_plain_ideal_bits": 42664.416686426084,
+          "literals": 1385,
+          "verified_roundtrip": true
+        }
+      },
+      {
+        "work": "virgil",
+        "kind": "iid",
+        "pool": "development",
+        "rows": 8,
+        "skip": 17,
+        "schedule": "periodic",
+        "seed": 785769,
+        "remapped": true,
+        "historical_source_rows": [
+          25,
+          24,
+          17,
+          20,
+          16,
+          19,
+          23,
+          27
+        ],
+        "noisy": false,
+        "selected_rows": 8,
+        "selected_skip": 17,
+        "selected_family_correct": true,
+        "candidate_validation_costs": [
+          [
+            18328,
+            8,
+            17,
+            1999
+          ],
+          [
+            26336,
+            16,
+            17,
+            1997
+          ],
+          [
+            37672,
+            12,
+            17,
+            1730
+          ],
+          [
+            88336,
+            8,
+            0,
+            603
+          ],
+          [
+            88960,
+            8,
+            41,
+            586
+          ],
+          [
+            93208,
+            12,
+            0,
+            603
+          ],
+          [
+            94312,
+            12,
+            41,
+            580
+          ],
+          [
+            99720,
+            16,
+            41,
+            559
+          ],
+          [
+            99872,
+            16,
+            0,
+            565
+          ]
+        ],
+        "selected_validation_exact_coverage": 0.9995,
+        "held_apart_exact_catalog_coverage": 0.9993333333333333,
+        "held_apart_decode_coverage": 0.9993333333333333,
+        "selected_start": 0,
+        "validation_fit_bits": 9224.469594186105,
+        "accuracy": 0.248,
+        "frequency_accuracy": 0.38666666666666666,
+        "known_schedule_accuracy": 0.248,
+        "known_schedule_optimizer": "assignment",
+        "full_table_exact_accuracy": 1.0,
+        "same_phase_p": 0.8,
+        "packet": {
+          "alphabet_bits": 200,
+          "schedule_bits": 21,
+          "dictionary_bits": 9616,
+          "row_permutation_bits": 640,
+          "fixed_plain_payload_bits": 60000,
+          "exact_noise_literal_bits": 14,
+          "padding_bits": 5,
+          "packet_bits": 70496,
+          "model_plain_ideal_bits": 55030.53115910214,
+          "literals": 0,
+          "verified_roundtrip": true
+        }
+      },
+      {
+        "work": "virgil",
+        "kind": "markov",
+        "pool": "development",
+        "rows": 8,
+        "skip": 17,
+        "schedule": "periodic",
+        "seed": 785798,
+        "remapped": true,
+        "historical_source_rows": [
+          22,
+          23,
+          25,
+          21,
+          28,
+          17,
+          18,
+          13
+        ],
+        "noisy": false,
+        "selected_rows": 8,
+        "selected_skip": 17,
+        "selected_family_correct": true,
+        "candidate_validation_costs": [
+          [
+            18344,
+            8,
+            17,
+            1998
+          ],
+          [
+            26208,
+            16,
+            17,
+            1996
+          ],
+          [
+            35888,
+            12,
+            17,
+            1762
+          ],
+          [
+            86120,
+            8,
+            0,
+            624
+          ],
+          [
+            88168,
+            8,
+            41,
+            585
+          ],
+          [
+            91760,
+            12,
+            0,
+            601
+          ],
+          [
+            92768,
+            12,
+            41,
+            588
+          ],
+          [
+            97752,
+            16,
+            41,
+            577
+          ],
+          [
+            97808,
+            16,
+            0,
+            576
+          ]
+        ],
+        "selected_validation_exact_coverage": 0.999,
+        "held_apart_exact_catalog_coverage": 0.9993333333333333,
+        "held_apart_decode_coverage": 0.9993333333333333,
+        "selected_start": 0,
+        "validation_fit_bits": 6955.588823278014,
+        "accuracy": 0.9923333333333333,
+        "frequency_accuracy": 0.4713333333333333,
+        "known_schedule_accuracy": 0.9923333333333333,
+        "known_schedule_optimizer": "assignment",
+        "full_table_exact_accuracy": 1.0,
+        "same_phase_p": 0.025,
+        "packet": {
+          "alphabet_bits": 200,
+          "schedule_bits": 21,
+          "dictionary_bits": 9424,
+          "row_permutation_bits": 640,
+          "fixed_plain_payload_bits": 60000,
+          "exact_noise_literal_bits": 14,
+          "padding_bits": 5,
+          "packet_bits": 70304,
+          "model_plain_ideal_bits": 41994.47914927901,
+          "literals": 0,
+          "verified_roundtrip": true
+        }
+      },
+      {
+        "work": "virgil",
+        "kind": "latin",
+        "pool": "challenge_a",
+        "rows": 8,
+        "skip": 0,
+        "schedule": "stays",
+        "seed": 787668,
+        "remapped": true,
+        "historical_source_rows": [
+          53,
+          63,
+          57,
+          56,
+          60,
+          48,
+          50,
+          54
+        ],
+        "noisy": false,
+        "selected_rows": 8,
+        "selected_skip": 17,
+        "selected_family_correct": false,
+        "candidate_validation_costs": [
+          [
+            97392,
+            8,
+            17,
+            621
+          ],
+          [
+            99328,
+            8,
+            0,
+            587
+          ],
+          [
+            99992,
+            8,
+            41,
+            571
+          ],
+          [
+            103424,
+            12,
+            17,
+            610
+          ],
+          [
+            104648,
+            12,
+            0,
+            588
+          ],
+          [
+            104808,
+            12,
+            41,
+            585
+          ],
+          [
+            110104,
+            16,
+            17,
+            593
+          ],
+          [
+            110112,
+            16,
+            0,
+            585
+          ],
+          [
+            112720,
+            16,
+            41,
+            542
+          ]
+        ],
+        "selected_validation_exact_coverage": 0.3105,
+        "held_apart_exact_catalog_coverage": 0.2816666666666667,
+        "held_apart_decode_coverage": 0.5813333333333334,
+        "selected_start": 0,
+        "validation_fit_bits": 10072.007727661134,
+        "accuracy": 0.024333333333333332,
+        "frequency_accuracy": 0.030666666666666665,
+        "known_schedule_accuracy": 0.278,
+        "known_schedule_optimizer": "frequency",
+        "full_table_exact_accuracy": 1.0,
+        "same_phase_p": 0.025,
+        "packet": {
+          "alphabet_bits": 200,
+          "schedule_bits": 12016,
+          "dictionary_bits": 10800,
+          "row_permutation_bits": 640,
+          "fixed_plain_payload_bits": 60000,
+          "exact_noise_literal_bits": 14,
+          "padding_bits": 2,
+          "packet_bits": 83672,
+          "model_plain_ideal_bits": 42664.416686426084,
+          "literals": 0,
+          "verified_roundtrip": true
+        }
+      }
+    ]
+  },
+  "reproduction": {
+    "workflow": "Extract the two literal scripts below. Obtain the original reference files via the project pins. Download the four original Latin source files as in source manifest and verify their digests. Run extract-sources.py per source manifest; then run PYTHONPATH=. python3 calibrate.py data/raw /path/to/table.csv /path/to/source-texts from the project root.",
+    "scripts": {
+      "calibrate.py": "import argparse\nfrom collections import Counter, defaultdict\nimport csv\nfrom hashlib import sha256\nimport json\nfrom math import ceil, factorial, log2\nfrom pathlib import Path\nimport random\nfrom statistics import mean\n\nfrom vs.refcorpus import normalize, strip_gutenberg\n\nFIT, SELECT, TEST = 7000, 2000, 3000\nN = FIT + SELECT + TEST\nA = 24\nUNKNOWN = -1\nPOOLS = {'development': (12,28), 'challenge_a': (47,63), 'challenge_b': (107,123)}\nFAMILY = tuple((r,k) for r in (8,12,16) for k in (0,17,41))\nTABLE_HASH = 'fe3f24a46dbc6b655eab8dbbd75addf84ee4a7dbd387ad802af75d02edfe5b4d'\nREFERENCES = ('pg33849.txt','pg38708.txt','pg16561.txt','pg826.txt')\n\ndef positions(n, rows, skip):\n    return [(i+(i//skip if skip else 0))%rows for i in range(n)]\n\ndef alphabet_ids(raw, alphabet):\n    identity={c:i for i,c in enumerate(alphabet)}\n    return [identity[c] for c in normalize(raw,'latin') if c in identity]\n\ndef latin_model(path, alphabet):\n    counts=Counter()\n    edges=Counter()\n    for name in REFERENCES:\n        encoding='latin-1' if name in ('pg16561.txt','pg826.txt') else 'utf-8'\n        ys=alphabet_ids(strip_gutenberg((path/name).read_text(encoding=encoding)),alphabet)\n        counts.update(ys)\n        edges.update(zip(ys,ys[1:]))\n    unigram=[(counts[i]+1)/(counts.total()+A) for i in range(A)]\n    mass=[]\n    for i in range(A):\n        row=[edges[i,j]+1 for j in range(A)]\n        mass.append([q/sum(row) for q in row])\n    return unigram,mass,[[log2(q) for q in row] for row in mass]\n\ndef lexicon_bits(forms):\n    # One-byte length and then literal ASCII bytes per word. Two-byte\n    # row count and per-row dictionary size are counted separately.\n    return sum(8*(1+len(w.encode('ascii'))) for w in forms)\n\ndef catalog(words, es, r):\n    freq=[Counter() for _ in range(r)]\n    for w,p in zip(words[:FIT],es[:FIT]):\n        freq[p][w]+=1\n    forms=[sorted(c,key=lambda w:(-c[w],w))[:A] for c in freq]\n    return forms\n\ndef select_window(words):\n    trials=[]\n    for rows,skip in FAMILY:\n        es=positions(len(words),rows,skip)\n        forms=catalog(words,es,rows)\n        look=[set(row) for row in forms]\n        dictionary=sum(lexicon_bits(r) for r in forms)+16*(len(forms)+1)\n        hit=0\n        payload=0\n        for w,p in zip(words[FIT:FIT+SELECT],es[FIT:FIT+SELECT]):\n            payload+=5 # IDs 0..23 plus one escape\n            if w in look[p]:\n                hit+=1\n            else:\n                payload+=lexicon_bits([w])\n        score=dictionary+payload\n        trials.append((score,rows,skip,hit))\n    return min(trials),sorted(trials)\n\ndef hungarian(scores):\n    \"\"\"Maximize a square assignment with potentials and shortest augmenting paths.\"\"\"\n    n=len(scores)\n    row_potential=[0.]*(n+1)\n    col_potential=[0.]*(n+1)\n    matched_row=[0]*(n+1)\n    back=[0]*(n+1)\n    for i in range(1,n+1):\n        matched_row[0]=i\n        col=0\n        dist=[float('inf')]*(n+1)\n        used=[False]*(n+1)\n        while True:\n            used[col]=True\n            row=matched_row[col]\n            delta=float('inf')\n            next_col=0\n            for j in range(1,n+1):\n                if used[j]:\n                    continue\n                reduced=-scores[row-1][j-1]-row_potential[row]-col_potential[j]\n                if reduced<dist[j]:\n                    dist[j]=reduced\n                    back[j]=col\n                if dist[j]<delta:\n                    delta=dist[j]\n                    next_col=j\n            for j in range(n+1):\n                if used[j]:\n                    row_potential[matched_row[j]]+=delta\n                    col_potential[j]-=delta\n                else:\n                    dist[j]-=delta\n            col=next_col\n            if matched_row[col]==0:\n                break\n        while col:\n            prior=back[col]\n            matched_row[col]=matched_row[prior]\n            col=prior\n    out=[0]*n\n    for col in range(1,n+1):\n        out[matched_row[col]-1]=col-1\n    return out\n\ndef compile_ids(words, es, forms):\n    lookup=[{w:r*A+j for j,w in enumerate(row)} for r,row in enumerate(forms)]\n    encoded=[lookup[p].get(w,UNKNOWN) for p,w in zip(es,words)]\n    for i in range(FIT,len(words)):\n        if encoded[i]!=UNKNOWN:\n            continue\n        w=words[i]\n        lexicon=lookup[es[i]]\n        similar=[id_ for q,id_ in lexicon.items()\n                 if len(w)==len(q) and sum(a!=b for a,b in zip(w,q))==1]\n        if len(similar)==1:\n            encoded[i]=similar[0]\n    return encoded\n\ndef cost(ids, model):\n    return -sum(model[a][b] if a!=UNKNOWN and b!=UNKNOWN else -log2(A)\n                for a,b in zip(ids,ids[1:]))\n\ndef fit_maps(words, es, rows, unigram, log_model, seed, optimize=True):\n    forms=catalog(words,es,rows)\n    encoded=compile_ids(words,es,forms)\n    links=Counter((a,b) for a,b in zip(encoded[:FIT-1],encoded[1:FIT])\n                  if a!=UNKNOWN and b!=UNKNOWN)\n    assert not optimize or all(a//A!=b//A for a,b in links)\n    left=[[] for _ in range(rows*A)]\n    right=[[] for _ in range(rows*A)]\n    for (a,b),n in links.items():\n        left[b].append((a,n))\n        right[a].append((b,n))\n    reference=sorted(range(A),key=lambda i:(-unigram[i],i))\n    initial=reference*rows\n    rng=random.Random(seed)\n    best=None\n    for start in range(3 if optimize else 1):\n        mapping=initial[:]\n        if start:\n            for row in range(rows):\n                for _ in range(start+1):\n                    a,b=rng.sample(range(row*A,(row+1)*A),2)\n                    mapping[a],mapping[b]=mapping[b],mapping[a]\n        previous=None\n        for sweep in range(5 if optimize else 0):\n            for row in range(rows):\n                scores=[]\n                for active in range(row*A,(row+1)*A):\n                    backwards=[(log_model[mapping[i]],n) for i,n in left[active]]\n                    forwards=[(mapping[i],n) for i,n in right[active]]\n                    scores.append([sum(f[l]*n for f,n in backwards)+\n                                   sum(log_model[l][f]*n for f,n in forwards) for l in range(A)])\n                mapping[row*A:(row+1)*A]=hungarian(scores)\n            objective=sum(log_model[mapping[a]][mapping[b]]*n for (a,b),n in links.items())\n            if previous is not None:\n                assert objective+1e-7>=previous\n            previous=objective\n        pred=[mapping[q] if q!=UNKNOWN else UNKNOWN for q in encoded]\n        validation=cost(pred[FIT:FIT+SELECT],log_model)\n        if best is None or validation<best[0]:\n            best=validation,pred,mapping,start\n    return best,forms,encoded\n\ndef noise(words, alphabet, seed):\n    rng=random.Random(seed)\n    choices={c:[x for x in alphabet if x!=c] for c in alphabet}\n    return [''.join(rng.choice(choices[c]) if rng.random()<.02 else c for c in w) for w in words]\n\ndef sampled_plain(typ, unigram, mass, seed):\n    rng=random.Random(seed)\n    if typ=='iid':\n        return rng.choices(range(A),weights=unigram,k=N)\n    value=rng.choices(range(A),weights=unigram,k=1)[0]\n    out=[value]\n    for _ in range(N-1):\n        value=rng.choices(range(A),weights=mass[value],k=1)[0]\n        out.append(value)\n    return out\n\ndef same_phase_p(decoded, es, model, seed):\n    rng=random.Random(seed)\n    bins=defaultdict(list)\n    for i,e in enumerate(es):\n        if decoded[i]!=UNKNOWN:\n            bins[e].append(i)\n    observed=cost(decoded,model)\n    shorter=0\n    for _ in range(39):\n        shuffled=decoded[:]\n        for values in bins.values():\n            vals=[decoded[i] for i in values]\n            rng.shuffle(vals)\n            for i,val in zip(values,vals):\n                shuffled[i]=val\n        shorter+=cost(shuffled,model)<=observed\n    return (1+shorter)/40\n\ndef count_exact(pred, truth):\n    return sum(a==b for a,b in zip(pred,truth))/len(truth)\n\ndef rank_permutation(table):\n    left=sorted(table)\n    rank=0\n    for entry in table:\n        j=left.index(entry)\n        rank+=j*factorial(len(left)-1)\n        left.pop(j)\n    return rank\n\ndef unrank_permutation(words, rank):\n    left=words[:]\n    table=[]\n    while left:\n        j,rank=divmod(rank,factorial(len(left)-1))\n        table.append(left.pop(j))\n    return table\n\ndef message_costs(tables, words, es, truth, alphabet, model, rows, skip, variant):\n    parts=[]\n    sizes={}\n    def write(value, width, field):\n        bits=format(value,f'0{width}b')\n        assert len(bits)==width\n        parts.append(bits)\n        sizes[field]=sizes.get(field,0)+width\n    def text_word(word, field):\n        write(len(word),8,field)\n        for c in word.encode('ascii'):\n            write(c,8,field)\n\n    text_word(''.join(alphabet),'alphabet_bits')\n    write(len(truth),16,'schedule_bits')\n    write(rows,16,'dictionary_bits')\n    write(variant=='stays',1,'schedule_bits')\n    periodic_width=ceil(log2(len(FAMILY)))\n    if variant=='periodic':\n        write(FAMILY.index((rows,skip)),periodic_width,'schedule_bits')\n    else:\n        for a,b in zip(es,es[1:]):\n            write(a!=b,1,'schedule_bits')\n    perm_width=(factorial(A)-1).bit_length()\n    for table in tables:\n        write(len(table),16,'dictionary_bits')\n        for word in sorted(table):\n            text_word(word,'dictionary_bits')\n        write(rank_permutation(table),perm_width,'row_permutation_bits')\n    for identity in truth:\n        write(identity,5,'fixed_plain_payload_bits')\n    literals=[(i,w) for i,(w,p,c) in enumerate(zip(words,es,truth)) if w!=tables[p][c]]\n    count_width=len(truth).bit_length()\n    index_width=(len(truth)-1).bit_length()\n    write(len(literals),count_width,'exact_noise_literal_bits')\n    for i,w in literals:\n        write(i,index_width,'exact_noise_literal_bits')\n        text_word(w,'exact_noise_literal_bits')\n    stream=''.join(parts)\n    pad=(-len(stream))%8\n    # The stream length is inferred by reading the final literal count.\n    padded=stream+'0'*pad\n    packet=int(padded,2).to_bytes(len(padded)//8,'big')\n    raw=bin(int.from_bytes(packet,'big'))[2:].zfill(8*len(packet))\n    offset=0\n    def read(width):\n        nonlocal offset\n        value=int(raw[offset:offset+width],2)\n        offset+=width\n        return value\n    def read_word():\n        return bytes(read(8) for _ in range(read(8))).decode('ascii')\n    assert list(read_word())==alphabet\n    n=read(16)\n    r=read(16)\n    if read(1):\n        recovered_positions=[0]\n        for _ in range(n-1):\n            recovered_positions.append((recovered_positions[-1]+read(1))%r)\n    else:\n        inferred_r,inferred_skip=FAMILY[read(periodic_width)]\n        assert inferred_r==r\n        recovered_positions=positions(n,r,inferred_skip)\n    recovered_tables=[]\n    for _ in range(r):\n        entries=[read_word() for _ in range(read(16))]\n        recovered_tables.append(unrank_permutation(entries,read(perm_width)))\n    recovered_truth=[read(5) for _ in range(n)]\n    recovered_words=[recovered_tables[e][c] for e,c in zip(recovered_positions,recovered_truth)]\n    for _ in range(read(n.bit_length())):\n        i=read((n-1).bit_length())\n        recovered_words[i]=read_word()\n    assert recovered_positions==es and recovered_truth==truth and recovered_words==words\n    assert recovered_tables==tables and offset==len(stream) and raw[offset:]=='0'*pad\n    return dict(**sizes,padding_bits=pad,packet_bits=8*len(packet),\n        model_plain_ideal_bits=cost(truth,model)+log2(A),literals=len(literals),verified_roundtrip=True)\n\ndef trial(name, clear, typ, pool, source, rows, skip, schedule, seed, alphabet, unigram, mass, model,\n          noise_modes, remapped=True):\n    writer=random.Random(seed)\n    row_indices=writer.sample(range(len(source)),rows)\n    true_table=[]\n    for i in row_indices:\n        words=list(source[i])\n        if remapped:\n            writer.shuffle(words)\n        true_table.append(words)\n    es=positions(N,rows,skip)\n    if schedule=='stays':\n        es=[0]\n        for _ in range(N-1):\n            es.append((es[-1]+(writer.random()>=.125))%rows)\n    gold=clear if typ=='latin' else sampled_plain(typ,unigram,mass,seed+71901)\n    cipher=[true_table[i][c] for i,c in zip(es,gold)]\n    characters=sorted({c for row in true_table for w in row for c in w})\n    assert [true_table[p].index(w) for p,w in zip(es,cipher)]==gold\n    test_gold=gold[FIT+SELECT:]\n    result=[]\n    for is_noisy in noise_modes:\n        observed=noise(cipher,characters,seed+81921) if is_noisy else cipher\n        winner, trials=select_window(observed)\n        _,r,k,val_hit=winner\n        phase=positions(N,r,k)\n        (vl,pred,key,start), forms, ids=fit_maps(observed,phase,r,unigram,model,seed+221)\n        (oracle_loss, known_pred,*_), _, _=fit_maps(observed,es,rows,unigram,model,seed+221,\n                                                   optimize=schedule=='periodic')\n        (freq_loss,frequency,*_), _, _=fit_maps(observed,phase,r,unigram,model,seed+221,optimize=False)\n        true_exact=[true_table[e].index(w) if w in true_table[e] else UNKNOWN\n                    for w,e in zip(observed[FIT+SELECT:],es[FIT+SELECT:])]\n        known_catalog=[set(row) for row in forms]\n        exact=mean(w in known_catalog[e] for w,e in zip(observed[FIT+SELECT:],phase[FIT+SELECT:]))\n        dec=pred[FIT+SELECT:]\n        result.append(dict(work=name,kind=typ,pool=pool,rows=rows,skip=skip,schedule=schedule,seed=seed,\n            remapped=remapped,\n            historical_source_rows=[i+1+POOLS[pool][0] for i in row_indices],noisy=is_noisy,\n            selected_rows=r,selected_skip=k,selected_family_correct=(schedule=='periodic' and (r,k)==(rows,skip)),\n            candidate_validation_costs=trials,selected_validation_exact_coverage=val_hit/SELECT,\n            held_apart_exact_catalog_coverage=exact,held_apart_decode_coverage=mean(q!=UNKNOWN for q in dec),\n            selected_start=start,validation_fit_bits=vl,\n            accuracy=count_exact(dec,test_gold),frequency_accuracy=count_exact(frequency[FIT+SELECT:],test_gold),\n            known_schedule_accuracy=count_exact(known_pred[FIT+SELECT:],test_gold),\n            known_schedule_optimizer=('assignment' if schedule=='periodic' else 'frequency'),\n            full_table_exact_accuracy=count_exact(true_exact,test_gold),\n            same_phase_p=same_phase_p(dec,phase[FIT+SELECT:],model,seed+156987),\n            packet=message_costs(true_table,observed,es,gold,alphabet,model,rows,skip,schedule)))\n    return result\n\ndef main():\n    parser=argparse.ArgumentParser()\n    parser.add_argument('references',type=Path)\n    parser.add_argument('table',type=Path)\n    parser.add_argument('works',type=Path)\n    args=parser.parse_args()\n    table_bytes=args.table.read_bytes()\n    assert sha256(table_bytes).hexdigest()==TABLE_HASH\n    full=list(csv.reader(table_bytes.decode().splitlines(),skipinitialspace=True))\n    alphabet=full[0]\n    assert len(alphabet)==A and len(set(alphabet))==A\n    rows=[r for r in full[1:] if len(r)==A]\n    pools={p:rows[a:b] for p,(a,b) in POOLS.items()}\n    sets={p:{w for r in data for w in r} for p,data in pools.items()}\n    assert all(len(v)==16*A for v in sets.values()) and len(set.union(*sets.values()))==len(sets)*16*A\n    ug,m,model=latin_model(args.references,alphabet)\n    cases=[]\n    hashes={}\n    for i,work in enumerate(sorted(args.works.glob('*.txt'))):\n        hashes[work.name]=sha256(work.read_bytes()).hexdigest()\n        data=alphabet_ids(work.read_text(),alphabet)\n        assert len(data)>=N\n        data=data[:N]\n        work_seed=760587+10991*i\n        for j,(p,r) in enumerate((('challenge_a',8),('challenge_b',16))):\n            for l,k in enumerate((0,17)):\n                cases.extend(trial(work.stem,data,'latin',p,pools[p],r,k,'periodic',\n                                   work_seed+1100*j+23*l,alphabet,ug,m,model,(False,True)))\n            cases.extend(trial(work.stem,data,'latin',p,pools[p],r,17,'periodic',\n                               work_seed+40000+1100*j,alphabet,ug,m,model,(False,True),remapped=False))\n        for j,kind in enumerate(('iid','markov')):\n            cases.extend(trial(work.stem,data,kind,'development',pools['development'],8,17,'periodic',\n                               work_seed+3200+29*j,alphabet,ug,m,model,(False,)))\n        cases.extend(trial(work.stem,data,'latin','challenge_a',pools['challenge_a'],8,0,'stays',\n                           work_seed+5099,alphabet,ug,m,model,(False,)))\n    assert len(hashes)>=2\n    results=dict(alphabet=alphabet,source_hashes=hashes,case_count=len(cases),\n                 references={f:sha256((args.references/f).read_bytes()).hexdigest() for f in REFERENCES},\n                 cases=cases)\n    print(json.dumps(results,indent=2))\n\nif __name__=='__main__':\n    main()\n",
+      "extract-sources.py": "\"\"\"Derive three original-Latin letter streams from pinned public witnesses.\"\"\"\n\nimport hashlib\nimport html\nimport json\nfrom pathlib import Path\nimport re\nimport unicodedata\n\n\nROOT = Path(__file__).resolve().parent\n\nSOURCE_META = {\n    \"aquinas-1001.html\": {\n        \"url\": \"https://www.corpusthomisticum.org/scg1001.html\",\n        \"sha256\": \"fed1a3735c86ec66dfdd04819e7121bcee7fb0407787264954508984d210f105\",\n    },\n    \"aquinas-1010.html\": {\n        \"url\": \"https://www.corpusthomisticum.org/scg1010.html\",\n        \"sha256\": \"32bb3954538e3ca689efc79c9db6566f0dfa7b158caea96f466b79a2d082971c\",\n    },\n    \"virgil-227.txt\": {\n        \"url\": \"https://gutenberg.pglaf.org/2/2/227/227.txt\",\n        \"sha256\": \"c844c7d1c6fa4cf798e8bd8b13a855054820811add902e63db7edea5a4f3aa37\",\n    },\n    \"cicero-off1.html\": {\n        \"url\": \"https://www.thelatinlibrary.com/cicero/off1.shtml\",\n        \"sha256\": \"93b40022790bfe09c2b38778290a601e53ce4cffcaf947a3d036669fed241a04\",\n    },\n}\n\n\ndef digest(data):\n    return hashlib.sha256(data).hexdigest()\n\n\ndef read_source(name, encoding):\n    raw = (ROOT / \"raw\" / name).read_bytes()\n    assert digest(raw) == SOURCE_META[name][\"sha256\"], name\n    return raw.decode(encoding)\n\n\ndef strip_tags(text):\n    return html.unescape(re.sub(r\"<[^>]+>\", \"\", text))\n\n\ndef normalize(text):\n    text = text.lower().replace(\"æ\", \"ae\").replace(\"œ\", \"oe\")\n    return re.sub(r\"[^a-z]\", \"\", unicodedata.normalize(\"NFKD\", text))\n\n\ndef aquinas():\n    files = [\"aquinas-1001.html\", \"aquinas-1010.html\"]\n    paragraph_pattern = r'<P TITLE=\"Contra Gentiles[^>]*>(.*?)</P>'\n    reference_pattern = r'<SPAN CLASS=\"ref\">.*?</SPAN>'\n    prose = []\n    for filename in files:\n        paragraphs = re.findall(\n            paragraph_pattern, read_source(filename, \"latin-1\"), re.I | re.S\n        )\n        if filename == files[0]:\n            assert \"Veritatem meditabitur\" in paragraphs[0]\n            paragraphs = paragraphs[1:]\n        prose.extend(\n            strip_tags(re.sub(reference_pattern, \"\", paragraph, flags=re.I | re.S))\n            for paragraph in paragraphs\n        )\n    text = \"\\n\".join(prose)\n    assert len(prose) == 114 and text.startswith(\"Multitudinis usus\")\n    assert text.endswith(\"Et hunc dicimus Deum.\")\n    return text, {\n        \"author\": \"Thomas Aquinas\",\n        \"work\": \"Summa contra Gentiles\",\n        \"excerpt\": \"Book I, chapters 1–13, from chapter 1 paragraph 2\",\n        \"edition\": \"Corpus Thomisticum, electronic Leonine text based on the Turin 1961 edition\",\n        \"sources\": files,\n        \"exclusions\": \"Navigation, title and numbering markup, chapter headings and opening Biblical epigraph. Inline authorial quotations are retained.\",\n    }\n\n\ndef virgil():\n    filename = \"virgil-227.txt\"\n    raw = read_source(filename, \"ascii\")\n    first = re.search(r\"^\\s*LIBER I[ \\t]*\\r?$\", raw, re.M)\n    second = re.search(r\"^\\s*LIBER II[ \\t]*\\r?$\", raw, re.M)\n    assert first and second and first.end() < second.start()\n    text = raw[first.end():second.start()].strip()\n    assert text.startswith(\"ARMA virumque cano\")\n    assert \"PROJECT GUTENBERG\" not in text\n    return text, {\n        \"author\": \"Virgil\",\n        \"work\": \"Aeneid\",\n        \"excerpt\": \"Complete Book I from Arma virumque cano\",\n        \"edition\": \"Project Gutenberg Latin eBook #227, release dated 2008-04-03\",\n        \"sources\": [filename],\n        \"exclusions\": \"Book titles, other books, Gutenberg front/back matter, line numbers and nonletters.\",\n    }\n\n\ndef cicero():\n    filename = \"cicero-off1.html\"\n    raw = read_source(filename, \"utf-8\")\n    start = \"Quamquam te, Marce fili\"\n    end = \"Sed iam ad reliqua pergamus.\"\n    left, right = raw.index(start), raw.index(end) + len(end)\n    text = strip_tags(raw[left:right])\n    assert text.startswith(start) and text.endswith(end)\n    return text, {\n        \"author\": \"Marcus Tullius Cicero\",\n        \"work\": \"De Officiis\",\n        \"excerpt\": \"Complete Book I from Quamquam te, Marce fili to Sed iam ad reliqua pergamus\",\n        \"edition\": \"The Latin Library Latin electronic text\",\n        \"sources\": [filename],\n        \"exclusions\": \"Navigation, front/back matter, numerical section markers and nonletters. Letters within editorial square brackets are retained.\",\n    }\n\n\ndef main():\n    manifest = {\n        \"normalization\": \"Lowercase, expand ae and oe ligatures, apply NFKD, remove every character outside a–z. Preserve j and v. Write UTF-8 with no trailing newline.\",\n        \"reproduction\": \"Acquire the exact raw witnesses at the recorded URLs under raw/, verify their SHA-256 digests, and run python3 extract-sources.py.\",\n        \"algorithm_sha256\": digest(Path(__file__).read_bytes()),\n        \"raw_files\": SOURCE_META,\n        \"streams\": {},\n    }\n    for extract in (aquinas, virgil, cicero):\n        text, metadata = extract()\n        stream = normalize(text)\n        assert len(stream) >= 12000 and re.fullmatch(r\"[a-z]+\", stream)\n        filename = f\"{extract.__name__}.txt\"\n        data = stream.encode(\"utf-8\")\n        (ROOT / filename).write_bytes(data)\n        manifest[\"streams\"][filename] = {\n            **metadata,\n            \"letters\": len(stream),\n            \"normalized_sha256\": digest(data),\n        }\n    (ROOT / \"source-manifest.json\").write_text(\n        json.dumps(manifest, indent=2, ensure_ascii=False) + \"\\n\", encoding=\"utf-8\"\n    )\n\n\nif __name__ == \"__main__\":\n    main()\n"
+    },
+    "calibration_sha256": "1127a9c58712f370bc44021c0370498261dbea6b3b38a1aea8a3d593f31feb66",
+    "assignment_smoke_test": "All 315 seeded random matrices of size 1 to 7 matched exhaustive optimum; all nine finite candidate schedules passed a no-same-phase adjacency check."
+  }
+}
