@@ -1,0 +1,2284 @@
+{
+  "title": "Retain both f69v ring-gap corridors when testing any proposed radial start",
+  "statement": "Two independent image-only gap traces find enlarged spaces in all three circular text bands near scan-up and at upper left. In the main trace the widths are 4.75°, 5.25°, 6.55° at scan-up and 8.0°, 8.0°, 5.9° at upper left, outer to inner. The shared angular intersection is 0.65° versus 5.9°, sensitive to about 1° per manual ink edge but similar after a small change of polar center. Subsequent alignment of the words on both sides places all three ZL ring-locus starts at the upper-left corridor near 11:00. Eight cream rays and a green-dense, comparatively star-poor sector near scan-up are visible. Twenty-eight green caps were found under two component filters with manual artifact checks. The cap at f69v.9 is nearest scan-up among the four aligned top loci, while the f69v.9 and f69v.10 ink groups have opposite and nearly equal absolute bearings. The estimate cannot rank them by absolute bearing. The f69v.31 to .4 cap spacing of 16.06° is the second widest of 28, with continuous light/dark alternation. Ring writing runs clockwise and the individual radial words are read inward. The scan supports geometric candidates and leaves a unique radial sequence beginning or clockwise traversal unestablished.",
+  "program": "L4",
+  "hard": false,
+  "on_path": true,
+  "check": "Independently repeat with a high-resolution unwarped image, fixed radial word and cap anchoring, blind inking, and angle perturbations. Distinguish the upper-left transcriber start from the upper painted sector corridor. If a specific historical-roster hypothesis uses these cues, register the physical criterion, each permitted start and direction, and its uncertainty before consulting the roster; retain wider alternatives when no independent direction marker exists. Treat f69v.31 to .4 as a candidate geometric boundary whose normal alternation and nonunique spacing require separate evidence. Do not retrospectively narrow an existing exhaustive scan’s multiplicity.",
+  "methods": {
+    "blind_phase": "Two separate ring readings and an additional radial reader worked on image-only crops. Gap angles follow manual boundaries of coherent upright brown strokes in unwrapped images. View uncertain strokes separately. The primary nearest-word comparison uses the median painted ink pixels of a manually delimited radial group. Angles are clockwise from the image vertical and are not the manuscript’s intrinsic coordinates.",
+    "alignment": "After saving the image-only readings, match closure/opening group shapes in ZL loci f69v.1–3 to either corridor and compare rectified inward radial groups to ZL loci f69v.31 then .4 through .11. Review IT, RF and GC locus IDs as separate transcription conventions. All four witnesses have 28 radial loci; only ZL supplies explicit clock comments here.",
+    "paint": "One fixed RGB/luminance threshold over the partial center annulus gives .831 in the top sector and .655 in the northwest. A second frame and green-specific hue proxy give the top sector .362 and the next-highest sector .158; a generic dark blue/green mask gives .573 top compared to .613 northwest. Registration and color definitions are approximate. A distinct sensitivity uses square patches and nine thresholds.",
+    "controls": "Compare the nearby ordinary ink gaps measured on the same unwrapping, re-angle the main endpoints around an alternative hub, compare both 28-cap gap counts, and compare cap vs ink bearings. No mansion names or scores were used."
+  },
+  "limitations": "The northern intersection depends on how faint coherent ink is delimited; its nominal overlap is below conservative manual edge tolerance. Top group angles cannot put f69v.8 strictly ahead of f69v.11 by proximity to vertical. The polar geometry assumes a common central hub for drawing and writing even though a free band fit drifts between rings. RGB is not a pigment assay. Independently reproduced positions and transcriber ordering do not prove design intention. The apparent reading direction of one engraved or written line does not order the neighboring radial lines.",
+  "sources": {
+    "canvas": "https://collections.library.yale.edu/manifests/oid/2002046/canvas/1006199",
+    "native_crop": "https://collections.library.yale.edu/iiif/2/1006199/800,620,2150,2220/full/0/default.jpg",
+    "native_crop_sha256": "373bdfd04c9816c1103c966c36c014fb524c39376f58cfd67b6cdc724b7d88b1",
+    "image_prior": "https://github.com/Ayan-Bandyopadhyay/voynich-swarm/pull/484",
+    "earlier_order_audit": "https://github.com/Ayan-Bandyopadhyay/voynich-swarm/pull/377",
+    "zl": "https://www.voynich.nu/data/ZL3b-n.txt"
+  },
+  "results": {
+    "gaps": {
+      "upper": {
+        "widths": {
+          "outer": 4.75,
+          "middle": 5.25,
+          "inner": 6.550000000000001
+        },
+        "all_three_intersection": [
+          1.5,
+          2.15
+        ],
+        "intersection_width": 0.6499999999999999,
+        "alternative_center_intervals": {
+          "outer": [
+            2.2029437707753177,
+            7.004965224039486
+          ],
+          "middle": [
+            0.7329550623651572,
+            6.045964569795996
+          ],
+          "inner": [
+            -3.64414405817747,
+            3.0001397008958217
+          ]
+        },
+        "alternative_intersection": [
+          2.2029437707753177,
+          3.0001397008958217
+        ],
+        "alternative_intersection_width": 0.797195930120504
+      },
+      "upper_left": {
+        "widths": {
+          "outer": 8.0,
+          "middle": 8.0,
+          "inner": 5.900000000000002
+        },
+        "all_three_intersection": [
+          -34.7,
+          -28.8
+        ],
+        "intersection_width": 5.900000000000002,
+        "alternative_center_intervals": {
+          "outer": [
+            -36.35602218117496,
+            -28.223490563217275
+          ],
+          "middle": [
+            -35.226249422228726,
+            -27.085161306620957
+          ],
+          "inner": [
+            -34.491365104154276,
+            -28.47461834921011
+          ]
+        },
+        "alternative_intersection": [
+          -34.491365104154276,
+          -28.47461834921011
+        ],
+        "alternative_intersection_width": 6.016746754944165
+      }
+    },
+    "ordinary_spacing": {
+      "outer": {
+        "count": 10,
+        "median": 1.8500000000000005,
+        "maximum": 3.3999999999999986
+      },
+      "middle": {
+        "count": 9,
+        "median": 1.6000000000000014,
+        "maximum": 3.299999999999997
+      },
+      "inner": {
+        "count": 10,
+        "median": 1.5500000000000007,
+        "maximum": 2.6999999999999957
+      }
+    },
+    "cap_gap_span": [
+      8.638000000000005,
+      13.01750000000001,
+      16.873999999999995
+    ],
+    "scanned_near_top_ink": [
+      {
+        "locus": "f69v.8",
+        "azimuth_deg": -16.62485602436335,
+        "conservative_localization_interval_deg": [
+          -18.7518464703205,
+          -14.497865578406198
+        ]
+      },
+      {
+        "locus": "f69v.9",
+        "azimuth_deg": -6.040972513022168,
+        "conservative_localization_interval_deg": [
+          -8.019755088144144,
+          -4.062189937900191
+        ]
+      },
+      {
+        "locus": "f69v.10",
+        "azimuth_deg": 6.0209517032759345,
+        "conservative_localization_interval_deg": [
+          3.8332816552183635,
+          8.208621751333506
+        ]
+      },
+      {
+        "locus": "f69v.11",
+        "azimuth_deg": 16.67044595564037,
+        "conservative_localization_interval_deg": [
+          14.749184446235159,
+          18.591707465045584
+        ]
+      }
+    ],
+    "pigment": {
+      "north_wedge": {
+        "centre_local_xy": [
+          1048,
+          979
+        ],
+        "mean_rgb": [
+          97.72261557684298,
+          108.97584339858392,
+          98.74927113702624
+        ],
+        "thresholds": [
+          {
+            "dominance": 2,
+            "mean_rgb_limit": 120,
+            "fraction": 0.5439400249895877
+          },
+          {
+            "dominance": 2,
+            "mean_rgb_limit": 150,
+            "fraction": 0.5818408996251562
+          },
+          {
+            "dominance": 2,
+            "mean_rgb_limit": 180,
+            "fraction": 0.5818408996251562
+          },
+          {
+            "dominance": 8,
+            "mean_rgb_limit": 120,
+            "fraction": 0.37401082882132447
+          },
+          {
+            "dominance": 8,
+            "mean_rgb_limit": 150,
+            "fraction": 0.39108704706372344
+          },
+          {
+            "dominance": 8,
+            "mean_rgb_limit": 180,
+            "fraction": 0.39108704706372344
+          },
+          {
+            "dominance": 14,
+            "mean_rgb_limit": 120,
+            "fraction": 0.2782174094127447
+          },
+          {
+            "dominance": 14,
+            "mean_rgb_limit": 150,
+            "fraction": 0.28529779258642235
+          },
+          {
+            "dominance": 14,
+            "mean_rgb_limit": 180,
+            "fraction": 0.28529779258642235
+          }
+        ]
+      },
+      "northwest_wedge": {
+        "centre_local_xy": [
+          952,
+          1045
+        ],
+        "mean_rgb": [
+          138.7667638483965,
+          138.79716784673053,
+          127.63765097875886
+        ],
+        "thresholds": [
+          {
+            "dominance": 2,
+            "mean_rgb_limit": 120,
+            "fraction": 0.32736359850062474
+          },
+          {
+            "dominance": 2,
+            "mean_rgb_limit": 150,
+            "fraction": 0.3673469387755102
+          },
+          {
+            "dominance": 2,
+            "mean_rgb_limit": 180,
+            "fraction": 0.37817576009995835
+          },
+          {
+            "dominance": 8,
+            "mean_rgb_limit": 120,
+            "fraction": 0.31486880466472306
+          },
+          {
+            "dominance": 8,
+            "mean_rgb_limit": 150,
+            "fraction": 0.3427738442315702
+          },
+          {
+            "dominance": 8,
+            "mean_rgb_limit": 180,
+            "fraction": 0.34860474802165764
+          },
+          {
+            "dominance": 14,
+            "mean_rgb_limit": 120,
+            "fraction": 0.28738025822573926
+          },
+          {
+            "dominance": 14,
+            "mean_rgb_limit": 150,
+            "fraction": 0.30612244897959184
+          },
+          {
+            "dominance": 14,
+            "mean_rgb_limit": 180,
+            "fraction": 0.3077884214910454
+          }
+        ]
+      },
+      "west_wedge": {
+        "centre_local_xy": [
+          933,
+          1136
+        ],
+        "mean_rgb": [
+          140.33985839233654,
+          135.54518950437318,
+          124.7076218242399
+        ],
+        "thresholds": [
+          {
+            "dominance": 2,
+            "mean_rgb_limit": 120,
+            "fraction": 0.09454394002498959
+          },
+          {
+            "dominance": 2,
+            "mean_rgb_limit": 150,
+            "fraction": 0.1628488129945856
+          },
+          {
+            "dominance": 2,
+            "mean_rgb_limit": 180,
+            "fraction": 0.18700541441066224
+          },
+          {
+            "dominance": 8,
+            "mean_rgb_limit": 120,
+            "fraction": 0.085381091211995
+          },
+          {
+            "dominance": 8,
+            "mean_rgb_limit": 150,
+            "fraction": 0.1282798833819242
+          },
+          {
+            "dominance": 8,
+            "mean_rgb_limit": 180,
+            "fraction": 0.13702623906705538
+          },
+          {
+            "dominance": 14,
+            "mean_rgb_limit": 120,
+            "fraction": 0.07163681799250313
+          },
+          {
+            "dominance": 14,
+            "mean_rgb_limit": 150,
+            "fraction": 0.09954185755935027
+          },
+          {
+            "dominance": 14,
+            "mean_rgb_limit": 180,
+            "fraction": 0.1028738025822574
+          }
+        ]
+      },
+      "southwest_wedge": {
+        "centre_local_xy": [
+          979,
+          1225
+        ],
+        "mean_rgb": [
+          153.08163265306123,
+          145.98792169929197,
+          131.2432319866722
+        ],
+        "thresholds": [
+          {
+            "dominance": 2,
+            "mean_rgb_limit": 120,
+            "fraction": 0.04123281965847563
+          },
+          {
+            "dominance": 2,
+            "mean_rgb_limit": 150,
+            "fraction": 0.10079133694294044
+          },
+          {
+            "dominance": 2,
+            "mean_rgb_limit": 180,
+            "fraction": 0.11620158267388588
+          },
+          {
+            "dominance": 8,
+            "mean_rgb_limit": 120,
+            "fraction": 0.01749271137026239
+          },
+          {
+            "dominance": 8,
+            "mean_rgb_limit": 150,
+            "fraction": 0.04081632653061224
+          },
+          {
+            "dominance": 8,
+            "mean_rgb_limit": 180,
+            "fraction": 0.043731778425655975
+          },
+          {
+            "dominance": 14,
+            "mean_rgb_limit": 120,
+            "fraction": 0.009162848812994586
+          },
+          {
+            "dominance": 14,
+            "mean_rgb_limit": 150,
+            "fraction": 0.01582673885880883
+          },
+          {
+            "dominance": 14,
+            "mean_rgb_limit": 180,
+            "fraction": 0.01624323198667222
+          }
+        ]
+      },
+      "south_wedge": {
+        "centre_local_xy": [
+          1090,
+          1261
+        ],
+        "mean_rgb": [
+          169.15160349854227,
+          157.1545189504373,
+          138.29737609329447
+        ],
+        "thresholds": [
+          {
+            "dominance": 2,
+            "mean_rgb_limit": 120,
+            "fraction": 0.03290295710120783
+          },
+          {
+            "dominance": 2,
+            "mean_rgb_limit": 150,
+            "fraction": 0.04831320283215327
+          },
+          {
+            "dominance": 2,
+            "mean_rgb_limit": 180,
+            "fraction": 0.04956268221574344
+          },
+          {
+            "dominance": 8,
+            "mean_rgb_limit": 120,
+            "fraction": 0.025406080799666806
+          },
+          {
+            "dominance": 8,
+            "mean_rgb_limit": 150,
+            "fraction": 0.03123698458975427
+          },
+          {
+            "dominance": 8,
+            "mean_rgb_limit": 180,
+            "fraction": 0.03123698458975427
+          },
+          {
+            "dominance": 14,
+            "mean_rgb_limit": 120,
+            "fraction": 0.018742190753852563
+          },
+          {
+            "dominance": 14,
+            "mean_rgb_limit": 150,
+            "fraction": 0.019991670137442734
+          },
+          {
+            "dominance": 14,
+            "mean_rgb_limit": 180,
+            "fraction": 0.019991670137442734
+          }
+        ]
+      },
+      "southeast_wedge": {
+        "centre_local_xy": [
+          1176,
+          1220
+        ],
+        "mean_rgb": [
+          156.37859225322782,
+          148.179925031237,
+          129.06289046230737
+        ],
+        "thresholds": [
+          {
+            "dominance": 2,
+            "mean_rgb_limit": 120,
+            "fraction": 0.1286963765097876
+          },
+          {
+            "dominance": 2,
+            "mean_rgb_limit": 150,
+            "fraction": 0.20366513952519782
+          },
+          {
+            "dominance": 2,
+            "mean_rgb_limit": 180,
+            "fraction": 0.2057476051645148
+          },
+          {
+            "dominance": 8,
+            "mean_rgb_limit": 120,
+            "fraction": 0.11786755518533944
+          },
+          {
+            "dominance": 8,
+            "mean_rgb_limit": 150,
+            "fraction": 0.17201166180758018
+          },
+          {
+            "dominance": 8,
+            "mean_rgb_limit": 180,
+            "fraction": 0.17242815493544356
+          },
+          {
+            "dominance": 14,
+            "mean_rgb_limit": 120,
+            "fraction": 0.10828821324448147
+          },
+          {
+            "dominance": 14,
+            "mean_rgb_limit": 150,
+            "fraction": 0.15201999167013744
+          },
+          {
+            "dominance": 14,
+            "mean_rgb_limit": 180,
+            "fraction": 0.15243648479800084
+          }
+        ]
+      },
+      "east_wedge": {
+        "centre_local_xy": [
+          1218,
+          1124
+        ],
+        "mean_rgb": [
+          173.1091211995002,
+          157.80633069554352,
+          135.0149937526031
+        ],
+        "thresholds": [
+          {
+            "dominance": 2,
+            "mean_rgb_limit": 120,
+            "fraction": 0.0
+          },
+          {
+            "dominance": 2,
+            "mean_rgb_limit": 150,
+            "fraction": 0.0
+          },
+          {
+            "dominance": 2,
+            "mean_rgb_limit": 180,
+            "fraction": 0.0
+          },
+          {
+            "dominance": 8,
+            "mean_rgb_limit": 120,
+            "fraction": 0.0
+          },
+          {
+            "dominance": 8,
+            "mean_rgb_limit": 150,
+            "fraction": 0.0
+          },
+          {
+            "dominance": 8,
+            "mean_rgb_limit": 180,
+            "fraction": 0.0
+          },
+          {
+            "dominance": 14,
+            "mean_rgb_limit": 120,
+            "fraction": 0.0
+          },
+          {
+            "dominance": 14,
+            "mean_rgb_limit": 150,
+            "fraction": 0.0
+          },
+          {
+            "dominance": 14,
+            "mean_rgb_limit": 180,
+            "fraction": 0.0
+          }
+        ]
+      },
+      "northeast_wedge": {
+        "centre_local_xy": [
+          1165,
+          1008
+        ],
+        "mean_rgb": [
+          143.112869637651,
+          141.77217825905873,
+          130.53269471053727
+        ],
+        "thresholds": [
+          {
+            "dominance": 2,
+            "mean_rgb_limit": 120,
+            "fraction": 0.1416076634735527
+          },
+          {
+            "dominance": 2,
+            "mean_rgb_limit": 150,
+            "fraction": 0.25822573927530196
+          },
+          {
+            "dominance": 2,
+            "mean_rgb_limit": 180,
+            "fraction": 0.2703040399833403
+          },
+          {
+            "dominance": 8,
+            "mean_rgb_limit": 120,
+            "fraction": 0.11620158267388588
+          },
+          {
+            "dominance": 8,
+            "mean_rgb_limit": 150,
+            "fraction": 0.20116618075801748
+          },
+          {
+            "dominance": 8,
+            "mean_rgb_limit": 180,
+            "fraction": 0.2053311120366514
+          },
+          {
+            "dominance": 14,
+            "mean_rgb_limit": 120,
+            "fraction": 0.08788004997917534
+          },
+          {
+            "dominance": 14,
+            "mean_rgb_limit": 150,
+            "fraction": 0.14493960849645982
+          },
+          {
+            "dominance": 14,
+            "mean_rgb_limit": 180,
+            "fraction": 0.14660558100791338
+          }
+        ]
+      }
+    },
+    "radial_clock": {
+      "ZL": {
+        "radial_loci": 28,
+        "explicit_clock_positions": 28,
+        "top_3_clock_positions": [
+          [
+            "f69v.9",
+            0.0
+          ],
+          [
+            "f69v.10",
+            7.5
+          ],
+          [
+            "f69v.8",
+            -15.0
+          ]
+        ],
+        "origin_1030_1130": [
+          [
+            "f69v.6",
+            -45.0
+          ],
+          [
+            "f69v.7",
+            -30.0
+          ],
+          [
+            "f69v.8",
+            -15.0
+          ]
+        ],
+        "compared_loci": {
+          "f69v.4": "<!09:30>okeey,sar",
+          "f69v.7": "<!11:00>ykeey",
+          "f69v.8": "<!11:30>ytory",
+          "f69v.9": "<!00:00>oeesy",
+          "f69v.10": "<!00:15>ytody",
+          "f69v.11": "<!00:30>okody",
+          "f69v.31": "<!08:45>oar.alys"
+        }
+      },
+      "IT": {
+        "radial_loci": 28,
+        "explicit_clock_positions": 0,
+        "top_3_clock_positions": [],
+        "origin_1030_1130": [],
+        "compared_loci": {
+          "f69v.4": "okchy.sar",
+          "f69v.7": "ykeey",
+          "f69v.8": "ytary",
+          "f69v.9": "oeesa",
+          "f69v.10": "ytody",
+          "f69v.11": "okody",
+          "f69v.31": "oar.alys"
+        }
+      },
+      "RF": {
+        "radial_loci": 28,
+        "explicit_clock_positions": 0,
+        "top_3_clock_positions": [],
+        "origin_1030_1130": [],
+        "compared_loci": {
+          "f69v.4": "okeey.sar",
+          "f69v.7": "ykeey",
+          "f69v.8": "ytary",
+          "f69v.9": "oeesy",
+          "f69v.10": "yto@152;y",
+          "f69v.11": "okody",
+          "f69v.31": "oar.alys"
+        }
+      },
+      "GC": {
+        "radial_loci": 28,
+        "explicit_clock_positions": 0,
+        "top_3_clock_positions": [],
+        "origin_1030_1130": [],
+        "compared_loci": {
+          "f69v.4": "ohC9.say",
+          "f69v.7": "9hC9",
+          "f69v.8": "9kay9",
+          "f69v.9": "occs9",
+          "f69v.10": "9ko79",
+          "f69v.11": "oho89",
+          "f69v.31": "oay.ae9s"
+        }
+      }
+    }
+  },
+  "recorded_geometry": {
+    "main_ink": {
+      "basis": {
+        "native_crop": [
+          800,
+          620,
+          2150,
+          2220
+        ],
+        "center_local_xy": [
+          1075,
+          1119
+        ],
+        "alt_center_local_xy": [
+          1063,
+          1107
+        ],
+        "coordinate_error_px": 18,
+        "angle_axis": "zero toward top, positive clockwise"
+      },
+      "manual_gaps_deg": {
+        "upper": {
+          "outer": [
+            1.5,
+            6.25
+          ],
+          "middle": [
+            0,
+            5.25
+          ],
+          "inner": [
+            -4.4,
+            2.15
+          ]
+        },
+        "upper_left": {
+          "outer": [
+            -36.5,
+            -28.5
+          ],
+          "middle": [
+            -35.4,
+            -27.4
+          ],
+          "inner": [
+            -34.7,
+            -28.8
+          ]
+        }
+      },
+      "edge_angle_uncertainty_deg": 1,
+      "evidence_note": "Click edge estimates on polar bands of standing brown glyphs; include faint coherent strokes, exclude isolated punctate stain where disconnected. Zero-degree corridor overlap is narrow. Broader upper-left gaps are not visibly accompanied by the special central fill. The direction of radial layout is not implied by glyph orientation. Eight cream radial rays were counted; their tips are diffuse and several meet the colored wheel.",
+      "central_pigment": [
+        {
+          "name": "north_wedge",
+          "r": 143,
+          "angle": -11
+        },
+        {
+          "name": "northwest_wedge",
+          "r": 143,
+          "angle": -59
+        },
+        {
+          "name": "west_wedge",
+          "r": 143,
+          "angle": -97
+        },
+        {
+          "name": "southwest_wedge",
+          "r": 143,
+          "angle": -138
+        },
+        {
+          "name": "south_wedge",
+          "r": 143,
+          "angle": 174
+        },
+        {
+          "name": "southeast_wedge",
+          "r": 143,
+          "angle": 135
+        },
+        {
+          "name": "east_wedge",
+          "r": 143,
+          "angle": 92
+        },
+        {
+          "name": "northeast_wedge",
+          "r": 143,
+          "angle": 39
+        }
+      ],
+      "visual_ray_centres_local_xy": [
+        [
+          1013,
+          931
+        ],
+        [
+          1137,
+          917
+        ],
+        [
+          1231,
+          1049
+        ],
+        [
+          1257,
+          1189
+        ],
+        [
+          1165,
+          1282
+        ],
+        [
+          990,
+          1281
+        ],
+        [
+          913,
+          1183
+        ],
+        [
+          892,
+          1055
+        ]
+      ]
+    },
+    "ordinary_spacing": {
+      "note": "Ten nearby short blank intervals and both corridors measured in the same star-centered polar raster. They are separations between visible clusters, not claims about lexical tokenization. Edges to about one degree; intervals with strokes too faint to locate were skipped.",
+      "outer": [
+        [
+          -64,
+          -61.5
+        ],
+        [
+          -58.3,
+          -56
+        ],
+        [
+          -52,
+          -50.6
+        ],
+        [
+          -45.8,
+          -43.1
+        ],
+        [
+          -42,
+          -40.8
+        ],
+        [
+          -22.1,
+          -20.2
+        ],
+        [
+          -15.3,
+          -14
+        ],
+        [
+          -10.1,
+          -8.3
+        ],
+        [
+          16.8,
+          18.3
+        ],
+        [
+          27.8,
+          31.2
+        ]
+      ],
+      "middle": [
+        [
+          -57,
+          -55.3
+        ],
+        [
+          -45.5,
+          -42.2
+        ],
+        [
+          -21,
+          -19.7
+        ],
+        [
+          -13.5,
+          -11.9
+        ],
+        [
+          -9.1,
+          -7.2
+        ],
+        [
+          17.3,
+          18.2
+        ],
+        [
+          23,
+          24.3
+        ],
+        [
+          35.1,
+          36.7
+        ],
+        [
+          42.3,
+          44.1
+        ]
+      ],
+      "inner": [
+        [
+          -60.5,
+          -58.4
+        ],
+        [
+          -56.4,
+          -54.8
+        ],
+        [
+          -43.9,
+          -41.2
+        ],
+        [
+          -25.6,
+          -24.1
+        ],
+        [
+          -20.2,
+          -18.7
+        ],
+        [
+          -12.5,
+          -11.1
+        ],
+        [
+          -7.9,
+          -6.4
+        ],
+        [
+          10.1,
+          12.5
+        ],
+        [
+          14.1,
+          15.4
+        ],
+        [
+          23.2,
+          25.4
+        ]
+      ]
+    },
+    "independent_ink": {
+      "canvas": "https://collections.library.yale.edu/manifests/oid/2002046/canvas/1006199",
+      "native_crop_url": "https://collections.library.yale.edu/iiif/2/1006199/750,590,2260,2260/full/0/default.jpg",
+      "crop_sha256": "57e4a434b8736833f411bc27cd51da66a730e284ab84cbc786c694d3a5fa8ffd",
+      "methods": "Blind, image only. Axis 0 degrees = image up, positive clockwise. Origins, radii and crop offset refer to public native Yale pixels. Unwrap x=1128+r*sin(theta), y=1150-r*cos(theta) in crop coordinates at 0.1 degree and 1 pixel. Estimate gap bounds by coherent exterior stroke edges in the unwrapped ribbons. Allow approximately 1 degree per edge for faded marks; do not equate gaps to exact pixel-total absence.",
+      "crop_xy_offset": [
+        750,
+        590
+      ],
+      "polar_origin_native_xy": [
+        1878,
+        1740
+      ],
+      "manual_gap_intervals_degrees": [
+        {
+          "band": "outer",
+          "north": [
+            1.6,
+            5.8
+          ],
+          "northwest": [
+            -36.0,
+            -28.2
+          ],
+          "other_local_clear_spaces": [
+            1.8,
+            0.9,
+            1.6,
+            3.2
+          ]
+        },
+        {
+          "band": "middle",
+          "north": [
+            0,
+            5.0
+          ],
+          "northwest": [
+            -34.8,
+            -27.3
+          ],
+          "other_local_clear_spaces": [
+            2.1,
+            2,
+            3,
+            1,
+            2.6
+          ]
+        },
+        {
+          "band": "inner",
+          "north": [
+            -3.8,
+            1.7
+          ],
+          "northwest": [
+            -34.6,
+            -29.3
+          ],
+          "other_local_clear_spaces": [
+            1.3,
+            1,
+            1.7,
+            1.2,
+            1.8
+          ]
+        }
+      ],
+      "approx_ink_band_circle_fits": [
+        {
+          "band": "outer",
+          "native_xy": [
+            1878.5,
+            1736.3
+          ],
+          "radius_pixels": 1009.6,
+          "sample_fit_rmse_pixels": 5.4,
+          "manual_center_r_samples": [
+            1006,
+            1008,
+            1005,
+            1015,
+            1018,
+            1002,
+            1018,
+            1005
+          ]
+        },
+        {
+          "band": "middle",
+          "native_xy": [
+            1881.4,
+            1729.2
+          ],
+          "radius_pixels": 941.4,
+          "sample_fit_rmse_pixels": 4.8,
+          "manual_center_r_samples": [
+            927,
+            936,
+            931,
+            949,
+            958,
+            945,
+            944,
+            941
+          ]
+        },
+        {
+          "band": "inner",
+          "native_xy": [
+            1886.4,
+            1724.8
+          ],
+          "radius_pixels": 835.2,
+          "sample_fit_rmse_pixels": 4.2,
+          "manual_center_r_samples": [
+            820,
+            816,
+            825,
+            841,
+            854,
+            851,
+            836,
+            838
+          ]
+        }
+      ],
+      "band_sample_angles_deg": [
+        -180,
+        -135,
+        -90,
+        -45,
+        0,
+        45,
+        90,
+        135
+      ],
+      "ray_count_best_effort": 8,
+      "ray_axis_approx_degrees": [
+        -165,
+        -117,
+        -76,
+        -25,
+        16,
+        68,
+        106,
+        143
+      ],
+      "ray_note": "Eight tan rays at these approximate azimuths. Broad, curved ray boundaries and raster abrasion make the values approximate; sectors include visible stars or star fragments except visually star-poor dark north wedge.",
+      "north_wedge_approx_degrees": [
+        -25,
+        16
+      ],
+      "raster_pigment_comparison": {
+        "annulus_native_pixel_range": [
+          120,
+          205
+        ],
+        "ray_boundaries_inset_deg": 5,
+        "threshold": "R-B<=25 and Rec.709 luma<=125",
+        "sector_dark_cool_fraction_by_ray_order": [
+          0.111,
+          0.312,
+          0.655,
+          0.831,
+          0.433,
+          0.029,
+          0.283,
+          0.081
+        ],
+        "interpretation": "One contiguous dark, green-blue and comparatively star-poor north sector. Northwest neighbor also contains considerable dark blue and retains visible motif detail. Relative strongest cool/dark coverage persists when luma threshold moves 110–140 and R-B limit 15–35; these are image-color measurements, not pigment or intent identification."
+      },
+      "green_cap_component_check": {
+        "threshold": "G-R>=8 and G-B>=8, G<=142, radius 365–596 native pixels, 2 binary closings, 4-neighbor components, area >1200 px",
+        "count": 28,
+        "azimuths_near_top_deg": [
+          -40.5,
+          -28,
+          -14.9,
+          -4.1,
+          8.0,
+          18.3,
+          32.4
+        ],
+        "precision_note": "Near-top components include attached paint, so cap angles approximate."
+      },
+      "orientation": "Ring glyphs upright in clockwise polar unwrap with ascenders away from center. Individual radial words are written centerward and rotated along their respective rays. Ring writing direction does not establish circular order of spatially separate radial words, or that any gap establishes a semantic beginning.",
+      "blind_conclusion": "Both corridors show enlarged spaces; northwest common overlap is roughly -34.6 to -29.3 degrees, and its outer/middle gaps are wider than north. North gap midpoints vary by about 5 degrees and approximately align within one sector. The darkest paint sector independently favors a north grouping but cannot disambiguate an exact start or circular order."
+    },
+    "blind_radial": {
+      "canvas": "https://collections.library.yale.edu/manifests/oid/2002046/canvas/1006199",
+      "source": "https://collections.library.yale.edu/iiif/2/1006199/750,620,2220,2210/full/0/default.jpg",
+      "raw_sha256": "4337c0c2531fa863627d5d0d3699193e3e299184c872a2dedc6e2ab4d5b1fde6",
+      "native_crop_xywh": [
+        750,
+        620,
+        2220,
+        2210
+      ],
+      "wheel_panel_approx_bounds_native_xyxy": [
+        620,
+        130,
+        3040,
+        3730
+      ],
+      "drawing_ink_approx_bounds_native_xyxy": [
+        850,
+        680,
+        2940,
+        2750
+      ],
+      "radial_hub_native_xy": [
+        1882.0,
+        1746.0
+      ],
+      "hub_uncertainty_px": 8,
+      "bearing_definition": "degrees clockwise from scan up; x right, y down, angles wrapped [−180,180)",
+      "caps": [
+        {
+          "bearing_deg": -173.116,
+          "radius_px": 461.97,
+          "center_xy": [
+            1826.63,
+            2204.64
+          ],
+          "pixels": 2377,
+          "cw_rank_from_top_left": 17
+        },
+        {
+          "bearing_deg": -159.763,
+          "radius_px": 396.55,
+          "center_xy": [
+            1744.83,
+            2118.07
+          ],
+          "pixels": 1806,
+          "cw_rank_from_top_left": 18
+        },
+        {
+          "bearing_deg": -145.921,
+          "radius_px": 475.95,
+          "center_xy": [
+            1615.31,
+            2140.21
+          ],
+          "pixels": 2089,
+          "cw_rank_from_top_left": 19
+        },
+        {
+          "bearing_deg": -132.012,
+          "radius_px": 403.5,
+          "center_xy": [
+            1582.2,
+            2016.06
+          ],
+          "pixels": 1602,
+          "cw_rank_from_top_left": 20
+        },
+        {
+          "bearing_deg": -115.138,
+          "radius_px": 475.05,
+          "center_xy": [
+            1451.94,
+            1947.8
+          ],
+          "pixels": 2530,
+          "cw_rank_from_top_left": 21
+        },
+        {
+          "bearing_deg": -101.763,
+          "radius_px": 400.15,
+          "center_xy": [
+            1490.25,
+            1827.57
+          ],
+          "pixels": 1326,
+          "cw_rank_from_top_left": 22
+        },
+        {
+          "bearing_deg": -87.614,
+          "radius_px": 476.75,
+          "center_xy": [
+            1405.66,
+            1726.15
+          ],
+          "pixels": 2467,
+          "cw_rank_from_top_left": 23
+        },
+        {
+          "bearing_deg": -71.553,
+          "radius_px": 412.05,
+          "center_xy": [
+            1491.12,
+            1615.61
+          ],
+          "pixels": 3028,
+          "cw_rank_from_top_left": 24
+        },
+        {
+          "bearing_deg": -55.771,
+          "radius_px": 492.49,
+          "center_xy": [
+            1474.81,
+            1468.97
+          ],
+          "pixels": 2408,
+          "cw_rank_from_top_left": 25
+        },
+        {
+          "bearing_deg": -40.392,
+          "radius_px": 426.12,
+          "center_xy": [
+            1605.87,
+            1421.46
+          ],
+          "pixels": 2928,
+          "cw_rank_from_top_left": 26
+        },
+        {
+          "bearing_deg": -28.088,
+          "radius_px": 531.07,
+          "center_xy": [
+            1631.95,
+            1277.48
+          ],
+          "pixels": 2670,
+          "cw_rank_from_top_left": 27
+        },
+        {
+          "bearing_deg": -15.218,
+          "radius_px": 448.12,
+          "center_xy": [
+            1764.37,
+            1313.59
+          ],
+          "pixels": 4205,
+          "cw_rank_from_top_left": 28
+        },
+        {
+          "bearing_deg": -4.568,
+          "radius_px": 549.98,
+          "center_xy": [
+            1838.2,
+            1197.77
+          ],
+          "pixels": 2472,
+          "cw_rank_from_top_left": 1
+        },
+        {
+          "bearing_deg": 7.063,
+          "radius_px": 472.36,
+          "center_xy": [
+            1940.08,
+            1277.23
+          ],
+          "pixels": 4152,
+          "cw_rank_from_top_left": 2
+        },
+        {
+          "bearing_deg": 17.696,
+          "radius_px": 568.14,
+          "center_xy": [
+            2054.69,
+            1204.74
+          ],
+          "pixels": 2085,
+          "cw_rank_from_top_left": 3
+        },
+        {
+          "bearing_deg": 31.33,
+          "radius_px": 495.12,
+          "center_xy": [
+            2139.45,
+            1323.07
+          ],
+          "pixels": 3000,
+          "cw_rank_from_top_left": 4
+        },
+        {
+          "bearing_deg": 42.672,
+          "radius_px": 565.74,
+          "center_xy": [
+            2265.46,
+            1330.04
+          ],
+          "pixels": 2313,
+          "cw_rank_from_top_left": 5
+        },
+        {
+          "bearing_deg": 51.31,
+          "radius_px": 478.94,
+          "center_xy": [
+            2255.83,
+            1446.61
+          ],
+          "pixels": 2359,
+          "cw_rank_from_top_left": 6
+        },
+        {
+          "bearing_deg": 64.075,
+          "radius_px": 547.96,
+          "center_xy": [
+            2374.82,
+            1506.44
+          ],
+          "pixels": 1689,
+          "cw_rank_from_top_left": 7
+        },
+        {
+          "bearing_deg": 76.01,
+          "radius_px": 459.4,
+          "center_xy": [
+            2327.78,
+            1634.94
+          ],
+          "pixels": 3050,
+          "cw_rank_from_top_left": 8
+        },
+        {
+          "bearing_deg": 89.182,
+          "radius_px": 546.53,
+          "center_xy": [
+            2428.48,
+            1738.2
+          ],
+          "pixels": 2729,
+          "cw_rank_from_top_left": 9
+        },
+        {
+          "bearing_deg": 98.861,
+          "radius_px": 447.57,
+          "center_xy": [
+            2324.23,
+            1814.94
+          ],
+          "pixels": 2164,
+          "cw_rank_from_top_left": 10
+        },
+        {
+          "bearing_deg": 109.36,
+          "radius_px": 529.56,
+          "center_xy": [
+            2381.62,
+            1921.55
+          ],
+          "pixels": 1922,
+          "cw_rank_from_top_left": 11
+        },
+        {
+          "bearing_deg": 119.427,
+          "radius_px": 436.63,
+          "center_xy": [
+            2262.3,
+            1960.53
+          ],
+          "pixels": 2331,
+          "cw_rank_from_top_left": 12
+        },
+        {
+          "bearing_deg": 131.833,
+          "radius_px": 510.66,
+          "center_xy": [
+            2262.48,
+            2086.59
+          ],
+          "pixels": 1854,
+          "cw_rank_from_top_left": 13
+        },
+        {
+          "bearing_deg": 145.576,
+          "radius_px": 435.25,
+          "center_xy": [
+            2128.05,
+            2105.02
+          ],
+          "pixels": 2323,
+          "cw_rank_from_top_left": 14
+        },
+        {
+          "bearing_deg": 158.741,
+          "radius_px": 482.62,
+          "center_xy": [
+            2056.99,
+            2195.78
+          ],
+          "pixels": 2158,
+          "cw_rank_from_top_left": 15
+        },
+        {
+          "bearing_deg": 171.062,
+          "radius_px": 397.16,
+          "center_xy": [
+            1943.71,
+            2138.34
+          ],
+          "pixels": 2185,
+          "cw_rank_from_top_left": 16
+        }
+      ],
+      "excluded_inner_green_fragments": [
+        {
+          "component": {
+            "bearing_deg": 6.834,
+            "radius_px": 409.89,
+            "center_xy": [
+              1930.77,
+              1339.03
+            ],
+            "pixels": 688
+          },
+          "head_bearing": 7.063
+        },
+        {
+          "component": {
+            "bearing_deg": 52.753,
+            "radius_px": 402.37,
+            "center_xy": [
+              2202.3,
+              1502.46
+            ],
+            "pixels": 1531
+          },
+          "head_bearing": 51.31
+        }
+      ],
+      "ink_top_four": [
+        {
+          "axis_deg": -18,
+          "local_roi_uv": [
+            515,
+            -19,
+            734,
+            36
+          ],
+          "ink_median_xy": [
+            1704.7,
+            1152.2
+          ],
+          "approximate_ink_bearing_deg": -16.62,
+          "pixels": 5887
+        },
+        {
+          "axis_deg": -6,
+          "local_roi_uv": [
+            599,
+            -23,
+            742,
+            36
+          ],
+          "ink_median_xy": [
+            1811.9,
+            1083.6
+          ],
+          "approximate_ink_bearing_deg": -6.04,
+          "pixels": 4899
+        },
+        {
+          "axis_deg": 5,
+          "local_roi_uv": [
+            518,
+            -35,
+            720,
+            39
+          ],
+          "ink_median_xy": [
+            1945.2,
+            1146.8
+          ],
+          "approximate_ink_bearing_deg": 6.02,
+          "pixels": 7180
+        },
+        {
+          "axis_deg": 16,
+          "local_roi_uv": [
+            608,
+            -29,
+            748,
+            39
+          ],
+          "ink_median_xy": [
+            2078.8,
+            1088.8
+          ],
+          "approximate_ink_bearing_deg": 16.67,
+          "pixels": 5162
+        }
+      ],
+      "ink_group_uncertainty_px": 15,
+      "approximate_cream_spoke_bearings_deg": [
+        -171,
+        -113,
+        -72,
+        -25,
+        17,
+        68,
+        103,
+        144
+      ],
+      "cream_spoke_count": 8,
+      "cream_spoke_caveat": "Approximate hand tracing from 50–250 px polar unwrap; outlines fade and spokes have finite width.",
+      "upper_sector": "The contiguous blue-green section is between the roughly −25 and +17 degree cream spokes. Other sectors show blue blotches and small star figures, and some paint losses make intensity variable.",
+      "radial_text_local_direction": "Inward. With the outside alphabetic end at the left and the interior bar end at the right, upright tall glyphs occur at the top of the rectified writing lines. Opposite orientation places the tall glyphs below. A radial baseline has no tangential writing vector; global order through the strips is a separate question.",
+      "provenance": "Source image inspected without looking up any transliteration, prior PR, or list during this measurement."
+    },
+    "circular_alignment": {
+      "blind_measurements_sha256": "daa45e00121f364bf439d107c5ef0e96b0c9bc30e4e7434752783fe5b3af700e",
+      "source_transcription_sha256": "bf5b6d4ac1e3a51b1847a9c388318d609020441ccd56984c901c32b09beccafc",
+      "phase": "Unblinded alignment only after independently freezing image measurements. No historical word lists consulted.",
+      "image_comparison_renders": [
+        "ink-match-northwest.jpg",
+        "ink-match-north.jpg"
+      ],
+      "method": "For each ring compare shape of the ZL closure and opening groups on both sides of each candidate gap. The ordered pairing across three rings distinguishes the candidate gaps even when individual faint signs are uncertain. Match is transcription alignment, not a claim of exact independent transliteration or original manuscript reading.",
+      "matches": [
+        {
+          "band": "outer",
+          "locus": "f69v.1",
+          "matching_gap": "northwest",
+          "zl_closing_and_opening": [
+            "char",
+            "dair",
+            "cheyky",
+            "otaza"
+          ],
+          "nw_visual": "Pre-gap compact bench-led tail followed by d-like tall stroke, a/i/r-like group, then bench-led group compatible with char | dair cheyky.",
+          "north_visual": "Continues after opening string. Exact faded first group following the north gap is not independently resolved.",
+          "approx_opening_angle_deg": -28.2,
+          "approx_scan_clock": "11:04",
+          "alignment_confidence": "High for selecting between the two corridors using the joint visual signatures and ZL order; pale/fine letters retain uncertainty."
+        },
+        {
+          "band": "middle",
+          "locus": "f69v.2",
+          "matching_gap": "northwest",
+          "zl_closing_and_opening": [
+            "chey",
+            "yka{c@204;}",
+            "chol",
+            "ykar",
+            "dal",
+            "ykady"
+          ],
+          "nw_visual": "Pre-gap bench-like start and curled final. Post-gap unmistakeable y-like curl followed by gallows. Following group is bench-like. This is compatible with chey | yka{c@204;} chol, with rare ending not independently resolved.",
+          "north_visual": "Post-north-glyph group compatible with dal, then ykady-like y / gallows / curved cluster, matching an interior continuation.",
+          "approx_opening_angle_deg": -27.3,
+          "approx_scan_clock": "11:05",
+          "alignment_confidence": "High for selecting between the two corridors using the joint visual signatures and ZL order; pale/fine letters retain uncertainty."
+        },
+        {
+          "band": "inner",
+          "locus": "f69v.3",
+          "matching_gap": "northwest",
+          "zl_closing_and_opening": [
+            "oteey",
+            "doair",
+            "otaldal",
+            "dair"
+          ],
+          "nw_visual": "Pre-gap round initial, tall glyph and curled final. Post-gap d-like mark with round following glyph and terminal hook, then a second distinct group with round initial and tall ascender. This supports oteey | doair otaldal.",
+          "north_visual": "The post-north group compatible with dair comes after a preceding group; a pale blue patch overlays the following trace. It is compatible with the first interior positions, not the same view as the distinctive NW doair-like opening.",
+          "approx_opening_angle_deg": -29.3,
+          "approx_scan_clock": "11:01",
+          "alignment_confidence": "High for selecting between the two corridors using the joint visual signatures and ZL order; pale/fine letters retain uncertainty."
+        }
+      ],
+      "conclusion": "The ZL ring loci are aligned to the northwest corridor near scan 11:00, while the painted north wedge lies within a second corridor of larger-than-ordinary spaces. The scan and these text row origins leave the radial sequence origin unsettled."
+    },
+    "radial_alignment": {
+      "blind_record_sha256": "0b7318423f3b602d3702b3f85577e71f28b665cb4f7be6be5398f68105a3c256",
+      "loci_after_zl_alignment": [
+        {
+          "locus": "f69v.31",
+          "zl_clock": "08:45",
+          "zl_word": "oar.alys",
+          "native_cap_xy": [
+            1405.66,
+            1726.15
+          ],
+          "cap_bearing_deg": -87.614,
+          "native_ink_group_xy": [
+            1228.3,
+            1723.2
+          ],
+          "ink_bearing_deg": -88.0,
+          "approximately_ink_localization_tolerance_px": 15
+        },
+        {
+          "locus": "f69v.4",
+          "zl_clock": "09:30",
+          "zl_word": "okeey,sar",
+          "native_cap_xy": [
+            1491.12,
+            1615.61
+          ],
+          "cap_bearing_deg": -71.553,
+          "native_ink_group_xy": [
+            1316.6,
+            1560.2
+          ],
+          "ink_bearing_deg": -71.81,
+          "approximately_ink_localization_tolerance_px": 15
+        },
+        {
+          "locus": "f69v.5",
+          "zl_clock": "10:00",
+          "zl_word": "okeo,dy",
+          "native_cap_xy": [
+            1474.81,
+            1468.97
+          ],
+          "cap_bearing_deg": -55.771,
+          "native_ink_group_xy": [
+            1362.5,
+            1397.6
+          ],
+          "ink_bearing_deg": -56.16,
+          "approximately_ink_localization_tolerance_px": 15
+        },
+        {
+          "locus": "f69v.6",
+          "zl_clock": "10:30",
+          "zl_word": "ochoyk",
+          "native_cap_xy": [
+            1605.87,
+            1421.46
+          ],
+          "cap_bearing_deg": -40.392,
+          "native_ink_group_xy": [
+            1506.8,
+            1293.7
+          ],
+          "ink_bearing_deg": -39.67,
+          "approximately_ink_localization_tolerance_px": 15
+        },
+        {
+          "locus": "f69v.7",
+          "zl_clock": "11:00",
+          "zl_word": "ykeey",
+          "native_cap_xy": [
+            1631.95,
+            1277.48
+          ],
+          "cap_bearing_deg": -28.088,
+          "native_ink_group_xy": [
+            1578.7,
+            1149.3
+          ],
+          "ink_bearing_deg": -26.95,
+          "approximately_ink_localization_tolerance_px": 15
+        },
+        {
+          "locus": "f69v.8",
+          "zl_clock": "11:30",
+          "zl_word": "ytory",
+          "native_cap_xy": [
+            1764.37,
+            1313.59
+          ],
+          "cap_bearing_deg": -15.218,
+          "native_ink_group_xy": [
+            1704.7,
+            1152.2
+          ],
+          "ink_bearing_deg": -16.62,
+          "approximately_ink_localization_tolerance_px": 15
+        },
+        {
+          "locus": "f69v.9",
+          "zl_clock": "00:00",
+          "zl_word": "oeesy",
+          "native_cap_xy": [
+            1838.2,
+            1197.77
+          ],
+          "cap_bearing_deg": -4.568,
+          "native_ink_group_xy": [
+            1811.9,
+            1083.6
+          ],
+          "ink_bearing_deg": -6.04,
+          "approximately_ink_localization_tolerance_px": 15
+        },
+        {
+          "locus": "f69v.10",
+          "zl_clock": "00:15",
+          "zl_word": "ytody",
+          "native_cap_xy": [
+            1940.08,
+            1277.23
+          ],
+          "cap_bearing_deg": 7.063,
+          "native_ink_group_xy": [
+            1945.2,
+            1146.8
+          ],
+          "ink_bearing_deg": 6.02,
+          "approximately_ink_localization_tolerance_px": 15
+        },
+        {
+          "locus": "f69v.11",
+          "zl_clock": "00:30",
+          "zl_word": "okody",
+          "native_cap_xy": [
+            2054.69,
+            1204.74
+          ],
+          "cap_bearing_deg": 17.696,
+          "native_ink_group_xy": [
+            2078.8,
+            1088.8
+          ],
+          "ink_bearing_deg": 16.67,
+          "approximately_ink_localization_tolerance_px": 15
+        }
+      ],
+      "left_boundary": {
+        "cap_spacing_deg": 16.061,
+        "max_over_all_cap_gaps_deg": 16.874,
+        "radial_cap_gap_rank": 27,
+        "min_cap_gap_deg": 8.638,
+        "median_cap_gap_deg": 13.018,
+        "observation": "The long blue cap at .31 and next short pale cap at .4 are visually adjacent in the same alternating cycle. The .31 word has two clear-looking inward groups, while .4 has a possible narrow division. This angular spacing is on the large side of the normal cap distribution and is not unique. No conspicuous keyed radial direction change is visible in the sampled strip."
+      },
+      "notes": "Glyph shapes were read inward in rectified local strips and matched clockwise in order to the nearby ZL entries only after the geometry was locked. The distinctive paired .31 mark and paired-looking .4 sit on the same local sequence as .5 through .9. Clock labels are approximate, not angular measurements. .9 is the cap closest to scan-up but the ink centers of .9 and .10 have almost equal absolute angles (about six degrees); the difference is beneath localization and center uncertainty."
+    },
+    "radial_sector_chroma": {
+      "analysis": "Approximate RGB proxy applied only to the central sector annulus and trimmed visual spoke angles. This measures visible chroma and darkness, not paint chemistry or originality.",
+      "raw_source": "https://collections.library.yale.edu/iiif/2/1006199/750,620,2220,2210/full/0/default.jpg",
+      "spoke_angle_edge_trim_deg": 5,
+      "radial_range_native_px": [
+        90,
+        225
+      ],
+      "proxy_any_blue_green_dark": "max(G,B)−R > 8 and RGB-average below 175",
+      "proxy_green_dark": "G−R > 6 and G−B > 3 and RGB-average below 175",
+      "results": [
+        {
+          "hub_offset_native_xy": [
+            0,
+            0
+          ],
+          "sectors": [
+            {
+              "approx_spoke_bounds_deg": [
+                -171,
+                -113
+              ],
+              "pixels": 17812,
+              "blue_green_dark_area_fraction": 0.07826184594655289,
+              "green_dark_area_fraction": 0.03054120817426454,
+              "largest_blue_green_piece_fraction": 0.04603637996856052,
+              "median_rgb_light": 156.0
+            },
+            {
+              "approx_spoke_bounds_deg": [
+                -113,
+                -72
+              ],
+              "pixels": 11503,
+              "blue_green_dark_area_fraction": 0.32417630183430407,
+              "green_dark_area_fraction": 0.03390419890463357,
+              "largest_blue_green_piece_fraction": 0.2742762757541511,
+              "median_rgb_light": 134.0
+            },
+            {
+              "approx_spoke_bounds_deg": [
+                -72,
+                -25
+              ],
+              "pixels": 13727,
+              "blue_green_dark_area_fraction": 0.6125154804400087,
+              "green_dark_area_fraction": 0.018357980622131564,
+              "largest_blue_green_piece_fraction": 0.6125154804400087,
+              "median_rgb_light": 104.66666666666667
+            },
+            {
+              "approx_spoke_bounds_deg": [
+                -25,
+                17
+              ],
+              "pixels": 11869,
+              "blue_green_dark_area_fraction": 0.5728368017524644,
+              "green_dark_area_fraction": 0.3617827955177353,
+              "largest_blue_green_piece_fraction": 0.5268346111719606,
+              "median_rgb_light": 100.66666666666667
+            },
+            {
+              "approx_spoke_bounds_deg": [
+                17,
+                68
+              ],
+              "pixels": 15215,
+              "blue_green_dark_area_fraction": 0.45573447255997374,
+              "green_dark_area_fraction": 0.10568517909957278,
+              "largest_blue_green_piece_fraction": 0.4467302004600723,
+              "median_rgb_light": 121.0
+            },
+            {
+              "approx_spoke_bounds_deg": [
+                68,
+                103
+              ],
+              "pixels": 9272,
+              "blue_green_dark_area_fraction": 0.07139775668679896,
+              "green_dark_area_fraction": 0.030953408110440034,
+              "largest_blue_green_piece_fraction": 0.030629853321829163,
+              "median_rgb_light": 154.0
+            },
+            {
+              "approx_spoke_bounds_deg": [
+                103,
+                144
+              ],
+              "pixels": 11502,
+              "blue_green_dark_area_fraction": 0.26890975482524776,
+              "green_dark_area_fraction": 0.15797252651712745,
+              "largest_blue_green_piece_fraction": 0.24865240827682142,
+              "median_rgb_light": 133.33333333333334
+            },
+            {
+              "approx_spoke_bounds_deg": [
+                144,
+                189
+              ],
+              "pixels": 12980,
+              "blue_green_dark_area_fraction": 0.07473035439137134,
+              "green_dark_area_fraction": 0.005701078582434515,
+              "largest_blue_green_piece_fraction": 0.03936825885978428,
+              "median_rgb_light": 160.0
+            }
+          ]
+        },
+        {
+          "hub_offset_native_xy": [
+            -8,
+            -8
+          ],
+          "sectors": [
+            {
+              "approx_spoke_bounds_deg": [
+                -171,
+                -113
+              ],
+              "pixels": 17812,
+              "blue_green_dark_area_fraction": 0.07270379519425106,
+              "green_dark_area_fraction": 0.030878059735010104,
+              "largest_blue_green_piece_fraction": 0.04603637996856052,
+              "median_rgb_light": 155.66666666666666
+            },
+            {
+              "approx_spoke_bounds_deg": [
+                -113,
+                -72
+              ],
+              "pixels": 11503,
+              "blue_green_dark_area_fraction": 0.3346083630357298,
+              "green_dark_area_fraction": 0.03120924976093193,
+              "largest_blue_green_piece_fraction": 0.2960966704337999,
+              "median_rgb_light": 130.66666666666666
+            },
+            {
+              "approx_spoke_bounds_deg": [
+                -72,
+                -25
+              ],
+              "pixels": 13727,
+              "blue_green_dark_area_fraction": 0.6430392656807751,
+              "green_dark_area_fraction": 0.022874626648211552,
+              "largest_blue_green_piece_fraction": 0.6430392656807751,
+              "median_rgb_light": 101.66666666666667
+            },
+            {
+              "approx_spoke_bounds_deg": [
+                -25,
+                17
+              ],
+              "pixels": 11869,
+              "blue_green_dark_area_fraction": 0.6271800488667959,
+              "green_dark_area_fraction": 0.35588507877664505,
+              "largest_blue_green_piece_fraction": 0.6135310472659871,
+              "median_rgb_light": 96.66666666666667
+            },
+            {
+              "approx_spoke_bounds_deg": [
+                17,
+                68
+              ],
+              "pixels": 15215,
+              "blue_green_dark_area_fraction": 0.4291817285573447,
+              "green_dark_area_fraction": 0.10890568517909957,
+              "largest_blue_green_piece_fraction": 0.4038120276043378,
+              "median_rgb_light": 123.33333333333333
+            },
+            {
+              "approx_spoke_bounds_deg": [
+                68,
+                103
+              ],
+              "pixels": 9272,
+              "blue_green_dark_area_fraction": 0.06190681622088007,
+              "green_dark_area_fraction": 0.02113891285591027,
+              "largest_blue_green_piece_fraction": 0.030629853321829163,
+              "median_rgb_light": 156.66666666666666
+            },
+            {
+              "approx_spoke_bounds_deg": [
+                103,
+                144
+              ],
+              "pixels": 11502,
+              "blue_green_dark_area_fraction": 0.2587376108502869,
+              "green_dark_area_fraction": 0.14719179273169883,
+              "largest_blue_green_piece_fraction": 0.25021735350373847,
+              "median_rgb_light": 136.33333333333334
+            },
+            {
+              "approx_spoke_bounds_deg": [
+                144,
+                189
+              ],
+              "pixels": 12980,
+              "blue_green_dark_area_fraction": 0.08613251155624037,
+              "green_dark_area_fraction": 0.008166409861325115,
+              "largest_blue_green_piece_fraction": 0.05077041602465331,
+              "median_rgb_light": 159.33333333333334
+            }
+          ]
+        },
+        {
+          "hub_offset_native_xy": [
+            -8,
+            8
+          ],
+          "sectors": [
+            {
+              "approx_spoke_bounds_deg": [
+                -171,
+                -113
+              ],
+              "pixels": 17812,
+              "blue_green_dark_area_fraction": 0.11009431843700876,
+              "green_dark_area_fraction": 0.03278688524590164,
+              "largest_blue_green_piece_fraction": 0.05114529530653492,
+              "median_rgb_light": 153.33333333333334
+            },
+            {
+              "approx_spoke_bounds_deg": [
+                -113,
+                -72
+              ],
+              "pixels": 11503,
+              "blue_green_dark_area_fraction": 0.3160914544031992,
+              "green_dark_area_fraction": 0.031122315917586716,
+              "largest_blue_green_piece_fraction": 0.21455272537598888,
+              "median_rgb_light": 134.0
+            },
+            {
+              "approx_spoke_bounds_deg": [
+                -72,
+                -25
+              ],
+              "pixels": 13727,
+              "blue_green_dark_area_fraction": 0.5771108035258978,
+              "green_dark_area_fraction": 0.015225468055656735,
+              "largest_blue_green_piece_fraction": 0.5771108035258978,
+              "median_rgb_light": 105.0
+            },
+            {
+              "approx_spoke_bounds_deg": [
+                -25,
+                17
+              ],
+              "pixels": 11869,
+              "blue_green_dark_area_fraction": 0.5108265228747156,
+              "green_dark_area_fraction": 0.34240458336843876,
+              "largest_blue_green_piece_fraction": 0.4864773780436431,
+              "median_rgb_light": 102.33333333333333
+            },
+            {
+              "approx_spoke_bounds_deg": [
+                17,
+                68
+              ],
+              "pixels": 15215,
+              "blue_green_dark_area_fraction": 0.41629970423923757,
+              "green_dark_area_fraction": 0.09852119618797239,
+              "largest_blue_green_piece_fraction": 0.4023660860992442,
+              "median_rgb_light": 123.0
+            },
+            {
+              "approx_spoke_bounds_deg": [
+                68,
+                103
+              ],
+              "pixels": 9272,
+              "blue_green_dark_area_fraction": 0.08142795513373598,
+              "green_dark_area_fraction": 0.04411130284728214,
+              "largest_blue_green_piece_fraction": 0.03462036238136324,
+              "median_rgb_light": 153.33333333333334
+            },
+            {
+              "approx_spoke_bounds_deg": [
+                103,
+                144
+              ],
+              "pixels": 11502,
+              "blue_green_dark_area_fraction": 0.2905581637976004,
+              "green_dark_area_fraction": 0.17370892018779344,
+              "largest_blue_green_piece_fraction": 0.2752564771344114,
+              "median_rgb_light": 133.66666666666666
+            },
+            {
+              "approx_spoke_bounds_deg": [
+                144,
+                189
+              ],
+              "pixels": 12980,
+              "blue_green_dark_area_fraction": 0.0884437596302003,
+              "green_dark_area_fraction": 0.007704160246533128,
+              "largest_blue_green_piece_fraction": 0.04815100154083205,
+              "median_rgb_light": 159.0
+            }
+          ]
+        },
+        {
+          "hub_offset_native_xy": [
+            8,
+            -8
+          ],
+          "sectors": [
+            {
+              "approx_spoke_bounds_deg": [
+                -171,
+                -113
+              ],
+              "pixels": 17812,
+              "blue_green_dark_area_fraction": 0.06523691893105771,
+              "green_dark_area_fraction": 0.028070963395463732,
+              "largest_blue_green_piece_fraction": 0.04603637996856052,
+              "median_rgb_light": 158.0
+            },
+            {
+              "approx_spoke_bounds_deg": [
+                -113,
+                -72
+              ],
+              "pixels": 11503,
+              "blue_green_dark_area_fraction": 0.29235851516995565,
+              "green_dark_area_fraction": 0.03251325741111014,
+              "largest_blue_green_piece_fraction": 0.2614100669390594,
+              "median_rgb_light": 137.33333333333334
+            },
+            {
+              "approx_spoke_bounds_deg": [
+                -72,
+                -25
+              ],
+              "pixels": 13727,
+              "blue_green_dark_area_fraction": 0.5901507976979675,
+              "green_dark_area_fraction": 0.023603117942740583,
+              "largest_blue_green_piece_fraction": 0.5901507976979675,
+              "median_rgb_light": 109.33333333333333
+            },
+            {
+              "approx_spoke_bounds_deg": [
+                -25,
+                17
+              ],
+              "pixels": 11869,
+              "blue_green_dark_area_fraction": 0.5249810430533323,
+              "green_dark_area_fraction": 0.3555480663914399,
+              "largest_blue_green_piece_fraction": 0.4655826101609234,
+              "median_rgb_light": 103.0
+            },
+            {
+              "approx_spoke_bounds_deg": [
+                17,
+                68
+              ],
+              "pixels": 15215,
+              "blue_green_dark_area_fraction": 0.4496220834702596,
+              "green_dark_area_fraction": 0.10982582977325009,
+              "largest_blue_green_piece_fraction": 0.44311534669733815,
+              "median_rgb_light": 121.33333333333333
+            },
+            {
+              "approx_spoke_bounds_deg": [
+                68,
+                103
+              ],
+              "pixels": 9272,
+              "blue_green_dark_area_fraction": 0.05748490077653149,
+              "green_dark_area_fraction": 0.020599654874892147,
+              "largest_blue_green_piece_fraction": 0.030629853321829163,
+              "median_rgb_light": 158.0
+            },
+            {
+              "approx_spoke_bounds_deg": [
+                103,
+                144
+              ],
+              "pixels": 11502,
+              "blue_green_dark_area_fraction": 0.24726134585289514,
+              "green_dark_area_fraction": 0.15119109720048687,
+              "largest_blue_green_piece_fraction": 0.22170057381324987,
+              "median_rgb_light": 134.66666666666666
+            },
+            {
+              "approx_spoke_bounds_deg": [
+                144,
+                189
+              ],
+              "pixels": 12980,
+              "blue_green_dark_area_fraction": 0.059399075500770414,
+              "green_dark_area_fraction": 0.005084745762711864,
+              "largest_blue_green_piece_fraction": 0.03859784283513097,
+              "median_rgb_light": 160.33333333333334
+            }
+          ]
+        },
+        {
+          "hub_offset_native_xy": [
+            8,
+            8
+          ],
+          "sectors": [
+            {
+              "approx_spoke_bounds_deg": [
+                -171,
+                -113
+              ],
+              "pixels": 17812,
+              "blue_green_dark_area_fraction": 0.08252863238266338,
+              "green_dark_area_fraction": 0.028913092297327643,
+              "largest_blue_green_piece_fraction": 0.04603637996856052,
+              "median_rgb_light": 157.0
+            },
+            {
+              "approx_spoke_bounds_deg": [
+                -113,
+                -72
+              ],
+              "pixels": 11503,
+              "blue_green_dark_area_fraction": 0.2846214031122316,
+              "green_dark_area_fraction": 0.03181778666434843,
+              "largest_blue_green_piece_fraction": 0.2353299139354951,
+              "median_rgb_light": 139.33333333333334
+            },
+            {
+              "approx_spoke_bounds_deg": [
+                -72,
+                -25
+              ],
+              "pixels": 13727,
+              "blue_green_dark_area_fraction": 0.5406133896699934,
+              "green_dark_area_fraction": 0.01726524368033802,
+              "largest_blue_green_piece_fraction": 0.5406133896699934,
+              "median_rgb_light": 116.33333333333333
+            },
+            {
+              "approx_spoke_bounds_deg": [
+                -25,
+                17
+              ],
+              "pixels": 11869,
+              "blue_green_dark_area_fraction": 0.4826859887100851,
+              "green_dark_area_fraction": 0.36211980790294046,
+              "largest_blue_green_piece_fraction": 0.40820625157974555,
+              "median_rgb_light": 106.0
+            },
+            {
+              "approx_spoke_bounds_deg": [
+                17,
+                68
+              ],
+              "pixels": 15215,
+              "blue_green_dark_area_fraction": 0.4623069339467631,
+              "green_dark_area_fraction": 0.10798554058494907,
+              "largest_blue_green_piece_fraction": 0.45573447255997374,
+              "median_rgb_light": 121.33333333333333
+            },
+            {
+              "approx_spoke_bounds_deg": [
+                68,
+                103
+              ],
+              "pixels": 9272,
+              "blue_green_dark_area_fraction": 0.08045729076790337,
+              "green_dark_area_fraction": 0.043464193270060396,
+              "largest_blue_green_piece_fraction": 0.03462036238136324,
+              "median_rgb_light": 155.0
+            },
+            {
+              "approx_spoke_bounds_deg": [
+                103,
+                144
+              ],
+              "pixels": 11502,
+              "blue_green_dark_area_fraction": 0.28160319944357504,
+              "green_dark_area_fraction": 0.16544948704573118,
+              "largest_blue_green_piece_fraction": 0.24691358024691357,
+              "median_rgb_light": 131.33333333333334
+            },
+            {
+              "approx_spoke_bounds_deg": [
+                144,
+                189
+              ],
+              "pixels": 12980,
+              "blue_green_dark_area_fraction": 0.06710323574730355,
+              "green_dark_area_fraction": 0.0062403697996918335,
+              "largest_blue_green_piece_fraction": 0.03936825885978428,
+              "median_rgb_light": 160.33333333333334
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "reproduction": {
+    "requirements": "Python with Pillow, NumPy, SciPy for image calculations; verified project data for locus metadata.",
+    "command": "Export measure.py and the four indicated geometry objects to files with these names. Run python3 measure.py f69v-native.jpg main_ink.json data/raw radial_alignment.json blind_radial.json ordinary_spacing.json. Re-render native unwrapping with the included polar script. Image blobs are cited by native crop URLs and file hashes.",
+    "secondary_geometry": "The independent ink_polar.py expects its published crop at blind/ink-wheel-native.jpg. radial_geometry.py expects its own published crop at blind/radial-full.jpg.",
+    "scripts": {
+      "measure.py": "import argparse\nfrom math import asin, atan2, cos, degrees, hypot, radians, sin\nfrom pathlib import Path\nfrom statistics import median\nimport json\nimport re\n\nimport numpy as np\nfrom PIL import Image\n\ndef angle(point, center):\n    return degrees(atan2(point[0]-center[0],center[1]-point[1]))\n\ndef span(intervals):\n    left,right=max(a for a,_ in intervals),min(b for _,b in intervals)\n    return [left,right],right-left\n\ndef transform_deg(theta,r,old,new):\n    t=radians(theta)\n    xy=old[0]+r*sin(t),old[1]-r*cos(t)\n    return angle(xy,new)\n\ndef colors(img, targets, center):\n    grid=np.asarray(img.convert('RGB'), dtype=float)\n    results={}\n    for site in targets:\n        a=radians(site['angle'])\n        ctrx,ctry=round(center[0]+sin(a)*site['r']),round(center[1]-cos(a)*site['r'])\n        vals=grid[ctry-24:ctry+25,ctrx-24:ctrx+25]\n        patch=np.mean(vals,axis=(0,1))\n        dominance=(vals[:,:,1]+vals[:,:,2])/2-vals[:,:,0]\n        brightness=vals.mean(axis=2)\n        quantile_xyz=[]\n        for d in (2,8,14):\n            for lum in (120,150,180):\n                quantile_xyz.append({'dominance':d,'mean_rgb_limit':lum,\n                    'fraction':float(np.mean((dominance>d)&(brightness<lum)))})\n        results[site['name']]=dict(centre_local_xy=[ctrx,ctry],mean_rgb=patch.tolist(), thresholds=quantile_xyz)\n    return results\n\ndef main():\n    ap=argparse.ArgumentParser()\n    ap.add_argument('image',type=Path)\n    ap.add_argument('points',type=Path)\n    ap.add_argument('transcriptions',type=Path)\n    ap.add_argument('radial_alignment',type=Path)\n    ap.add_argument('radial_geometry',type=Path)\n    ap.add_argument('ring_spacing',type=Path)\n    args=ap.parse_args()\n    original=json.loads(args.points.read_text())\n    b=original['basis']\n    c,alt=b['center_local_xy'],b['alt_center_local_xy']\n    radii={'outer':1015,'middle':950,'inner':850}\n    gap_results={}\n    for name,gaps in original['manual_gaps_deg'].items():\n        cover,w=span(list(gaps.values()))\n        alt_intervals={k:[transform_deg(t,radii[k],c,alt) for t in ts] for k,ts in gaps.items()}\n        other,uw=span(list(alt_intervals.values()))\n        gap_results[name]=dict(widths={k:b-a for k,(a,b) in gaps.items()},all_three_intersection=cover,\n            intersection_width=w,alternative_center_intervals=alt_intervals,alternative_intersection=other,\n            alternative_intersection_width=uw)\n    timings={}\n    for view,file in (('ZL','ZL3b-n.txt'),('IT','IT2a-n.txt'),('RF','RF1b-e.txt'),('GC','GC2a-n.txt')):\n        lines=re.findall(r'^<(f69v\\.\\d+),[^>]*R[^>]*>[^\\S\\n]*([^\\n]*)',\n                         (args.transcriptions/file).read_text(),flags=re.M)\n        records=[(id_,*m.groups()) for id_,body in lines\n                 if (m:=re.match(r'<!(\\d\\d):(\\d\\d)>',body))]\n        candidates=[(id_,float((int(h)*30+float(m)/2+180)%360-180)) for id_,h,m in records]\n        timings[view]=dict(radial_loci=len(lines),explicit_clock_positions=len(candidates),\n            top_3_clock_positions=sorted(candidates,key=lambda a:abs(a[1]))[:3],\n            origin_1030_1130=[x for x in candidates if -45<=x[1]<=-15],\n            compared_loci={id_:body for id_,body in lines if int(id_.split('.')[1]) in (4,7,8,9,10,11,31)})\n    aligned=json.loads(args.radial_alignment.read_text())\n    geo=json.loads(args.radial_geometry.read_text())\n    labels=[e for e in aligned['loci_after_zl_alignment'] if e['locus'] in\n            {f'f69v.{i}' for i in (8,9,10,11)}]\n    cap_order=sorted(x['bearing_deg'] for x in geo['caps'])\n    cap_gaps=[b-a for a,b in zip(cap_order,cap_order[1:]+[cap_order[0]+360])]\n    near=[]\n    for label in labels:\n        xy=label['native_ink_group_xy']\n        h=geo['radial_hub_native_xy']\n        toler=label['approximately_ink_localization_tolerance_px']+geo['hub_uncertainty_px']\n        estimate=angle(xy,h)\n        delta=degrees(asin(toler/hypot(xy[0]-h[0],xy[1]-h[1])))\n        near.append(dict(locus=label['locus'],azimuth_deg=estimate,\n                         conservative_localization_interval_deg=[estimate-delta,estimate+delta]))\n    neighbors=json.loads(args.ring_spacing.read_text())\n    neighbor_summary={k:dict(count=len(x),median=median(b-a for a,b in x),maximum=max(b-a for a,b in x))\n                      for k,x in neighbors.items() if isinstance(x,list)}\n    out=dict(gaps=gap_results,ordinary_spacing=neighbor_summary,\n             cap_gap_span=[min(cap_gaps),median(cap_gaps),max(cap_gaps)],\n             scanned_near_top_ink=near,\n             pigment=colors(Image.open(args.image),original['central_pigment'],c),radial_clock=timings)\n    print(json.dumps(out,indent=2))\n\nif __name__=='__main__':\n    main()\n",
+      "polar-strip.py": "from math import cos, radians, sin\nfrom pathlib import Path\nimport sys\nfrom PIL import Image, ImageDraw\n\nroot=Path(sys.argv[1])/'blind'\nimg=Image.open(root/'f69v-native.jpg').convert('RGB')\nfor name,(x,y) in [('star',(1075,1119)),('offset',(1063,1107))]:\n    for idx,(start,stop) in enumerate([(-100,50),(50,200),(195,295)]):\n        w=12*(stop-start)+1\n        h=400\n        result=Image.new('RGB',(w,h),(245,240,230))\n        src=img.load()\n        dest=result.load()\n        for px in range(w):\n            a=radians(start+px/12)\n            ux,uy=sin(a),-cos(a)\n            for py in range(h):\n                r=1105-py\n                a1,b1=round(x+ux*r),round(y+uy*r)\n                if 0<=a1<img.width and 0<=b1<img.height:\n                    dest[px,py]=src[a1,b1]\n        draw=ImageDraw.Draw(result,'RGBA')\n        for degree in range(start,stop+1,5):\n            i=(degree-start)*12\n            draw.line((i,0,i,h),fill=(40,95,215,78),width=1)\n            draw.text((i+2,0 if degree%10 else 18),str(degree),fill=(0,30,138,255))\n        for r in range(750,1101,50):\n            j=1105-r\n            draw.line((0,j,w,j),fill=(40,95,215,55),width=1)\n            draw.text((0,j),str(r),fill=(0,30,138,255))\n        result.save(root/f'polar-{name}-{idx}.png')\n",
+      "radial_geometry.py": "\"\"\"Image-only audit of the green caps and top radial ink on the Yale f69v crop.\"\"\"\nfrom pathlib import Path\nfrom PIL import Image\nimport numpy as np\nfrom scipy.ndimage import label, binary_opening, binary_closing, map_coordinates\nfrom math import atan2, degrees, hypot\nfrom hashlib import sha256\nimport json\n\nwork=Path(__file__).resolve().parent\nraw=work/'blind/radial-full.jpg'\nim=np.array(Image.open(raw)).astype(float)\norigin=(750,620)\nhub=(1882.,1746.)\nnative_height,native_width=im.shape[:2]\nr,g,b=im.transpose(2,0,1)\ny,x=np.indices(r.shape)\nx=x+origin[0]\ny=y+origin[1]\ndistance=np.hypot(x-hub[0],y-hub[1])\nmask=(g-r>10)&(g-b>8)&(distance>380)&(distance<590)&(r+g+b<450)\nmask=binary_closing(binary_opening(mask,iterations=2),iterations=4)\nmarks,k=label(mask)\ncomponents=[]\nfor i in range(1,k+1):\n    yy,xx=np.where(marks==i)\n    if len(yy)<=400:\n        continue\n    cx=origin[0]+xx.mean()\n    cy=origin[1]+yy.mean()\n    a=degrees(atan2(cx-hub[0],hub[1]-cy))\n    radius=hypot(cx-hub[0],cy-hub[1])\n    components.append(dict(bearing_deg=round(a,3),radius_px=round(radius,2),\n                           center_xy=[round(cx,2),round(cy,2)],pixels=len(yy)))\n# An isolated green mark on a bar farther inward and within four degrees\n# of its cap is not a second cap. Confirm these two near-coincident pairs on\n# the raw scan; very small isolated green marks account for no extra heads.\nincluded=[]\nexcluded=[]\nfor q in sorted(components,key=lambda q:-q['radius_px']):\n    other=next((p for p in included if abs(q['bearing_deg']-p['bearing_deg'])<4),None)\n    if other is not None:\n        excluded.append(dict(component=q,head_bearing=other['bearing_deg']))\n        continue\n    included.append(q)\nincluded.sort(key=lambda q:q['bearing_deg'])\nfor i,q in enumerate(included):\n    q['cw_rank_from_top_left']=((i-12)%len(included))+1\nassert len(included)==28\nink=[]\n# Delineate the visible top four word groups on a rectified view: radius\n# outwards along x, clockwise tangent along y relative to each axis.\n# Rows and boxes chosen from the image, without using any transliteration.\nfor axis,bbox in [(-18,(515,-19,734,36)),(-6,(599,-23,742,36)),\n                  (5,(518,-35,720,39)),(16,(608,-29,748,39))]:\n    theta=np.radians(axis)\n    lo_u,lo_v,hi_u,hi_v=bbox\n    uu=np.arange(lo_u,hi_u)[None,:]\n    vv=np.arange(lo_v,hi_v)[:,None]\n    x=hub[0]+uu*np.sin(theta)+vv*np.cos(theta)\n    y=hub[1]-uu*np.cos(theta)+vv*np.sin(theta)\n    rgb=np.stack([map_coordinates(im[:,:,j],(y-origin[1],x-origin[0]),order=1,cval=240)\n                  for j in range(3)],axis=2)\n    nr,ng,nb=rgb.transpose(2,0,1)\n    keep=((nr+ng+nb)/3<175)&(nr-nb>18)&(nr>=ng)\n    cx=float(np.median(x[keep]))\n    cy=float(np.median(y[keep]))\n    ink.append(dict(axis_deg=axis,local_roi_uv=list(bbox),ink_median_xy=[round(cx,1),round(cy,1)],\n                    approximate_ink_bearing_deg=round(degrees(atan2(cx-hub[0],hub[1]-cy)),2),\n                    pixels=int(keep.sum())))\nout=dict(\n    canvas=\"https://collections.library.yale.edu/manifests/oid/2002046/canvas/1006199\",\n    source=\"https://collections.library.yale.edu/iiif/2/1006199/750,620,2220,2210/full/0/default.jpg\",\n    raw_sha256=sha256(raw.read_bytes()).hexdigest(),native_crop_xywh=[*origin,native_width,native_height],\n    wheel_panel_approx_bounds_native_xyxy=[620,130,3040,3730],\n    drawing_ink_approx_bounds_native_xyxy=[850,680,2940,2750],\n    radial_hub_native_xy=list(hub),hub_uncertainty_px=8,\n    bearing_definition='degrees clockwise from scan up; x right, y down, angles wrapped [−180,180)',\n    caps=included,excluded_inner_green_fragments=excluded,\n    ink_top_four=ink,ink_group_uncertainty_px=15,\n    approximate_cream_spoke_bearings_deg=[-171,-113,-72,-25,17,68,103,144],\n    cream_spoke_count=8,cream_spoke_caveat=\"Approximate hand tracing from 50–250 px polar unwrap; outlines fade and spokes have finite width.\",\n    upper_sector=\"The contiguous blue-green section is between the roughly −25 and +17 degree cream spokes. Other sectors show blue blotches and small star figures, and some paint losses make intensity variable.\",\n    radial_text_local_direction=\"Inward. With the outside alphabetic end at the left and the interior bar end at the right, upright tall glyphs occur at the top of the rectified writing lines. Opposite orientation places the tall glyphs below. A radial baseline has no tangential writing vector; global order through the strips is a separate question.\",\n    provenance=\"Source image inspected without looking up any transliteration, prior PR, or list during this measurement.\",\n)\n(work/'radial_blind_geometry.json').write_text(json.dumps(out,indent=2,ensure_ascii=False)+'\\n')\n",
+      "ink_polar.py": "import math\nfrom pathlib import Path\nimport numpy as np\nfrom scipy.ndimage import map_coordinates\nfrom PIL import Image, ImageDraw\n\nPATH = Path(__file__).resolve().parent\nFILE = PATH / 'blind/ink-wheel-native.jpg'\nCROP_OFFSET = (750, 590)\nCENTER = (1128, 1150)\nRGB = np.array(Image.open(FILE).convert('RGB'))\n\ndef polar(amin, amax, inner, outer, step=0.1):\n    theta = np.arange(amin, amax, step)\n    t = np.radians(theta)\n    r = np.arange(outer,inner,-1)\n    x = CENTER[0] + r[:, None] * np.sin(t)\n    y = CENTER[1] - r[:, None] * np.cos(t)\n    arr = np.stack([map_coordinates(RGB[:, :, channel], [y,x], order=1)\n                    for channel in range(3)],axis=2)\n    return theta,r,arr\n\ndef plot(amin, amax, inner, outer, prefix, step=.1):\n    a,r,rgb = polar(amin,amax,inner,outer,step)\n    img = Image.new('RGB', (len(a),len(r)+28), 'white')\n    img.paste(Image.fromarray(rgb),(0,28))\n    d = ImageDraw.Draw(img)\n    for t in range(amin,amax,5 if amax-amin<=180 else 15):\n        x = int(round((t-amin)/step))\n        d.text((x+2,3),str(t),fill='black')\n        d.line((x,19,x,28),fill='black')\n    img.save(PATH / f'{prefix}.jpg',quality=96)\n\nif __name__ == '__main__':\n    plot(-60,60,730,1120,'ink-north-rings')\n    plot(-180,180,55,265,'ink-star-polar',.25)\n    for amin in range(-180,180,90):\n        plot(amin,amin+90,700,1130,f'ink-ring-{amin:+d}')\n",
+      "radial_sector_check.py": "\"\"\"Reproducible approximate chroma check of inner sectors of f69v.\"\"\"\nfrom pathlib import Path\nfrom PIL import Image\nfrom scipy.ndimage import label\nimport numpy as np\nimport json\n\np=Path(__file__).resolve().parent\naux=json.loads((p/'radial_blind_geometry.json').read_text())\ncrop=aux['native_crop_xywh']\ncx,cy=aux['radial_hub_native_xy']\nspokes=aux['approximate_cream_spoke_bearings_deg']\nspokes.append(spokes[0]+360)\nrect=(int(cx)-255,int(cy)-255,int(cx)+256,int(cy)+256)\nim=np.array(Image.open(p/'blind/radial-full.jpg').crop(tuple(a-crop[i%2] for i,a in enumerate(rect)))).astype(float)\nR,G,B=im.transpose(2,0,1)\ny,x=np.indices(R.shape)\nlight=(R+G+B)/3\npigment=(np.maximum(G,B)-R>8)&(light<175)\ngreen=(G-R>6)&(G-B>3)&(light<175)\nresults=[]\nfor dx,dy in [(0,0),(-8,-8),(-8,8),(8,-8),(8,8)]:\n    rx=x+rect[0]-cx-dx\n    ry=y+rect[1]-cy-dy\n    rad=np.hypot(rx,ry)\n    theta=np.degrees(np.arctan2(rx,-ry))\n    theta=np.where(theta<spokes[0],theta+360,theta)\n    sectors=[]\n    for a,b in zip(spokes,spokes[1:]):\n        m=(theta>a+5)&(theta<b-5)&(rad>90)&(rad<225)\n        g,n=label(pigment&m)\n        largest=np.bincount(g[g!=0],minlength=2).max()/m.sum()\n        sectors.append(dict(approx_spoke_bounds_deg=[a,b],pixels=int(m.sum()),\n                             blue_green_dark_area_fraction=float(pigment[m].mean()),\n                             green_dark_area_fraction=float(green[m].mean()),\n                             largest_blue_green_piece_fraction=float(largest),\n                             median_rgb_light=float(np.median(light[m]))))\n    results.append(dict(hub_offset_native_xy=[dx,dy],sectors=sectors))\nout=dict(\n    analysis=\"Approximate RGB proxy applied only to the central sector annulus and trimmed visual spoke angles. This measures visible chroma and darkness, not paint chemistry or originality.\",\n    raw_source=aux['source'],spoke_angle_edge_trim_deg=5,radial_range_native_px=[90,225],\n    proxy_any_blue_green_dark=\"max(G,B)−R > 8 and RGB-average below 175\",\n    proxy_green_dark=\"G−R > 6 and G−B > 3 and RGB-average below 175\",\n    results=results,\n)\n(p/'radial_sector_chroma.json').write_text(json.dumps(out,indent=2,ensure_ascii=False)+'\\n')\n"
+    }
+  }
+}
