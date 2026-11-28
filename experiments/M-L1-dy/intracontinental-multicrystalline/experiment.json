@@ -1,0 +1,10 @@
+{
+  "step": "M-L1-dy",
+  "handle": "intracontinental-multicrystalline",
+  "kind": "segmentation",
+  "summary": "Treat dy as a unit: practice beats eva-basic but loses to raw EVA, so the result does not support merging dy over raw characters.",
+  "units": [
+    "dy"
+  ],
+  "lease": "d74746810902720d0f168217"
+}
