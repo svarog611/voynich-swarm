@@ -69,23 +69,33 @@ class ControlUnavailable(ValueError):
 def calibrate_cell(lang, family):
     """Measure clean and noisy controls with the same search budget used on the grid."""
     kind = CONTROL_FOR[family]
-    results = {}
+    results, recovery = {}, {}
     for noise in (0.0, controls.NOISE):
         try:
             train, evaluation, planted = controls.make(lang, kind, noise=noise)
         except (ValueError, IndexError) as ex:
             raise ControlUnavailable(str(ex)) from ex
         fitted = search.search_cell(lang, family, train, tag="control")
+        if family == "letter-words":
+            from .control_recovery import letter_words_recovery
+            if noise == 0.0:
+                clean_pages = train, evaluation
+            recovery["clean" if noise == 0.0 else "noisy"] = letter_words_recovery(
+                planted["key"], fitted["key"], clean_pages, (train, evaluation)
+            )
         results[noise] = (_short(judge.evaluate(planted, train, evaluation, "control")),
                           _short(judge.evaluate(fitted, train, evaluation, "control")),
                           sum(len(line.words) for page in evaluation for line in page.lines))
     clean_true, clean_search, tokens = results[0.0]
     noisy_true, noisy_search, _ = results[controls.NOISE]
-    return {"language": lang, "family": family, "control": kind, "control_tokens": tokens,
+    row = {"language": lang, "family": family, "control": kind, "control_tokens": tokens,
             "true_key": clean_true, "true_key_passes": clean_true["passes_without_anchors"],
             "search_key": clean_search, "search_cracks_control_clean": clean_search["passes_without_anchors"],
             "noise": controls.NOISE, "true_key_passes_noisy": noisy_true["passes_without_anchors"],
             "search_cracks_control": noisy_search["passes_without_anchors"]}
+    if recovery:
+        row["letter_words_recovery"] = recovery
+    return row
 
 
 def run(split, log=print, parts=("controls", "redteam")):
