@@ -1,0 +1,181 @@
+{
+  "title": "Measure fixed-slot power with independently generated planted books",
+  "statement": "On twelve preselected public training folios, the fixed-edge, length-and-o-count null has far fewer swaps that actually move an o pattern than raw movable-word counts suggest. ZL has 379 o-pattern-movable slots out of 1036 in eligible groups and 246 of 773 candidate pairs change a pattern; IT has 383/1008 slots and 253/755 pairs. Line-inventory permutation p=.01 in both witnesses, but fixed-slot p=.19 and .07, respectively (99 draws). Twenty conditional null resamples at 39 permutations reject at .05 in 1/20 and 4/20, respectively; these tiny correlated-witness simulations have broad uncertainty and are not a calibration guarantee. A deliberately score-directed swap planting trial accepted 13/100 and 18/100 proposals and produced p=.49 and .23, respectively. This trial reuses observed inventories and is not an independent power estimate.",
+  "program": "L2",
+  "hard": true,
+  "on_path": true,
+  "check": "Build independently generated books with fixed line lengths, edge words and per-word o counts; predeclare mechanism and effect sizes before evaluating both nulls. Estimate rejection rates with enough replicates and report Monte Carlo intervals. Audit the effect of shared line eligibility and paragraph-flag harmonization, and evaluate r lag20 separately.",
+  "method": "Use runtime c9bb62893fd6677a6fd4b267d10df4bac2322968, pinned public practice-training pages, and the 12 lexicographically first shared ZL/IT folios selected before measuring. Common eligible line IDs and edition-native flags determine paragraph runs. Slot groups preserve line, edges, raw word length and o count. A slot is movable only if its group contains two distinct vectors of within-word o positions; enumerate all unordered swaps that change that vector. Null samples permute whole words within groups. The test scores greater mean gap correlation across lags 1\u20135. Planting starts with an independent within-group shuffle and greedily accepts score-increasing randomly proposed valid swaps; it is an intentionally adversarial sensitivity probe, not an independent generative model. Seeds and outputs appear below.",
+  "limitations": "The training folios cluster in the recipe section; results do not generalize to the whole manuscript or unseen pages. ZL and IT share text and are not independent witnesses. Only 20 conditional simulations and 39 permutations each cannot establish calibration; the 4/20 IT rejection count merits further investigation. The greedy planting uses the test statistic and the observed stock, so neither power nor biological or linguistic meaning follows. RF, independent generative plantings, and paragraph-flag reconciliation remain open.",
+  "results": {
+    "selection": {
+      "method": "first 12 lexicographically sorted practice-training folios shared by ZL and IT, fixed before examining outcomes",
+      "folios": [
+        "f100r",
+        "f100v",
+        "f101r",
+        "f101v",
+        "f102r1",
+        "f102r2",
+        "f102v2",
+        "f103r",
+        "f103v",
+        "f104r",
+        "f104v",
+        "f105r"
+      ],
+      "shared_line_ids": 272
+    },
+    "zl": {
+      "words": 2750,
+      "runs": 90,
+      "groups": 447,
+      "slots_in_groups": 1036,
+      "o_pattern_movable_slots": 379,
+      "o_pattern_changing_pairs": 246,
+      "eligible_pairs": 773,
+      "coefficient": -0.031875922053353614,
+      "line_inventory": {
+        "p": 0.01,
+        "mean": -0.05244954681289709,
+        "excess": 0.020573624759543475,
+        "defined": 99,
+        "seed": 260118,
+        "permutations": 99
+      },
+      "fixed_edge_length_o_count": {
+        "p": 0.19,
+        "mean": -0.03263482691774659,
+        "excess": 0.0007589048643929786,
+        "defined": 99,
+        "seed": 260118,
+        "permutations": 99
+      },
+      "conditional_null_20_books": {
+        "p_values": [
+          0.6,
+          0.175,
+          0.825,
+          0.25,
+          0.3,
+          0.6,
+          0.525,
+          0.475,
+          1.0,
+          0.75,
+          0.975,
+          0.375,
+          0.025,
+          0.225,
+          0.65,
+          0.275,
+          0.85,
+          0.2,
+          0.975,
+          0.9
+        ],
+        "reject_at_0.05": 1,
+        "draws_per_book": 39,
+        "note": "conditional exchangeability check only; no planted effects"
+      }
+    },
+    "it": {
+      "words": 2677,
+      "runs": 93,
+      "groups": 433,
+      "slots_in_groups": 1008,
+      "o_pattern_movable_slots": 383,
+      "o_pattern_changing_pairs": 253,
+      "eligible_pairs": 755,
+      "coefficient": -0.026281798485704593,
+      "line_inventory": {
+        "p": 0.01,
+        "mean": -0.04955128929333669,
+        "excess": 0.023269490807632093,
+        "defined": 99,
+        "seed": 260118,
+        "permutations": 99
+      },
+      "fixed_edge_length_o_count": {
+        "p": 0.07,
+        "mean": -0.027485110525304373,
+        "excess": 0.0012033120395997798,
+        "defined": 99,
+        "seed": 260118,
+        "permutations": 99
+      },
+      "conditional_null_20_books": {
+        "p_values": [
+          0.05,
+          0.225,
+          0.125,
+          0.05,
+          0.175,
+          0.025,
+          0.1,
+          0.475,
+          0.55,
+          1.0,
+          0.5,
+          0.3,
+          0.025,
+          0.9,
+          0.875,
+          0.325,
+          0.075,
+          0.375,
+          0.175,
+          0.7
+        ],
+        "reject_at_0.05": 4,
+        "draws_per_book": 39,
+        "note": "conditional exchangeability check only; no planted effects"
+      }
+    }
+  },
+  "planting": [
+    {
+      "edition": "zl",
+      "seed": 90214,
+      "baseline": -0.033151832020430545,
+      "after": -0.032543548186526064,
+      "accepted": 13,
+      "null": {
+        "p": 0.49,
+        "mean": -0.032634156034061106,
+        "excess": 9.060784753504164e-05,
+        "defined": 99,
+        "seed": 90115,
+        "permutations": 99
+      }
+    },
+    {
+      "edition": "it",
+      "seed": 90214,
+      "baseline": -0.027807031730563307,
+      "after": -0.02689015791730331,
+      "accepted": 18,
+      "null": {
+        "p": 0.23,
+        "mean": -0.027499431988492938,
+        "excess": 0.000609274071189627,
+        "defined": 99,
+        "seed": 90115,
+        "permutations": 99
+      }
+    }
+  ],
+  "reproduce": {
+    "runtime": "c9bb62893fd6677a6fd4b267d10df4bac2322968",
+    "setup": "Use verified data/raw pins. Extract scripts to one directory; put project root and script directory on PYTHONPATH.",
+    "commands": [
+      "python3 gap_followup.py",
+      "python3 gap_plant.py"
+    ],
+    "scripts": {
+      "decompose.py": "\"\"\"Public comparison on fixed line eligibility sets and intact-word nulls.\"\"\"\nfrom collections import Counter\nfrom dataclasses import replace\nfrom hashlib import sha256\nimport json\nfrom math import sqrt\nfrom pathlib import Path\nfrom random import Random\nfrom statistics import mean\nimport sys\n\nfrom vs import corpus, dsl, gaps\n\nED = ('zl', 'it', 'rf')\nLAGS = tuple(range(1, 6))\nNU = 400\n\ndef scenario(pages, ids):\n    # Keep a physical placeholder for excluded P lines, so they still\n    # separate paragraph runs in the project statistic.\n    return [replace(p, lines=[ln if ln.id in ids or ln.unit!='P' or not ln.words\n                              else replace(ln, words=['?']*len(ln.words)) for ln in p.lines]) for p in pages]\n\ndef line_sets(pages):\n    groups={}\n    for edit,ps in pages.items():\n        groups[edit]=gaps.eligible_line_ids(ps)\n    return groups\n\ndef v1_correlation(runs):\n    cache={}\n    for run in runs:\n        offset=0\n        h=[]\n        for w in run:\n            positions=cache.get(w)\n            if positions is None:\n                positions=tuple(i for i,c in enumerate(w) if c=='o')\n                cache[w]=positions\n            h.extend(offset+i for i in positions)\n            offset+=len(w)+1\n        if len(h)<4:\n            continue\n        n=len(h)-1\n        total=h[-1]-h[0]\n        yield [n*(b-a)-total for a,b in zip(h,h[1:])],n*n\n\ndef score(words, geometry):\n    corr=[]\n    centered=list(v1_correlation([words[i] for i in indexes] for indexes in geometry))\n    for k in LAGS:\n        xx=yy=xy=count=0\n        for vals,divisor in centered:\n            if len(vals)<=k+1:\n                continue\n            u,v=vals[:-k],vals[k:]\n            count+=len(u)\n            xx+=sum(a*a for a in u)/divisor\n            yy+=sum(b*b for b in v)/divisor\n            xy+=sum(a*b for a,b in zip(u,v))/divisor\n        if count<25 or not(xx and yy):\n            return None\n        corr.append(xy/sqrt(xx*yy))\n    return mean(corr)\n\ndef null_test(words,geometry,groups,n=NU, seed=408):\n    baseline=score(words,geometry)\n    assert baseline is not None\n    rng=Random(seed)\n    extreme=0\n    vals=[]\n    for _ in range(n):\n        perm=words[:]\n        for ii in groups:\n            row=[words[i] for i in ii]\n            rng.shuffle(row)\n            for i,w in zip(ii,row):\n                perm[i]=w\n        value=score(perm,geometry)\n        if value is not None:\n            vals.append(value)\n        extreme+=value is None or value>=baseline-1e-14\n    return dict(p=(1+extreme)/(n+1),mean=mean(vals),excess=baseline-mean(vals),\n                defined=len(vals),seed=seed,permutations=n)\n\ndef evaluate(ps, ids, seeds):\n    toks=dsl.tokens(scenario(ps,ids))\n    words=[x['w'] for x in toks]\n    geometry=dsl._paragraph_gap_groups(toks)\n    within=dsl._paragraph_gap_groups(toks, by_line=True)\n    actual=score(words,geometry)\n    exact, by_lag=dsl._paragraph_gap_value(toks,'o')\n    assert abs(actual-exact)<1e-12\n    assert len(within)==len(ids)\n    legacy=gaps.paragraph_runs(ps,ids)\n    assert legacy==[[words[i] for i in run] for run in geometry]\n    eligible_words=sum(map(len,geometry))\n    result=dict(lines=len(ids),runs=len(geometry),words=eligible_words,\n                coefficient=actual,support=by_lag)\n    for para,group in [('paragraph',geometry),('line',within)]:\n        result[para]={s:null_test(words,geometry,group,seed=s) for s in seeds}\n    return result\n\ndef main():\n    root=Path(sys.argv[1])\n    ps={n:corpus.split_pages('practice',n)[1] for n in ED}\n    ids=line_sets(ps)\n    two=ids['zl']&ids['it']\n    all_three=two&ids['rf']\n    result=dict(input_sha256={n:sha256((root/corpus.TRANSLITERATIONS[n]).read_bytes()).hexdigest() for n in ED},\n                selection={},native={},matched_zl_it={},matched_three={},transfer_masks={})\n    eligible_page_ids={n:{ln.id:p.id for p in pgs for ln in p.lines if ln.id in ids[n]} for n,pgs in ps.items()}\n    result['selection']={n:dict(native_lines=len(ids[n]),by_page=Counter(eligible_page_ids[n].values()),\n                absent_from_zl_it=len(ids[n]-two),absent_from_three=len(ids[n]-all_three)) for n in ED}\n    for n in ED:\n        result['native'][n]=evaluate(ps[n], ids[n], (408,19026011,28027))\n        if n in ('zl','it'):\n            result['matched_zl_it'][n]=evaluate(ps[n], two, (408,19026011,28027))\n        result['matched_three'][n]=evaluate(ps[n], all_three, (408,))\n    for n,target in [('zl','it'),('it','zl')]:\n        # Endpoints of mask-transfer are explicitly reported; same intersection\n        # by definition, and original weights/row boundaries are preserved.\n        before=result['native'][n]\n        after=result['matched_zl_it'][n]\n        dropped=ids[n]-ids[target]\n        lookup=eligible_page_ids[n]\n        result['transfer_masks'][n]=dict(\n            dropped_folios=Counter(lookup[i] for i in dropped),dropped_line_ids=sorted(dropped),\n            coefficient_difference=after['coefficient']-before['coefficient'])\n    print(json.dumps(result,indent=2))\n\nif __name__=='__main__':\n    main()\n",
+      "gap_followup.py": "from collections import defaultdict\nfrom statistics import mean\nfrom random import Random\nimport json\nfrom vs import corpus,dsl,gaps\nfrom decompose import scenario,score,null_test\ndef groups(rows,tokens,stride):\n out=[]\n for row in rows:\n  bins=defaultdict(list)\n  for i in row[1:-1]:\n   w=tokens[i]['w'];bins[(len(w),w.count('o'))].append(i)\n  out.extend(x for x in bins.values() if len(x)>=2)\n return out\n\nps={e:corpus.split_pages('practice',e)[0] for e in ('zl','it')}\nfolios=sorted({p.id for p in ps['zl']} & {p.id for p in ps['it']})[:12]\nps={e:[p for p in x if p.id in folios] for e,x in ps.items()}\nids={e:gaps.eligible_line_ids(x) for e,x in ps.items()}\nshared=ids['zl'] & ids['it']\nout={'selection':{'method':'first 12 lexicographically sorted practice-training folios shared by ZL and IT, fixed before examining outcomes','folios':folios,'shared_line_ids':len(shared)}}\nfor e in ps:\n ts=dsl.tokens(scenario(ps[e],shared)); words=[x['w'] for x in ts]\n geometry=dsl._paragraph_gap_groups(ts); rows=dsl._paragraph_gap_groups(ts,by_line=True)\n gg=groups(rows,ts,'length_and_o_count')\n movers=sum(len(g) for g in gg if len({tuple(i for i,c in enumerate(words[x]) if c=='o') for x in g})>1)\n pairs=sum(1 for g in gg for j in range(len(g)) for k in range(j+1,len(g)) if tuple(i for i,c in enumerate(words[g[j]]) if c=='o') != tuple(i for i,c in enumerate(words[g[k]]) if c=='o'))\n total=sum(len(g)*(len(g)-1)//2 for g in gg)\n result={'words':sum(map(len,geometry)),'runs':len(geometry),'groups':len(gg),'slots_in_groups':sum(map(len,gg)),'o_pattern_movable_slots':movers,'o_pattern_changing_pairs':pairs,'eligible_pairs':total,'coefficient':score(words,geometry)}\n for name,g in [('line_inventory',rows),('fixed_edge_length_o_count',gg)]:\n  result[name]=null_test(words,geometry,g,n=99,seed=260118)\n # conditional-null synthetic controls: each independently generated null book is a group-wise permutation of original,\n # evaluated with 39 fresh permutations.  Counts are low-resolution exploratory calibration, not proof of size.\n rng=Random(80624); outcomes=[]\n for b in range(20):\n  sample=words[:]\n  for group in gg:\n   vals=[words[i] for i in group];rng.shuffle(vals)\n   for i,w in zip(group,vals):sample[i]=w\n  outcomes.append(null_test(sample,geometry,gg,n=39,seed=8000+b)['p'])\n result['conditional_null_20_books']={'p_values':outcomes,'reject_at_0.05':sum(p<=.05 for p in outcomes),'draws_per_book':39,'note':'conditional exchangeability check only; no planted effects'}\n out[e]=result\nprint(json.dumps(out,indent=2))\n",
+      "gap_plant.py": "exec(open('gap_followup.py').read().split(\"out={'selection'\")[0])\nfor e in ps:\n ts=dsl.tokens(scenario(ps[e],shared)); words=[x['w'] for x in ts]\n geometry=dsl._paragraph_gap_groups(ts); rows=dsl._paragraph_gap_groups(ts,by_line=True); gg=groups(rows,ts,'length_and_o_count')\n rr=Random(90214); base=words[:]\n for group in gg:\n  v=[base[i] for i in group];rr.shuffle(v)\n  for i,w in zip(group,v):base[i]=w\n base_score=score(base,geometry); start=base_score; accepted=0\n for _ in range(100):\n  group=rr.choice(gg); i,j=rr.sample(group,2)\n  base[i],base[j]=base[j],base[i]; new=score(base,geometry)\n  if new>base_score:base_score=new;accepted+=1\n  else:base[i],base[j]=base[j],base[i]\n print(json.dumps({'edition':e,'seed':90214,'baseline':start,'after':base_score,'accepted':accepted,'null':null_test(base,geometry,gg,n=99,seed=90115)}),flush=True)\n"
+    }
+  }
+}
