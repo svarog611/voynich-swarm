@@ -1,0 +1,400 @@
+{
+  "program": "J",
+  "title": "Figure 6 and rounded-input bounds identify the four-leaf treatment selection",
+  "statement": "Among four-distinct-leaf sets, only the solvent-extracted f68 determination can produce the report’s 516 ± 18 BP even when every printed age and standard deviation is allowed half a unit of rounding error. The original Figure 6 lists the same four extracted samples. In the 2012 photographed slide, the 488 ± 35 BP f68 determination is explicitly labeled uncleaned. The slide displays both treatments.",
+  "check": "Preserve the Figure 6 and Table 2 row correspondence as the reproducible reading. Resolve the exclusion sentence as an author correction only if an erratum, dated original calibration input, or an explicit author statement is located.",
+  "on_path": false,
+  "hard": false,
+  "sources": [
+    {
+      "title": "Greg Hodgins's laboratory report, 17 February 2009",
+      "url": "https://voynich.nu/papers/Carbon_GH_2009.pdf",
+      "sha256": "7a84d9582bcf5de74667742601a1e526c8a43c62a90688305de6b681493c5f45",
+      "reading": "Page 1 gives the treatment rationale. Page 3 describes four Soxhlet-treated samples and separately says the solvent-treated f68 row was excluded. Figure 4 gives 550 ± 35 and Figure 5 gives the untreated 488 ± 35. Figure 6 enumerates 490 ± 37, 514 ± 35, 506 ± 35 and 550 ± 35. Figure 7 gives the combined 516 ± 18. Table 2 supplies the five measurements, two with the same accession and leaf."
+    },
+    {
+      "title": "Rich SantaColoma photograph of the Hodgins presentation, 11 May 2012",
+      "url": "https://proto57.wordpress.com/2021/05/14/the-long-awaited-voynich-radiocarbon-report/",
+      "image": "https://proto57.wordpress.com/wp-content/uploads/2021/05/hodgins_c14_chart.jpg",
+      "programme": "https://voynich.nu/mon2012/mon04.html",
+      "image_sha256": "08b8457058febbe93b17dfbab879f43676587377cdd808fbef7639123a357f20",
+      "reading": "Five rows. The f68 uncleaned value is 488 ± 35 BP with treated mass 2.18 mg, and the other f68 row is 550 ± 35 BP with mass 3.23 mg. The image does not list Fraction Modern or say which subset was averaged."
+    },
+    {
+      "title": "Nick Pelling's contemporaneous conference account",
+      "url": "https://ciphermysteries.com/2012/05/21/voynich-radiocarbon-dating-part-one",
+      "reading": "The four input fractions shown include 0.9338 ± 0.0041 for f68, matching the extracted row."
+    },
+    {
+      "title": "René Zandbergen's account of the conference",
+      "url": "https://voynich.nu/extra/carbon.html",
+      "reading": "Table 2 likewise includes 0.9338 ± 0.0041 for f68 among the four treated observations."
+    }
+  ],
+  "evidence": {
+    "prior": [
+      584,
+      588
+    ],
+    "calculation": {
+      "input_rows": [
+        {
+          "key": "f8",
+          "leaf": 8,
+          "accession": "AA84050",
+          "age": 490,
+          "std": 37,
+          "extracted": true,
+          "fraction_modern": ".9409",
+          "fraction_sd": ".0044"
+        },
+        {
+          "key": "f26",
+          "leaf": 26,
+          "accession": "AA84049",
+          "age": 514,
+          "std": 35,
+          "extracted": true,
+          "fraction_modern": ".9380",
+          "fraction_sd": ".0041"
+        },
+        {
+          "key": "f47",
+          "leaf": 47,
+          "accession": "AA84048",
+          "age": 506,
+          "std": 35,
+          "extracted": true,
+          "fraction_modern": ".9389",
+          "fraction_sd": ".0041"
+        },
+        {
+          "key": "f68_extracted",
+          "leaf": 68,
+          "accession": "AA84047",
+          "age": 550,
+          "std": 35,
+          "extracted": true,
+          "fraction_modern": ".9338",
+          "fraction_sd": ".0041"
+        },
+        {
+          "key": "f68_unextracted",
+          "leaf": 68,
+          "accession": "AA84047",
+          "age": 488,
+          "std": 35,
+          "extracted": false,
+          "fraction_modern": ".9410",
+          "fraction_sd": ".0041"
+        }
+      ],
+      "four_row_sets": [
+        {
+          "included": [
+            "f8",
+            "f26",
+            "f47",
+            "f68_extracted"
+          ],
+          "omitted": [
+            "f68_unextracted"
+          ],
+          "n_physical_leaves": 4,
+          "mean": 515.6751687921981,
+          "exact_mean": "687395/1333",
+          "variance_exact": "1677025/5332",
+          "standard_error": 17.734734779647148,
+          "rounded_bp": [
+            516,
+            18
+          ],
+          "Q": 1.5220270373715878,
+          "exact_Q": "2485356/1632925",
+          "nominal_gaussian_independent_common_age_tail": 0.6771959123113814,
+          "input_rounding_sensitivity": {
+            "mean": [
+              514.6877621011695,
+              516.6767281037856
+            ],
+            "mean_exact": [
+              "26531780473/51549274",
+              "3040271571/5884282"
+            ],
+            "standard_error": [
+              17.484524885408778,
+              17.984939058667056
+            ]
+          }
+        },
+        {
+          "included": [
+            "f8",
+            "f26",
+            "f47",
+            "f68_unextracted"
+          ],
+          "omitted": [
+            "f68_extracted"
+          ],
+          "n_physical_leaves": 4,
+          "mean": 499.75656414103526,
+          "exact_mean": "1332351/2666",
+          "variance_exact": "1677025/5332",
+          "standard_error": 17.734734779647148,
+          "rounded_bp": [
+            500,
+            18
+          ],
+          "Q": 0.379796377665845,
+          "exact_Q": "88597/233275",
+          "nominal_gaussian_independent_common_age_tail": 0.9443837293570649,
+          "input_rounding_sensitivity": {
+            "mean": [
+              498.95932064455604,
+              500.55342710098927
+            ],
+            "mean_exact": [
+              "12674368572/25401607",
+              "1494597973/2985891"
+            ],
+            "standard_error": [
+              17.484524885408778,
+              17.984939058667056
+            ]
+          }
+        },
+        {
+          "included": [
+            "f8",
+            "f26",
+            "f68_extracted",
+            "f68_unextracted"
+          ],
+          "omitted": [
+            "f47"
+          ],
+          "n_physical_leaves": 3,
+          "mean": 511.0536384096024,
+          "exact_mean": "1362469/2666",
+          "variance_exact": "1677025/5332",
+          "standard_error": 17.734734779647148,
+          "rounded_bp": [
+            511,
+            18
+          ],
+          "Q": 2.0029401227857986,
+          "exact_Q": "3270651/1632925",
+          "nominal_gaussian_independent_common_age_tail": null,
+          "input_rounding_sensitivity": {
+            "mean": [
+              509.94622627615644,
+              512.1603059187358
+            ],
+            "mean_exact": [
+              "12953453631/25401607",
+              "509751616/995297"
+            ],
+            "standard_error": [
+              17.484524885408778,
+              17.984939058667056
+            ]
+          }
+        },
+        {
+          "included": [
+            "f8",
+            "f47",
+            "f68_extracted",
+            "f68_unextracted"
+          ],
+          "omitted": [
+            "f26"
+          ],
+          "n_physical_leaves": 3,
+          "mean": 508.99962490622653,
+          "exact_mean": "1356993/2666",
+          "variance_exact": "1677025/5332",
+          "standard_error": 17.734734779647148,
+          "rounded_bp": [
+            509,
+            18
+          ],
+          "Q": 2.003287964848355,
+          "exact_Q": "467317/233275",
+          "nominal_gaussian_independent_common_age_tail": null,
+          "input_rounding_sensitivity": {
+            "mean": [
+              507.91316898080856,
+              510.1027527232719
+            ],
+            "mean_exact": [
+              "13091277558/25774637",
+              "1500794223/2942141"
+            ],
+            "standard_error": [
+              17.484524885408778,
+              17.984939058667056
+            ]
+          }
+        },
+        {
+          "included": [
+            "f26",
+            "f47",
+            "f68_extracted",
+            "f68_unextracted"
+          ],
+          "omitted": [
+            "f8"
+          ],
+          "n_physical_leaves": 3,
+          "mean": 514.5,
+          "exact_mean": "1029/2",
+          "variance_exact": "1225/4",
+          "standard_error": 17.5,
+          "rounded_bp": [
+            515,
+            18
+          ],
+          "Q": 1.6612244897959183,
+          "exact_Q": "407/245",
+          "nominal_gaussian_independent_common_age_tail": null,
+          "input_rounding_sensitivity": {
+            "mean": [
+              513.5001005833836,
+              515.5143862554337
+            ],
+            "mean_exact": [
+              "2552609/4971",
+              "2490450/4831"
+            ],
+            "standard_error": [
+              17.25,
+              17.75
+            ]
+          }
+        }
+      ],
+      "three": {
+        "included": [
+          "f8",
+          "f26",
+          "f47"
+        ],
+        "omitted": [
+          "f68_extracted",
+          "f68_unextracted"
+        ],
+        "n_physical_leaves": 3,
+        "mean": 503.8178147867777,
+        "exact_mean": "1996630/3963",
+        "variance_exact": "1677025/3963",
+        "standard_error": 20.57111027254161,
+        "rounded_bp": [
+          504,
+          21
+        ],
+        "Q": 0.22798972124807532,
+        "exact_Q": "1106816/4854675",
+        "nominal_gaussian_independent_common_age_tail": 0.8922625415432827,
+        "input_rounding_sensitivity": {
+          "mean": [
+            503.07793490031213,
+            504.55283867341205
+          ],
+          "mean_exact": [
+            "15795641/31398",
+            "1795199/3558"
+          ],
+          "standard_error": [
+            20.28214349383677,
+            20.860069190898436
+          ]
+        }
+      },
+      "all_five": {
+        "included": [
+          "f8",
+          "f26",
+          "f47",
+          "f68_extracted",
+          "f68_unextracted"
+        ],
+        "omitted": [],
+        "n_physical_leaves": 4,
+        "mean": 510.02119086703476,
+        "exact_mean": "3417652/6701",
+        "variance_exact": "1677025/6701",
+        "standard_error": 15.819762508897997,
+        "rounded_bp": [
+          510,
+          16
+        ],
+        "Q": 2.0195292204331365,
+        "exact_Q": "3315552/1641745",
+        "nominal_gaussian_independent_common_age_tail": null,
+        "input_rounding_sensitivity": {
+          "mean": [
+            509.0165055022181,
+            511.0313606523786
+          ],
+          "mean_exact": [
+            "130786616427/256939834",
+            "5082782303/9946126"
+          ],
+          "standard_error": [
+            15.595996953957245,
+            16.04352383539077
+          ]
+        }
+      },
+      "duplicate_leaf_rounding_witnesses": [
+        {
+          "rows": [
+            "f26",
+            "f47",
+            "f68_extracted",
+            "f68_unextracted"
+          ],
+          "ages": [
+            514.499,
+            506.499,
+            550.499,
+            488.499
+          ],
+          "input_standard_deviations": [
+            35.499,
+            35.499,
+            34.501,
+            35.499
+          ],
+          "mean_exact": "622627560230999/1207784001000",
+          "mean": 515.5123430311104,
+          "standard_error": 17.620700539898962,
+          "Q": 1.6726946796804134,
+          "rounded_bp": [
+            516,
+            18
+          ]
+        }
+      ],
+      "fm_to_bp_using_printed_half_life": {
+        "f8": 489.3531187354807,
+        "f26": 514.1500785128845,
+        "f47": 506.44627549406067,
+        "f68_extracted": 550.1991711188256,
+        "f68_unextracted": 488.49941492600846
+      }
+    },
+    "analysis": [
+      "Nominal inverse-variance pooling reproduces 515.675169 ± 17.734735 BP using treated f68. The one-row-per-leaf alternative gives 499.756564 ± 17.734735 BP.",
+      "Treat each printed age and standard deviation as independently within ±0.5 of an unprinted value. At fixed weights the mean moves by at most ±0.5 with age rounding. For fixed ages the mean is coordinatewise monotone in the positive weights. Enumerating each box corner in the four standard deviations therefore gives exact arithmetic bounds.",
+      "A numerically plausible rounding witness exists for the indiscriminate four-row selection that omits f8 and includes both f68 rows. It yields 515.512343 ± 17.620701 BP while rounding back to the same printed BP ages and uncertainties for its retained rows. The selection represents only three physical leaves. The witness is a hypothetical construction from the BP columns alone.",
+      "The paper’s Figure 6 and the distinct-leaf arithmetic constrain the selection. The two historical four-row accounts describe the same conference measurements. They provide documentary corroboration, not independent laboratory samples.",
+      "The nominal Q statistic is 1.522027 for the extracted set and 0.379796 for the no-solvent alternative. Both are compatible with the independent Gaussian common-age arithmetic. Q therefore does not identify the selected set or test a common laboratory offset.",
+      "The original error formula assumes independent component errors. The rounded published table supplies no covariance model. The exercise preserves the source calendar calibration and concerns the measurements on parchment."
+    ],
+    "reproduction_python": "from dataclasses import asdict, dataclass\nfrom decimal import Decimal, ROUND_HALF_UP\nfrom fractions import Fraction\nfrom itertools import combinations, product\nimport json\nfrom math import erfc, exp, log, pi, sqrt\nfrom pathlib import Path\n\n\n@dataclass(frozen=True)\nclass Measurement:\n    key: str\n    leaf: int\n    accession: str\n    age: int\n    std: int\n    extracted: bool\n    fraction_modern: str\n    fraction_sd: str\n\n\nROWS = (\n    Measurement(\"f8\", 8, \"AA84050\", 490, 37, True, \".9409\", \".0044\"),\n    Measurement(\"f26\", 26, \"AA84049\", 514, 35, True, \".9380\", \".0041\"),\n    Measurement(\"f47\", 47, \"AA84048\", 506, 35, True, \".9389\", \".0041\"),\n    Measurement(\"f68_extracted\", 68, \"AA84047\", 550, 35, True, \".9338\", \".0041\"),\n    Measurement(\"f68_unextracted\", 68, \"AA84047\", 488, 35, False, \".9410\", \".0041\"),\n)\nHALF = Fraction(1, 2)\n\n\ndef weighted(ages, standard_deviations):\n    weights = [Fraction(1, std ** 2) for std in standard_deviations]\n    weight_sum = sum(weights)\n    mean = sum(w * age for w, age in zip(weights, ages)) / weight_sum\n    variance = 1 / weight_sum\n    q = sum(w * (age - mean) ** 2 for w, age in zip(weights, ages))\n    assert sum(w * (age - mean) for w, age in zip(weights, ages)) == 0\n    return mean, variance, q\n\n\ndef rounding_bounds(rows):\n    ages = [row.age for row in rows]\n    sigmas = [[row.std - HALF, row.std + HALF] for row in rows]\n    # Increasing every age shifts the mean by the same amount. With ages fixed,\n    # the mean is monotone in each weight separately, so the extrema are at\n    # uncertainty-box corners. Every weight is monotone in its own sigma.\n    candidates = [weighted(ages, corner)[0] for corner in product(*sigmas)]\n    lower, upper = min(candidates) - HALF, max(candidates) + HALF\n    _, min_variance, _ = weighted(ages, [a for a, _ in sigmas])\n    _, max_variance, _ = weighted(ages, [b for _, b in sigmas])\n    return {\"mean\": [float(lower), float(upper)], \"mean_exact\": [str(lower), str(upper)],\n            \"standard_error\": [sqrt(min_variance), sqrt(max_variance)]}\n\n\ndef rounded(value):\n    return int(Decimal(str(value)).quantize(Decimal(\"1\"), rounding=ROUND_HALF_UP))\n\n\ndef nominal_tail(q, leaves):\n    if leaves == 3:\n        return exp(-float(q) / 2)\n    if leaves == 4:\n        return erfc(sqrt(q / 2)) + sqrt(2 * q / pi) * exp(-float(q) / 2)\n    return None\n\n\ndef result(rows):\n    distinct = len({row.leaf for row in rows})\n    mean, variance, q = weighted([row.age for row in rows], [row.std for row in rows])\n    se = sqrt(variance)\n    return {\n        \"included\": [row.key for row in rows],\n        \"omitted\": [row.key for row in ROWS if row not in rows],\n        \"n_physical_leaves\": distinct,\n        \"mean\": float(mean), \"exact_mean\": str(mean), \"variance_exact\": str(variance),\n        \"standard_error\": se, \"rounded_bp\": [rounded(float(mean)), rounded(se)],\n        \"Q\": float(q), \"exact_Q\": str(q),\n        \"nominal_gaussian_independent_common_age_tail\": nominal_tail(q, distinct)\n        if distinct == len(rows) else None,\n        \"input_rounding_sensitivity\": rounding_bounds(rows),\n    }\n\n\ndef witness(rows):\n    ages = [Fraction(row.age) + Fraction(\"0.499\") for row in rows]\n    sigmas = [Fraction(row.std) + (Fraction(\"-0.499\") if row.key == \"f68_extracted\"\n                                   else Fraction(\"0.499\"))\n              for row in rows]\n    for i, row in enumerate(rows):\n        assert rounded(float(ages[i])) == row.age and rounded(float(sigmas[i])) == row.std\n    mean, variance, q = weighted(ages, sigmas)\n    assert [rounded(float(mean)), rounded(sqrt(variance))] == [516, 18]\n    return {\"rows\": [row.key for row in rows], \"ages\": [float(age) for age in ages],\n            \"input_standard_deviations\": [float(std) for std in sigmas],\n            \"mean_exact\": str(mean), \"mean\": float(mean), \"standard_error\": sqrt(variance),\n            \"Q\": float(q), \"rounded_bp\": [516, 18]}\n\n\ndef main():\n    four = [result(subset) for subset in combinations(ROWS, 4)]\n    assert len(four) == 5\n    exact_match = [row for row in four if row[\"rounded_bp\"] == [516, 18]]\n    assert len(exact_match) == 1 and exact_match[0][\"omitted\"] == [\"f68_unextracted\"]\n    real_alternative = next(row for row in four if row[\"omitted\"] == [\"f68_extracted\"])\n    assert real_alternative[\"input_rounding_sensitivity\"][\"mean\"][1] < 515.5\n    witnesses = [witness(ROWS[1:])]\n    three = result(ROWS[:3])\n    five = result(ROWS)\n    data = {\"input_rows\": [asdict(row) for row in ROWS], \"four_row_sets\": four, \"three\": three,\n            \"all_five\": five, \"duplicate_leaf_rounding_witnesses\": witnesses,\n            \"fm_to_bp_using_printed_half_life\": {\n                row.key: -5568 * log(float(row.fraction_modern)) / log(2) for row in ROWS\n            }}\n    path = Path(__file__).with_name(\"weighted-results.json\")\n    path.write_text(json.dumps(data, indent=2) + \"\\n\")\n    for calc in four + [three, five]:\n        print(calc[\"omitted\"], calc[\"mean\"], calc[\"standard_error\"], calc[\"Q\"],\n              calc[\"input_rounding_sensitivity\"][\"mean\"])\n    print(witnesses[0])\n\n\nif __name__ == \"__main__\":\n    main()\n"
+  }
+}
