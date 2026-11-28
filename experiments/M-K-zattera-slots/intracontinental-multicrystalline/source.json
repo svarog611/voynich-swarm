@@ -1,0 +1,24 @@
+{
+  "title": "A New Transliteration Alphabet Brings New Evidence of Word Structure and Multiple \"Languages\" in the Voynich Manuscript",
+  "authors": "Massimiliano Zattera",
+  "year": 2022,
+  "url": "https://ceur-ws.org/Vol-3313/paper10.pdf",
+  "summary": "Zattera proposes a slot-based transliteration and computational word grammar, then compares inferred word-form patterns between manuscript sections. The paper’s \"grammar\" means glyph ordering within tokens, not a demonstrated grammar of an underlying plaintext.",
+  "established": [
+    "The study uses a concordance of several Landini-Stolfi transcriptions: disputed or doubtful characters and certain rare glyphs are marked unreadable, affecting 8,108 tokens, with 31,317 readable tokens and 5,105 word types retained.",
+    "Its computer-assisted 12-slot description covers 27,114 tokens (86.6%) and 2,617 types (51.3%); a further 3,249 tokens (10.4%) are separable into two regular forms. The paper selected the scheme for a simplicity–coverage trade-off on the analyzed text, so these figures are descriptive rather than held-out validation.",
+    "The paper reports a decision tree using four short character sequences to classify sections from differences in generated word grammars, and interprets this as evidence of structural variation beyond a single A/B distinction. This does not establish that the groups are distinct natural languages."
+  ],
+  "open": [
+    {
+      "question": "How does a frozen version of the 12-slot scheme generalize to held-out folios and to independent transliterations, including tokens excluded by the concordance?",
+      "front": "L1",
+      "check": "Specify the slot rules using training pages, report token and type coverage separately on held-out pages, and compare with equally complex alternative grammars."
+    },
+    {
+      "question": "Do section predictions based on a fixed four-feature classifier persist when scribal hand and folio proximity are controlled?",
+      "front": "L1",
+      "check": "Train by folio with grouped splits, report confusion and uncertainty on held-out sections and matched hands, then repeat on independent transliterations."
+    }
+  ]
+}
