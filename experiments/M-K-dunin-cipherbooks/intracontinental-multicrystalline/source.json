@@ -1,0 +1,19 @@
+{
+  "title": "The Voynich Manuscript Compared with Other Encrypted Books",
+  "authors": "Elonka Dunin and Klaus Schmeh",
+  "year": 2022,
+  "url": "https://ceur-ws.org/Vol-3313/paper15.pdf",
+  "summary": "The authors classify a compilation of 118 encrypted or otherwise unusual books, including the Voynich manuscript, by purpose and other properties and compare their visible features. Their interpretation that knowledge books and hoaxes fit best is an exploratory analogy from an incomplete, selected sample, not a decipherment or a statistical estimate of purpose.",
+  "established": [
+    "The collection includes 118 books under the authors’ broad definition, and explicitly includes some unknown-script or potentially meaningless books; letters, postcards, sculptures and newspaper ads are excluded. The authors state the collection is incomplete.",
+    "Their purpose categories include 40 encrypted diaries, 23 secret society treatises, 11 knowledge books and seven works the authors classify as hoaxes. The counts reflect their classification and collection criteria, not population frequencies.",
+    "Of five other fifteenth-century works in their list, the authors identify three illustrated Fontana volumes, a Codex Palatinus Germanicus, and Trithemius’s Steganographia, and compare their apparent visual and functional features with the Voynich manuscript."
+  ],
+  "open": [
+    {
+      "question": "How do blinded observers classify manuscript function from visible features alone when source identity and the proposed category are hidden?",
+      "front": "L4",
+      "check": "Pre-register a feature rubric and blinded independent annotations on a balanced set of documented medieval comparison books; report agreement and misclassification rates."
+    }
+  ]
+}
