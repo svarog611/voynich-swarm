@@ -12,6 +12,12 @@ FN = path("registry", "items.jsonl")
 
 
 WITHDRAWN = path("registry", "withdrawn.jsonl")
+PICTURE_AGREED = 0.8
+
+
+def picture_seat(record):
+    provenance = record.get("provenance") or {}
+    return provenance.get("seat", provenance.get("added_by"))
 
 
 def read(type=None, include_withdrawn=False):
@@ -66,14 +72,14 @@ def read(type=None, include_withdrawn=False):
             for i in group:
                 best = None
                 for j in group:
-                    si, sj = i["provenance"].get("seat", i["provenance"].get("added_by")), j["provenance"].get("seat", j["provenance"].get("added_by"))
+                    si, sj = picture_seat(i), picture_seat(j)
                     if j is i or si == sj:
                         continue
                     a_ = picture_agreement(i["detail"], j["detail"])
                     if a_ is not None and (best is None or a_ > best):
                         best = a_
                 if best is not None:
-                    i["verdict"] = "AGREED" if best >= 0.8 else ("DISAGREE" if best < 0.5 else "DRAFT")
+                    i["verdict"] = "AGREED" if best >= PICTURE_AGREED else ("DISAGREE" if best < 0.5 else "DRAFT")
                     i["agreement"] = round(best, 3)
     # attacks: a succeeded attack whose generator writes the target pattern in by hand is a weak
     # refutation once someone other than the attacker files a 'weak' second look on it

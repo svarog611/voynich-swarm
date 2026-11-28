@@ -10,10 +10,14 @@ checks this). Annotations already on the record were written before the list exi
 are read through `normalize`, which maps the common wordings onto the list and leaves the rest out
 of the comparison (a value it cannot place is not compared, never counted as a disagreement).
 
-Objects are paired by label locus where both annotations give one; otherwise within the same kind
+For visual agreement, objects are paired by label locus where both annotations give one; otherwise within the same kind
 and ring, by nearest clock angle when both give one, else in list order.
+Label comparisons have a separate, label-blind pairing rule (compare_labels).
 """
 import re
+from collections import Counter
+from dataclasses import dataclass
+from math import isclose, isfinite
 
 UNCLEAR = "unclear"
 
@@ -185,6 +189,164 @@ def _angle(o):
 
 def _ring(o):
     return normalize({"ring": (o.get("features") or {}).get("ring", "")}).get("ring")
+
+
+def clock_angle(obj):
+    """An explicitly reported bearing, including legacy clock readings. Ordinals are not bearings."""
+    fs = obj.get("features") or {}
+    for key in ("angle_deg_clockwise_from_top", "bearing_clockwise_deg"):
+        value = fs.get(key)
+        if value is not None and not isinstance(value, bool):
+            try:
+                degrees = float(value)
+                if isfinite(degrees):
+                    return degrees % 360
+            except (TypeError, ValueError):
+                pass
+    position = re.search(r"\(about (\d+(?:\.\d+)?) o'clock\)$", str(fs.get("position", "")), re.I)
+    for clock in (fs.get("clock_position"), fs.get("clock"), position[1] if position else None):
+        m = re.fullmatch(r"(\d{1,2}(?:\.\d+)?)(?::([0-5]\d))?", str(clock).strip())
+        if m and float(m[1]) <= 12:
+            return (float(m[1]) * 30 + int(m[2] or 0) / 2) % 360
+    return None
+
+
+def circular_distance(a, b):
+    return abs((a - b + 180) % 360 - 180)
+
+
+def unique_nearest(candidates, tolerance):
+    """Return the sole nearest candidate within tolerance, leaving ties unresolved."""
+    ranked = sorted(candidates, key=lambda item: item[0])
+    if not ranked or ranked[0][0] > tolerance:
+        return None
+    if len(ranked) > 1 and isclose(ranked[0][0], ranked[1][0], abs_tol=1e-9):
+        return None
+    return ranked[0][1]
+
+
+@dataclass
+class _Location:
+    kind: str
+    ring: str | None
+    row: str | None
+    angle: float | None
+    features: dict
+
+    def requires_bearing(self):
+        return self.ring in ("outer", "middle", "inner") or (self.ring != "centre" and self.angle is not None)
+
+    def compatible(self, other):
+        return self.kind == other.kind and not self.different_region(other)
+
+    def different_region(self, other):
+        return bool((self.ring and other.ring and self.ring != other.ring)
+                    or (self.row and other.row and self.row != other.row))
+
+    def distinct_from(self, other):
+        return self.different_region(other) or (
+            self.requires_bearing() and other.requires_bearing()
+            and self.angle is not None and other.angle is not None
+            and circular_distance(self.angle, other.angle) > MAX_OBJECT_DISTANCE_DEG
+        )
+
+
+def _locations(detail):
+    rows_described = re.search(r"\brows?\b", str(detail.get("statement", "")), re.I)
+    out = {}
+    for i, o in enumerate(detail.get("objects") or []):
+        if not isinstance(o, dict) or not o.get("kind"):
+            continue
+        # Older non-circular catalogues identify the row in IDs such as row1-jar and r1-jar.
+        row = re.match(r"^(?:row|r)([1-9]\d*)[-_]", str(o.get("id", "")), re.I) if rows_described else None
+        features = normalize(o.get("features"))
+        out[i] = _Location(o["kind"], features.pop("ring", None), row[1] if row else None,
+                           clock_angle(o), features)
+    return out
+
+
+MAX_OBJECT_DISTANCE_DEG = 30
+
+
+def _partner(location, candidates):
+    if location.requires_bearing() or any(o.requires_bearing() for _, o in candidates):
+        # A missing bearing on a rival cannot establish which drawing is nearest.
+        if not location.ring or location.angle is None or any(o.ring != location.ring or o.angle is None for _, o in candidates):
+            return None
+        return unique_nearest(((circular_distance(location.angle, o.angle), j) for j, o in candidates),
+                              MAX_OBJECT_DISTANCE_DEG)
+    if len(candidates) == 1:
+        return candidates[0][0]
+    # For legacy drawings without clock positions, only a recorded difference rules out a rival.
+    possible = [(j, o) for j, o in candidates if all(o.features.get(k, v) == v for k, v in location.features.items())]
+    if len(possible) == 1:
+        j, other = possible[0]
+        if location.features.keys() & other.features.keys():
+            return j
+    return None
+
+
+def _partners(left, right):
+    return {i: _partner(o, [(j, q) for j, q in right.items() if o.compatible(q)]) for i, o in left.items()}
+
+
+def explicit_label(obj):
+    value = obj.get("label") if isinstance(obj, dict) else None
+    return (value.strip() or None) if isinstance(value, str) else None
+
+
+@dataclass(frozen=True)
+class LabelPair:
+    left: int
+    right: int
+    explicit: str
+    locus: str | None
+
+
+def compare_labels(a, b, projected_a=None, projected_b=None):
+    """Compare labels only after both objects independently choose one another by location/kind.
+
+    A missing explicit vote counts against explicit agreement. Two omissions abstain.
+    A geometric confirmation requires both positions to identify the same line.
+    """
+    la, lb = _locations(a), _locations(b)
+    ab, ba = _partners(la, lb), _partners(lb, la)
+    labels_a, labels_b = ([explicit_label(o) for o in d["objects"]] for d in (a, b))
+    counts_a, counts_b = Counter(labels_a), Counter(labels_b)
+    pairs = []
+    for i, j in ab.items():
+        if j is None or ba.get(j) != i:
+            continue
+        left_label, right_label = labels_a[i], labels_b[j]
+        locus = None
+        if left_label and right_label:
+            explicit = "same" if left_label == right_label else "different"
+            if left_label == right_label:
+                locus = left_label
+        else:
+            explicit_locus = left_label or right_label
+            explicit = "one_missing" if explicit_locus else "both_missing"
+            projected_locus = (projected_a or {}).get(i)
+            if projected_locus and projected_locus == (projected_b or {}).get(j) and explicit_locus in (None, projected_locus):
+                locus = projected_locus
+        if locus and (counts_a[locus] > int(left_label == locus) or counts_b[locus] > int(right_label == locus)):
+            locus = None
+        pairs.append(LabelPair(i, j, explicit, locus))
+    return pairs
+
+
+def explicit_label_agreement(pairs):
+    votes = [p for p in pairs if p.explicit != "both_missing"]
+    return sum(p.explicit == "same" and p.locus is not None for p in votes) / len(votes) if votes else None
+
+
+def conflicting_unpaired_loci(a, b, pairs):
+    """Loci assigned by b to unmatched drawings at a known different position from a's object."""
+    matched = {pair.right for pair in pairs}
+    claims = [(label, location) for j, location in _locations(b).items()
+              if j not in matched and (label := explicit_label(b["objects"][j]))]
+    return {(i, label) for i, location in _locations(a).items() for label, other in claims
+            if location.distinct_from(other)}
 
 
 def pair_objects(A, B):

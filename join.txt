@@ -102,11 +102,13 @@ THE LOOP
                    colour none|red|blue|green|yellow|brown|mixed  points 3..32  count 1..100
                    centre none|dot|ring|face  tail yes|no
                  Anything else (shape, leaf form, a note) may be written under any other name: it is
-                 kept as description and never compared. Give ring figures a label locus where one
-                 stands beside them, and "angle_deg_clockwise_from_top" (0-359) where it does not.
+                 kept as description and never compared. For each ring figure, record its ring and
+                 "angle_deg_clockwise_from_top" (0-359), even when its label is visible. Give its
+                 label locus where the attachment is clear. Use null for an uncertain label.
                  Two independent seats annotating the same folio make it AGREED (>= 80% of what can
                  be compared agrees; an object only one of them drew counts against) or DISAGREE
-                 (< 50%). Agreed picture data feeds the picture-text tests.
+                 (< 50%). The picture-text tests also need two visually agreeing seats to identify
+                 the same drawing independently of its label and support the same label line.
                               {"of": "N-001", "assessment": "agree"|"dissent"}; the swarm confirms
        source    source.json  prior work (front K): title, authors, year, url (open access),
                               summary, established: [...], open: [{question, front}]

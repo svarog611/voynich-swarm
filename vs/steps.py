@@ -270,7 +270,13 @@ def derived_steps():
             nth = "a second, independent" if done.get(f) else "a first"
             out.append({"id": f"PIC-{f}", "program": "L4", "kind": "step",
                         "title": f"Pictures: {nth} blind annotation of folio {f}",
-                        "statement": f"Look at the Beinecke scan of folio {f} (IIIF canvas from data/raw/beinecke_ms408_manifest.json) and record every drawn object: its kind, its visible features (the compared ones take a value from the closed vocabulary in join.txt, e.g. colour, ring, posture, container; anything else is kept as description) and which label points at it (the ZL locus id of the label line, e.g. f99r.3, read from the transcription's line ids only). Annotate blind: do not read the transcription's words or any other annotation of this folio first. Two independent annotations that agree make the folio's picture data usable for the picture-text tests.",
+                        "statement": (f"Look at the Beinecke scan of folio {f} (IIIF canvas from data/raw/beinecke_ms408_manifest.json) "
+                                      "and record every drawn object's kind and visible features. Use the closed vocabulary in join.txt "
+                                      "for compared features and keep other observations as description. "
+                                      "For each ring figure, record its ring and angle_deg_clockwise_from_top (0-359), even if it has a label. "
+                                      "Give the ZL locus of each clearly attached label, or null if uncertain. Annotate blind using only the "
+                                      "scan and transcription line IDs. The picture-text tests use links independently supported by two "
+                                      "visually agreeing annotations."),
                         "check": "picture.json {\"folio\", \"canvas\", \"blind\": true, \"objects\": [{\"id\", \"kind\", \"features\": {...}, \"label\": locus or null}]}",
                         "on_path": True, "hard": False, "added_by": "rule:labelled-folio", "how": "rule", "from": f, "status": "open"})
     except Exception:

@@ -23,10 +23,7 @@ def annotation(record_id, agreement, labels):
 class PicturePickTest(unittest.TestCase):
     def assert_selected_in_both_orders(self, first, second, expected):
         for records in ([first, second], [second, first]):
-            with self.subTest(first=records[0]["id"]), \
-                    patch.object(registry, "read", return_value=records), \
-                    patch.object(dsl, "PICTURES", None), \
-                    patch.object(dsl, "_PICTURE_CACHE", None):
+            with self.subTest(first=records[0]["id"]), patch.object(registry, "read", return_value=records):
                 self.assertEqual(dsl.pictures(), {FOLIO: expected["detail"]["objects"]})
 
     def test_f72v1_tie_uses_annotation_with_explicit_loci(self):

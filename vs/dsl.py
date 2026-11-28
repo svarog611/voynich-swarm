@@ -91,9 +91,10 @@ statistics:
                                                            This is a pooled contrast: page-specific composition can
                                                            create a difference even with no within-page difference.
   {"picture_label": {"test": T, "min_objects": n}}         labels against AGREED picture annotations (registry type picture;
-                                                           one annotation per folio, the best-agreeing). An object counts when
-                                                           its "label" is a label line (unit L) on the scored pages; its label
-                                                           is that line's words. T is
+                                                           one annotation per folio, the best-agreeing). Objects must be
+                                                           independently matched without using labels. Two visually agreeing
+                                                           seats must support the same label line (unit L) on the scored pages.
+                                                           Its words are the label. T is
        same_object_label    pairs of objects on different folios that look alike (same kind, and at least 80% of at
                             least two shared features equal) have labels identical or one glyph apart, minus the
                             same rate over all other cross-folio pairs
@@ -101,11 +102,10 @@ statistics:
                             share a first or last glyph pair (eva-basic), minus the rate for pairs sharing none
        label_in_page_text   share of labels with a word (3+ glyphs) in their own page's running text, minus the
                             mean share for the other scored pages' running text
-                            Objects with no "label" but a ring (outer | middle | inner) and an angle
-                            ("angle_deg_clockwise_from_top", or "clock_position" 1-12) are joined to the label
-                            line in that ring nearest their angle, using the clock positions ZL3b records on
-                            circular pages (<!hh:mm> comments), within 20 degrees; a line goes to the closest
-                            object only. Rings are the label runs between circular text lines, outermost first;
+                            Two matching explicit loci suffice. Otherwise both seats must independently locate the
+                            same nearest label in the same ring within 20 degrees of their clock positions, with
+                            no contrary explicit locus. Ties, competing assignments and disputed links are excluded.
+                            ZL3b gives clock positions in <!hh:mm> comments. Rings are the label runs between circular text lines, outermost first;
                             a run before the first circular line (figures outside the circle) is not a ring.
                             Layout fields (ring, order, angle, clock, position, label, note, count, group) are not
                             looks and are ignored. n (default 20, at least 10) labelled objects are required, and 5
@@ -771,34 +771,31 @@ def statistic(st, toks, all_toks):
 # ------------------------------------------------------------- pictures
 
 PICTURE_TESTS = {"same_object_label", "feature_label_share", "label_in_page_text"}
-PICTURES = None          # {folio: [object, ...]}; None reads AGREED annotations from the record (tests set it)
 MIN_PICTURE_PAIRS = 5
-_PICTURE_CACHE = None
 _FEATURE_SKIP = ("label", "order", "angle", "clock", "position", "note", "count", "ring", "group")   # layout, not looks
 
 
-def pictures():
+def _selected_pictures(records):
     """Select the best-agreeing annotation per folio, using explicit label coverage to break ties."""
-    global _PICTURE_CACHE
-    if PICTURES is not None:
-        return PICTURES
-    if _PICTURE_CACHE is not None:
-        return _PICTURE_CACHE
-    from . import registry
+    from .pictures import explicit_label
+
     best = {}
-    for i in registry.read("picture"):
+    for i in records:
         if i.get("verdict") != "AGREED":
             continue
         d = i.get("detail") or {}
         f = str(d.get("folio"))
         objects = d.get("objects") or []
-        labels = {o["label"].strip() for o in objects
-                  if isinstance(o, dict) and isinstance(o.get("label"), str) and o["label"].strip()}
+        labels = {label for o in objects if (label := explicit_label(o))}
         rank = (i.get("agreement", 0), len(labels))
         if f not in best or rank > best[f][0]:
-            best[f] = (rank, objects)
-    _PICTURE_CACHE = {f: objs for f, (_, objs) in best.items()}
-    return _PICTURE_CACHE
+            best[f] = (rank, i)
+    return {f: record for f, (_, record) in best.items()}
+
+
+def pictures():
+    from . import registry
+    return {f: r["detail"]["objects"] for f, r in _selected_pictures(registry.read("picture")).items()}
 
 
 def _looks(o):
@@ -846,35 +843,80 @@ def label_positions():
     return out
 
 
-def _angle_of(o):
-    fs = o.get("features") if isinstance(o.get("features"), dict) else {}
-    a = fs.get("angle_deg_clockwise_from_top")
-    if isinstance(a, (int, float)) and not isinstance(a, bool):
-        return float(a) % 360
-    c = fs.get("clock_position")
-    if isinstance(c, (int, float)) and not isinstance(c, bool) and 1 <= c <= 12:
-        return (float(c) % 12) * 30
-    return None
-
-
 def _joined_labels(folio, objs):
-    """{object index: locus} for unlabelled ring objects, nearest label line in the same ring by angle."""
+    """Project each position independently of its explicit label, rejecting tied minima on either end."""
+    from .pictures import _ring, circular_distance, clock_angle, unique_nearest
     runs = label_positions().get(folio) or []
     names = {2: ["outer", "inner"], 3: ["outer", "middle", "inner"]}.get(len(runs), ["outer"] if len(runs) == 1 else [])
     rings = dict(zip(names, runs))
-    claims = {}
+    positions = {}
     for i, o in enumerate(objs):
-        if not isinstance(o, dict) or o.get("label"):
+        if not isinstance(o, dict):
             continue
-        fs = o.get("features") if isinstance(o.get("features"), dict) else {}
-        ring, ang = str(fs.get("ring", "")).lower(), _angle_of(o)
-        if ring not in rings or ang is None:
+        ring, ang = _ring(o), clock_angle(o)
+        if ring not in rings:
             continue
-        best = min(rings[ring], key=lambda la: min(abs(la[1] - ang), 360 - abs(la[1] - ang)))
-        d = min(abs(best[1] - ang), 360 - abs(best[1] - ang))
-        if d <= JOIN_TOLERANCE and (best[0] not in claims or d < claims[best[0]][1]):
-            claims[best[0]] = (i, d)
-    return {i: locus for locus, (i, _) in claims.items()}
+        positions.setdefault(ring, []).append((i, ang))
+    result = {}
+    for ring, objects in positions.items():
+        if any(ang is None for _, ang in objects):
+            continue
+        lines = rings[ring]
+        nearest_line = {i: unique_nearest(((circular_distance(ang, deg), lab) for lab, deg in lines), JOIN_TOLERANCE)
+                        for i, ang in objects}
+        for lab, deg in lines:
+            i = unique_nearest(((circular_distance(ang, deg), i) for i, ang in objects), JOIN_TOLERANCE)
+            if i is not None and nearest_line[i] == lab:
+                result[i] = lab
+    return result
+
+
+def _confirmed_labels(folio, selected, peers):
+    from . import pictures as pic, registry
+    detail = selected["detail"]
+    objs = detail["objects"]
+    selected_projections = _joined_labels(folio, objs)
+    claims = [set() for _ in objs]
+    confirmed = set()
+    unmatched_conflicts = set()
+    for i, obj in enumerate(objs):
+        if lab := pic.explicit_label(obj):
+            claims[i].add(lab)
+    selected_seat = registry.picture_seat(selected)
+    if not selected_seat:
+        return {}
+    for peer in peers:
+        seat = registry.picture_seat(peer)
+        if not seat or seat == selected_seat:
+            continue
+        other = peer["detail"]
+        score = registry.picture_agreement(detail, other)
+        if score is None or score < registry.PICTURE_AGREED:
+            continue
+        peer_projections = _joined_labels(folio, other["objects"])
+        pairs = pic.compare_labels(detail, other, selected_projections, peer_projections)
+        unmatched_conflicts.update(pic.conflicting_unpaired_loci(detail, other, pairs))
+        for pair in pairs:
+            if lab := pic.explicit_label(other["objects"][pair.right]):
+                claims[pair.left].add(lab)
+            if pair.locus:
+                confirmed.add(pair.left)
+                claims[pair.left].add(pair.locus)
+    owners = Counter(lab for values in claims for lab in values)
+    return {i: lab for i, values in enumerate(claims) if i in confirmed and len(values) == 1
+            for lab in values if owners[lab] == 1 and (i, lab) not in unmatched_conflicts}
+
+
+@lru_cache(maxsize=1)
+def _confirmed_pictures():
+    from . import registry
+    records = registry.read("picture")
+    out = {}
+    for folio, selected in _selected_pictures(records).items():
+        peers = (r for r in records if r.get("verdict") == "AGREED" and r["detail"]["folio"] == folio)
+        labels = _confirmed_labels(folio, selected, peers)
+        out[folio] = [(selected["detail"]["objects"][i], lab) for i, lab in labels.items()]
+    return out
 
 
 def _picture_objects(all_toks):
@@ -882,18 +924,12 @@ def _picture_objects(all_toks):
     lines = {}
     for t in all_toks:
         if t["unit"] == "L" and t.get("lid"):
-            lines.setdefault(t["lid"], []).append(t["w"])
-    out, seen = [], set()
-    for folio, objs in pictures().items():
-        joined = _joined_labels(folio, objs)
-        for idx, o in enumerate(objs):
-            if not isinstance(o, dict):
-                continue
-            lab = o.get("label") or joined.get(idx)
-            if not isinstance(lab, str) or lab not in lines or lab in seen:
-                continue
-            seen.add(lab)      # a label line counts once, for the first object that names it
-            out.append((folio, o.get("kind"), _looks(o), lab, tuple(lines[lab])))
+            lines.setdefault((t["folio"], t["lid"]), []).append(t["w"])
+    out = []
+    for folio, objects in _confirmed_pictures().items():
+        for o, lab in objects:
+            if (folio, lab) in lines:
+                out.append((folio, o.get("kind"), _looks(o), lab, tuple(lines[folio, lab])))
     return out
 
 
@@ -907,25 +943,46 @@ def _glyph_pairs(words):
     return out
 
 
-def _rate_diff(pairs, is_a, hit):
+def _rate_diff(pairs, is_a, hit, undefined):
     a = [hit(x, y) for x, y in pairs if is_a(x, y)]
     b = [hit(x, y) for x, y in pairs if not is_a(x, y)]
     if len(a) < MIN_PICTURE_PAIRS or len(b) < MIN_PICTURE_PAIRS:
-        return NAN
+        return undefined(f"{len(a)} alike and {len(b)} other pairs; need at least {MIN_PICTURE_PAIRS} in each group")
     return sum(a) / len(a) - sum(b) / len(b)
 
 
-def _picture_label(test, all_toks, min_objects):
+def _picture_label(test, all_toks, min_objects, *, required=False):
     objs = _picture_objects(all_toks)
-    if len(objs) < min_objects:
+
+    def undefined(reason):
+        if required:
+            raise SpecError(f"picture_label {test} is undefined: {len(objs)} independently confirmed object-label "
+                            f"links on the scored pages; {reason}")
         return NAN
+
+    if len(objs) < min_objects:
+        if not required:
+            return NAN
+        confirmed = _confirmed_pictures()
+        agreed = confirmed.keys() & {t["folio"] for t in all_toks}
+        available = sum(len(confirmed[folio]) for folio in agreed)
+        if not agreed:
+            reason = "none of the scored folios has an AGREED picture annotation"
+        elif not available:
+            reason = ("visual agreement exists, but no drawing has an unambiguous label line supported by "
+                      "two independent seats without a conflicting assignment")
+        elif available != len(objs):
+            reason = f"only {len(objs)} of {available} confirmed loci have label words on these pages"
+        else:
+            reason = "more drawings with independently confirmed label lines are needed"
+        return undefined(f"need at least {min_objects} links. {reason}")
     if test == "label_in_page_text":
         text = {}
         for t in all_toks:
             if t["unit"] == "P":
                 text.setdefault(t["folio"], set()).add(t["w"])
         if len(text) < 2:
-            return NAN
+            return undefined(f"{len(text)} folios have paragraph text; need at least 2")
         own, other, n = 0.0, 0.0, 0
         for folio, _, _, _, ws in objs:
             long_ = {w for w in ws if len(SEG(w)) >= 3}
@@ -935,12 +992,15 @@ def _picture_label(test, all_toks, min_objects):
             own += bool(long_ & text[folio])
             rest = [f for f in text if f != folio]
             other += sum(bool(long_ & text[f]) for f in rest) / len(rest)
-        return (own - other) / n if n >= min_objects else NAN
+        if n < min_objects:
+            return undefined(f"links with a word of at least 3 glyphs and paragraph text on their folio: {n}; "
+                             f"need at least {min_objects}")
+        return (own - other) / n
     pairs = [(x, y) for i, x in enumerate(objs) for y in objs[i + 1:]]
     if test == "feature_label_share":
         def alike(x, y):
             return x[1] == y[1] and any(x[2].get(k) == v for k, v in y[2].items())
-        return _rate_diff(pairs, alike, lambda x, y: bool(_glyph_pairs(x[4]) & _glyph_pairs(y[4])))
+        return _rate_diff(pairs, alike, lambda x, y: bool(_glyph_pairs(x[4]) & _glyph_pairs(y[4])), undefined)
     # same_object_label: across folios only
     pairs = [(x, y) for x, y in pairs if x[0] != y[0]]
     def same(x, y):
@@ -950,7 +1010,7 @@ def _picture_label(test, all_toks, min_objects):
         return len(shared) >= 2 and sum(x[2][k] == y[2][k] for k in shared) >= 0.8 * len(shared)
     def close(x, y):
         return any(a == b or _edit1(a, b) for a in x[4] for b in y[4])
-    return _rate_diff(pairs, same, close)
+    return _rate_diff(pairs, same, close, undefined)
 
 
 def _shuffle_picture_labels(all_toks, rng):
@@ -1338,13 +1398,10 @@ def evaluate(spec, pages, train_pages=None):
             raise SpecError("boundary_class_rate training and evaluation pages overlap")
         boundary_classes = _boundary_classes(tokens(train_pages, spec.get("scope")))
         v, boundary_detail = _boundary_class_value(toks, boundary_classes)
+    elif name == "picture_label":
+        v = _picture_label(_arg["test"], all_toks, _arg.get("min_objects", 20), required=True)
     else:
         v = statistic(st, toks, all_toks)
-    if v != v and "picture_label" in st:
-        a = st["picture_label"]
-        raise SpecError(f"picture_label is undefined here: {len(_picture_objects(all_toks))} labelled objects from AGREED "
-                        f"picture annotations on these pages (at least {a.get('min_objects', 20)} needed, and "
-                        f"{MIN_PICTURE_PAIRS} pairs in each group compared)")
     if v != v:
         if name == "paragraph_gap_corr":
             _unused, support = _paragraph_gap_value(all_toks, st[name]["symbol"])
