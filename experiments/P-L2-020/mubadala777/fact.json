@@ -1,0 +1,12 @@
+{
+  "title": "Adjacent word-edge association after matching exact lengths and lines",
+  "statement": "In paragraph text, conditional mutual information between the last EVA-basic glyph of a certain word and the first glyph of the next certain word exceeds the same statistic after shuffling words within their original line and exact glyph length. The one-sided comparison uses 199 permutations and p at most 0.01 on each scored transliteration.",
+  "source": "Pavlenko77's preregistered public pilot P-L2-020 (https://github.com/Ayan-Bandyopadhyay/voynich-swarm/pull/670) and the merged scorer primitive (https://github.com/Ayan-Bandyopadhyay/voynich-swarm/pull/673).",
+  "spec": {
+    "select": {"unit": ["P"], "certain": true},
+    "statistic": {"edge_length_cmi": true},
+    "compare": [
+      {"null": "shuffle_within_line_length", "direction": "greater", "perms": 199, "p": 0.01}
+    ]
+  }
+}
