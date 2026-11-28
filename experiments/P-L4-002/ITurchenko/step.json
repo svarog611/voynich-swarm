@@ -1,0 +1,458 @@
+{
+  "title": "Where the star groups sit on f69v and Bodl. Or. 133, with two calendar controls and a scan-checked locus map",
+  "statement": "The two readers agreed on the placement of signs in all four panels. On f69v each of 28 individually labelled capped spokes is free of a discrete dot or star group. The star shapes occupy eight central fields. On the Bodleian spread, all 25 legible outer groups contain writing and dots together. One arc is unreadable. Figure 2.22 identifies 28 mansions across the full spread. The shared radial layout and repeated local writing give a limited resemblance to this particular witness. Neither the location of the star groups nor the division into cells matches. A zodiac wheel also alternates paired features with period two. A solar calendar wheel provides an independent 28-position example with period four. No tradition is identified by these observations.",
+  "program": "L4",
+  "check": "Reconstruct the four crops below, use the first cell at or clockwise of page up, and verify the two-reader rows through the seam. Compare signs inside the drawn units separately from marks in adjacent fields. For f69v, turn the four given label quadrilaterals so that the cap is to the right, read their distinctive strokes, and filter all 28 rotations in both directions under a contiguous one-label-per-spoke assignment. Further tests of tradition attribution require additional independently identified manuscript diagrams and the same masked feature coding.",
+  "on_path": true,
+  "hard": true,
+  "method": {
+    "exposure": "Captions and provenance were withheld until both sets of records were fixed. Script and motifs remained visible. Reader 1 recognised C and reused the frozen first-pass observations. Reader 2 knew the study topic, recognised the script, and coded C directly from the PNG. Neither set represents a second masked experiment on an unfamiliar f69v. Glyph anchoring was performed after unmasking.",
+    "count_weight": 0,
+    "dependent_features": "Count tone and length on C as one joint alternation. Count figure background and short-label ink on A as one joint alternation. A star, an oval cap, a large disc and punctuation have distinct roles.",
+    "coordinates": "Pixels from the top left of each masked panel, x right, y down. One-based clockwise unit order. Source crop boxes are [left,top,right,bottom), except the two D masks explicitly marked inclusive.",
+    "frozen_code_sha256": {
+      "reader1_json": "f2288fb8ac6203c1f57efe320cadbe086c0f337e8f38d25bda333de92471bfda",
+      "reader1_method": "f452d64193d865fb18ead9aaf139172dd3a122bf202de62f700121e03afb3020",
+      "reader2_json": "9eb66ea072e93e31d69ea1e02cafc80f283226e1653e1fc069a6e224e762f8fc",
+      "reader2_method": "c4f9f76706dddad1cf69c4a3b4fc3f1d0a4bf801ad47098d971138e9690ef177"
+    }
+  },
+  "panels": {
+    "A": {
+      "witness": "Walters W.73, f. 1r, zodiac and months",
+      "source": "https://www.thedigitalwalters.org/Data/WaltersManuscripts/W73/data/W.73/sap/W73_000003_sap.jpg",
+      "description": "https://idp.thedigitalwalters.org/Data/WaltersManuscripts/html/W73/description.html",
+      "source_size": [
+        1059,
+        1800
+      ],
+      "crop": [
+        32,
+        789,
+        851,
+        1619
+      ],
+      "png_sha256": "4e411bc9ad3726336db36156c41de483c3c42cb9e57e3a20208d8cc798c2e706",
+      "geometry": "Twelve paired radial boundaries delimit wedge fields. Each has a short label and a figure in adjoining belts. No discrete star or dot group in any of the twelve. Concentric structure from the Terra disk outward: three empty belts, short labels, figures, narrow edging, perimeter line of writing. Two inscribed belts. Reader 1 counted the edging separately (7 rings), reader 2 omitted it (6).",
+      "order": "All 12 transitions change joint class. The month names orient their own sequence. The wheel gives no single first ray for all belts."
+    },
+    "B": {
+      "witness": "Narbonne, Pontifical de Pierre de la Jugie, MS 2, f. 12v, left wheel of the 28-year solar cycle",
+      "source": "https://iiif.irht.cnrs.fr/iiif/ark:/63955/v9m03eym4plh/999,2086,752,748/full/0/default.jpg",
+      "description": "https://societearcheologiquedumidi.fr/_samf/memoires/t_74/MSAMF_2014.pdf",
+      "locator": "Nadal, printed p. 113, fig. 9. Double Sunday letters recur every fourth year.",
+      "source_size": [
+        752,
+        748
+      ],
+      "crop": "whole IIIF region",
+      "png_sha256": "d8a55a606233999d164c187d1e113f8b43569646bcae6e78834866870a85d013",
+      "geometry": "28 paired angular positions in two cell rings, both labelled. Both readers counted five annuli: blue rim, inner entries, red divider, outer entries, outer blue rim. The centre is a text panel with ornamental side fields. No distinct stellar groups in the cell pairs.",
+      "order": "Two-level outer entries at 3, 7, 11, 15, 19, 23 and 27, including the four-step wrap 27 to 3. The unique red upper sign, darker inner entry and break in the inner rim coincide near (377,73). The marking suggests a reference position without a visible traversal direction."
+    },
+    "C": {
+      "witness": "Yale, Beinecke MS 408, f69v",
+      "canvas": "https://collections.library.yale.edu/manifests/oid/2002046/canvas/1006199",
+      "source": "https://archive.org/download/voynich/126.jpg",
+      "source_size": [
+        8886,
+        3876
+      ],
+      "source_jpeg_sha256": "265166efb66d4c95ab12c6b480c9bf7119b662ab73cb623e0e63ac497cfa1cd5",
+      "crop": [
+        670,
+        551,
+        3035,
+        2990
+      ],
+      "png_sha256": "0892c1581d6874f3b4db2b2fbfd06f26b62a80ad72d2726f20348fe8d4547bc2",
+      "geometry": "28 freestanding shafts with terminal ovals and an individual label just beyond each tip. The tip-to-tip angular steps range from 9.6 to 17.5 degrees in reader 1. Both readers saw 0 star/dot groups on every shaft or cap. Incidental specks near the writing have uncertain status. Eight curved arms separate the star-bearing central fields. Outside them are the spokes, their labels and three circumferential rows. The finer ink and pigment contours merge in places.",
+      "order": "Both readers found the same 14 light/short and 14 dark/long spokes with 28 class changes including the wrap. Reader 1 measured length from shaft base to tip centre; reader 2 compared radial tip distances. Gaps in the three circumferential rows near R25–R26 do not pick a unique first spoke or direction.",
+      "central_stars": {
+        "field_ranges_R1_R2": [
+          [
+            [
+              7,
+              9
+            ],
+            [
+              7,
+              9
+            ]
+          ],
+          [
+            [
+              2,
+              6
+            ],
+            [
+              4,
+              5
+            ]
+          ],
+          [
+            [
+              4,
+              6
+            ],
+            [
+              3,
+              5
+            ]
+          ],
+          [
+            [
+              8,
+              8
+            ],
+            [
+              8,
+              8
+            ]
+          ],
+          [
+            [
+              6,
+              7
+            ],
+            [
+              6,
+              7
+            ]
+          ],
+          [
+            [
+              2,
+              4
+            ],
+            [
+              3,
+              4
+            ]
+          ],
+          [
+            [
+              0,
+              3
+            ],
+            [
+              0,
+              3
+            ]
+          ],
+          [
+            [
+              0,
+              4
+            ],
+            [
+              0,
+              0
+            ]
+          ]
+        ],
+        "reader1": [
+          29,
+          47
+        ],
+        "reader2": [
+          31,
+          41
+        ],
+        "meaning": "Lower endpoints count confidently recognised shapes; upper endpoints add individually marked possible shapes. Uneven paint can hide others. Eight central fields were examined by each reader. No star-to-cap bijection is drawn."
+      }
+    },
+    "D": {
+      "witness": "Bodleian MS Bodl. Or. 133, ff. 117b–118a. Both facing pages constitute one diagram.",
+      "source": "https://press.uchicago.edu/books/HOC/HOC_V2_B1/HOC_VOLUME2_Book1_chapter2.pdf",
+      "reproduction_used": "https://islamic-study.org/wp-content/uploads/2023/06/Islamic_Celestial_Mapping_In_The_Histor.pdf",
+      "canvases": [
+        "https://iiif.bodleian.ox.ac.uk/iiif/canvas/6021232e-d3e1-4fcb-b57c-9bfb88b8b69f.json",
+        "https://iiif.bodleian.ox.ac.uk/iiif/canvas/99500391-88eb-4eb2-83f8-dd5e0a620368.json"
+      ],
+      "locator": "E. Savage-Smith, Celestial Mapping, fig. 2.22, printed p. 39. The caption identifies the Earth, twelve concentric spheres and the 28 mansion asterisms in the broad outer belt.",
+      "pdf_sha256": "9e11ead7327c390fb6fc38a969c02e39b1d1f65425710d473e26e235f1039b73",
+      "render": "Physical PDF page 28, one-based; Poppler 160 dpi, 1360 by 1760. Paint the two boxes in page coordinates RGB (246,246,246), then crop.",
+      "inclusive_masks": [
+        [
+          326,
+          173,
+          550,
+          215
+        ],
+        [
+          860,
+          173,
+          1077,
+          203
+        ]
+      ],
+      "crop": [
+        326,
+        173,
+        1078,
+        968
+      ],
+      "png_sha256": "1980389d7f0f616dc1c8abdc3da7549ad36b053b6eca5d3003b45f6d2075d1e2",
+      "geometry": "Twelve broad sectors, plus a separate outer band with 25 legible groups, some partial. Each contains writing and a dot cluster. D06 is one obscured arc of unknown original multiplicity. Larger discs occupy a different belt. About seven clear inner intervals, an inner label belt, a dark spacer, the disc-and-writing belt, the outer labelled dot cells and a thin double rim. A central dark oval coincides with the gutter. Three belts carry writing.",
+      "order": "Both ends of the wrap were inspected. Missing cells and ambiguous dot separations prevent a full count or cyclic period. Known historical count and observed group count are distinct. Relative tone alone is available on the monochrome reproduction. The seam and two diameters give no unique start."
+    }
+  },
+  "paired_codes": {
+    "columns": [
+      "clockwise index",
+      "reader 1 xy",
+      "reader 2 xy",
+      "reader 1 feature",
+      "reader 2 feature"
+    ],
+    "features": "A = joint figure background / label ink; B = one- or two-level outer entry; C = joint shaft class with tip coordinates; D = inclusive count interval of visible outer dots. D06 null denotes the entire missing arc.",
+    "by_panel": {
+      "A": [
+        [1,[481,132],[474,157],"light/red","light/red"],
+        [2,[613,208],[595,226],"green/green","green/green"],
+        [3,[689,340],[664,347],"light/red","light/red"],
+        [4,[689,492],[664,485],"green/green","green/green"],
+        [5,[613,624],[595,606],"light/red","light/red"],
+        [6,[481,700],[474,675],"green/green","green/green"],
+        [7,[329,700],[336,675],"light/red","light/red"],
+        [8,[197,624],[215,606],"green/green","green/green"],
+        [9,[121,492],[146,485],"light/red","light/red"],
+        [10,[121,340],[146,347],"green/green","green/green"],
+        [11,[197,208],[215,226],"light/red","light/red"],
+        [12,[329,132],[336,157],"green/green","green/green"]
+      ],
+      "B": [
+        [1,[377,73],[377,70],1,1],
+        [2,[437,80],[443,77],1,1],
+        [3,[496,99],[505,98],2,2],
+        [4,[551,130],[555,128],1,1],
+        [5,[598,173],[604,173],1,1],
+        [6,[637,228],[643,227],1,1],
+        [7,[663,291],[668,288],2,2],
+        [8,[674,353],[679,354],1,1],
+        [9,[671,421],[676,423],1,1],
+        [10,[655,482],[657,488],1,1],
+        [11,[624,542],[625,547],2,2],
+        [12,[579,594],[581,597],1,1],
+        [13,[524,635],[527,636],1,1],
+        [14,[457,663],[461,664],1,1],
+        [15,[385,675],[384,676],2,2],
+        [16,[317,669],[313,669],1,1],
+        [17,[252,649],[253,649],1,1],
+        [18,[193,614],[195,616],1,1],
+        [19,[143,567],[147,571],2,2],
+        [20,[106,511],[108,512],1,1],
+        [21,[82,447],[84,451],1,1],
+        [22,[73,379],[74,384],1,1],
+        [23,[80,311],[79,317],2,2],
+        [24,[101,247],[99,252],1,1],
+        [25,[137,189],[133,193],1,1],
+        [26,[185,140],[180,143],1,1],
+        [27,[242,103],[235,105],2,2],
+        [28,[311,80],[300,80],1,1]
+      ],
+      "C": [
+        [1,[1272,725],[1272,725],"light/short","light/short"],
+        [2,[1385,655],[1384,654],"dark/long","dark/long"],
+        [3,[1468,770],[1471,767],"light/short","light/short"],
+        [4,[1598,770],[1600,774],"dark/long","dark/long"],
+        [5,[1590,898],[1584,903],"light/short","light/short"],
+        [6,[1705,960],[1703,962],"dark/long","dark/long"],
+        [7,[1658,1085],[1659,1088],"light/short","light/short"],
+        [8,[1760,1188],[1760,1182],"dark/long","dark/long"],
+        [9,[1652,1265],[1654,1257],"light/short","light/short"],
+        [10,[1712,1372],[1708,1367],"dark/long","dark/long"],
+        [11,[1592,1410],[1586,1405],"light/short","light/short"],
+        [12,[1590,1542],[1593,1534],"dark/long","dark/long"],
+        [13,[1455,1552],[1455,1555],"light/short","light/short"],
+        [14,[1388,1648],[1387,1644],"dark/long","dark/long"],
+        [15,[1272,1588],[1269,1588],"light/short","light/short"],
+        [16,[1155,1658],[1152,1660],"dark/long","dark/long"],
+        [17,[1075,1565],[1068,1564],"light/short","light/short"],
+        [18,[940,1590],[946,1585],"dark/long","dark/long"],
+        [19,[920,1465],[910,1463],"light/short","light/short"],
+        [20,[778,1400],[779,1393],"dark/long","dark/long"],
+        [21,[820,1278],[821,1283],"light/short","light/short"],
+        [22,[732,1178],[734,1180],"dark/long","dark/long"],
+        [23,[822,1065],[824,1065],"light/short","light/short"],
+        [24,[805,920],[809,915],"dark/long","dark/long"],
+        [25,[938,870],[934,875],"light/short","light/short"],
+        [26,[962,728],[960,725],"dark/long","dark/long"],
+        [27,[1092,765],[1096,760],"light/short","light/short"],
+        [28,[1172,645],[1171,647],"dark/long","dark/long"]
+      ],
+      "D": [
+        [1,[423,72],[421,80],[4,4],[4,4]],
+        [2,[495,93],[491,101],[3,3],[3,4]],
+        [3,[560,131],[555,142],[2,2],[2,2]],
+        [4,[614,186],[605,197],[8,11],[7,9]],
+        [5,[655,252],[641,261],[2,3],[2,3]],
+        [6,[681,338],[663,344],null,null],
+        [7,[685,418],[666,415],[6,8],[6,9]],
+        [8,[676,479],[658,471],[6,7],[6,8]],
+        [9,[650,548],[636,538],[7,8],[7,11]],
+        [10,[607,613],[598,600],[5,5],[5,5]],
+        [11,[556,662],[547,653],[2,2],[2,2]],
+        [12,[495,697],[485,690],[11,11],[10,13]],
+        [13,[417,718],[417,709],[2,5],[2,5]],
+        [14,[327,716],[333,707],[2,3],[2,4]],
+        [15,[251,690],[256,681],[1,4],[1,3]],
+        [16,[192,652],[197,639],[5,5],[5,6]],
+        [17,[139,596],[151,585],[2,2],[2,2]],
+        [18,[103,533],[117,521],[3,3],[3,3]],
+        [19,[80,457],[98,455],[2,2],[2,2]],
+        [20,[74,378],[93,386],[1,3],[1,4]],
+        [21,[84,311],[102,316],[3,3],[3,4]],
+        [22,[110,242],[125,249],[7,9],[8,11]],
+        [23,[153,177],[163,187],[9,11],[9,13]],
+        [24,[204,128],[214,135],[8,8],[7,10]],
+        [25,[275,89],[277,97],[3,3],[3,3]],
+        [26,[348,71],[343,79],[4,5],[3,6]]
+      ]
+    },
+    "D_agreement": "25 paired nonmissing intervals, 25 overlap, 10 identical intervals, 8 identical singletons. Overlap is compatibility, not proof of equal true counts."
+  },
+  "editorial_map": {
+    "data": "https://www.voynich.nu/data/ZL3b-n.txt",
+    "pin": "https://github.com/Ayan-Bandyopadhyay/voynich-swarm/blob/c9bb62893fd6677a6fd4b267d10df4bac2322968/pins/sources.json",
+    "sha256": "bf5b6d4ac1e3a51b1847a9c388318d609020441ccd56984c901c32b09beccafc",
+    "coverage": "28 @Ri entries from f69v.4 to f69v.31. Four label crops were checked against EVA shapes. All other locus assignments follow from their relative positions. Preserve the editor's commas, dots and bracketed alternatives.",
+    "reference": "In crop C, centre (1210,1196); first tip clockwise after page up R01 (1272,725), R28 (1172,645) on its other side. For full JPEG coordinates add (670,551). Turn quadrilateral corners in the listed order into top left, top right, bottom right, bottom left, so the cap is on the right.",
+    "anchors": [
+      [
+        "R25",
+        "f69v.6",
+        "10:30",
+        "ochoyk",
+        [
+          854,
+          750
+        ],
+        [
+          [
+            849,
+            613
+          ],
+          [
+            986,
+            778
+          ],
+          [
+            859,
+            883
+          ],
+          [
+            722,
+            719
+          ]
+        ],
+        "Two low ovals separated by a bench; a descending stroke precedes the tall terminal k close to the cap."
+      ],
+      [
+        "R01",
+        "f69v.10",
+        "00:15",
+        "ytody",
+        [
+          1286,
+          593
+        ],
+        [
+          [
+            1394,
+            532
+          ],
+          [
+            1373,
+            695
+          ],
+          [
+            1209,
+            673
+          ],
+          [
+            1231,
+            511
+          ]
+        ],
+        "Starts with the descending y and a two-loop tall t, then an oval and a looped form with a final descending stroke."
+      ],
+      [
+        "R28",
+        "f69v.9",
+        "00:00",
+        "oeesy",
+        [
+          1138,
+          528
+        ],
+        [
+          [
+            1255,
+            448
+          ],
+          [
+            1265,
+            594
+          ],
+          [
+            1100,
+            605
+          ],
+          [
+            1090,
+            459
+          ]
+        ],
+        "Low chain including an initial oval, small arch and final descending tail; lacks tall gallows."
+      ],
+      [
+        "R19",
+        "f69v.28",
+        "07:30",
+        "okodchy",
+        [
+          791,
+          1524
+        ],
+        [
+          [
+            666,
+            1569
+          ],
+          [
+            837,
+            1411
+          ],
+          [
+            949,
+            1532
+          ],
+          [
+            779,
+            1690
+          ]
+        ],
+        "Initial oval, tall gallows, second oval, looped form and a low bench towards the cap. The ending is fainter."
+      ]
+    ],
+    "anchor_columns": [
+      "ray",
+      "locus",
+      "editorial clock",
+      "raw ZL3b",
+      "point inside label",
+      "label quadrilateral",
+      "shape cue"
+    ],
+    "test": "For locus number n=4..31, try R=1+((a-1+s*(n-4)) mod 28), a=1..28, s=+1 clockwise or -1 counterclockwise. R25=f69v.6 leaves (a,s)=(23,+1),(27,-1). Four clockwise steps from R25 to R01 give f69v.10 or f69v.30 respectively. The latter reads okchey[s:r], incompatible with the initial y and two-loop t at R01. R28 and R19 then agree with the sole surviving map (23,+1).",
+    "scope": "The mapping is conditional on a contiguous bijection of 28 labels with 28 supports, without skipped or permuted entries. Rounded clock comments provide a positional cross-check (maximum absolute discrepancy from tip bearing 9.7 degrees). Historical first label and direction are undetermined."
+  },
+  "prior_work": {
+    "original": "https://github.com/Ayan-Bandyopadhyay/voynich-swarm/pull/203",
+    "transliterations": "https://github.com/Ayan-Bandyopadhyay/voynich-swarm/pull/471",
+    "prefix_test": "https://github.com/Ayan-Bandyopadhyay/voynich-swarm/pull/559",
+    "scope": "P-L4-039 tested Anklesaria, al-Tusi and Henry Bate over all 56 alignments. Six primary Holm-adjusted p-values were 1.0. This image comparison supplies no new positional prediction for any particular roster; it does not repeat the name test."
+  }
+}
