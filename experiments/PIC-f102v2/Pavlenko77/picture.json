@@ -1,0 +1,300 @@
+{
+  "folio": "f102v2",
+  "canvas": "https://collections.library.yale.edu/manifests/oid/2002046/canvas/1006252",
+  "blind": true,
+  "statement": "Independent scan-only inventory of canvas 1006252, f102v2. No earlier f102v2 annotation or transcription words read. Compared the two manifest 102v part images to select the panel with the two upper container-label loci and a lower container-label block; canvas 1006253 is the neighboring f102v1 and is excluded. Inventory records fourteen upper fragments, five lower drawing units and two composite vessel units. The upper vessel is treated provisionally as one continuous drawing despite its two inscriptions; the lower-left green structure and red root are provisionally separate units because their attachment cannot be resolved. These segmentation choices are disclosed, not a claim of an exact botanical specimen count. No plant species or lexical reading proposed.",
+  "label_mapping": {
+    "read": "Locus identifiers only: .1 and .2 are Lc, .3–.16 Lf, .17–.23 paragraph, .24 Lc, .25–.29 Lf, .30–.39 paragraph. No words were displayed or used for alignment.",
+    "lower_vessel": "Assigned f102v2.24 because this is the unique container-label locus between the first paragraph block and the five-fragment lower block; the lower vessel is the unique container drawn alongside that block and has writing inside its lower body. This is a structural image/locus alignment, not a word match.",
+    "upper_vessel": "Two visible inscriptions at different heights on the continuous upper vessel correspond structurally to the initial pair of container-label loci. The singular-label schema cannot represent the unresolved one-object/two-loci case, so label is null and both candidates are retained as free descriptive metadata.",
+    "fragments": "Individual fragment labels all use non-specific @Lf locators. Numerical sequence alone was not treated as a coordinate key. All fragment label values remain null."
+  },
+  "provenance": {
+    "manifest_sha256": "317d58fd9ea90392a83d9858a91eada3d0b41416a3c835857dc0154bd123a309",
+    "zl_sha256": "bf5b6d4ac1e3a51b1847a9c388318d609020441ccd56984c901c32b09beccafc",
+    "image": "https://collections.library.yale.edu/iiif/2/1006252/full/1250,/0/default.jpg",
+    "panel_control": "https://collections.library.yale.edu/iiif/2/1006253/full/1250,/0/default.jpg",
+    "coordinates": "Approximate [x,y] positions on the 1250-wide full view of the 2981 by 3795 native canvas. Origin top-left; x_native=x*2981/1250, y_native=y*2981/1250. Free coordinate features are not scored vocabulary.",
+    "ordering": "Vessels top-to-bottom, then upper fragments approximately left-to-right in two rows, then lower units left-to-right. Object IDs are local, not ZL numbers.",
+    "limits": "One reader. Exact vessel and lower-left plant/root segmentation uncertain; possible alternative inventory has three vessels or a merged lower-left plant. Labels remain unknown except the unique lower-container block alignment. Rounded colour categories summarize visible paint, not pigments. Neighboring leaves, stains and show-through excluded."
+  },
+  "objects": [
+    {
+      "id": "upper-vessel",
+      "kind": "jar",
+      "features": {
+        "colour": "mixed",
+        "position_xy": [
+          180,
+          396
+        ],
+        "shape": "One continuous tall composite vessel: open blue upper cylinder, long pale decorated body, stepped collars, a narrow dark-blue lower stem and small pale foot/body with a spreading base. Two visible inscriptions occur at different heights; segmentation as one vessel is provisional.",
+        "candidate_label_loci": [
+          "f102v2.1",
+          "f102v2.2"
+        ]
+      },
+      "label": null
+    },
+    {
+      "id": "lower-vessel",
+      "kind": "jar",
+      "features": {
+        "colour": "mixed",
+        "position_xy": [
+          195,
+          825
+        ],
+        "shape": "Tall pale-blue compound vessel with open oval rim, ringed collars, flared central pedestal, lower narrow cylinder and splayed foot. Inscription on the lower cylinder."
+      },
+      "label": "f102v2.24"
+    },
+    {
+      "id": "top-01",
+      "kind": "leaf",
+      "features": {
+        "colour": "brown",
+        "position_xy": [
+          305,
+          275
+        ],
+        "shape": "Single dark brown pointed blade on a thin descending stalk."
+      },
+      "label": null
+    },
+    {
+      "id": "top-02",
+      "kind": "leaf",
+      "features": {
+        "colour": "green",
+        "position_xy": [
+          388,
+          260
+        ],
+        "shape": "Narrow upright green blade, with a small side projection and pale stem."
+      },
+      "label": null
+    },
+    {
+      "id": "top-03",
+      "kind": "plant_part",
+      "features": {
+        "colour": "mixed",
+        "position_xy": [
+          474,
+          255
+        ],
+        "shape": "Green deeply cut curved blade joined to an oblique tapered brown base."
+      },
+      "label": null
+    },
+    {
+      "id": "top-04",
+      "kind": "other",
+      "features": {
+        "colour": "blue",
+        "position_xy": [
+          578,
+          273
+        ],
+        "shape": "Small separate quadrilateral outlined form filled blue, with pale border and a short lateral projection. Botanical identity unclear."
+      },
+      "label": null
+    },
+    {
+      "id": "top-05",
+      "kind": "plant_part",
+      "features": {
+        "colour": "mixed",
+        "position_xy": [
+          698,
+          250
+        ],
+        "shape": "Upright green cut blade and a long thin curved reddish/pale stalk."
+      },
+      "label": null
+    },
+    {
+      "id": "top-06",
+      "kind": "leaf",
+      "features": {
+        "colour": "green",
+        "position_xy": [
+          848,
+          272
+        ],
+        "shape": "Large broad asymmetrical green blade with rounded lobes, a thin pale stalk below."
+      },
+      "label": null
+    },
+    {
+      "id": "top-07",
+      "kind": "plant_part",
+      "features": {
+        "colour": "mixed",
+        "position_xy": [
+          1030,
+          240
+        ],
+        "shape": "Green blade with many rounded finger-like lobes and a short red-brown stalk."
+      },
+      "label": null
+    },
+    {
+      "id": "top-08",
+      "kind": "root",
+      "features": {
+        "colour": "brown",
+        "position_xy": [
+          307,
+          370
+        ],
+        "shape": "Pale brown pointed spreading tuft or comb-like root fragment below the dark blade; independent pale stalk."
+      },
+      "label": null
+    },
+    {
+      "id": "top-09",
+      "kind": "leaf",
+      "features": {
+        "colour": "green",
+        "position_xy": [
+          430,
+          378
+        ],
+        "shape": "Horizontal green comb-like blade with several upward rounded teeth and a reddish short basal stalk."
+      },
+      "label": null
+    },
+    {
+      "id": "top-10",
+      "kind": "plant_part",
+      "features": {
+        "colour": "mixed",
+        "position_xy": [
+          580,
+          380
+        ],
+        "shape": "Dark blue horizontal comb-like blade with five long narrow upright projections and a curving reddish/pale stalk at lower left."
+      },
+      "label": null
+    },
+    {
+      "id": "top-11",
+      "kind": "plant_part",
+      "features": {
+        "colour": "green",
+        "position_xy": [
+          705,
+          357
+        ],
+        "shape": "Narrow upright three-pronged green fragment on a long curved pale stem."
+      },
+      "label": null
+    },
+    {
+      "id": "top-12",
+      "kind": "leaf",
+      "features": {
+        "colour": "green",
+        "position_xy": [
+          805,
+          421
+        ],
+        "shape": "Small rounded green blade divided into several coarse lobes; thin curved stalk below."
+      },
+      "label": null
+    },
+    {
+      "id": "top-13",
+      "kind": "leaf",
+      "features": {
+        "colour": "green",
+        "position_xy": [
+          995,
+          408
+        ],
+        "shape": "Two broad joined green lobed portions with many rounded outer projections and long thin stalk descending left."
+      },
+      "label": null
+    },
+    {
+      "id": "top-14",
+      "kind": "root",
+      "features": {
+        "colour": "brown",
+        "position_xy": [
+          1117,
+          506
+        ],
+        "shape": "Short dark-brown rough horizontal stub near the right edge, with faint upright projections. Interpretation as root is tentative."
+      },
+      "label": null
+    },
+    {
+      "id": "bottom-01",
+      "kind": "plant_part",
+      "features": {
+        "colour": "green",
+        "position_xy": [
+          345,
+          747
+        ],
+        "shape": "Broad jagged green structure with several pointed extensions; a thin pale/brown descending attachment at left. Separation from the neighboring red root is uncertain."
+      },
+      "label": null
+    },
+    {
+      "id": "bottom-02",
+      "kind": "root",
+      "features": {
+        "colour": "mixed",
+        "position_xy": [
+          394,
+          920
+        ],
+        "shape": "Separate-looking red-brown fleshy root/body below the left green structure, tapering into two long rightward curved extensions. Thin pale upright stalks; exact attachment to the green structure unresolved."
+      },
+      "label": null
+    },
+    {
+      "id": "bottom-03",
+      "kind": "plant",
+      "features": {
+        "colour": "mixed",
+        "position_xy": [
+          635,
+          795
+        ],
+        "shape": "Two large toothed green blades converging toward a long thick pink-red root extending down and right."
+      },
+      "label": null
+    },
+    {
+      "id": "bottom-04",
+      "kind": "plant",
+      "features": {
+        "colour": "mixed",
+        "position_xy": [
+          873,
+          803
+        ],
+        "shape": "One dark green-brown oval blade with a pale slit/patch; upright stem connects to a spreading bundle of long ochre curved roots."
+      },
+      "label": null
+    },
+    {
+      "id": "bottom-05",
+      "kind": "plant",
+      "features": {
+        "colour": "green",
+        "position_xy": [
+          1053,
+          814
+        ],
+        "shape": "Paired rounded green blades, one much fainter, above a pale stem system and long outlined roots."
+      },
+      "label": null
+    }
+  ]
+}
