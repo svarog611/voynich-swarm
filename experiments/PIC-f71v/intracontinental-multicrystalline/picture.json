@@ -1,0 +1,482 @@
+{
+  "folio": "f71v",
+  "canvas": "https://collections.library.yale.edu/manifests/oid/2002046/canvas/1006203",
+  "blind": true,
+  "statement": "The left panel contains a horned animal with a green cluster and two rings of figures with stars and tub-like forms. Ring angles are approximate. Two top labels were matched visually to transcription; other associations are left uncertain.",
+  "objects": [
+    {
+      "id": "centre-animal",
+      "kind": "animal",
+      "features": {
+        "description": "A pale red four-legged animal with horns faces a leafy green cluster."
+      },
+      "label": null
+    },
+    {
+      "id": "centre-plant",
+      "kind": "plant",
+      "features": {
+        "description": "Small green leafy cluster in a latticed container near the animal’s head."
+      },
+      "label": null
+    },
+    {
+      "id": "centre-container",
+      "kind": "container",
+      "features": {
+        "description": "Lattice-patterned container below the green cluster."
+      },
+      "label": null
+    },
+    {
+      "id": "outer-figure-1",
+      "kind": "human_figure",
+      "features": {
+        "ring": "outer",
+        "angle_deg_clockwise_from_top": 0,
+        "description": "Person emerging from a tub-like form with a star nearby; several figures have red clothing or green headwear."
+      },
+      "label": "f71v.4"
+    },
+    {
+      "id": "outer-star-1",
+      "kind": "star",
+      "features": {
+        "ring": "outer",
+        "angle_deg_clockwise_from_top": 0,
+        "description": "Many-pointed star near a ring figure."
+      },
+      "label": null
+    },
+    {
+      "id": "outer-container-1",
+      "kind": "container",
+      "features": {
+        "ring": "outer",
+        "angle_deg_clockwise_from_top": 0,
+        "description": "Tub-like form surrounding the lower part of a figure."
+      },
+      "label": null
+    },
+    {
+      "id": "outer-figure-2",
+      "kind": "human_figure",
+      "features": {
+        "ring": "outer",
+        "angle_deg_clockwise_from_top": 35,
+        "description": "Person emerging from a tub-like form with a star nearby; several figures have red clothing or green headwear."
+      },
+      "label": null
+    },
+    {
+      "id": "outer-star-2",
+      "kind": "star",
+      "features": {
+        "ring": "outer",
+        "angle_deg_clockwise_from_top": 35,
+        "description": "Many-pointed star near a ring figure."
+      },
+      "label": null
+    },
+    {
+      "id": "outer-container-2",
+      "kind": "container",
+      "features": {
+        "ring": "outer",
+        "angle_deg_clockwise_from_top": 35,
+        "description": "Tub-like form surrounding the lower part of a figure."
+      },
+      "label": null
+    },
+    {
+      "id": "outer-figure-3",
+      "kind": "human_figure",
+      "features": {
+        "ring": "outer",
+        "angle_deg_clockwise_from_top": 75,
+        "description": "Person emerging from a tub-like form with a star nearby; several figures have red clothing or green headwear."
+      },
+      "label": null
+    },
+    {
+      "id": "outer-star-3",
+      "kind": "star",
+      "features": {
+        "ring": "outer",
+        "angle_deg_clockwise_from_top": 75,
+        "description": "Many-pointed star near a ring figure."
+      },
+      "label": null
+    },
+    {
+      "id": "outer-container-3",
+      "kind": "container",
+      "features": {
+        "ring": "outer",
+        "angle_deg_clockwise_from_top": 75,
+        "description": "Tub-like form surrounding the lower part of a figure."
+      },
+      "label": null
+    },
+    {
+      "id": "outer-figure-4",
+      "kind": "human_figure",
+      "features": {
+        "ring": "outer",
+        "angle_deg_clockwise_from_top": 105,
+        "description": "Person emerging from a tub-like form with a star nearby; several figures have red clothing or green headwear."
+      },
+      "label": null
+    },
+    {
+      "id": "outer-star-4",
+      "kind": "star",
+      "features": {
+        "ring": "outer",
+        "angle_deg_clockwise_from_top": 105,
+        "description": "Many-pointed star near a ring figure."
+      },
+      "label": null
+    },
+    {
+      "id": "outer-container-4",
+      "kind": "container",
+      "features": {
+        "ring": "outer",
+        "angle_deg_clockwise_from_top": 105,
+        "description": "Tub-like form surrounding the lower part of a figure."
+      },
+      "label": null
+    },
+    {
+      "id": "outer-figure-5",
+      "kind": "human_figure",
+      "features": {
+        "ring": "outer",
+        "angle_deg_clockwise_from_top": 145,
+        "description": "Person emerging from a tub-like form with a star nearby; several figures have red clothing or green headwear."
+      },
+      "label": null
+    },
+    {
+      "id": "outer-star-5",
+      "kind": "star",
+      "features": {
+        "ring": "outer",
+        "angle_deg_clockwise_from_top": 145,
+        "description": "Many-pointed star near a ring figure."
+      },
+      "label": null
+    },
+    {
+      "id": "outer-container-5",
+      "kind": "container",
+      "features": {
+        "ring": "outer",
+        "angle_deg_clockwise_from_top": 145,
+        "description": "Tub-like form surrounding the lower part of a figure."
+      },
+      "label": null
+    },
+    {
+      "id": "outer-figure-6",
+      "kind": "human_figure",
+      "features": {
+        "ring": "outer",
+        "angle_deg_clockwise_from_top": 180,
+        "description": "Person emerging from a tub-like form with a star nearby; several figures have red clothing or green headwear."
+      },
+      "label": null
+    },
+    {
+      "id": "outer-star-6",
+      "kind": "star",
+      "features": {
+        "ring": "outer",
+        "angle_deg_clockwise_from_top": 180,
+        "description": "Many-pointed star near a ring figure."
+      },
+      "label": null
+    },
+    {
+      "id": "outer-container-6",
+      "kind": "container",
+      "features": {
+        "ring": "outer",
+        "angle_deg_clockwise_from_top": 180,
+        "description": "Tub-like form surrounding the lower part of a figure."
+      },
+      "label": null
+    },
+    {
+      "id": "outer-figure-7",
+      "kind": "human_figure",
+      "features": {
+        "ring": "outer",
+        "angle_deg_clockwise_from_top": 215,
+        "description": "Person emerging from a tub-like form with a star nearby; several figures have red clothing or green headwear."
+      },
+      "label": null
+    },
+    {
+      "id": "outer-star-7",
+      "kind": "star",
+      "features": {
+        "ring": "outer",
+        "angle_deg_clockwise_from_top": 215,
+        "description": "Many-pointed star near a ring figure."
+      },
+      "label": null
+    },
+    {
+      "id": "outer-container-7",
+      "kind": "container",
+      "features": {
+        "ring": "outer",
+        "angle_deg_clockwise_from_top": 215,
+        "description": "Tub-like form surrounding the lower part of a figure."
+      },
+      "label": null
+    },
+    {
+      "id": "outer-figure-8",
+      "kind": "human_figure",
+      "features": {
+        "ring": "outer",
+        "angle_deg_clockwise_from_top": 255,
+        "description": "Person emerging from a tub-like form with a star nearby; several figures have red clothing or green headwear."
+      },
+      "label": null
+    },
+    {
+      "id": "outer-star-8",
+      "kind": "star",
+      "features": {
+        "ring": "outer",
+        "angle_deg_clockwise_from_top": 255,
+        "description": "Many-pointed star near a ring figure."
+      },
+      "label": null
+    },
+    {
+      "id": "outer-container-8",
+      "kind": "container",
+      "features": {
+        "ring": "outer",
+        "angle_deg_clockwise_from_top": 255,
+        "description": "Tub-like form surrounding the lower part of a figure."
+      },
+      "label": null
+    },
+    {
+      "id": "outer-figure-9",
+      "kind": "human_figure",
+      "features": {
+        "ring": "outer",
+        "angle_deg_clockwise_from_top": 290,
+        "description": "Person emerging from a tub-like form with a star nearby; several figures have red clothing or green headwear."
+      },
+      "label": null
+    },
+    {
+      "id": "outer-star-9",
+      "kind": "star",
+      "features": {
+        "ring": "outer",
+        "angle_deg_clockwise_from_top": 290,
+        "description": "Many-pointed star near a ring figure."
+      },
+      "label": null
+    },
+    {
+      "id": "outer-container-9",
+      "kind": "container",
+      "features": {
+        "ring": "outer",
+        "angle_deg_clockwise_from_top": 290,
+        "description": "Tub-like form surrounding the lower part of a figure."
+      },
+      "label": null
+    },
+    {
+      "id": "outer-figure-10",
+      "kind": "human_figure",
+      "features": {
+        "ring": "outer",
+        "angle_deg_clockwise_from_top": 330,
+        "description": "Person emerging from a tub-like form with a star nearby; several figures have red clothing or green headwear."
+      },
+      "label": null
+    },
+    {
+      "id": "outer-star-10",
+      "kind": "star",
+      "features": {
+        "ring": "outer",
+        "angle_deg_clockwise_from_top": 330,
+        "description": "Many-pointed star near a ring figure."
+      },
+      "label": null
+    },
+    {
+      "id": "outer-container-10",
+      "kind": "container",
+      "features": {
+        "ring": "outer",
+        "angle_deg_clockwise_from_top": 330,
+        "description": "Tub-like form surrounding the lower part of a figure."
+      },
+      "label": null
+    },
+    {
+      "id": "inner-figure-1",
+      "kind": "human_figure",
+      "features": {
+        "ring": "inner",
+        "angle_deg_clockwise_from_top": 0,
+        "description": "Person emerging from a tub-like form with a star nearby; several figures have red clothing or green headwear."
+      },
+      "label": "f71v.14"
+    },
+    {
+      "id": "inner-star-1",
+      "kind": "star",
+      "features": {
+        "ring": "inner",
+        "angle_deg_clockwise_from_top": 0,
+        "description": "Many-pointed star near a ring figure."
+      },
+      "label": null
+    },
+    {
+      "id": "inner-container-1",
+      "kind": "container",
+      "features": {
+        "ring": "inner",
+        "angle_deg_clockwise_from_top": 0,
+        "description": "Tub-like form surrounding the lower part of a figure."
+      },
+      "label": null
+    },
+    {
+      "id": "inner-figure-2",
+      "kind": "human_figure",
+      "features": {
+        "ring": "inner",
+        "angle_deg_clockwise_from_top": 90,
+        "description": "Person emerging from a tub-like form with a star nearby; several figures have red clothing or green headwear."
+      },
+      "label": null
+    },
+    {
+      "id": "inner-star-2",
+      "kind": "star",
+      "features": {
+        "ring": "inner",
+        "angle_deg_clockwise_from_top": 90,
+        "description": "Many-pointed star near a ring figure."
+      },
+      "label": null
+    },
+    {
+      "id": "inner-container-2",
+      "kind": "container",
+      "features": {
+        "ring": "inner",
+        "angle_deg_clockwise_from_top": 90,
+        "description": "Tub-like form surrounding the lower part of a figure."
+      },
+      "label": null
+    },
+    {
+      "id": "inner-figure-3",
+      "kind": "human_figure",
+      "features": {
+        "ring": "inner",
+        "angle_deg_clockwise_from_top": 165,
+        "description": "Person emerging from a tub-like form with a star nearby; several figures have red clothing or green headwear."
+      },
+      "label": null
+    },
+    {
+      "id": "inner-star-3",
+      "kind": "star",
+      "features": {
+        "ring": "inner",
+        "angle_deg_clockwise_from_top": 165,
+        "description": "Many-pointed star near a ring figure."
+      },
+      "label": null
+    },
+    {
+      "id": "inner-container-3",
+      "kind": "container",
+      "features": {
+        "ring": "inner",
+        "angle_deg_clockwise_from_top": 165,
+        "description": "Tub-like form surrounding the lower part of a figure."
+      },
+      "label": null
+    },
+    {
+      "id": "inner-figure-4",
+      "kind": "human_figure",
+      "features": {
+        "ring": "inner",
+        "angle_deg_clockwise_from_top": 245,
+        "description": "Person emerging from a tub-like form with a star nearby; several figures have red clothing or green headwear."
+      },
+      "label": null
+    },
+    {
+      "id": "inner-star-4",
+      "kind": "star",
+      "features": {
+        "ring": "inner",
+        "angle_deg_clockwise_from_top": 245,
+        "description": "Many-pointed star near a ring figure."
+      },
+      "label": null
+    },
+    {
+      "id": "inner-container-4",
+      "kind": "container",
+      "features": {
+        "ring": "inner",
+        "angle_deg_clockwise_from_top": 245,
+        "description": "Tub-like form surrounding the lower part of a figure."
+      },
+      "label": null
+    },
+    {
+      "id": "inner-figure-5",
+      "kind": "human_figure",
+      "features": {
+        "ring": "inner",
+        "angle_deg_clockwise_from_top": 300,
+        "description": "Person emerging from a tub-like form with a star nearby; several figures have red clothing or green headwear."
+      },
+      "label": null
+    },
+    {
+      "id": "inner-star-5",
+      "kind": "star",
+      "features": {
+        "ring": "inner",
+        "angle_deg_clockwise_from_top": 300,
+        "description": "Many-pointed star near a ring figure."
+      },
+      "label": null
+    },
+    {
+      "id": "inner-container-5",
+      "kind": "container",
+      "features": {
+        "ring": "inner",
+        "angle_deg_clockwise_from_top": 300,
+        "description": "Tub-like form surrounding the lower part of a figure."
+      },
+      "label": null
+    }
+  ]
+}
