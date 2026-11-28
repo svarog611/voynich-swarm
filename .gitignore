@@ -1,7 +1,9 @@
-data/raw/
-secrets/
+# local to a checkout. No trailing slash: a symlink with one of these names must be ignored too
+# (tests/test_tracked_tree.py).
+/data
+/secrets
 __pycache__/
 *.pyc
-_pr/
+/_pr
 steps/steps.json
 programs/FRONTIER.md
