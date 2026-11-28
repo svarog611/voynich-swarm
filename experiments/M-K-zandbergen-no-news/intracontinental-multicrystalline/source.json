@@ -1,0 +1,24 @@
+{
+  "title": "No News about the Voynich Manuscript?",
+  "authors": "René Zandbergen",
+  "year": 2019,
+  "url": "https://voynich.nu/papers/NoNews_RZ_2019.pdf",
+  "summary": "This review of an invited HistoCrypt talk surveys material and historical evidence, publicized decipherment claims, and assumptions behind translation attempts. It compares character entropy and ordered-pair patterns in a First Study Group transcription with a few Latin and Italian texts, and argues for testing production mechanisms rather than assuming the word groups are plaintext words.",
+  "established": [
+    "The paper reports unconditional and first-order conditional character entropies of 3.829 and 2.052 bits for its FSG transcription, versus conditional values of 3.234 and 3.266 for Mattioli and Pliny Latin and 3.126 for Dante Italian; these are the paper’s specific samples and transcription, not a universal language bound.",
+    "The author reports that relative character-pair frequency matrices for his FSG sample are more asymmetric and sparse than the Mattioli Latin comparison; the inference depends on the selected transcription and character units.",
+    "The paper explicitly presents meaning, reversibility, equivalence of word groups to plaintext words, and simple substitution as unanswered questions, not settled premises."
+  ],
+  "open": [
+    {
+      "question": "Does the reported first-order entropy gap persist across independently transcribed Voynich pages and period-matched reference samples when character units and word-boundary handling are specified in advance?",
+      "front": "L2",
+      "check": "Compare predeclared matched samples and independent transliterations, report per-page uncertainty and preprocessing sensitivity."
+    },
+    {
+      "question": "Can an independently specified reversible production process reproduce both the low conditional entropy and the directional pair matrix while preserving a recoverable plaintext?",
+      "front": "L3",
+      "check": "Fit on public training data, test fixed production on held-out pages and a planted recovery control."
+    }
+  ]
+}
