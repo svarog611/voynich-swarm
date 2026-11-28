@@ -1,0 +1,1110 @@
+{
+  "title": "Prespecify shared eligibility and exact slot conditioning for a short occurrence-gap claim",
+  "statement": "The preceding audit reproduces byte-for-byte at its recorded base, including all 27 synthetic summaries and raw outputs (1,728 books), the observed values and supports, and the three stated 999-permutation seeds. On 615 matched lines, an independent replay with 400 draws gives line-word null p=.03741 in ZL and .00249 in Takahashi. With edition-native line eligibility in the merged evaluator, the line-null p is .07481 in ZL (619 lines), .01746 in Takahashi (646), and .31421 in RF (315). Every native edition has p<.05 under the paragraph-word null. The native ZL failure persists for all three reported seeds. The all-three intersection of 311 lines gives line-null p=.85037/.31421/.41646. A stricter exploratory null fixing line-edge words and interchanging only interior words matched on length and o count yields p=.738/.850 on the two-witness intersection. The evidence supports an effect relative to some public ordering nulls and inclusion masks; a claim requiring the native line-conditioned replication was withheld.",
+  "program": "L2",
+  "hard": true,
+  "on_path": true,
+  "check": "Freeze a common witness eligibility and paragraph-run protocol before any further inferential evaluation. Compare the line-inventory and fixed-slot nulls on independently chosen open leaves and independently generated planted effects. Estimate how many allowable swaps change the actual o-position pattern, check calibration under line-end and local word-length constraints, and harmonize missing paragraph flags and empty marker rows before any reviewed declarative extension. Keep r lag20 as a separate statistic with independent power and support targets.",
+  "methods": {
+    "predecessor": "Use the exact embedded runner at runtime base 96eca834ca8c3b16577e5d5f55d08919fe4b3a23 with Python 3.12 and NumPy 2.3.5. Reproduce all three published raw output digests, verify all 27 case digests, and compare exact compact tables and the three fixed seeds. The documented source-seed adjustment for rate sensitivities is retained.",
+    "primary": "Freeze both 400-draw comparisons under merged paragraph_gap_corr before running the native evaluation. Each native score uses complete, alphabet-eligible paragraph lines in that transcription, splits the runs at excluded lines and flags, and pools normalized gap covariance over lags 1–5. Each mean gap coefficient is negative. The directional p ranks the statistic against less or more negative permutations.",
+    "mask": "Use excluded word placeholders to preserve the breaks created by omitted lines. Reconcile the bundled DSL against an independent integer-centered implementation. Report native and intersection scopes and seed sensitivity, keeping each original edition’s geometry and paragraph flags. RF has no explicit beginning/end flags on these pages.",
+    "slot_sensitivity": "Exploratory fixed-edge comparison for native/paired ZL and IT. Uniformly shuffle whole interior words in the same line, then restrict by raw length, then by both raw length and count of o. Each run remains the unit of gap centering. Report slots that could move, excess above the null mean, and 399-draw p from one fixed seed.",
+    "properties": "Both native nulls preserve run token stock, alphabet eligibility and pair support. The original null within lines also preserves line stock and line length, but the endpoint and within-line slot relationships may move. For this synthetic edge case a marker-only/empty P line is dropped by tokenization, unlike the raw run builder; zero public P lines in the evaluated editions were empty."
+  },
+  "limitations": "The paired manuscripts are transcriptions of the same material. Common line IDs need not have common word counts or paragraph marks, especially for RF. Thinning to the all-three intersection changes layout and support. The stricter slot null addresses different conditional hypotheses; reduced movement can change power. Public estimates are exploration and do not involve the committed closed pages or semantic interpretation.",
+  "sources": {
+    "predecessor": "https://github.com/Ayan-Bandyopadhyay/voynich-swarm/pull/627",
+    "primitive": "https://github.com/Ayan-Bandyopadhyay/voynich-swarm/pull/632",
+    "historical_study": "https://doi.org/10.1371/journal.pone.0260948",
+    "current_runtime": "c9bb62893fd6677a6fd4b267d10df4bac2322968"
+  },
+  "replay_verified": {
+    "raw_output_digests": {
+      "plan.json": true,
+      "bench.py": true,
+      "rate_sensitivity.py": true,
+      "audit_gaps.py": true,
+      "run_calibration.py": true,
+      "published-observation.json": true,
+      "audit.json": true,
+      "calibration-audit.json": true
+    },
+    "published_observation_all_fields_exact": true,
+    "public_audit_compact_fields_and_seed_results": {
+      "zl": {
+        "observed": -0.014750965122495643,
+        "pairs": {
+          "1": 2904,
+          "2": 2780,
+          "3": 2657,
+          "4": 2541,
+          "5": 2427
+        },
+        "tail_p": [
+          {
+            "seed": 408,
+            "group": "paragraph",
+            "p": 0.009
+          },
+          {
+            "seed": 408,
+            "group": "line",
+            "p": 0.032
+          },
+          {
+            "seed": 19026011,
+            "group": "paragraph",
+            "p": 0.012
+          },
+          {
+            "seed": 19026011,
+            "group": "line",
+            "p": 0.034
+          },
+          {
+            "seed": 28027,
+            "group": "paragraph",
+            "p": 0.012
+          },
+          {
+            "seed": 28027,
+            "group": "line",
+            "p": 0.045
+          }
+        ],
+        "shuffled_calibration_rejections_at_0.05": 0
+      },
+      "it": {
+        "observed": -0.011830306507526851,
+        "pairs": {
+          "1": 2913,
+          "2": 2787,
+          "3": 2662,
+          "4": 2543,
+          "5": 2428
+        },
+        "tail_p": [
+          {
+            "seed": 408,
+            "group": "paragraph",
+            "p": 0.004
+          },
+          {
+            "seed": 408,
+            "group": "line",
+            "p": 0.004
+          },
+          {
+            "seed": 19026011,
+            "group": "paragraph",
+            "p": 0.003
+          },
+          {
+            "seed": 19026011,
+            "group": "line",
+            "p": 0.005
+          },
+          {
+            "seed": 28027,
+            "group": "paragraph",
+            "p": 0.007
+          },
+          {
+            "seed": 28027,
+            "group": "line",
+            "p": 0.007
+          }
+        ],
+        "shuffled_calibration_rejections_at_0.05": 2
+      }
+    },
+    "synthetic_cases_complete": 27,
+    "synthetic_corrected_raw_hashes_matching": 27,
+    "synthetic_original_raw_hashes_matching": 9,
+    "synthetic_compact_fields_and_pair_counts_exact": true,
+    "synthetic_individual_raw_digests": {
+      "calibration-0.036-0.json": {
+        "corrected_source_recipe": true,
+        "original_pre_amendment_seed": false
+      },
+      "calibration-0.036-1.json": {
+        "corrected_source_recipe": true,
+        "original_pre_amendment_seed": false
+      },
+      "calibration-0.036-2.json": {
+        "corrected_source_recipe": true,
+        "original_pre_amendment_seed": false
+      },
+      "calibration-0.036-3.json": {
+        "corrected_source_recipe": true,
+        "original_pre_amendment_seed": false
+      },
+      "calibration-0.036-4.json": {
+        "corrected_source_recipe": true,
+        "original_pre_amendment_seed": false
+      },
+      "calibration-0.036-5.json": {
+        "corrected_source_recipe": true,
+        "original_pre_amendment_seed": false
+      },
+      "calibration-0.036-6.json": {
+        "corrected_source_recipe": true,
+        "original_pre_amendment_seed": false
+      },
+      "calibration-0.036-7.json": {
+        "corrected_source_recipe": true,
+        "original_pre_amendment_seed": false
+      },
+      "calibration-0.036-8.json": {
+        "corrected_source_recipe": true,
+        "original_pre_amendment_seed": false
+      },
+      "calibration-0.124-0.json": {
+        "corrected_source_recipe": true,
+        "original_pre_amendment_seed": false
+      },
+      "calibration-0.124-1.json": {
+        "corrected_source_recipe": true,
+        "original_pre_amendment_seed": false
+      },
+      "calibration-0.124-2.json": {
+        "corrected_source_recipe": true,
+        "original_pre_amendment_seed": false
+      },
+      "calibration-0.124-3.json": {
+        "corrected_source_recipe": true,
+        "original_pre_amendment_seed": false
+      },
+      "calibration-0.124-4.json": {
+        "corrected_source_recipe": true,
+        "original_pre_amendment_seed": false
+      },
+      "calibration-0.124-5.json": {
+        "corrected_source_recipe": true,
+        "original_pre_amendment_seed": false
+      },
+      "calibration-0.124-6.json": {
+        "corrected_source_recipe": true,
+        "original_pre_amendment_seed": false
+      },
+      "calibration-0.124-7.json": {
+        "corrected_source_recipe": true,
+        "original_pre_amendment_seed": false
+      },
+      "calibration-0.124-8.json": {
+        "corrected_source_recipe": true,
+        "original_pre_amendment_seed": false
+      },
+      "calibration-0.160-0.json": {
+        "corrected_source_recipe": true,
+        "original_pre_amendment_seed": true
+      },
+      "calibration-0.160-1.json": {
+        "corrected_source_recipe": true,
+        "original_pre_amendment_seed": true
+      },
+      "calibration-0.160-2.json": {
+        "corrected_source_recipe": true,
+        "original_pre_amendment_seed": true
+      },
+      "calibration-0.160-3.json": {
+        "corrected_source_recipe": true,
+        "original_pre_amendment_seed": true
+      },
+      "calibration-0.160-4.json": {
+        "corrected_source_recipe": true,
+        "original_pre_amendment_seed": true
+      },
+      "calibration-0.160-5.json": {
+        "corrected_source_recipe": true,
+        "original_pre_amendment_seed": true
+      },
+      "calibration-0.160-6.json": {
+        "corrected_source_recipe": true,
+        "original_pre_amendment_seed": true
+      },
+      "calibration-0.160-7.json": {
+        "corrected_source_recipe": true,
+        "original_pre_amendment_seed": true
+      },
+      "calibration-0.160-8.json": {
+        "corrected_source_recipe": true,
+        "original_pre_amendment_seed": true
+      }
+    }
+  },
+  "required_raw_output_digests": {
+    "published-observation.json": "1606212fa45c4a8c21013733a6a83c58b7bfc54dc7947534ad7a946ad7056ced",
+    "audit.json": "0c8ab5f96b6332d3df3bd38b216ae05bda62a4a6fb1e91d0d59293fdc6b91049",
+    "calibration-audit.json": "cd4d8624c2074712331c313ece44dd741775fbac2807ea5a5a72d8d5c5b8f735"
+  },
+  "frozen_spec": {
+    "select": {
+      "unit": [
+        "P"
+      ]
+    },
+    "statistic": {
+      "paragraph_gap_corr": {
+        "symbol": "o"
+      }
+    },
+    "compare": [
+      {
+        "null": "shuffle_within_paragraph",
+        "perms": 400,
+        "p": 0.05,
+        "direction": "greater"
+      },
+      {
+        "null": "shuffle_within_line",
+        "perms": 400,
+        "p": 0.05,
+        "direction": "greater"
+      }
+    ]
+  },
+  "frozen_spec_sha256": "6b3b42ccf660b07b17979a148fc4406e405d5ceb5a5965463ffd47306aedc7ed",
+  "current_practice": {
+    "zl": {
+      "value": -0.016552,
+      "pass": false,
+      "detail": {
+        "tokens": 5461,
+        "pairs_by_lag": {
+          "1": 2924,
+          "2": 2802,
+          "3": 2679,
+          "4": 2563,
+          "5": 2449
+        },
+        "shuffle_within_paragraph": {
+          "p": 0.0175,
+          "perms": 400
+        },
+        "shuffle_within_line": {
+          "p": 0.0748,
+          "perms": 400
+        }
+      }
+    },
+    "it": {
+      "value": -0.009348,
+      "pass": true,
+      "detail": {
+        "tokens": 5394,
+        "pairs_by_lag": {
+          "1": 3092,
+          "2": 2978,
+          "3": 2863,
+          "4": 2754,
+          "5": 2651
+        },
+        "shuffle_within_paragraph": {
+          "p": 0.005,
+          "perms": 400
+        },
+        "shuffle_within_line": {
+          "p": 0.0175,
+          "perms": 400
+        }
+      }
+    },
+    "rf": {
+      "value": -0.063237,
+      "pass": false,
+      "detail": {
+        "tokens": 4879,
+        "pairs_by_lag": {
+          "1": 1202,
+          "2": 1053,
+          "3": 916,
+          "4": 795,
+          "5": 684
+        },
+        "shuffle_within_paragraph": {
+          "p": 0.015,
+          "perms": 400
+        },
+        "shuffle_within_line": {
+          "p": 0.3142,
+          "perms": 400
+        }
+      }
+    }
+  },
+  "mask_decomposition": {
+    "input_sha256": {
+      "zl": "bf5b6d4ac1e3a51b1847a9c388318d609020441ccd56984c901c32b09beccafc",
+      "it": "7f27a8b0feed8f6de0a99900df6bf912dd1d295c38e5f830bac8b41c3f536fb5",
+      "rf": "e7d3238e35743e06c63367a933909ec37b1e2de7ada3a1b449447eafa1918782"
+    },
+    "selection": {
+      "zl": {
+        "native_lines": 619,
+        "by_page": {
+          "f1v": 10,
+          "f2v": 8,
+          "f6r": 13,
+          "f7v": 7,
+          "f11r": 6,
+          "f11v": 4,
+          "f13v": 10,
+          "f14r": 11,
+          "f29v": 11,
+          "f30v": 10,
+          "f35v": 19,
+          "f41r": 11,
+          "f42r": 21,
+          "f45r": 9,
+          "f50v": 11,
+          "f52r": 8,
+          "f53v": 13,
+          "f54v": 16,
+          "f58v": 37,
+          "f66v": 13,
+          "f67r2": 35,
+          "f70r2": 14,
+          "f76r": 46,
+          "f78r": 38,
+          "f78v": 30,
+          "f82v": 33,
+          "f88r": 14,
+          "f102v1": 13,
+          "f107r": 50,
+          "f111v": 48,
+          "f113r": 50
+        },
+        "absent_from_zl_it": 4,
+        "absent_from_three": 308
+      },
+      "it": {
+        "native_lines": 646,
+        "by_page": {
+          "f1v": 10,
+          "f2v": 8,
+          "f6r": 14,
+          "f7v": 9,
+          "f11r": 7,
+          "f11v": 5,
+          "f13v": 10,
+          "f14r": 13,
+          "f29v": 12,
+          "f30v": 11,
+          "f35v": 21,
+          "f41r": 10,
+          "f42r": 22,
+          "f45r": 11,
+          "f50v": 11,
+          "f52r": 8,
+          "f53v": 13,
+          "f54v": 16,
+          "f58v": 39,
+          "f66v": 13,
+          "f67r2": 34,
+          "f70r2": 14,
+          "f76r": 46,
+          "f78r": 41,
+          "f78v": 32,
+          "f82v": 34,
+          "f88r": 16,
+          "f102v1": 14,
+          "f107r": 50,
+          "f111v": 51,
+          "f113r": 51
+        },
+        "absent_from_zl_it": 31,
+        "absent_from_three": 335
+      },
+      "rf": {
+        "native_lines": 315,
+        "by_page": {
+          "f1v": 8,
+          "f2v": 7,
+          "f6r": 11,
+          "f7v": 5,
+          "f11r": 5,
+          "f11v": 3,
+          "f13v": 9,
+          "f14r": 9,
+          "f29v": 9,
+          "f30v": 6,
+          "f35v": 17,
+          "f42r": 18,
+          "f45r": 8,
+          "f52r": 5,
+          "f53v": 5,
+          "f54v": 12,
+          "f58v": 15,
+          "f66v": 3,
+          "f67r2": 24,
+          "f70r2": 8,
+          "f76r": 15,
+          "f78r": 7,
+          "f78v": 9,
+          "f82v": 17,
+          "f88r": 10,
+          "f102v1": 10,
+          "f107r": 25,
+          "f111v": 19,
+          "f113r": 16
+        },
+        "absent_from_zl_it": 4,
+        "absent_from_three": 4
+      }
+    },
+    "native": {
+      "zl": {
+        "lines": 619,
+        "runs": 126,
+        "words": 5213,
+        "coefficient": -0.01655167404736464,
+        "support": {
+          "1": 2924,
+          "2": 2802,
+          "3": 2679,
+          "4": 2563,
+          "5": 2449
+        },
+        "paragraph": {
+          "408": {
+            "p": 0.017456359102244388,
+            "mean": -0.03526743110089435,
+            "excess": 0.01871575705352971,
+            "defined": 400,
+            "seed": 408,
+            "permutations": 400
+          },
+          "19026011": {
+            "p": 0.022443890274314215,
+            "mean": -0.03558298668758557,
+            "excess": 0.01903131264022093,
+            "defined": 400,
+            "seed": 19026011,
+            "permutations": 400
+          },
+          "28027": {
+            "p": 0.014962593516209476,
+            "mean": -0.03542892159634281,
+            "excess": 0.01887724754897817,
+            "defined": 400,
+            "seed": 28027,
+            "permutations": 400
+          }
+        },
+        "line": {
+          "408": {
+            "p": 0.07481296758104738,
+            "mean": -0.024763069643215212,
+            "excess": 0.008211395595850574,
+            "defined": 400,
+            "seed": 408,
+            "permutations": 400
+          },
+          "19026011": {
+            "p": 0.08478802992518704,
+            "mean": -0.02437820879746158,
+            "excess": 0.007826534750096942,
+            "defined": 400,
+            "seed": 19026011,
+            "permutations": 400
+          },
+          "28027": {
+            "p": 0.07231920199501247,
+            "mean": -0.024893552608796343,
+            "excess": 0.008341878561431704,
+            "defined": 400,
+            "seed": 28027,
+            "permutations": 400
+          }
+        }
+      },
+      "it": {
+        "lines": 646,
+        "runs": 118,
+        "words": 5353,
+        "coefficient": -0.009347901387509704,
+        "support": {
+          "1": 3092,
+          "2": 2978,
+          "3": 2863,
+          "4": 2754,
+          "5": 2651
+        },
+        "paragraph": {
+          "408": {
+            "p": 0.004987531172069825,
+            "mean": -0.03244611133688369,
+            "excess": 0.023098209949373984,
+            "defined": 400,
+            "seed": 408,
+            "permutations": 400
+          },
+          "19026011": {
+            "p": 0.012468827930174564,
+            "mean": -0.03182649053773017,
+            "excess": 0.022478589150220468,
+            "defined": 400,
+            "seed": 19026011,
+            "permutations": 400
+          },
+          "28027": {
+            "p": 0.00997506234413965,
+            "mean": -0.03186454201441674,
+            "excess": 0.022516640626907038,
+            "defined": 400,
+            "seed": 28027,
+            "permutations": 400
+          }
+        },
+        "line": {
+          "408": {
+            "p": 0.017456359102244388,
+            "mean": -0.023021332288877157,
+            "excess": 0.013673430901367453,
+            "defined": 400,
+            "seed": 408,
+            "permutations": 400
+          },
+          "19026011": {
+            "p": 0.012468827930174564,
+            "mean": -0.023011677314208567,
+            "excess": 0.013663775926698863,
+            "defined": 400,
+            "seed": 19026011,
+            "permutations": 400
+          },
+          "28027": {
+            "p": 0.00997506234413965,
+            "mean": -0.022708931946009373,
+            "excess": 0.01336103055849967,
+            "defined": 400,
+            "seed": 28027,
+            "permutations": 400
+          }
+        }
+      },
+      "rf": {
+        "lines": 315,
+        "runs": 158,
+        "words": 2326,
+        "coefficient": -0.06323685991048694,
+        "support": {
+          "1": 1202,
+          "2": 1053,
+          "3": 916,
+          "4": 795,
+          "5": 684
+        },
+        "paragraph": {
+          "408": {
+            "p": 0.014962593516209476,
+            "mean": -0.09015950588130173,
+            "excess": 0.026922645970814785,
+            "defined": 400,
+            "seed": 408,
+            "permutations": 400
+          },
+          "19026011": {
+            "p": 0.02493765586034913,
+            "mean": -0.08933694360137696,
+            "excess": 0.026100083690890022,
+            "defined": 400,
+            "seed": 19026011,
+            "permutations": 400
+          },
+          "28027": {
+            "p": 0.014962593516209476,
+            "mean": -0.08999701897496892,
+            "excess": 0.02676015906448198,
+            "defined": 400,
+            "seed": 28027,
+            "permutations": 400
+          }
+        },
+        "line": {
+          "408": {
+            "p": 0.314214463840399,
+            "mean": -0.06832854371667708,
+            "excess": 0.005091683806190142,
+            "defined": 400,
+            "seed": 408,
+            "permutations": 400
+          },
+          "19026011": {
+            "p": 0.30673316708229426,
+            "mean": -0.06856970278441997,
+            "excess": 0.0053328428739330275,
+            "defined": 400,
+            "seed": 19026011,
+            "permutations": 400
+          },
+          "28027": {
+            "p": 0.33665835411471323,
+            "mean": -0.06716559585200677,
+            "excess": 0.003928735941519823,
+            "defined": 400,
+            "seed": 28027,
+            "permutations": 400
+          }
+        }
+      }
+    },
+    "matched_zl_it": {
+      "zl": {
+        "lines": 615,
+        "runs": 128,
+        "words": 5185,
+        "coefficient": -0.01475096512249564,
+        "support": {
+          "1": 2904,
+          "2": 2780,
+          "3": 2657,
+          "4": 2541,
+          "5": 2427
+        },
+        "paragraph": {
+          "408": {
+            "p": 0.012468827930174564,
+            "mean": -0.035594126435561764,
+            "excess": 0.020843161313066124,
+            "defined": 400,
+            "seed": 408,
+            "permutations": 400
+          },
+          "19026011": {
+            "p": 0.017456359102244388,
+            "mean": -0.03559213300605265,
+            "excess": 0.02084116788355701,
+            "defined": 400,
+            "seed": 19026011,
+            "permutations": 400
+          },
+          "28027": {
+            "p": 0.0199501246882793,
+            "mean": -0.03536521954063768,
+            "excess": 0.020614254418142037,
+            "defined": 400,
+            "seed": 28027,
+            "permutations": 400
+          }
+        },
+        "line": {
+          "408": {
+            "p": 0.03740648379052369,
+            "mean": -0.025217597396076895,
+            "excess": 0.010466632273581255,
+            "defined": 400,
+            "seed": 408,
+            "permutations": 400
+          },
+          "19026011": {
+            "p": 0.0199501246882793,
+            "mean": -0.02583168062893382,
+            "excess": 0.011080715506438181,
+            "defined": 400,
+            "seed": 19026011,
+            "permutations": 400
+          },
+          "28027": {
+            "p": 0.05486284289276808,
+            "mean": -0.024860616929314003,
+            "excess": 0.010109651806818363,
+            "defined": 400,
+            "seed": 28027,
+            "permutations": 400
+          }
+        }
+      },
+      "it": {
+        "lines": 615,
+        "runs": 131,
+        "words": 5106,
+        "coefficient": -0.011830306507526854,
+        "support": {
+          "1": 2913,
+          "2": 2787,
+          "3": 2662,
+          "4": 2543,
+          "5": 2428
+        },
+        "paragraph": {
+          "408": {
+            "p": 0.004987531172069825,
+            "mean": -0.03644906110491985,
+            "excess": 0.024618754597392996,
+            "defined": 400,
+            "seed": 408,
+            "permutations": 400
+          },
+          "19026011": {
+            "p": 0.0024937655860349127,
+            "mean": -0.03707441336563582,
+            "excess": 0.025244106858108968,
+            "defined": 400,
+            "seed": 19026011,
+            "permutations": 400
+          },
+          "28027": {
+            "p": 0.00997506234413965,
+            "mean": -0.036310898519170125,
+            "excess": 0.024480592011643272,
+            "defined": 400,
+            "seed": 28027,
+            "permutations": 400
+          }
+        },
+        "line": {
+          "408": {
+            "p": 0.0024937655860349127,
+            "mean": -0.02719785335586429,
+            "excess": 0.015367546848337436,
+            "defined": 400,
+            "seed": 408,
+            "permutations": 400
+          },
+          "19026011": {
+            "p": 0.0024937655860349127,
+            "mean": -0.027145037661048876,
+            "excess": 0.015314731153522021,
+            "defined": 400,
+            "seed": 19026011,
+            "permutations": 400
+          },
+          "28027": {
+            "p": 0.004987531172069825,
+            "mean": -0.02660214526931099,
+            "excess": 0.014771838761784136,
+            "defined": 400,
+            "seed": 28027,
+            "permutations": 400
+          }
+        }
+      }
+    },
+    "matched_three": {
+      "zl": {
+        "lines": 311,
+        "runs": 180,
+        "words": 2335,
+        "coefficient": -0.11042332692800384,
+        "support": {
+          "1": 1135,
+          "2": 973,
+          "3": 815,
+          "4": 685,
+          "5": 571
+        },
+        "paragraph": {
+          "408": {
+            "p": 0.6658354114713217,
+            "mean": -0.10589389809570332,
+            "excess": -0.004529428832300522,
+            "defined": 400,
+            "seed": 408,
+            "permutations": 400
+          }
+        },
+        "line": {
+          "408": {
+            "p": 0.8503740648379052,
+            "mean": -0.0994698556444827,
+            "excess": -0.010953471283521143,
+            "defined": 400,
+            "seed": 408,
+            "permutations": 400
+          }
+        }
+      },
+      "it": {
+        "lines": 311,
+        "runs": 181,
+        "words": 2295,
+        "coefficient": -0.08976735489522092,
+        "support": {
+          "1": 1137,
+          "2": 977,
+          "3": 823,
+          "4": 695,
+          "5": 575
+        },
+        "paragraph": {
+          "408": {
+            "p": 0.13216957605985039,
+            "mean": -0.10419049885837042,
+            "excess": 0.014423143963149504,
+            "defined": 400,
+            "seed": 408,
+            "permutations": 400
+          }
+        },
+        "line": {
+          "408": {
+            "p": 0.314214463840399,
+            "mean": -0.09440906971896214,
+            "excess": 0.004641714823741219,
+            "defined": 400,
+            "seed": 408,
+            "permutations": 400
+          }
+        }
+      },
+      "rf": {
+        "lines": 311,
+        "runs": 158,
+        "words": 2292,
+        "coefficient": -0.06582646159712274,
+        "support": {
+          "1": 1176,
+          "2": 1026,
+          "3": 889,
+          "4": 770,
+          "5": 661
+        },
+        "paragraph": {
+          "408": {
+            "p": 0.02743142144638404,
+            "mean": -0.08976111067029323,
+            "excess": 0.023934649073170486,
+            "defined": 400,
+            "seed": 408,
+            "permutations": 400
+          }
+        },
+        "line": {
+          "408": {
+            "p": 0.4164588528678304,
+            "mean": -0.06775649731738445,
+            "excess": 0.001930035720261708,
+            "defined": 400,
+            "seed": 408,
+            "permutations": 400
+          }
+        }
+      }
+    },
+    "transfer_masks": {
+      "zl": {
+        "dropped_folios": {
+          "f76r": 1,
+          "f41r": 1,
+          "f42r": 1,
+          "f67r2": 1
+        },
+        "dropped_line_ids": [
+          "f41r.3",
+          "f42r.22",
+          "f67r2.51",
+          "f76r.1"
+        ],
+        "coefficient_difference": 0.001800708924868999
+      },
+      "it": {
+        "dropped_folios": {
+          "f111v": 3,
+          "f78r": 3,
+          "f58v": 2,
+          "f88r": 2,
+          "f78v": 2,
+          "f11v": 1,
+          "f30v": 1,
+          "f76r": 1,
+          "f82v": 1,
+          "f113r": 1,
+          "f42r": 2,
+          "f14r": 2,
+          "f35v": 2,
+          "f45r": 2,
+          "f102v1": 1,
+          "f7v": 2,
+          "f29v": 1,
+          "f6r": 1,
+          "f11r": 1
+        },
+        "dropped_line_ids": [
+          "f102v1.12",
+          "f111v.15",
+          "f111v.25",
+          "f111v.33",
+          "f113r.1",
+          "f11r.5",
+          "f11v.4",
+          "f14r.12",
+          "f14r.8",
+          "f29v.9",
+          "f30v.1",
+          "f35v.18",
+          "f35v.6",
+          "f42r.1",
+          "f42r.19",
+          "f45r.8",
+          "f45r.9",
+          "f58v.21",
+          "f58v.3",
+          "f6r.11",
+          "f76r.50",
+          "f78r.28",
+          "f78r.40",
+          "f78r.7",
+          "f78v.1",
+          "f78v.10",
+          "f7v.4",
+          "f7v.7",
+          "f82v.24",
+          "f88r.10",
+          "f88r.11"
+        ],
+        "coefficient_difference": -0.0024824051200171508
+      }
+    }
+  },
+  "conditional_controls": {
+    "zl": {
+      "native": {
+        "edge_only": {
+          "groups": 574,
+          "potentially_moved_words": 3947,
+          "p": 0.21,
+          "mean": -0.020746856534070754,
+          "excess": 0.004195182486706115,
+          "defined": 399,
+          "seed": 408,
+          "permutations": 399
+        },
+        "length": {
+          "groups": 1013,
+          "potentially_moved_words": 2569,
+          "p": 0.16,
+          "mean": -0.020433706897376863,
+          "excess": 0.0038820328500122243,
+          "defined": 399,
+          "seed": 408,
+          "permutations": 399
+        },
+        "length_and_o_count": {
+          "groups": 755,
+          "potentially_moved_words": 1576,
+          "p": 0.75,
+          "mean": -0.016250159379863165,
+          "excess": -0.0003015146675014735,
+          "defined": 399,
+          "seed": 408,
+          "permutations": 399
+        }
+      },
+      "paired": {
+        "edge_only": {
+          "groups": 571,
+          "potentially_moved_words": 3926,
+          "p": 0.13,
+          "mean": -0.020168095632864126,
+          "excess": 0.005417130510368486,
+          "defined": 399,
+          "seed": 408,
+          "permutations": 399
+        },
+        "length": {
+          "groups": 1009,
+          "potentially_moved_words": 2560,
+          "p": 0.0975,
+          "mean": -0.019732212353889486,
+          "excess": 0.004981247231393846,
+          "defined": 399,
+          "seed": 408,
+          "permutations": 399
+        },
+        "length_and_o_count": {
+          "groups": 752,
+          "potentially_moved_words": 1570,
+          "p": 0.7375,
+          "mean": -0.01442727853962841,
+          "excess": -0.0003236865828672303,
+          "defined": 399,
+          "seed": 408,
+          "permutations": 399
+        }
+      }
+    },
+    "it": {
+      "native": {
+        "edge_only": {
+          "groups": 599,
+          "potentially_moved_words": 4030,
+          "p": 0.015,
+          "mean": -0.019650408640134138,
+          "excess": 0.010302507252624434,
+          "defined": 399,
+          "seed": 408,
+          "permutations": 399
+        },
+        "length": {
+          "groups": 1036,
+          "potentially_moved_words": 2653,
+          "p": 0.0725,
+          "mean": -0.014893908608977888,
+          "excess": 0.0055460072214681844,
+          "defined": 399,
+          "seed": 408,
+          "permutations": 399
+        },
+        "length_and_o_count": {
+          "groups": 774,
+          "potentially_moved_words": 1624,
+          "p": 0.865,
+          "mean": -0.00886139308813462,
+          "excess": -0.00048650829937508383,
+          "defined": 399,
+          "seed": 408,
+          "permutations": 399
+        }
+      },
+      "paired": {
+        "edge_only": {
+          "groups": 568,
+          "potentially_moved_words": 3845,
+          "p": 0.0175,
+          "mean": -0.023374809280451235,
+          "excess": 0.01154450277292438,
+          "defined": 399,
+          "seed": 408,
+          "permutations": 399
+        },
+        "length": {
+          "groups": 991,
+          "potentially_moved_words": 2544,
+          "p": 0.025,
+          "mean": -0.019190389116587752,
+          "excess": 0.007360082609060898,
+          "defined": 399,
+          "seed": 408,
+          "permutations": 399
+        },
+        "length_and_o_count": {
+          "groups": 742,
+          "potentially_moved_words": 1562,
+          "p": 0.85,
+          "mean": -0.011300087122814384,
+          "excess": -0.0005302193847124704,
+          "defined": 399,
+          "seed": 408,
+          "permutations": 399
+        }
+      }
+    }
+  },
+  "reproduce": {
+    "setup": "Extract the script literals to one temporary directory; set PYTHONPATH to the project root. Use verified raw pins.",
+    "commands": [
+      "python3 /path/decompose.py data/raw",
+      "python3 /path/controls.py"
+    ],
+    "predecessor": "Use reproduce_gap.py embedded in the predecessor as described in its instructions.",
+    "scripts": {
+      "decompose.py": "\"\"\"Public comparison on fixed line eligibility sets and intact-word nulls.\"\"\"\nfrom collections import Counter\nfrom dataclasses import replace\nfrom hashlib import sha256\nimport json\nfrom math import sqrt\nfrom pathlib import Path\nfrom random import Random\nfrom statistics import mean\nimport sys\n\nfrom vs import corpus, dsl, gaps\n\nED = ('zl', 'it', 'rf')\nLAGS = tuple(range(1, 6))\nNU = 400\n\ndef scenario(pages, ids):\n    # Keep a physical placeholder for excluded P lines, so they still\n    # separate paragraph runs in the project statistic.\n    return [replace(p, lines=[ln if ln.id in ids or ln.unit!='P' or not ln.words\n                              else replace(ln, words=['?']*len(ln.words)) for ln in p.lines]) for p in pages]\n\ndef line_sets(pages):\n    groups={}\n    for edit,ps in pages.items():\n        groups[edit]=gaps.eligible_line_ids(ps)\n    return groups\n\ndef v1_correlation(runs):\n    cache={}\n    for run in runs:\n        offset=0\n        h=[]\n        for w in run:\n            positions=cache.get(w)\n            if positions is None:\n                positions=tuple(i for i,c in enumerate(w) if c=='o')\n                cache[w]=positions\n            h.extend(offset+i for i in positions)\n            offset+=len(w)+1\n        if len(h)<4:\n            continue\n        n=len(h)-1\n        total=h[-1]-h[0]\n        yield [n*(b-a)-total for a,b in zip(h,h[1:])],n*n\n\ndef score(words, geometry):\n    corr=[]\n    centered=list(v1_correlation([words[i] for i in indexes] for indexes in geometry))\n    for k in LAGS:\n        xx=yy=xy=count=0\n        for vals,divisor in centered:\n            if len(vals)<=k+1:\n                continue\n            u,v=vals[:-k],vals[k:]\n            count+=len(u)\n            xx+=sum(a*a for a in u)/divisor\n            yy+=sum(b*b for b in v)/divisor\n            xy+=sum(a*b for a,b in zip(u,v))/divisor\n        if count<25 or not(xx and yy):\n            return None\n        corr.append(xy/sqrt(xx*yy))\n    return mean(corr)\n\ndef null_test(words,geometry,groups,n=NU, seed=408):\n    baseline=score(words,geometry)\n    assert baseline is not None\n    rng=Random(seed)\n    extreme=0\n    vals=[]\n    for _ in range(n):\n        perm=words[:]\n        for ii in groups:\n            row=[words[i] for i in ii]\n            rng.shuffle(row)\n            for i,w in zip(ii,row):\n                perm[i]=w\n        value=score(perm,geometry)\n        if value is not None:\n            vals.append(value)\n        extreme+=value is None or value>=baseline-1e-14\n    return dict(p=(1+extreme)/(n+1),mean=mean(vals),excess=baseline-mean(vals),\n                defined=len(vals),seed=seed,permutations=n)\n\ndef evaluate(ps, ids, seeds):\n    toks=dsl.tokens(scenario(ps,ids))\n    words=[x['w'] for x in toks]\n    geometry=dsl._paragraph_gap_groups(toks)\n    within=dsl._paragraph_gap_groups(toks, by_line=True)\n    actual=score(words,geometry)\n    exact, by_lag=dsl._paragraph_gap_value(toks,'o')\n    assert abs(actual-exact)<1e-12\n    assert len(within)==len(ids)\n    legacy=gaps.paragraph_runs(ps,ids)\n    assert legacy==[[words[i] for i in run] for run in geometry]\n    eligible_words=sum(map(len,geometry))\n    result=dict(lines=len(ids),runs=len(geometry),words=eligible_words,\n                coefficient=actual,support=by_lag)\n    for para,group in [('paragraph',geometry),('line',within)]:\n        result[para]={s:null_test(words,geometry,group,seed=s) for s in seeds}\n    return result\n\ndef main():\n    root=Path(sys.argv[1])\n    ps={n:corpus.split_pages('practice',n)[1] for n in ED}\n    ids=line_sets(ps)\n    two=ids['zl']&ids['it']\n    all_three=two&ids['rf']\n    result=dict(input_sha256={n:sha256((root/corpus.TRANSLITERATIONS[n]).read_bytes()).hexdigest() for n in ED},\n                selection={},native={},matched_zl_it={},matched_three={},transfer_masks={})\n    eligible_page_ids={n:{ln.id:p.id for p in pgs for ln in p.lines if ln.id in ids[n]} for n,pgs in ps.items()}\n    result['selection']={n:dict(native_lines=len(ids[n]),by_page=Counter(eligible_page_ids[n].values()),\n                absent_from_zl_it=len(ids[n]-two),absent_from_three=len(ids[n]-all_three)) for n in ED}\n    for n in ED:\n        result['native'][n]=evaluate(ps[n], ids[n], (408,19026011,28027))\n        if n in ('zl','it'):\n            result['matched_zl_it'][n]=evaluate(ps[n], two, (408,19026011,28027))\n        result['matched_three'][n]=evaluate(ps[n], all_three, (408,))\n    for n,target in [('zl','it'),('it','zl')]:\n        # Endpoints of mask-transfer are explicitly reported; same intersection\n        # by definition, and original weights/row boundaries are preserved.\n        before=result['native'][n]\n        after=result['matched_zl_it'][n]\n        dropped=ids[n]-ids[target]\n        lookup=eligible_page_ids[n]\n        result['transfer_masks'][n]=dict(\n            dropped_folios=Counter(lookup[i] for i in dropped),dropped_line_ids=sorted(dropped),\n            coefficient_difference=after['coefficient']-before['coefficient'])\n    print(json.dumps(result,indent=2))\n\nif __name__=='__main__':\n    main()\n",
+      "controls.py": "\"\"\"Calibrate conditional intact-word slot controls on open practice material.\"\"\"\nfrom collections import defaultdict\nimport json\nfrom vs import corpus, dsl, gaps\nfrom decompose import scenario, null_test\n\ndef groups(rows, tokens, stride):\n    output=[]\n    for line in rows:\n        bins=defaultdict(list)\n        for i in line[1:-1]:\n            token=tokens[i]\n            word=token['w']\n            key=() if stride=='edge_only' else (len(word),) if stride=='length' else (len(word),word.count('o'))\n            bins[key].append(i)\n        output.extend(x for x in bins.values() if len(x)>=2)\n    return output\n\ndef run():\n    ps={n:corpus.split_pages('practice',n)[1] for n in ('zl','it','rf')}\n    pools={n:gaps.eligible_line_ids(p) for n,p in ps.items()}\n    shared=pools['zl']&pools['it']\n    out={}\n    for n in ('zl','it'):\n        p=ps[n]\n        out[n]={}\n        for layout, ids in [('native',pools[n]),('paired',shared)]:\n            ts=dsl.tokens(scenario(p,ids))\n            words=[t['w'] for t in ts]\n            geometry=dsl._paragraph_gap_groups(ts)\n            rows=dsl._paragraph_gap_groups(ts,by_line=True)\n            out[n][layout]={}\n            for stride in ('edge_only','length','length_and_o_count'):\n                g=groups(rows,ts,stride)\n                moving=sum(len(q) for q in g if len({words[i] for i in q})>=2)\n                out[n][layout][stride]=dict(groups=len(g),potentially_moved_words=moving,\n                     **null_test(words,geometry,g,n=399,seed=408))\n    return out\n\nprint(json.dumps(run(),indent=2))\n",
+      "invariant-audit/boundary.py": "from pathlib import Path\nfrom tempfile import TemporaryDirectory\nfrom vs import dsl, gaps, ivtff\n\nfixtures={\n    \"para_end_only\": (\"<%>o.ao<$>\", \"oo\", \"daiin\"),\n    \"para_start_only\": (\"<%>o.ao\", \"<%>oo\", \"daiin\"),\n    \"empty_para_end\": (\"<%>o.ao\", \"<$>\", \"oo\"),\n    \"excluded_nonempty_para_end\": (\"<%>o.ao\", \"o?<$>\", \"oo\"),\n    \"empty_ordinary_P\": (\"<%>o.ao\", \"\", \"oo\"),\n}\nwith TemporaryDirectory() as tmp:\n    fixture=Path(tmp)/'fixture.txt'\n    for label, lines in fixtures.items():\n        fixture.write_text('<f1r> <! $Q=A $P=A $I=H $L=A $H=1>\\n'\n                           +'\\n'.join(f'<f1r.{i},@P0> {word}' for i,word in enumerate(lines,1))+'\\n')\n        page=ivtff.parse(fixture)[0]\n        toks=dsl.tokens([page])\n        groups=dsl._paragraph_gap_groups(toks)\n        got=[[toks[i]['w'] for i in group] for group in groups]\n        expected=gaps.paragraph_runs([page],gaps.eligible_line_ids([page]))\n        print(label, 'raw', expected, 'dsl', got)\n",
+      "invariant-audit/matched.py": "from pathlib import Path\nfrom random import Random\nfrom statistics import mean\nfrom vs import dsl, gaps, ivtff, split\n\nRAW = Path.cwd() / 'voynich-data-checkout-fix/data/raw'\neditions = ('ZL3b-n.txt', 'IT2a-n.txt', 'RF1b-e.txt')\nzl = ivtff.parse(RAW / editions[0])\npublic = set(split.select('practice',zl))\nps = {f: [p for p in ivtff.parse(RAW / f) if p.id in public] for f in editions}\nsets = {f: gaps.eligible_line_ids(pages) for f,pages in ps.items()}\n\ndef raw_groups(pages, retained):\n    groups=[]\n    for page in pages:\n        run=[]\n        for line in page.lines:\n            if line.unit!='P':\n                continue\n            keep=line.id in retained\n            if (line.para_start or not keep) and run:\n                groups.append(run)\n                run=[]\n            if keep:\n                run.append(line.words)\n            if line.para_end and run:\n                groups.append(run)\n                run=[]\n        if run:\n            groups.append(run)\n    return groups\n\ndef stat(runs):\n    curve=gaps.gap_curve((gaps.hit_positions(run,'o') for run in runs),gaps.SHORT_LAGS)\n    return mean(c for c,_ in curve.values()),{lag:n for lag,(_,n) in curve.items()}\n\ndef flat(rows):\n    return [w for row in rows for w in row]\n\ndef shuffled(rows,rng,line):\n    parts=[list(row) for row in rows] if line else [flat(rows)]\n    for words in parts:\n        rng.shuffle(words)\n    return flat(parts)\n\nmasks = [('paired', sets[editions[0]] & sets[editions[1]],editions[:2]),\n         ('all-three', set.intersection(*sets.values()),editions)]\nfor scope,kept,eds in masks:\n    for f in eds:\n        runs=raw_groups(ps[f],kept)\n        observed,pairs=stat([flat(r) for r in runs])\n        row={'eligible':len(kept),'runs':len(runs),'observed':observed,'pairs':pairs}\n        for by_line in [False,True]:\n            rng=Random(408)\n            draw=[]\n            for _ in range(400):\n                null,support=stat([shuffled(r,rng,by_line) for r in runs])\n                assert support==pairs\n                draw.append(null)\n            row['line' if by_line else 'para']=(mean(draw),(1+sum(x>=observed for x in draw))/401)\n        print(scope,f,row,flush=True)\n"
+    }
+  }
+}
