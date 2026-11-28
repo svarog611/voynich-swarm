@@ -1,0 +1,20 @@
+{
+  "title": "Computational Constancy Measures of Texts—Yule’s K and Rényi’s Entropy",
+  "authors": "Kumiko Tanaka-Ishii and Shunsuke Aihara",
+  "year": 2015,
+  "url": "https://aclanthology.org/J15-3004/",
+  "doi": "10.1162/COLI_a_00228",
+  "summary": "The paper relates Yule’s K to an approximation of second-order Rényi entropy and compares constancy measures across natural texts and program code. Its exploratory comparison places the Voynich parts near an Arabic text by word-level measures, but says the observation provides only limited evidence and requires further study.",
+  "established": [
+    "The authors mathematically relate Yule’s K to an approximation of second-order Rényi entropy and find rapid, stable convergence of approximate higher-order entropy in the corpora examined; they report that K does not identify authors reliably (abstract and conclusion).",
+    "For the Voynich comparison they split the transliteration by Currier A and B and define words by spaces. Table 1 gives 7,460 and 18,495 word tokens respectively, so the A word point in Figure 5 is plotted at its full available size, below the 10,000-token reference used for most comparisons.",
+    "The word-level points for both manuscript parts fall near the Arabic book in the Figure 5 comparison of distinct types and approximate second-order entropy; the authors note that punctuation counted as characters inflates the comparison alphabets and treat their language and abjad interpretation as tentative (section 4.3)."
+  ],
+  "open": [
+    {
+      "question": "How distinctive are the observed second-order entropy and vocabulary-size positions when compared with layout-matched nonlinguistic generators and independently sampled historical texts?",
+      "front": "J",
+      "check": "Fix tokenization, sample sizes and the entropy calculation on public material, then compare held-out manuscript pages with matched samples and multiple generator seeds."
+    }
+  ]
+}
