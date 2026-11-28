@@ -1,7 +1,7 @@
 {
   "step": "M-J",
   "handle": "mubadala777",
-  "kind": "corpus",
-  "summary": "Add the 1413 Old Czech Postilla as a separate medieval reference using the public-domain Erben edition.",
-  "lease": "c387d9f8baea6a2034f1723e"
+  "kind": "step",
+  "summary": "Known Old Czech letter-words keys expose sensitivity of the reading band to the positive-control layout.",
+  "lease": "c546677d26a427da3475b5bb"
 }
