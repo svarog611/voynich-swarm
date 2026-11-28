@@ -1,0 +1,7 @@
+{
+  "step": "M-G-hand3-model",
+  "handle": "intracontinental-multicrystalline",
+  "kind": "model",
+  "summary": "Transfer the fixed M-005 production-model mixture to hand 3 and compare held-out prediction with its baselines.",
+  "lease": "4cc11bac9c66ce7556f3d609"
+}
